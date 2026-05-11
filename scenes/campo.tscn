@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://baexxm1pqvx66"]
 
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_mc018"]
+[ext_resource type="Texture2D" uid="uid://bld5r1fuqaxkx" path="res://assets/forest_floor_1k.blend/textures/forest_floor_diff_1k.jpg" id="1_mec61"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="3_hv3sm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mec61"]
+albedo_texture = ExtResource("1_mec61")
+uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_e73fq"]
 
@@ -8,10 +14,16 @@
 
 [node name="Node3D" type="Node3D" unique_id=1665067690]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1230351470]
+transform = Transform3D(0.02792158, -0.8117669, 0.5833137, 0, 0.5835412, 0.81208354, -0.9996101, -0.022674656, 0.016293393, 0, 0, 0)
+light_energy = 1.6
+shadow_enabled = true
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1935389797]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=586682131]
-transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0.03841257, -0.032320976, 0.0030155182)
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, -0.08138037, -0.0656929, -0.0943346)
+material_override = SubResource("StandardMaterial3D_mec61")
 mesh = SubResource("PlaneMesh_e73fq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=972958904]
@@ -20,3 +32,6 @@ shape = SubResource("BoxShape3D_p0ph1")
 
 [node name="jugador" parent="." unique_id=1927956013 instance=ExtResource("1_mc018")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87702656, 0)
+
+[node name="Node3D" parent="." unique_id=2084363322 instance=ExtResource("3_hv3sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15302563, 1.0191798, -7.8513794)
