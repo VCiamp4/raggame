@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c58qcuagxrx7t"]
+
+[ext_resource type="Script" uid="uid://kx7bogrronmj" path="res://scenes/DialogueUI.gd" id="1_dwk8m"]
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=1192289772]
+script = ExtResource("1_dwk8m")
+
+[node name="Panel" type="Panel" parent="." unique_id=559522164]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1181276181]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1885970821]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2026767299]
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1285376818]
+layout_mode = 2

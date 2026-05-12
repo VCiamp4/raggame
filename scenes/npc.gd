@@ -1,25 +1,27 @@
-extends Area3D
+extends Node3D
 
-var jugador_cerca = false
-@onready var ui_dialogo = $CanvasLayer
+@export var npc_name: String = "Aldric"
+@export var dialogue_line: String = "Hola, viajero."
 
-func _process(delta):
-	# "ui_accept" suele ser la tecla Espacio o Enter
-	if jugador_cerca and Input.is_action_just_pressed("ui_accept"):
-		# Si está visible, lo ocultamos. Si está oculto, lo mostramos.
-		if ui_dialogo.visible:
-			ui_dialogo.hide()
-		else:
-			ui_dialogo.show()
+signal player_entered_range(npc: Node)
+signal player_exited_range(npc: Node)
 
-# Esta función se activa sola cuando alguien entra en la colisión grande
-func _on_body_entered(body):
-	# ¡Importante! Revisa que el nombre coincida exactamente con el de tu personaje
-	if body.name == "jugador": 
-		jugador_cerca = true
+@onready var interaction_area: Area3D = $InteractionArea
 
-# Esta función se activa cuando el jugador se aleja
-func _on_body_exited(body):
-	if body.name == "jugador":
-		jugador_cerca = false
-		ui_dialogo.hide() # Ocultamos el diálogo automáticamente si se va
+func _ready() -> void:
+	add_to_group("npc")
+	interaction_area.body_entered.connect(_on_body_entered)
+	interaction_area.body_exited.connect(_on_body_exited)
+
+func _on_body_entered(body: Node3D) -> void:
+	print("Algo entró al area: ", body.name, " - es player? ", body.is_in_group("player"))
+	if body.is_in_group("player"):
+		player_entered_range.emit(self)
+
+func _on_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		player_exited_range.emit(self)
+
+func get_response(_player_input: String = "") -> String:
+	# Por ahora hardcodeado. Después acá llamamos al backend.
+	return dialogue_line
