@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var name_label: Label = $Panel/MarginContainer/VBoxContainer/NameLabel
 @onready var text_label: Label = $Panel/MarginContainer/VBoxContainer/TextLabel
 
+
 func _ready() -> void:
 	hide_dialogue()
 

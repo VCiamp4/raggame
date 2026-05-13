@@ -51,13 +51,17 @@ func _on_npc_exited_range(npc: Node) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		print(">> Apreté E. nearby_npc = ", nearby_npc)
 		if dialogue_ui.is_open():
-			print(">> Cerrando diálogo")
 			dialogue_ui.hide_dialogue()
 		elif nearby_npc != null:
-			var response = nearby_npc.get_response()
-			print(">> Mostrando: ", response)
-			dialogue_ui.show_dialogue(nearby_npc.npc_name, response)
-		else:
-			print(">> No hay NPC cerca")
+			# Mostramos "pensando..." mientras esperamos
+			dialogue_ui.show_dialogue(nearby_npc.npc_name, "...")
+			# Conectamos la señal de respuesta (una sola vez por turno)
+			if not nearby_npc.response_received.is_connected(_on_npc_response):
+				nearby_npc.response_received.connect(_on_npc_response, CONNECT_ONE_SHOT)
+			nearby_npc.request_response("Hola, como estas? algo para reportar?")
+
+
+func _on_npc_response(text: String) -> void:
+	if nearby_npc != null:
+		dialogue_ui.show_dialogue(nearby_npc.npc_name, text)

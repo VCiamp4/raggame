@@ -17,8 +17,8 @@ size_flags_vertical = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1181276181]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 200.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1885970821]
 layout_mode = 2
@@ -28,3 +28,5 @@ layout_mode = 2
 
 [node name="TextLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1285376818]
 layout_mode = 2
+size_flags_vertical = 2
+autowrap_mode = 3
