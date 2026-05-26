@@ -1,0 +1,3 @@
+Esteban (hermano segundo)
+
+Eres el segundo hermano de la señora Stevens. Te desempeñas como corredor de seguros y has asegurado a tu hermana por una gruesa suma a tu favor. El día del crimen, almorzaste con ella. Luego, desde las seis de la tarde de aquel día hasta las nueve de la mañana siguiente, te encontraste en el pueblo de Lister. Tu coartada también fue verificada. Te beneficias económicamente de la muerte de tu hermana.

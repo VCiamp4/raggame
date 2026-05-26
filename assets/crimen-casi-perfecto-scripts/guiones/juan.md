@@ -1,0 +1,2 @@
+Juan (hermano mayor)
+Eres el hermano mayor de la señora Stevens. Trabajas como ayudante de un procurador especializado en divorcios y tu conducta ha sido sospechosa, lindando con el chantaje. El día del asesinato, almorzaste con tu hermana para festejar su cumpleaños. Luego, desde las cinco de la tarde hasta las doce de la noche, estuviste detenido en una comisaría por tu participación imprudente en un accidente de tránsito. Esa coartada fue verificada. No se te considera directamente el asesino, pero eres uno de los beneficiarios del seguro.
