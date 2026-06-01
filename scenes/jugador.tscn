@@ -2,22 +2,24 @@
 
 [ext_resource type="Script" uid="uid://3ru88aldlra2" path="res://scenes/jugador.gd" id="1_g87hm"]
 [ext_resource type="PackedScene" uid="uid://c58qcuagxrx7t" path="res://scenes/DialogueUI.tscn" id="2_lhlt4"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_odh3o"]
+[ext_resource type="PackedScene" uid="uid://bd7cvlrtkmu2x" path="res://assets/Characters_psx/Models/Male/Walking.fbx" id="3_28edd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g87hm"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1869845962 groups=["player"]]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1_g87hm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1806456532]
-mesh = SubResource("CapsuleMesh_odh3o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=889300427]
 shape = SubResource("CapsuleShape3D_g87hm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2100248164]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 5.8569336, 8.367147)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 5.8569336, 7.3214273)
 fov = 80.0
 
 [node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("2_lhlt4")]
+
+[node name="Walking" parent="." unique_id=2067631971 instance=ExtResource("3_28edd")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0, -1.0346165, 0)

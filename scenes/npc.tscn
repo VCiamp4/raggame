@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bjg53oi3ebelp"]
 
 [ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="1_nh2m4"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_tcuxl"]
+[ext_resource type="PackedScene" uid="uid://cjp5r1fpqgq3u" path="res://assets/Characters_psx/Models/Male/Character_07.fbx" id="2_abqhh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nh2m4"]
 radius = 2.5
@@ -11,7 +10,9 @@ radius = 2.5
 script = ExtResource("1_nh2m4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=889144432]
-mesh = SubResource("CapsuleMesh_tcuxl")
+
+[node name="Character_07" parent="MeshInstance3D" unique_id=1133967718 instance=ExtResource("2_abqhh")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=2123222300]
 

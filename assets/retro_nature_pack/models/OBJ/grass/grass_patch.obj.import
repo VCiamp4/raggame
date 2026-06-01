@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cohmnbifab4me"
+path="res://.godot/imported/grass_patch.obj-586e018e9d0b2be869e56a98c586f39e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grass_patch.obj-586e018e9d0b2be869e56a98c586f39e.mesh"]
+
+source_file="res://assets/retro_nature_pack/models/OBJ/grass/grass_patch.obj"
+dest_files=["res://.godot/imported/grass_patch.obj-586e018e9d0b2be869e56a98c586f39e.mesh", "res://.godot/imported/grass_patch.obj-586e018e9d0b2be869e56a98c586f39e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

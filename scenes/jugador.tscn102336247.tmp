@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dss841o832d1b"]
+
+[ext_resource type="Script" uid="uid://3ru88aldlra2" path="res://scenes/jugador.gd" id="1_g87hm"]
+[ext_resource type="PackedScene" uid="uid://c58qcuagxrx7t" path="res://scenes/DialogueUI.tscn" id="2_lhlt4"]
+[ext_resource type="PackedScene" uid="uid://di2k5a1e1pnmc" path="res://assets/Characters_psx/Models/Male/Walking.fbx" id="3_28edd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g87hm"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1869845962 groups=["player"]]
+script = ExtResource("1_g87hm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1806456532]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=889300427]
+shape = SubResource("CapsuleShape3D_g87hm")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2100248164]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 5.8569336, 7.3214273)
+fov = 80.0
+
+[node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("2_lhlt4")]
+
+[node name="Walking" parent="." unique_id=1723500943 instance=ExtResource("3_28edd")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 0, -1.1784576, 0)
+
+[node name="Skeleton3D" parent="Walking" index="0" unique_id=1807847165]
+bones/0/position = Vector3(0.0005974844, 2.5950027, 0.0030318105)
+bones/0/rotation = Quaternion(0.014316468, -0.69504243, -0.009687243, 0.7187609)
+bones/1/rotation = Quaternion(-0.00526128, -0.011035614, 0.0063648233, 0.99990505)
+bones/2/rotation = Quaternion(0.007651281, -0.022421716, -0.021565752, 0.9994868)
+bones/3/rotation = Quaternion(0.008658602, -0.022173278, -0.021317367, 0.99948937)
+bones/4/rotation = Quaternion(-0.001028193, 0.0186662, -0.05596157, 0.99825794)
+bones/5/rotation = Quaternion(-0.01745875, 0.039053805, 0.02848316, 0.99867857)
+bones/7/rotation = Quaternion(-0.048706904, -0.5518702, 0.8319763, -0.029705588)
+bones/8/rotation = Quaternion(0.43276924, 0.25295117, 0.11678494, 0.8573726)
+bones/9/rotation = Quaternion(-0.0050823605, 0.008017727, 0.09624477, 0.9953125)
+bones/10/rotation = Quaternion(0.09334909, 0.029876795, -0.027589217, 0.9948026)
+bones/11/rotation = Quaternion(0.14967409, -0.00768808, 0.050259113, 0.9874273)
+bones/12/rotation = Quaternion(-0.030444426, 0.020002944, -0.14957432, 0.9880793)
+bones/13/rotation = Quaternion(0.17051703, 0.03323556, 0.043423828, 0.98383623)
+bones/15/rotation = Quaternion(0.8363996, 0.00031987394, -0.009467052, 0.54803836)
+bones/16/rotation = Quaternion(0.18815124, 0.88888854, 0.3621507, 0.20814225)
+bones/17/rotation = Quaternion(0.006807011, -0.0073518846, 0.20095187, 0.97954994)
+bones/18/rotation = Quaternion(-0.050917335, 0.0049855267, 0.011235988, 0.99862725)
+bones/19/rotation = Quaternion(-0.1772689, 0.018229725, 0.047744907, 0.9828347)
+bones/20/rotation = Quaternion(-0.14727254, -0.02359575, -0.1165704, 0.9819192)
+bones/21/rotation = Quaternion(-0.034496825, -0.0034029945, 0.020760098, 0.9991835)
+bones/23/rotation = Quaternion(0.0899854, -0.018517304, 0.9699093, -0.22546777)
+bones/24/rotation = Quaternion(0.029274965, 0.033986248, -0.49884364, 0.8655305)
+bones/25/rotation = Quaternion(0.38306513, -0.6008062, 0.3992132, 0.5769937)
+bones/26/rotation = Quaternion(0.29605353, -0.051985044, 0.008395934, 0.9537188)
+bones/28/rotation = Quaternion(-0.062245704, -0.01328569, 0.99337584, -0.095674485)
+bones/29/rotation = Quaternion(0.019920055, -0.028806794, -0.1682342, 0.98512477)
+bones/30/rotation = Quaternion(0.4374746, -0.55578846, 0.41232583, 0.5741974)
+bones/31/rotation = Quaternion(0.27024424, 0.048329823, -0.009153197, 0.9615345)
+
+[editable path="Walking"]

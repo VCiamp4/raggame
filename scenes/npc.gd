@@ -1,27 +1,27 @@
 extends Node3D
 
-@export var npc_id: String = "c3-p0"
-@export var npc_name: String = "c3-p0"
+@export var npc_id: String = "Aldric"
+@export var npc_name: String = "Aldric"
 
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
-signal response_received(text: String)
+signal response_chunk(text: String)       # nuevo: chunk parcial
+signal response_completed()                # nuevo: fin de respuesta
 
 @onready var interaction_area: Area3D = $InteractionArea
 
-const BACKEND_URL = "http://localhost:8000/dialogue"
-var http_request: HTTPRequest
+const BACKEND_HOST = "127.0.0.1"
+const BACKEND_PORT = 8000
+const BACKEND_PATH = "/dialogue_stream"
+
+var http_client: HTTPClient
+var is_streaming: bool = false
 
 
 func _ready() -> void:
 	add_to_group("npc")
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
-	
-	# Creamos un HTTPRequest hijo para hacer las llamadas al backend.
-	http_request = HTTPRequest.new()
-	add_child(http_request)
-	http_request.request_completed.connect(_on_request_completed)
 
 
 func _on_body_entered(body: Node3D) -> void:
@@ -35,26 +35,62 @@ func _on_body_exited(body: Node3D) -> void:
 
 
 func request_response(player_input: String) -> void:
-	var body = {
+	if is_streaming:
+		return
+	_start_stream(player_input)
+
+
+func _start_stream(player_input: String) -> void:
+	http_client = HTTPClient.new()
+	var err = http_client.connect_to_host(BACKEND_HOST, BACKEND_PORT)
+	if err != OK:
+		response_chunk.emit("[Error de conexión]")
+		response_completed.emit()
+		return
+	
+	# Esperar conexión
+	while http_client.get_status() == HTTPClient.STATUS_CONNECTING or \
+		  http_client.get_status() == HTTPClient.STATUS_RESOLVING:
+		http_client.poll()
+		await get_tree().process_frame
+	
+	if http_client.get_status() != HTTPClient.STATUS_CONNECTED:
+		response_chunk.emit("[No se pudo conectar]")
+		response_completed.emit()
+		return
+	
+	# Mandar request POST
+	var body = JSON.stringify({
 		"npc_id": npc_id,
 		"player_input": player_input,
 		"session_id": "default"
-	}
-	var headers = ["Content-Type: application/json"]
-	var json_body = JSON.stringify(body)
-	var err = http_request.request(BACKEND_URL, headers, HTTPClient.METHOD_POST, json_body)
-	if err != OK:
-		response_received.emit("[Error al contactar al servidor]")
-
-
-func _on_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
-	if response_code != 200:
-		response_received.emit("[Error " + str(response_code) + "]")
+	})
+	var headers = [
+		"Content-Type: application/json",
+		"Content-Length: " + str(body.length())
+	]
+	http_client.request(HTTPClient.METHOD_POST, BACKEND_PATH, headers, body)
+	
+	# Esperar respuesta inicial
+	while http_client.get_status() == HTTPClient.STATUS_REQUESTING:
+		http_client.poll()
+		await get_tree().process_frame
+	
+	if http_client.get_status() != HTTPClient.STATUS_BODY:
+		response_chunk.emit("[Error en respuesta]")
+		response_completed.emit()
 		return
 	
-	var json = JSON.parse_string(body.get_string_from_utf8())
-	if json == null or not json.has("response"):
-		response_received.emit("[Respuesta inválida]")
-		return
+	# Leer chunks
+	is_streaming = true
+	while http_client.get_status() == HTTPClient.STATUS_BODY:
+		http_client.poll()
+		var chunk = http_client.read_response_body_chunk()
+		if chunk.size() > 0:
+			var text = chunk.get_string_from_utf8()
+			response_chunk.emit(text)
+		await get_tree().process_frame
 	
-	response_received.emit(json["response"])
+	is_streaming = false
+	response_completed.emit()
+	http_client.close()
