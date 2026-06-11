@@ -81,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15302563, -0.0037901402, -7
 [node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("4_2ou2y")]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_mc018")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006284237, 1.0244284, 0.98958254)
 
 [node name="Tree07" type="MeshInstance3D" parent="." unique_id=618835158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.780411, 0.5964689, -7.0897913)

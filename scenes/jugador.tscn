@@ -16,7 +16,7 @@ script = ExtResource("1_g87hm")
 shape = SubResource("CapsuleShape3D_g87hm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2100248164]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 5.8569336, 7.3214273)
+transform = Transform3D(0.96072036, -0.96301454, 0.96301436, 0, 1.1785111, 1.1785113, -1.3619081, -0.679332, 0.6793319, 9.189949, 8.740775, 6.4318066)
 fov = 80.0
 
 [node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("2_lhlt4")]

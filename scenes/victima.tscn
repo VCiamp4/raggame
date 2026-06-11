@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bkcyl6de3ijv"]
+
+[ext_resource type="Script" uid="uid://m3h5n1diblha" path="res://assets/Characters_psx/Models/Female/dying_(1).gd" id="1_8ystm"]
+[ext_resource type="PackedScene" uid="uid://sd38nvqx12im" path="res://assets/Characters_psx/Models/Female/Dying (1).fbx" id="2_7xo1t"]
+
+[node name="Node3D" type="Node3D" unique_id=2064791863]
+script = ExtResource("1_8ystm")
+
+[node name="Dying (1)" parent="." unique_id=1427214427 instance=ExtResource("2_7xo1t")]
