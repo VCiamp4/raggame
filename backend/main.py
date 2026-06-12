@@ -8,7 +8,7 @@ from collections import defaultdict
 app = FastAPI()
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL = "darkidol:latest"  
+MODEL = "qwen2.5:1.5b"
 
 # Personas hardcodeadas por ahora. En Etapa D-E las movemos a config.
 NPC_PERSONAS = {
