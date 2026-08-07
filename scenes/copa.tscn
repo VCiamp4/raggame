@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://6h0d1atu0gar"]
+
+[ext_resource type="Script" uid="uid://cs8ed8rsej1hs" path="res://copa.gd" id="1_jmrb8"]
+[ext_resource type="ArrayMesh" uid="uid://hik3we1gksyq" path="res://assets/drink/model.obj" id="2_48702"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b7cia"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=425664347]
+collision_layer = 2
+script = ExtResource("1_jmrb8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=141366627]
+mesh = ExtResource("2_48702")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=543518295]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.2, 0, 0.1321285, 0)
+shape = SubResource("BoxShape3D_b7cia")

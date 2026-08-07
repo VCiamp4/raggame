@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ccu8uxmtdo02v"]
+
+[ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_d5auc"]
+[ext_resource type="PackedScene" uid="uid://b6ueey6lq344h" path="res://assets/Rug/Carpet_1.fbx" id="2_kf3pl"]
+[ext_resource type="Material" uid="uid://bba4042ksjqlh" path="res://assets/Tiles079_1K-JPG/Tiles079_1K-JPG.tres" id="2_pj8q6"]
+[ext_resource type="Material" uid="uid://ct3mua4fsmm4r" path="res://assets/PaintedBricks004_1K-JPG/PaintedBricks004_1K-JPG.tres" id="3_1a26t"]
+[ext_resource type="PackedScene" uid="uid://cub8mn0ogml88" path="res://assets/PSX modular house interior pack/props/tableSmall.glb" id="4_snk82"]
+[ext_resource type="PackedScene" uid="uid://qsfbsa42itoe" path="res://assets/PSX modular house interior pack/props/tableLamp.glb" id="5_u7psa"]
+[ext_resource type="PackedScene" uid="uid://bp6cb6txd448f" path="res://assets/Flower Pot/FlowerPot4.fbx" id="5_wfjri"]
+[ext_resource type="PackedScene" uid="uid://c3t3yf2pjeisu" path="res://assets/Characters_psx/Models/Male/Character_18_Police.fbx" id="6_2bhqk"]
+[ext_resource type="PackedScene" uid="uid://dqfj4uo48cd4s" path="res://assets/Characters_psx/Models/Male/Character_17_Police.fbx" id="7_tqeft"]
+[ext_resource type="PackedScene" uid="uid://dbkn53ln34j53" path="res://assets/Chandelier/Chandelier.fbx" id="9_2bhqk"]
+[ext_resource type="PackedScene" uid="uid://snmnj5suybpe" path="res://assets/PSX modular house interior pack/props/couchSmall2.glb" id="9_u0rya"]
+[ext_resource type="PackedScene" uid="uid://8gjd55cn3622" path="res://assets/PSX modular house interior pack/props/painting3.glb" id="10_rljo4"]
+[ext_resource type="PackedScene" uid="uid://3pwhenewwx7r" path="res://assets/PSX modular house interior pack/props/painting2.glb" id="11_snk82"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
+lightmap_size_hint = Vector2i(12, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5ya8"]
+size = Vector3(1.2060242, 1, 3.199829)
+
+[sub_resource type="QuadMesh" id="QuadMesh_nbej8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
+size = Vector3(1, 1, 1.0014343)
+
+[node name="Node3D" type="Node3D" unique_id=113430558]
+
+[node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1938173594]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2012582832]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 8, -0.0053696632, 0.011015177, -0.006091118)
+material_override = ExtResource("2_pj8q6")
+mesh = SubResource("PlaneMesh_nbej8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1726186054]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 5, -0.04195881, 0.11978066, 0.029797077)
+shape = SubResource("BoxShape3D_y5ya8")
+debug_color = Color(0.94310546, 1.0588765e-05, 0.60536534, 0.41960785)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1132822706]
+
+[node name="pared_izq" type="MeshInstance3D" parent="StaticBody3D2" unique_id=888376695]
+transform = Transform3D(-6.993822e-07, 0, 1, 0, 7, 0, -16, 0, -4.371139e-08, -5.9743557, 0.533324, 0)
+material_override = ExtResource("3_1a26t")
+mesh = SubResource("QuadMesh_nbej8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D2" unique_id=204661603]
+transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, -5.9894414, 2.0593655, 0)
+shape = SubResource("BoxShape3D_arjtg")
+debug_color = Color(0, 1, 0.23529412, 0.41960785)
+
+[node name="tableSmall2" parent="StaticBody3D2" unique_id=361305767 instance=ExtResource("4_snk82")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.8169317, 0.016133308, 0.5286925)
+
+[node name="tableLamp2" parent="StaticBody3D2" unique_id=747200609 instance=ExtResource("5_u7psa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7933483, 0.6542646, 0.5623956)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1642663554]
+
+[node name="pared_izq2" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1653316798]
+transform = Transform3D(12, 0, 0, 0, 7, 0, 0, 0, 1, -0.12240195, 0.533324, -7.988568)
+material_override = ExtResource("3_1a26t")
+mesh = SubResource("QuadMesh_nbej8")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D3" unique_id=394009592]
+transform = Transform3D(-4.371139e-09, 0, 16, 0, 4, 0, -0.1, 0, -6.993822e-07, -2.1229367, 2.0593655, -8.021404)
+shape = SubResource("BoxShape3D_arjtg")
+debug_color = Color(0, 1, 0.23529412, 0.41960785)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=376924664]
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D4" unique_id=2108353681]
+transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, 5.739863, 2.0593655, 0)
+shape = SubResource("BoxShape3D_arjtg")
+debug_color = Color(0, 1, 0.23529412, 0.41960785)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1934015956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.091902, 0)
+light_color = Color(0.8697346, 0.5939952, 0.4257063, 1)
+omni_range = 12.665853
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=379914283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48983312, 4.1151104, -2.8070128)
+light_color = Color(0.8697346, 0.5939952, 0.4257063, 1)
+omni_range = 12.665853
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1629120922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30022848, 4.119993, 2.7633932)
+light_color = Color(0.8697346, 0.5939952, 0.4257063, 1)
+omni_range = 12.665853
+
+[node name="Carpet_1" parent="." unique_id=1184074916 instance=ExtResource("2_kf3pl")]
+transform = Transform3D(3.9999704, 0, 0.015365777, 0, 4, 0, -0.015365777, 0, 3.9999704, 0.37657785, 0.03883253, 0.07419443)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Carpet_1" unique_id=231464502]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.0923669, 0.23050618, 0.13254218)
+
+[node name="FlowerPot4" parent="." unique_id=1008932510 instance=ExtResource("5_wfjri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3312956, 1.0227929, -7.3820105)
+
+[node name="FlowerPot5" parent="." unique_id=1605953578 instance=ExtResource("5_wfjri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1169405, 1.0996166, 7.5288916)
+
+[node name="FlowerPot6" parent="." unique_id=1993837178 instance=ExtResource("5_wfjri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3547046, 1.0340098, 7.4714894)
+
+[node name="Character_18_Police" parent="." unique_id=488128720 instance=ExtResource("6_2bhqk")]
+transform = Transform3D(-0.24957676, 0, 0.3125883, 0, 0.4, 0, -0.3125883, 0, -0.24957676, -4.5523148, 0.013166666, 6.029258)
+
+[node name="Character_17_Police" parent="." unique_id=1485438424 instance=ExtResource("7_tqeft")]
+transform = Transform3D(0.3366357, 0, 0.2160472, 0, 0.4, 0, -0.2160472, 0, 0.3366357, -4.5428677, 0.019154698, 5.0831685)
+
+[node name="Chandelier" parent="." unique_id=877205664 instance=ExtResource("9_2bhqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43909287, 3.5422986, 2.7667928)
+
+[node name="Chandelier2" parent="." unique_id=552541606 instance=ExtResource("9_2bhqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48248434, 3.5422986, -2.8169332)
+
+[node name="couchSmall22" parent="." unique_id=1025511067 instance=ExtResource("9_u0rya")]
+transform = Transform3D(0.6788769, 0, -0.73425215, 0, 1, 0, 0.73425215, 0, 0.6788769, 3.9126067, 0.06983757, -1.3070109)
+
+[node name="couchSmall23" parent="." unique_id=1283151712 instance=ExtResource("9_u0rya")]
+transform = Transform3D(-0.7997333, 0, -0.6003555, 0, 1, 0, 0.6003555, 0, -0.7997333, 3.883059, 0.071276784, 2.522334)
+
+[node name="painting32" parent="." unique_id=1373858048 instance=ExtResource("10_rljo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9394407, 2.3819447, 0.7247357)
+
+[node name="painting22" parent="." unique_id=489157258 instance=ExtResource("11_snk82")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.939439, 1.7118459, -0.56710994)

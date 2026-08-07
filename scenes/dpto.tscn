@@ -4,11 +4,27 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="2_dohex"]
 [ext_resource type="ArrayMesh" uid="uid://b242gvbk3qur1" path="res://assets/Table/model.obj" id="3_dohex"]
 [ext_resource type="Texture2D" uid="uid://jkwt3d0cq1dr" path="res://assets/WoodFloor070_1K-JPG/WoodFloor070_1K-JPG_Color.jpg" id="3_kjuag"]
-[ext_resource type="ArrayMesh" uid="uid://bgmbuy6dxtmcp" path="res://assets/old tv/model.obj" id="4_6xbl7"]
+[ext_resource type="PackedScene" uid="uid://co2xus3ui13pn" path="res://assets/PSX modular house interior pack/props/cabinetSink.glb" id="4_0ccob"]
+[ext_resource type="PackedScene" uid="uid://6h0d1atu0gar" path="res://scenes/copa.tscn" id="4_11e0f"]
 [ext_resource type="PackedScene" uid="uid://c138thmwcg423" path="res://assets/Chair/Chair_1.fbx" id="5_u6yfp"]
-[ext_resource type="PackedScene" uid="uid://clmwfn1314tgw" path="res://assets/Sofa/Sofa.fbx" id="6_53u3x"]
+[ext_resource type="PackedScene" uid="uid://gxkqaa7bc46b" path="res://assets/PSX modular house interior pack/props/trashBin.glb" id="5_yb7k8"]
 [ext_resource type="ArrayMesh" uid="uid://c7oy4bmtf6m0m" path="res://assets/Crime Scene %F0%9F%9A%94/model.obj" id="7_kjuag"]
 [ext_resource type="Texture2D" uid="uid://cshcau4jmf56n" path="res://assets/Bricks104_2K-JPG/Bricks104_2K-JPG_Color.jpg" id="9_g4c4f"]
+[ext_resource type="ArrayMesh" uid="uid://dsyrck8a4hgdj" path="res://assets/Window2 white 1731/model.obj" id="10_01ptx"]
+[ext_resource type="PackedScene" uid="uid://clgdprmccay2l" path="res://assets/PSX modular house interior pack/props/cup.glb" id="11_wk36k"]
+[ext_resource type="PackedScene" uid="uid://c1mho1fafm3i" path="res://assets/PSX modular house interior pack/props/fridge.glb" id="12_d0awt"]
+[ext_resource type="PackedScene" uid="uid://djrlprdsqhvhp" path="res://assets/PSX modular house interior pack/props/cabinetHigh.glb" id="13_jiikd"]
+[ext_resource type="PackedScene" uid="uid://dgiq7fq0il0em" path="res://assets/PSX modular house interior pack/props/cabinetLow.glb" id="14_yb7k8"]
+[ext_resource type="PackedScene" uid="uid://dsapnv8htdyqw" path="res://assets/PSX modular house interior pack/props/egg.glb" id="15_um0u7"]
+[ext_resource type="PackedScene" uid="uid://r2l3gfxjie7g" path="res://assets/PSX modular house interior pack/props/burger.glb" id="17_qvum2"]
+[ext_resource type="PackedScene" uid="uid://bctb2cjhfanhk" path="res://assets/PSX modular house interior pack/props/couchBig.glb" id="18_r6rif"]
+[ext_resource type="PackedScene" uid="uid://1dfgm8epj7fq" path="res://assets/PSX modular house interior pack/props/lightSwitch.glb" id="19_w1w6v"]
+[ext_resource type="PackedScene" uid="uid://cjqeksomuk8at" path="res://assets/PSX modular house interior pack/props/painting5.glb" id="20_wjyv8"]
+[ext_resource type="PackedScene" uid="uid://c8v3anqopua4g" path="res://assets/PSX modular house interior pack/props/radiator.glb" id="21_375mr"]
+[ext_resource type="PackedScene" uid="uid://chl1hf7ydjuxk" path="res://assets/PSX modular house interior pack/props/windowCurtains2.glb" id="22_um0u7"]
+[ext_resource type="PackedScene" uid="uid://hohkpgq3rutr" path="res://assets/PSX modular house interior pack/props/vhs.glb" id="23_qvum2"]
+[ext_resource type="PackedScene" uid="uid://du1v2p3mddqjg" path="res://assets/PSX modular house interior pack/props/tableSmall2.glb" id="24_r6rif"]
+[ext_resource type="PackedScene" uid="uid://bmliqu88oojk4" path="res://assets/PSX modular house interior pack/props/tv.glb" id="25_w1w6v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -51,29 +67,61 @@ mesh = SubResource("PlaneMesh_a24x0")
 transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, -0.23773682, 0)
 shape = SubResource("BoxShape3D_a24x0")
 
+[node name="cabinetSink2" parent="StaticBody3D" unique_id=1045394366 instance=ExtResource("4_0ccob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9365544, -0.042001605, -2.2270327)
+
+[node name="trashBin2" parent="StaticBody3D" unique_id=364017871 instance=ExtResource("5_yb7k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7140493, 0.01226306, -0.23006725)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=791798956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0804048, 0)
-light_energy = 2.272
-light_indirect_energy = 2.166
+transform = Transform3D(0.03564945, 0.3630798, 0.93107593, 0.5008076, -0.8127321, 0.29775566, 0.8648243, 0.45567507, -0.21080637, 0.44907498, 2.3436377, -5.276752)
+light_energy = 3.327
+light_indirect_energy = 3.376
+light_bake_mode = 1
+distance_fade_enabled = true
 omni_range = 6.547
 omni_attenuation = 0.04
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=142584734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3333685, 12.043748, 2.4780455)
+light_energy = 3.327
+light_indirect_energy = 3.376
+light_bake_mode = 1
+distance_fade_enabled = true
+omni_range = 6.547
+omni_attenuation = 0.04
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=412828696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.938765, 5.147792, 3.222042)
+light_energy = 7.565
+light_indirect_energy = 3.376
+light_volumetric_fog_energy = 0.491
+light_bake_mode = 1
+distance_fade_enabled = true
+omni_range = 6.547
+omni_attenuation = 0.04
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=615947766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.189971, 2.4006176, -0.0111608505)
+light_energy = 6.722
+light_indirect_energy = 6.404
+light_bake_mode = 1
+distance_fade_enabled = true
+omni_range = 6.547
+omni_attenuation = 0.04
+
+[node name="StaticBody3D" parent="OmniLight3D2" unique_id=425664347 instance=ExtResource("4_11e0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64863, -1.4393005, -1.5020753)
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=662443838]
 transform = Transform3D(-0.06343055, 0, -1.1983224, 0, 1.2, 0, 1.1983224, 0, -0.06343055, 2.1976297, 0.66575575, -2.1315613)
 mesh = ExtResource("3_dohex")
-
-[node name="Model2" type="MeshInstance3D" parent="." unique_id=195045452]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -4.2770767, 0.26639742, 3.6306036)
-mesh = ExtResource("4_6xbl7")
 
 [node name="Chair_1" parent="." unique_id=1219229724 instance=ExtResource("5_u6yfp")]
 transform = Transform3D(0.26787838, 0, -0.64671564, 0, 0.7, 0, 0.64671564, 0, 0.26787838, 3.7817373, 0.015580028, -2.0707588)
 
 [node name="Chair_2" parent="." unique_id=1099210883 instance=ExtResource("5_u6yfp")]
 transform = Transform3D(2.8268838e-08, 0.64671564, -0.26787844, 0.7, -3.059797e-08, 0, -1.1709339e-08, -0.26787844, -0.64671564, 2.6569269, 0.27535197, -0.34872484)
-
-[node name="Sofa" parent="." unique_id=1862250296 instance=ExtResource("6_53u3x")]
-transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, -1.6884015, 0.045226604, 3.5552714)
 
 [node name="Model3" type="MeshInstance3D" parent="." unique_id=1621494916]
 transform = Transform3D(0.25633764, 0, -0.15585575, 0, 0.3, 0, 0.15585575, 0, 0.25633764, 0.37284866, 0.021861017, -0.3529589)
@@ -97,6 +145,12 @@ mesh = SubResource("PlaneMesh_kjuag")
 transform = Transform3D(10, 0, 0, 0, -4.371139e-08, 10, 0, -1, -4.371139e-07, 0, 3.1711183, -5.440677)
 shape = SubResource("BoxShape3D_g4c4f")
 
+[node name="cup2" parent="StaticBody3D2" unique_id=1806884127 instance=ExtResource("11_wk36k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.231202, 1.3107651, -3.3274713)
+
+[node name="fridge2" parent="StaticBody3D2" unique_id=718141131 instance=ExtResource("12_d0awt")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -4.794463, -0.060386717, -4.375471)
+
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=430839208]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=226353019]
@@ -108,9 +162,62 @@ mesh = SubResource("PlaneMesh_kjuag")
 transform = Transform3D(-4.371139e-07, -1, -4.371139e-07, 0, -4.371139e-08, 10, -10, 4.371139e-08, 1.9106854e-14, -5.4693575, 2.9162598, -0.025836945)
 shape = SubResource("BoxShape3D_g4c4f")
 
+[node name="cabinetHigh2" parent="StaticBody3D3" unique_id=1238624013 instance=ExtResource("13_jiikd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9693584, 4.19608, -1.6532655)
+
+[node name="cabinetHigh3" parent="StaticBody3D3" unique_id=1358655191 instance=ExtResource("13_jiikd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9693584, 4.1979394, -2.6336932)
+
+[node name="cabinetLow2" parent="StaticBody3D3" unique_id=605171307 instance=ExtResource("14_yb7k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.969357, -0.023470342, -1.2286077)
+
+[node name="cabinetLow3" parent="StaticBody3D3" unique_id=603002182 instance=ExtResource("14_yb7k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.969357, -0.030250967, -3.1860106)
+
+[node name="egg2" parent="StaticBody3D3" unique_id=137964104 instance=ExtResource("15_um0u7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.785507, 0.8636318, -1.3530948)
+
 [node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=532197772]
 transform = Transform3D(-8.742278e-07, -1.7484555e-07, -2, 0, -2, 1.7484555e-07, -20, 7.642742e-15, 8.742278e-08, 3.234109, -8.350174, 0.3551612)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=272328054]
 transform = Transform3D(1, 0, 0, 0, 3, 5.684342e-14, 0, -1.4210855e-14, 1, 0, -5.215429, -1.2124352)
 shape = SubResource("BoxShape3D_g4c4f")
+
+[node name="Model4" type="MeshInstance3D" parent="." unique_id=1115021854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56934834, 2.4341927, -4.984472)
+mesh = ExtResource("10_01ptx")
+
+[node name="Model5" type="MeshInstance3D" parent="." unique_id=761133927]
+transform = Transform3D(-0.011833077, 0, 0.99992996, 0, 1, 0, -0.99992996, 0, -0.011833077, -5.0135117, 2.4508595, -0.22330952)
+mesh = ExtResource("10_01ptx")
+
+[node name="burger2" parent="." unique_id=73722556 instance=ExtResource("17_qvum2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9639266, 0.82364416, -1.74061)
+
+[node name="couchBig2" parent="." unique_id=394486325 instance=ExtResource("18_r6rif")]
+transform = Transform3D(-0.010831308, 0, -0.99994135, 0, 1, 0, 0.99994135, 0, -0.010831308, -1.5745008, 0.012263298, 3.6649652)
+
+[node name="lightSwitch2" parent="." unique_id=127076957 instance=ExtResource("19_w1w6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9693546, 1.8285446, -1.3163168)
+
+[node name="painting52" parent="." unique_id=1874972384 instance=ExtResource("20_wjyv8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.4793916, 2.2790244, -4.927098)
+
+[node name="radiator2" parent="." unique_id=1424676116 instance=ExtResource("21_375mr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.5163579, 0.012263183, -4.5753145)
+
+[node name="windowCurtains22" parent="." unique_id=517145649 instance=ExtResource("22_um0u7")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.41941452, 1.0173028, -6.424867)
+
+[node name="windowCurtains23" parent="." unique_id=881326763 instance=ExtResource("22_um0u7")]
+transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.934025e-08, -6.500478, 1.0173028, -0.10231471)
+
+[node name="vhs2" parent="." unique_id=1913433304 instance=ExtResource("23_qvum2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5086565, 0.64461875, 3.05821)
+
+[node name="tableSmall22" parent="." unique_id=162609420 instance=ExtResource("24_r6rif")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.376544, 0.0065352917, 3.5089881)
+
+[node name="tv2" parent="." unique_id=1051252886 instance=ExtResource("25_w1w6v")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3162975, 0.6496923, 3.5399296)
