@@ -67,7 +67,7 @@ func _start_stream(player_input: String) -> void:
 	})
 	var headers = [
 		"Content-Type: application/json",
-		"Content-Length: " + str(body.length())
+		"Content-Length: " + str(body.to_utf8_buffer().size())
 	]
 	http_client.request(HTTPClient.METHOD_POST, BACKEND_PATH, headers, body)
 	
