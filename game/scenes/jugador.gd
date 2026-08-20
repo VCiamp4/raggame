@@ -4,6 +4,7 @@ const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
+@onready var walking: Node3D = $Walking
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
@@ -35,11 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Movimiento
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		walking.rotation.y = atan2(direction.x, direction.z)
 		if anim_player and not anim_player.is_playing():
 			anim_player.play("mixamo_com")
 	else:
