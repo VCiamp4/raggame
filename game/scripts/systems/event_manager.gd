@@ -68,6 +68,16 @@ signal event_activated(event_id)
 
 var activated_events: Dictionary = {}
 
+# Diccionario de keywords → event_id
+# Si el input del jugador contiene alguna keyword (case-insensitive),
+# se activa el evento asociado.
+var keyword_events: Dictionary = {
+	"poliza de seguro": "poliza_de_seguro",
+	"póliza de seguro": "poliza_de_seguro",
+	"seguro de vida": "poliza_de_seguro",
+	"póliza": "poliza_de_seguro",
+}
+
 
 # ============================================================
 # ACTIVAR EVENTO
@@ -164,3 +174,33 @@ func has_event(event_id: String) -> bool:
 func reset_events() -> void:
 
 	activated_events.clear()
+
+
+# ============================================================
+# CHEQUEAR INPUT DEL JUGADOR
+# ============================================================
+# Recibe el texto que escribió el jugador en el diálogo.
+# Busca si alguna keyword aparece en el texto (case-insensitive).
+# Si encuentra coincidencia, activa el evento asociado.
+#
+# Ejemplo:
+#
+#     EventManager.check_input("¿Sabés algo de la póliza de seguro?")
+#     -> activa "poliza_de_seguro"
+#
+# Devuelve true si se activó algún evento.
+#
+# ============================================================
+
+func check_input(input_text: String) -> bool:
+	var lower_input = input_text.to_lower()
+	var activated_any = false
+
+	for keyword in keyword_events:
+		if lower_input.find(keyword) != -1:
+			var event_id = keyword_events[keyword]
+			if not has_event(event_id):
+				activate_event(event_id)
+				activated_any = true
+
+	return activated_any

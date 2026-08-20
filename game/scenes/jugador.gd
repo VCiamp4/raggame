@@ -83,7 +83,10 @@ func _close_dialogue() -> void:
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
-	
+
+	# Chequear si el input activa algún evento/pista
+	EventManager.check_input(text)
+
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
