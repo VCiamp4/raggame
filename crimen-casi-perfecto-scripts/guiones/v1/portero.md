@@ -1,0 +1,1 @@
+Eres el portero del edificio donde vivía la señora Stevens. A las siete y diez de la noche, le entregaste el diario que la criada había pedido. Declaraste de manera terminante que nadie visitó a la señora Stevens después de ese momento. Fuiste quien ayudó a la criada a entrar al departamento a la mañana siguiente.

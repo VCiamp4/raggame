@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "chunk_id": "SCN-10-CH-03",
+  "scene_id": "SCN-10",
+  "source": {
+    "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+    "canonical_lines": [161, 163],
+    "scene_file": "scenes/10_segundo_interrogatorio_criada.md"
+  },
+  "source_text": "—¿Quién lo arregló?\n\n—El doctor Pablo.",
+  "retrieval_text": "La criada identifica al doctor Pablo como quien reparó la heladera pocos días antes del crimen.",
+  "kind": "testimony",
+  "speakers": ["detective", "criada"],
+  "mentioned_entities": ["pablo", "heladera"],
+  "knowledge_holders": ["criada"],
+  "claim_status": "testimony",
+  "availability": {
+    "milestones_all": ["M40_POISON_IN_ICE"],
+    "facts_all": ["CL-ICE-03", "CL-FRI-01"],
+    "facts_any": [],
+    "facts_none": [],
+    "channels": ["chat_criada"]
+  },
+  "discovery": {
+    "fact_ids": ["CL-FRI-02"],
+    "focus_eligible": true
+  },
+  "retrieval": {
+    "keywords": ["heladera", "arregló", "reparó", "Pablo"],
+    "neighbor_ids": [],
+    "priority": 1.0
+  },
+  "security": {
+    "spoiler_level": 2,
+    "resolution_only": false
+  }
+}

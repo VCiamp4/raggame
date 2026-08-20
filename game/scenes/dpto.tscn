@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://hohkpgq3rutr" path="res://assets/PSX modular house interior pack/props/vhs.glb" id="23_qvum2"]
 [ext_resource type="PackedScene" uid="uid://du1v2p3mddqjg" path="res://assets/PSX modular house interior pack/props/tableSmall2.glb" id="24_r6rif"]
 [ext_resource type="PackedScene" uid="uid://bmliqu88oojk4" path="res://assets/PSX modular house interior pack/props/tv.glb" id="25_w1w6v"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="26_npc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -55,6 +56,16 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.9534779, 0.6082034, 2
 
 [node name="Node3D" parent="." unique_id=2064791863 instance=ExtResource("2_a24x0")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.1214198, 0, -1.7607429)
+
+[node name="Criada" parent="." instance=ExtResource("26_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+npc_id = "criada"
+npc_name = "Criada"
+
+[node name="TecnicoHeladera" parent="." instance=ExtResource("26_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+npc_id = "tecnico_heladera"
+npc_name = "Técnico de heladera"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=819832676]
 

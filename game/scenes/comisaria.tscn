@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qdgajxfcbfm" path="res://assets/PSX modular house interior pack/props/clock.glb" id="13_fhysb"]
 [ext_resource type="PackedScene" uid="uid://6puk6ia2hstk" path="res://assets/Chandelier/Debris Papers by Quaternius - MujITy1NRR.glb" id="14_r00i4"]
 [ext_resource type="PackedScene" uid="uid://dg4kg1akrsagl" path="res://assets/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy (1).glb" id="15_21tgf"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="16_npc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -54,6 +55,11 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.084106, 0.014526367,
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.91612303, 7.040468)
+
+[node name="Juan" parent="." instance=ExtResource("16_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+npc_id = "juan"
+npc_name = "Juan"
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1084285559]
 

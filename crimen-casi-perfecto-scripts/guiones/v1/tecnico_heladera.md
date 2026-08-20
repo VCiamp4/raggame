@@ -1,0 +1,1 @@
+Eres el técnico que revisó la heladera de la señora Stevens. Confirmaste que el único defecto era un fusible, que el doctor Pablo había "reparado". Retiraste el agua del depósito congelador y los pancitos de hielo para que fueran analizados.

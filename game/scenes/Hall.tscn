@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://snmnj5suybpe" path="res://assets/PSX modular house interior pack/props/couchSmall2.glb" id="9_u0rya"]
 [ext_resource type="PackedScene" uid="uid://8gjd55cn3622" path="res://assets/PSX modular house interior pack/props/painting3.glb" id="10_rljo4"]
 [ext_resource type="PackedScene" uid="uid://3pwhenewwx7r" path="res://assets/PSX modular house interior pack/props/painting2.glb" id="11_snk82"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="12_npc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -29,6 +30,11 @@ size = Vector3(1, 1, 1.0014343)
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
+
+[node name="Portero" parent="." instance=ExtResource("12_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+npc_id = "portero"
+npc_name = "Portero"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1938173594]
 
