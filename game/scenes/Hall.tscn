@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://snmnj5suybpe" path="res://assets/PSX modular house interior pack/props/couchSmall2.glb" id="9_u0rya"]
 [ext_resource type="PackedScene" uid="uid://8gjd55cn3622" path="res://assets/PSX modular house interior pack/props/painting3.glb" id="10_rljo4"]
 [ext_resource type="PackedScene" uid="uid://3pwhenewwx7r" path="res://assets/PSX modular house interior pack/props/painting2.glb" id="11_snk82"]
+[ext_resource type="PackedScene" uid="uid://bq7estbn2k1dm" path="res://scenes/npcs/esteban.tscn" id="12_esteban"]
+[ext_resource type="PackedScene" uid="uid://c3ju4nnpc8v2h" path="res://scenes/npcs/juan.tscn" id="13_juan"]
+[ext_resource type="PackedScene" uid="uid://d5cr1ad9p2mw" path="res://scenes/npcs/criada.tscn" id="14_criada"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -132,3 +135,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9394407, 2.3819447, 0.7247
 
 [node name="painting22" parent="." unique_id=489157258 instance=ExtResource("11_snk82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.939439, 1.7118459, -0.56710994)
+
+[node name="Esteban" parent="." instance=ExtResource("12_esteban")]
+transform = Transform3D(-0.139, 0, -0.686, 0, 0.7, 0, 0.686, 0, -0.139, 2.9, 0, -0.6)
+
+[node name="Juan" parent="." instance=ExtResource("13_juan")]
+transform = Transform3D(0.639, 0, 0.56, 0, 0.85, 0, -0.56, 0, 0.639, -2.8, 0, -3.2)
+
+[node name="Criada" parent="." instance=ExtResource("14_criada")]
+transform = Transform3D(-0.572, 0, 0.239, 0, 0.62, 0, -0.239, 0, -0.572, -2.2, 0, 5.2)

@@ -2,6 +2,7 @@ extends Node3D
 
 @export var npc_id: String = "Aldric"
 @export var npc_name: String = "Aldric"
+@export var clothes_texture: Texture2D
 
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
@@ -22,6 +23,32 @@ func _ready() -> void:
 	add_to_group("npc")
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
+	if clothes_texture != null:
+		_apply_clothes_texture()
+
+
+func _apply_clothes_texture() -> void:
+	var mesh_instance := _find_mesh(self)
+	if mesh_instance == null or mesh_instance.mesh == null:
+		push_warning("NPC %s: no se encontró mesh para aplicar la textura" % npc_name)
+		return
+	var mat := mesh_instance.get_active_material(0)
+	if mat == null:
+		return
+	var dup: Material = mat.duplicate()
+	if dup is BaseMaterial3D:
+		dup.albedo_texture = clothes_texture
+	mesh_instance.set_surface_override_material(0, dup)
+
+
+func _find_mesh(node: Node) -> MeshInstance3D:
+	if node is MeshInstance3D and node.mesh != null:
+		return node
+	for child in node.get_children():
+		var result := _find_mesh(child)
+		if result != null:
+			return result
+	return null
 
 
 func _on_body_entered(body: Node3D) -> void:

@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://hohkpgq3rutr" path="res://assets/PSX modular house interior pack/props/vhs.glb" id="23_qvum2"]
 [ext_resource type="PackedScene" uid="uid://du1v2p3mddqjg" path="res://assets/PSX modular house interior pack/props/tableSmall2.glb" id="24_r6rif"]
 [ext_resource type="PackedScene" uid="uid://bmliqu88oojk4" path="res://assets/PSX modular house interior pack/props/tv.glb" id="25_w1w6v"]
+[ext_resource type="PackedScene" uid="uid://bf0r3ns3c5tqx" path="res://scenes/npcs/forense.tscn" id="26_forense"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -221,3 +222,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3
 
 [node name="tv2" parent="." unique_id=1051252886 instance=ExtResource("25_w1w6v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3162975, 0.6496923, 3.5399296)
+
+[node name="Forense" parent="." instance=ExtResource("26_forense")]
+transform = Transform3D(-0.096, 0, 0.693, 0, 0.7, 0, -0.693, 0, -0.096, -0.7, 0, -1.5)

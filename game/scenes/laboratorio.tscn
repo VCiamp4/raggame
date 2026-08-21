@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c1l4b0r4t0ry"]
+
+[ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_player"]
+[ext_resource type="Material" uid="uid://bba4042ksjqlh" path="res://assets/Tiles079_1K-JPG/Tiles079_1K-JPG.tres" id="2_tiles"]
+[ext_resource type="Material" uid="uid://ct3mua4fsmm4r" path="res://assets/PaintedBricks004_1K-JPG/PaintedBricks004_1K-JPG.tres" id="3_bricks"]
+[ext_resource type="PackedScene" uid="uid://dmx8nv1e2qpmd" path="res://assets/PSX modular house interior pack/props/table.glb" id="4_table"]
+[ext_resource type="PackedScene" uid="uid://s1iqruk26sxa" path="res://assets/PSX modular house interior pack/props/table2.glb" id="5_table2"]
+[ext_resource type="PackedScene" uid="uid://cgyx5hoym40op" path="res://assets/PSX modular house interior pack/props/shelves.glb" id="6_shelves"]
+[ext_resource type="PackedScene" uid="uid://bxvmsueobs5pe" path="res://assets/PSX modular house interior pack/props/chair2.glb" id="7_chair"]
+[ext_resource type="PackedScene" uid="uid://bvkj7ubd4sclf" path="res://assets/Elevator/Erlenmeyer flask.glb" id="8_flask"]
+[ext_resource type="PackedScene" uid="uid://8p4bl0l4b6s" path="res://scenes/npcs/pablo.tscn" id="9_pablo"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unit"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wall"]
+
+[node name="Laboratorio" type="Node3D" unique_id=777930317]
+
+[node name="CharacterBody3D" parent="." unique_id=1844253183 instance=ExtResource("1_player")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 3)
+
+[node name="Room" type="StaticBody3D" parent="." unique_id=1321609340]
+
+[node name="Floor" type="MeshInstance3D" parent="Room" unique_id=1080715522]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
+material_override = ExtResource("2_tiles")
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Room" unique_id=675941006]
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 8, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_unit")
+
+[node name="WallBack" type="MeshInstance3D" parent="Room" unique_id=1516765956]
+transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 1, 0, 1.5, -4)
+material_override = ExtResource("3_bricks")
+mesh = SubResource("QuadMesh_wall")
+
+[node name="WallBackCollision" type="CollisionShape3D" parent="Room" unique_id=1870213299]
+transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 0.2, 0, 1.5, -4)
+shape = SubResource("BoxShape3D_unit")
+
+[node name="WallFront" type="MeshInstance3D" parent="Room" unique_id=74805420]
+transform = Transform3D(-10, 0, 0, 0, 3, 0, 0, 0, -1, 0, 1.5, 4)
+material_override = ExtResource("3_bricks")
+mesh = SubResource("QuadMesh_wall")
+
+[node name="WallFrontCollision" type="CollisionShape3D" parent="Room" unique_id=1175200379]
+transform = Transform3D(10, 0, 0, 0, 3, 0, 0, 0, 0.2, 0, 1.5, 4)
+shape = SubResource("BoxShape3D_unit")
+
+[node name="WallLeft" type="MeshInstance3D" parent="Room" unique_id=1392365135]
+transform = Transform3D(0, 0, 1, 0, 3, 0, -8, 0, 0, -5, 1.5, 0)
+material_override = ExtResource("3_bricks")
+mesh = SubResource("QuadMesh_wall")
+
+[node name="WallLeftCollision" type="CollisionShape3D" parent="Room" unique_id=1193738862]
+transform = Transform3D(0.2, 0, 0, 0, 3, 0, 0, 0, 8, -5, 1.5, 0)
+shape = SubResource("BoxShape3D_unit")
+
+[node name="WallRight" type="MeshInstance3D" parent="Room" unique_id=418291365]
+transform = Transform3D(0, 0, -1, 0, 3, 0, 8, 0, 0, 5, 1.5, 0)
+material_override = ExtResource("3_bricks")
+mesh = SubResource("QuadMesh_wall")
+
+[node name="WallRightCollision" type="CollisionShape3D" parent="Room" unique_id=1196659058]
+transform = Transform3D(0.2, 0, 0, 0, 3, 0, 0, 0, 8, 5, 1.5, 0)
+shape = SubResource("BoxShape3D_unit")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1345887772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, -1.5)
+light_color = Color(0.8697346, 0.5939952, 0.4257063, 1)
+omni_range = 12.665853
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=917742568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 1.5)
+light_color = Color(0.8697346, 0.5939952, 0.4257063, 1)
+omni_range = 12.665853
+
+[node name="MesaIzquierda" parent="." unique_id=1503086990 instance=ExtResource("4_table")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.6)
+
+[node name="MesaDerecha" parent="." unique_id=692018541 instance=ExtResource("5_table2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.6)
+
+[node name="Flask1" parent="." unique_id=517182243 instance=ExtResource("8_flask")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.982762, 6.8460283, 4.0987997)
+
+[node name="Flask2" parent="." unique_id=1284054333 instance=ExtResource("8_flask")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.084906, 1.5918884, -9.443527)
+
+[node name="Estanteria1" parent="." unique_id=1483318278 instance=ExtResource("6_shelves")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0, -3.7)
+
+[node name="Estanteria2" parent="." unique_id=1668773430 instance=ExtResource("6_shelves")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, -3.7)
+
+[node name="Silla1" parent="." unique_id=594358978 instance=ExtResource("7_chair")]
+transform = Transform3D(-0.857, 0, 0.515, 0, 1, 0, -0.515, 0, -0.857, -1.5, 0, -1.6)
+
+[node name="Silla2" parent="." unique_id=1892685184 instance=ExtResource("7_chair")]
+transform = Transform3D(-0.801, 0, -0.599, 0, 1, 0, 0.599, 0, -0.801, 3.3, 0, -1.7)
+
+[node name="Pablo" parent="." unique_id=1945210146 instance=ExtResource("9_pablo")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -2.5, 0, -1.2)
