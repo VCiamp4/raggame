@@ -11,6 +11,5 @@ venv/
 # Ollama
 ollama_models/
 
-# Local runtime configuration and downloaded voices
+# Local runtime configuration
 .env
-backend/voices/

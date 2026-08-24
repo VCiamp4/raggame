@@ -1,0 +1,6748 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-23T18:36:49.355986+00:00",
+    "dataset": "/home/lukis/projects/raggame/backend/data/retrieval_benchmark_100.json",
+    "dataset_schema_version": 1,
+    "case_count": 100,
+    "corpus_variant": "atomic",
+    "corpus_chunk_count": 162,
+    "corpus_fingerprint": "5f656143bef898e2abb4978b76d6777674dba41309891b122e6a9a6bcdb10acc",
+    "models": [
+      "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0"
+    ],
+    "strategies": [
+      "production"
+    ],
+    "strategy_labels": {
+      "production": "Producción"
+    },
+    "index_paths": {
+      "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0": "backend/data/rag_index_atomic_embeddinggemma_two.sqlite3"
+    },
+    "embedding_base_url": "http://127.0.0.1:11434",
+    "dense_candidates": 8,
+    "support_chunks": 2,
+    "max_returned_chunks": 3,
+    "threshold_policy": "selected_chunk_raw_no_refill",
+    "chat_calls": 0,
+    "index_modes": {
+      "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0": {
+        "canonical_question_count": 162,
+        "second_canonical_enabled": true,
+        "second_canonical_count": 162,
+        "second_canonical_fingerprint": "c8657e166d461262e8ad87d28c17c5a2f63430538c45a97491717df0a48b385b",
+        "second_canonical_q1_weight": "0.75",
+        "second_canonical_q2_weight": "0.25",
+        "min_dense_similarity": 0.5
+      }
+    },
+    "report_strategy": "production"
+  },
+  "summaries": [
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "attempted": 100,
+      "errors": 0,
+      "exact_count": 23,
+      "exact_rate": 0.23,
+      "all_ideal_count": 63,
+      "all_ideal_rate": 0.63,
+      "strict_superset_count": 46,
+      "partial_count": 24,
+      "miss_count": 7,
+      "mean_correct": 1.19,
+      "mean_recall": 0.81833335,
+      "mean_precision": 0.59333328,
+      "mean_extras": 1.14,
+      "zero_gold_count": 12,
+      "zero_gold_exact_count": 6,
+      "zero_gold_abstention_rate": 0.5,
+      "latency_count": 100,
+      "mean_elapsed_ms": 157.77497,
+      "median_elapsed_ms": 157.0635,
+      "p95_elapsed_ms": 164.359,
+      "min_elapsed_ms": 149.128,
+      "max_elapsed_ms": 219.115
+    }
+  ],
+  "priority_comparisons": [],
+  "threshold_experiments": [
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "signal": "max(dense_similarity, canonical_similarity)",
+      "comparator": "<",
+      "threshold": 0.5,
+      "threshold_selection": "activo durante la corrida; validado en el benchmark editorial",
+      "baseline_summary": {
+        "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+        "strategy": "production",
+        "attempted": 100,
+        "errors": 0,
+        "exact_count": 23,
+        "exact_rate": 0.23,
+        "all_ideal_count": 63,
+        "all_ideal_rate": 0.63,
+        "strict_superset_count": 46,
+        "partial_count": 24,
+        "miss_count": 7,
+        "mean_correct": 1.19,
+        "mean_recall": 0.81833335,
+        "mean_precision": 0.59333328,
+        "mean_extras": 1.14,
+        "zero_gold_count": 12,
+        "zero_gold_exact_count": 6,
+        "zero_gold_abstention_rate": 0.5,
+        "latency_count": 100,
+        "mean_elapsed_ms": 157.77497,
+        "median_elapsed_ms": 157.0635,
+        "p95_elapsed_ms": 164.359,
+        "min_elapsed_ms": 149.128,
+        "max_elapsed_ms": 219.115
+      },
+      "threshold_summary": {
+        "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+        "strategy": "production",
+        "attempted": 100,
+        "errors": 0,
+        "exact_count": 23,
+        "exact_rate": 0.23,
+        "all_ideal_count": 63,
+        "all_ideal_rate": 0.63,
+        "strict_superset_count": 46,
+        "partial_count": 24,
+        "miss_count": 7,
+        "mean_correct": 1.19,
+        "mean_recall": 0.81833335,
+        "mean_precision": 0.59333328,
+        "mean_extras": 1.14,
+        "zero_gold_count": 12,
+        "zero_gold_exact_count": 6,
+        "zero_gold_abstention_rate": 0.5
+      },
+      "changed_case_ids": [],
+      "nonempty_changed_case_ids": [],
+      "abstained_case_ids": [
+        "POR-15",
+        "JUA-13",
+        "EST-13",
+        "PAB-13",
+        "QUI-14",
+        "TEC-13"
+      ],
+      "changed_count": 0,
+      "nonempty_changed_count": 0,
+      "zero_gold_count": 12,
+      "zero_gold_abstention_count": 6,
+      "new_positive_miss_count": 0,
+      "gate_applied_during_retrieval": true
+    }
+  ],
+  "records": [
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-01",
+      "npc_id": "criada",
+      "message": "¿Hace cuánto que trabajabas en la casa de la señora Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-01",
+        "SCN-01-AT-01",
+        "SCN-02-AT-14"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-01",
+          "dense_similarity": 0.645786,
+          "lexical_score": 0.047183,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-01",
+            "dense_similarity": 0.575442,
+            "lexical_score": 0.052844,
+            "fusion_score": 0.814076,
+            "canonical_similarity": 0.639581
+          },
+          {
+            "chunk_id": "SCN-02-AT-14",
+            "dense_similarity": 0.576453,
+            "lexical_score": 0.034081,
+            "fusion_score": 0.816747,
+            "canonical_similarity": 0.616157
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 160.78,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 165.982,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-01",
+          "SCN-01-AT-01",
+          "SCN-02-AT-14"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-02",
+      "npc_id": "criada",
+      "message": "¿Para vos qué lugar ocupaba Stevens dentro de la casa?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-02",
+        "SCN-01-AT-07",
+        "SCN-02-AT-16"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-02",
+          "dense_similarity": 0.512201,
+          "lexical_score": 0.024432,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-07",
+            "dense_similarity": 0.563051,
+            "lexical_score": 0.022072,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.580661
+          },
+          {
+            "chunk_id": "SCN-02-AT-16",
+            "dense_similarity": 0.539307,
+            "lexical_score": 0.022618,
+            "fusion_score": 0.915223,
+            "canonical_similarity": 0.667051
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 148.35,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 153.314,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-02",
+          "SCN-01-AT-07",
+          "SCN-02-AT-16"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-03",
+      "npc_id": "criada",
+      "message": "¿Qué era lo que la ponía tan furiosa con tu trabajo y cómo te trataba?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-03",
+        "SCN-02-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-04",
+        "SCN-02-AT-06",
+        "SCN-02-AT-07"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-04",
+          "dense_similarity": 0.585003,
+          "lexical_score": 4.068573,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.949529
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-06",
+            "dense_similarity": 0.461702,
+            "lexical_score": 0.0,
+            "fusion_score": 0.954053,
+            "canonical_similarity": 0.909514
+          },
+          {
+            "chunk_id": "SCN-02-AT-07",
+            "dense_similarity": 0.523079,
+            "lexical_score": 0.0,
+            "fusion_score": 0.888102,
+            "canonical_similarity": 0.852078
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 156.6,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 162.476,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-03",
+          "SCN-02-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-04",
+          "SCN-02-AT-06",
+          "SCN-02-AT-07"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-04",
+      "npc_id": "criada",
+      "message": "¿Los vecinos también hablaban de malos tratos? ¿Qué les hacía Stevens a los empleados?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-05",
+        "SCN-02-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-05",
+        "SCN-02-AT-06",
+        "SCN-02-AT-08"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-05",
+          "dense_similarity": 0.772019,
+          "lexical_score": 2.63258,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.990604
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-06",
+            "dense_similarity": 0.756739,
+            "lexical_score": 2.107452,
+            "fusion_score": 0.980734,
+            "canonical_similarity": 0.971662
+          },
+          {
+            "chunk_id": "SCN-02-AT-08",
+            "dense_similarity": 0.724211,
+            "lexical_score": 2.344944,
+            "fusion_score": 0.905111,
+            "canonical_similarity": 0.763757
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 153.03,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.188,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-05",
+          "SCN-02-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-05",
+          "SCN-02-AT-06",
+          "SCN-02-AT-08"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-05",
+      "npc_id": "criada",
+      "message": "¿Por qué aguantabas ese trato y te quedabas trabajando?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-07",
+        "SCN-02-AT-08"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-07",
+        "SCN-02-AT-15"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-07",
+          "dense_similarity": 0.520322,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-15",
+            "dense_similarity": 0.412486,
+            "lexical_score": 0.0,
+            "fusion_score": 0.634977,
+            "canonical_similarity": 0.657984
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 152.53,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.232,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-07",
+          "SCN-02-AT-08"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-07",
+          "SCN-02-AT-15"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.5,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-06",
+      "npc_id": "criada",
+      "message": "¿Quién armó el vaso de whisky que apareció junto al cuerpo?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-10"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-10",
+        "SCN-01-AT-10",
+        "SCN-02-AT-11"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-10",
+          "dense_similarity": 0.683296,
+          "lexical_score": 7.038329,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-10",
+            "dense_similarity": 0.53969,
+            "lexical_score": 6.079298,
+            "fusion_score": 0.677539,
+            "canonical_similarity": 0.5589
+          },
+          {
+            "chunk_id": "SCN-02-AT-11",
+            "dense_similarity": 0.58855,
+            "lexical_score": 3.01847,
+            "fusion_score": 0.787252,
+            "canonical_similarity": 0.649395
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 150.66,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 155.424,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-10"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-10",
+          "SCN-01-AT-10",
+          "SCN-02-AT-11"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-07",
+      "npc_id": "criada",
+      "message": "¿Le agregaste algo raro al whisky?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-11"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-11",
+        "SCN-02-AT-10"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-11",
+          "dense_similarity": 0.559376,
+          "lexical_score": 1.392053,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.903407
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-10",
+            "dense_similarity": 0.47677,
+            "lexical_score": 1.626417,
+            "fusion_score": 0.809056,
+            "canonical_similarity": 0.734144
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 152.02,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.64,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-11"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-11",
+          "SCN-02-AT-10"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-08",
+      "npc_id": "criada",
+      "message": "Después de la pelea, ¿por qué pidió whisky y qué escuchaste vos?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-12",
+        "SCN-02-AT-15"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-12"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-12",
+          "dense_similarity": 0.608967,
+          "lexical_score": 8.811634,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 35,
+        "embedding_ms": 149.38,
+        "fact_ids_to_record": [
+          "CL-CRI-03"
+        ]
+      },
+      "elapsed_ms": 154.581,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-12",
+          "SCN-02-AT-15"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-12"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-09",
+      "npc_id": "criada",
+      "message": "¿Dónde dejaste el vaso y sabías si Stevens llegó a tomarlo?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-13",
+        "SCN-02-AT-14"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-13",
+        "SCN-02-AT-02",
+        "SCN-03-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-13",
+          "dense_similarity": 0.513197,
+          "lexical_score": 1.486991,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.954509
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-02",
+            "dense_similarity": 0.447146,
+            "lexical_score": 0.024432,
+            "fusion_score": 0.945567,
+            "canonical_similarity": 0.902858
+          },
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.53907,
+            "lexical_score": 0.022072,
+            "fusion_score": 0.900304,
+            "canonical_similarity": 0.859909
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 155.16,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 159.969,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-13",
+          "SCN-02-AT-14"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-13",
+          "SCN-02-AT-02",
+          "SCN-03-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-10",
+      "npc_id": "criada",
+      "message": "¿Qué te pidió Stevens antes de las siete y a quién se lo encargaste?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-02-AT-16",
+        "SCN-02-AT-17"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-02-AT-16",
+        "SCN-02-AT-02",
+        "SCN-02-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-02-AT-16",
+          "dense_similarity": 0.709835,
+          "lexical_score": 9.750356,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-02-AT-02",
+            "dense_similarity": 0.45083,
+            "lexical_score": 0.024432,
+            "fusion_score": 0.636933,
+            "canonical_similarity": 0.651498
+          },
+          {
+            "chunk_id": "SCN-02-AT-05",
+            "dense_similarity": 0.463919,
+            "lexical_score": 0.022806,
+            "fusion_score": 0.575363,
+            "canonical_similarity": 0.592398
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 149.95,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 155.317,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-02-AT-16",
+          "SCN-02-AT-17"
+        ],
+        "returned_chunk_ids": [
+          "SCN-02-AT-16",
+          "SCN-02-AT-02",
+          "SCN-02-AT-05"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-11",
+      "npc_id": "criada",
+      "message": "¿Fuiste la última persona que vio con vida a la señora Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-04",
+        "SCN-01-AT-05",
+        "SCN-01-AT-14"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-04",
+          "dense_similarity": 0.717844,
+          "lexical_score": 12.493485,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.615891,
+            "lexical_score": 0.043304,
+            "fusion_score": 0.743384,
+            "canonical_similarity": 0.594
+          },
+          {
+            "chunk_id": "SCN-01-AT-14",
+            "dense_similarity": 0.555365,
+            "lexical_score": 0.037884,
+            "fusion_score": 0.722288,
+            "canonical_similarity": 0.725831
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 153.89,
+        "fact_ids_to_record": [
+          "CL-CRI-02"
+        ]
+      },
+      "elapsed_ms": 159.156,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-04",
+          "SCN-01-AT-05",
+          "SCN-01-AT-14"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-12",
+      "npc_id": "criada",
+      "message": "¿A qué hora dejó el portero el diario y después subió alguien al departamento?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-02",
+        "SCN-02-AT-16"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-01",
+          "dense_similarity": 0.705283,
+          "lexical_score": 7.784893,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.706799,
+            "lexical_score": 8.266913,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.716489
+          },
+          {
+            "chunk_id": "SCN-02-AT-16",
+            "dense_similarity": 0.623736,
+            "lexical_score": 2.316481,
+            "fusion_score": 0.827129,
+            "canonical_similarity": 0.246528
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 154.75,
+        "fact_ids_to_record": [
+          "CL-POR-01"
+        ]
+      },
+      "elapsed_ms": 159.987,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-02",
+          "SCN-02-AT-16"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-13",
+      "npc_id": "criada",
+      "message": "¿Stevens tomaba el whisky con hielo y de dónde salían esos cubos?",
+      "state": "ice_found",
+      "gold_chunk_ids": [
+        "SCN-10-AT-01",
+        "SCN-10-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-10-AT-02",
+        "SCN-10-AT-01",
+        "SCN-02-AT-14"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-10-AT-02",
+          "dense_similarity": 0.661787,
+          "lexical_score": 9.4582,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.965135
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-10-AT-01",
+            "dense_similarity": 0.792108,
+            "lexical_score": 14.432989,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.945962
+          },
+          {
+            "chunk_id": "SCN-02-AT-14",
+            "dense_similarity": 0.607296,
+            "lexical_score": 1.711294,
+            "fusion_score": 0.798637,
+            "canonical_similarity": 0.773475
+          }
+        ],
+        "available_count": 41,
+        "embedding_ms": 158.53,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 164.359,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-10-AT-01",
+          "SCN-10-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-10-AT-02",
+          "SCN-10-AT-01",
+          "SCN-02-AT-14"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-14",
+      "npc_id": "criada",
+      "message": "¿Qué problema tuvo la heladera y quién terminó arreglándola?",
+      "state": "ice_found",
+      "gold_chunk_ids": [
+        "SCN-10-AT-03",
+        "SCN-10-AT-05"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-10-AT-05",
+        "SCN-10-AT-04",
+        "SCN-10-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-10-AT-05",
+          "dense_similarity": 0.711097,
+          "lexical_score": 3.396425,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-10-AT-04",
+            "dense_similarity": 0.683284,
+            "lexical_score": 3.18424,
+            "fusion_score": 0.936016,
+            "canonical_similarity": 0.7984
+          },
+          {
+            "chunk_id": "SCN-10-AT-06",
+            "dense_similarity": 0.65668,
+            "lexical_score": 2.74815,
+            "fusion_score": 0.874813,
+            "canonical_similarity": 0.688926
+          }
+        ],
+        "available_count": 41,
+        "embedding_ms": 150.19,
+        "fact_ids_to_record": [
+          "CL-FRI-02"
+        ]
+      },
+      "elapsed_ms": 155.816,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-10-AT-03",
+          "SCN-10-AT-05"
+        ],
+        "returned_chunk_ids": [
+          "SCN-10-AT-05",
+          "SCN-10-AT-04",
+          "SCN-10-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "CRI-15",
+      "npc_id": "criada",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-04",
+        "SCN-01-AT-05",
+        "SCN-01-AT-07"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-04",
+          "dense_similarity": 0.573898,
+          "lexical_score": 0.021218,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.926535
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.579156,
+            "lexical_score": 0.024476,
+            "fusion_score": 0.947321,
+            "canonical_similarity": 0.774028
+          },
+          {
+            "chunk_id": "SCN-01-AT-07",
+            "dense_similarity": 0.596318,
+            "lexical_score": 0.022072,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.836597
+          }
+        ],
+        "available_count": 35,
+        "embedding_ms": 151.33,
+        "fact_ids_to_record": [
+          "CL-CRI-02"
+        ]
+      },
+      "elapsed_ms": 156.522,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-03-AT-04",
+          "SCN-01-AT-05",
+          "SCN-01-AT-07"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-01",
+      "npc_id": "portero",
+      "message": "¿Qué edad tenía la señora Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-01",
+        "SCN-01-AT-02",
+        "SCN-01-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-01",
+          "dense_similarity": 0.749408,
+          "lexical_score": 0.101144,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.933032
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-02",
+            "dense_similarity": 0.581031,
+            "lexical_score": 0.1026,
+            "fusion_score": 0.835881,
+            "canonical_similarity": 0.780764
+          },
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.597998,
+            "lexical_score": 0.103344,
+            "fusion_score": 0.779107,
+            "canonical_similarity": 0.728089
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 146.2,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 149.128,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-01",
+          "SCN-01-AT-02",
+          "SCN-01-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-02",
+      "npc_id": "portero",
+      "message": "¿Cómo describían los conocidos el carácter de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-05"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-05",
+        "SCN-01-AT-14",
+        "SCN-03-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-05",
+          "dense_similarity": 0.733535,
+          "lexical_score": 3.491852,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-14",
+            "dense_similarity": 0.507256,
+            "lexical_score": 0.04522,
+            "fusion_score": 0.546351,
+            "canonical_similarity": 0.558782
+          },
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.486679,
+            "lexical_score": 0.042353,
+            "fusion_score": 0.505098,
+            "canonical_similarity": 0.498834
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 154.97,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 157.87,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-05"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-05",
+          "SCN-01-AT-14",
+          "SCN-03-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-03",
+      "npc_id": "portero",
+      "message": "¿Quiénes la encontraron, dónde estaba y había señales de entrada forzada?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-07",
+        "SCN-01-AT-08",
+        "SCN-01-AT-09"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-09",
+        "SCN-01-AT-07"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-09",
+          "dense_similarity": 0.57661,
+          "lexical_score": 12.604008,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-07",
+            "dense_similarity": 0.474597,
+            "lexical_score": 3.410303,
+            "fusion_score": 0.66819,
+            "canonical_similarity": 0.670151
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.3,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.087,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-07",
+          "SCN-01-AT-08",
+          "SCN-01-AT-09"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-09",
+          "SCN-01-AT-07"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.666667,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-04",
+      "npc_id": "portero",
+      "message": "¿Cómo estaba asegurada la puerta desde adentro?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-08"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-08",
+        "SCN-01-AT-09",
+        "SCN-01-AT-13"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-08",
+          "dense_similarity": 0.672688,
+          "lexical_score": 10.421556,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-09",
+            "dense_similarity": 0.523589,
+            "lexical_score": 0.452999,
+            "fusion_score": 0.645336,
+            "canonical_similarity": 0.511532
+          },
+          {
+            "chunk_id": "SCN-01-AT-13",
+            "dense_similarity": 0.493106,
+            "lexical_score": 0.484384,
+            "fusion_score": 0.572826,
+            "canonical_similarity": 0.491867
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 152.36,
+        "fact_ids_to_record": [
+          "CL-CASE-01"
+        ]
+      },
+      "elapsed_ms": 155.196,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-08"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-08",
+          "SCN-01-AT-09",
+          "SCN-01-AT-13"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-05",
+      "npc_id": "portero",
+      "message": "¿Había alguna marca de que alguien hubiera forzado la entrada?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-09"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-09",
+        "SCN-01-AT-12"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-09",
+          "dense_similarity": 0.616729,
+          "lexical_score": 5.70663,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-12",
+            "dense_similarity": 0.468196,
+            "lexical_score": 1.791207,
+            "fusion_score": 0.589978,
+            "canonical_similarity": 0.354664
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.66,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.47,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-09"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-09",
+          "SCN-01-AT-12"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-06",
+      "npc_id": "portero",
+      "message": "¿Qué había cerca del cuerpo: un diario, un vaso, o las dos cosas?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-10",
+        "SCN-01-AT-11"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-11",
+        "SCN-01-AT-10",
+        "SCN-01-AT-12"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-11",
+          "dense_similarity": 0.66626,
+          "lexical_score": 7.394815,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.920954
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-10",
+            "dense_similarity": 0.645945,
+            "lexical_score": 3.138612,
+            "fusion_score": 0.972553,
+            "canonical_similarity": 0.895878
+          },
+          {
+            "chunk_id": "SCN-01-AT-12",
+            "dense_similarity": 0.561675,
+            "lexical_score": 3.03393,
+            "fusion_score": 0.690492,
+            "canonical_similarity": 0.259073
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 156.45,
+        "fact_ids_to_record": [
+          "CL-CASE-02"
+        ]
+      },
+      "elapsed_ms": 159.416,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-10",
+          "SCN-01-AT-11"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-11",
+          "SCN-01-AT-10",
+          "SCN-01-AT-12"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-07",
+      "npc_id": "portero",
+      "message": "¿Había señales de lucha o faltaba dinero, y las ventanas estaban abiertas?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-12",
+        "SCN-01-AT-13"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-13",
+        "SCN-01-AT-12",
+        "SCN-01-AT-09"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-13",
+          "dense_similarity": 0.530062,
+          "lexical_score": 8.032073,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-12",
+            "dense_similarity": 0.625246,
+            "lexical_score": 15.727197,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.799868
+          },
+          {
+            "chunk_id": "SCN-01-AT-09",
+            "dense_similarity": 0.480777,
+            "lexical_score": 4.935169,
+            "fusion_score": 0.573004,
+            "canonical_similarity": 0.59249
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.36,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.315,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-12",
+          "SCN-01-AT-13"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-13",
+          "SCN-01-AT-12",
+          "SCN-01-AT-09"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-08",
+      "npc_id": "portero",
+      "message": "¿Todo indicaba que Stevens estaba sola cuando murió?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-14"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-14",
+        "SCN-01-AT-06",
+        "SCN-01-AT-07"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-14",
+          "dense_similarity": 0.752041,
+          "lexical_score": 10.853744,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-06",
+            "dense_similarity": 0.615144,
+            "lexical_score": 3.044749,
+            "fusion_score": 0.759278,
+            "canonical_similarity": 0.763144
+          },
+          {
+            "chunk_id": "SCN-01-AT-07",
+            "dense_similarity": 0.644121,
+            "lexical_score": 0.780986,
+            "fusion_score": 0.758765,
+            "canonical_similarity": 0.602988
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 155.58,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.587,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-14"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-14",
+          "SCN-01-AT-06",
+          "SCN-01-AT-07"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-09",
+      "npc_id": "portero",
+      "message": "¿A qué hora dejaste el diario y dónde lo dejaste exactamente?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-01",
+          "dense_similarity": 0.60159,
+          "lexical_score": 1.752255,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.577537,
+            "lexical_score": 1.885048,
+            "fusion_score": 0.936195,
+            "canonical_similarity": 0.589008
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.8,
+        "fact_ids_to_record": [
+          "CL-POR-01"
+        ]
+      },
+      "elapsed_ms": 154.478,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-10",
+      "npc_id": "portero",
+      "message": "Cuando dejaste el diario, ¿llegaste a ver a Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-02",
+        "SCN-01-AT-05",
+        "SCN-01-AT-14"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-02",
+          "dense_similarity": 0.662605,
+          "lexical_score": 4.01506,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.475475,
+            "lexical_score": 0.046909,
+            "fusion_score": 0.663828,
+            "canonical_similarity": 0.672496
+          },
+          {
+            "chunk_id": "SCN-01-AT-14",
+            "dense_similarity": 0.510045,
+            "lexical_score": 0.477226,
+            "fusion_score": 0.639388,
+            "canonical_similarity": 0.648687
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 155.46,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.401,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-02",
+          "SCN-01-AT-05",
+          "SCN-01-AT-14"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-11",
+      "npc_id": "portero",
+      "message": "¿Subió alguien a visitarla después de las 19:10?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-03",
+        "SCN-01-AT-09",
+        "SCN-03-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-03",
+          "dense_similarity": 0.643698,
+          "lexical_score": 6.432523,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.962247
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-09",
+            "dense_similarity": 0.375236,
+            "lexical_score": 0.0,
+            "fusion_score": 0.575246,
+            "canonical_similarity": 0.564822
+          },
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.522707,
+            "lexical_score": 0.0,
+            "fusion_score": 0.672258,
+            "canonical_similarity": 0.299893
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.25,
+        "fact_ids_to_record": [
+          "CL-POR-02"
+        ]
+      },
+      "elapsed_ms": 154.158,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-03",
+          "SCN-01-AT-09",
+          "SCN-03-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-12",
+      "npc_id": "portero",
+      "message": "¿Quién fue la última persona que vio viva a la señora Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-04",
+        "SCN-01-AT-02",
+        "SCN-01-AT-14"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-04",
+          "dense_similarity": 0.709064,
+          "lexical_score": 11.646869,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-02",
+            "dense_similarity": 0.603251,
+            "lexical_score": 0.1026,
+            "fusion_score": 0.731231,
+            "canonical_similarity": 0.727146
+          },
+          {
+            "chunk_id": "SCN-01-AT-14",
+            "dense_similarity": 0.552692,
+            "lexical_score": 0.072735,
+            "fusion_score": 0.707724,
+            "canonical_similarity": 0.707724
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 156.07,
+        "fact_ids_to_record": [
+          "CL-CRI-02"
+        ]
+      },
+      "elapsed_ms": 159.218,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-04",
+          "SCN-01-AT-02",
+          "SCN-01-AT-14"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-13",
+      "npc_id": "portero",
+      "message": "¿A qué hora dejaste el diario y quién no llegó a ver a la víctima?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-01",
+        "SCN-03-AT-02",
+        "SCN-01-AT-10"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-01",
+          "dense_similarity": 0.567296,
+          "lexical_score": 1.752255,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.594986,
+            "lexical_score": 5.295351,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.682007
+          },
+          {
+            "chunk_id": "SCN-01-AT-10",
+            "dense_similarity": 0.51236,
+            "lexical_score": 0.592176,
+            "fusion_score": 0.697524,
+            "canonical_similarity": 0.387668
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.84,
+        "fact_ids_to_record": [
+          "CL-POR-01"
+        ]
+      },
+      "elapsed_ms": 154.597,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-02",
+          "SCN-01-AT-10"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-14",
+      "npc_id": "portero",
+      "message": "¿Quién entró al departamento después de las 19:10?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-03-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-03-AT-03",
+        "SCN-01-AT-09",
+        "SCN-03-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-03-AT-03",
+          "dense_similarity": 0.579997,
+          "lexical_score": 3.571451,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.959949
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-09",
+            "dense_similarity": 0.451819,
+            "lexical_score": 0.452999,
+            "fusion_score": 0.603274,
+            "canonical_similarity": 0.5974
+          },
+          {
+            "chunk_id": "SCN-03-AT-02",
+            "dense_similarity": 0.510049,
+            "lexical_score": 0.38449,
+            "fusion_score": 0.774846,
+            "canonical_similarity": 0.260859
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 155.24,
+        "fact_ids_to_record": [
+          "CL-POR-02"
+        ]
+      },
+      "elapsed_ms": 158.049,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-03-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-03-AT-03",
+          "SCN-01-AT-09",
+          "SCN-03-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "POR-15",
+      "npc_id": "portero",
+      "message": "¿Podés decirme quién la asesinó?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 18,
+        "embedding_ms": 149.49,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 152.693,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-01",
+      "npc_id": "juan",
+      "message": "¿Por qué delito relacionado con drogas terminaste preso?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-01",
+        "SCN-04-AT-02",
+        "SCN-04-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-01",
+          "dense_similarity": 0.627997,
+          "lexical_score": 1.188956,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.959374
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-02",
+            "dense_similarity": 0.58922,
+            "lexical_score": 1.123821,
+            "fusion_score": 0.897531,
+            "canonical_similarity": 0.69504
+          },
+          {
+            "chunk_id": "SCN-04-AT-03",
+            "dense_similarity": 0.579918,
+            "lexical_score": 1.171974,
+            "fusion_score": 0.872953,
+            "canonical_similarity": 0.541456
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 153.11,
+        "fact_ids_to_record": [
+          "CL-JUA-01"
+        ]
+      },
+      "elapsed_ms": 156.41,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-01",
+          "SCN-04-AT-02",
+          "SCN-04-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-02",
+      "npc_id": "juan",
+      "message": "¿Qué otros delitos figuraban en tus antecedentes y a qué te dedicaste al salir?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-02",
+        "SCN-04-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-02",
+        "SCN-04-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-02",
+          "dense_similarity": 0.510035,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-03",
+            "dense_similarity": 0.522993,
+            "lexical_score": 0.0,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.728088
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 150.21,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 153.37,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-02",
+          "SCN-04-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-02",
+          "SCN-04-AT-03"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-03",
+      "npc_id": "juan",
+      "message": "¿Querías a tu hermana, te afectó su muerte o incluso te alegró?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-04",
+        "SCN-04-AT-05",
+        "SCN-04-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-04",
+        "SCN-04-AT-05",
+        "SCN-04-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-04",
+          "dense_similarity": 0.608677,
+          "lexical_score": 4.975685,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.981174
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-05",
+            "dense_similarity": 0.642335,
+            "lexical_score": 5.268202,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.859908
+          },
+          {
+            "chunk_id": "SCN-04-AT-06",
+            "dense_similarity": 0.628081,
+            "lexical_score": 5.50251,
+            "fusion_score": 0.9688,
+            "canonical_similarity": 0.898692
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 157.35,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 160.993,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-04",
+          "SCN-04-AT-05",
+          "SCN-04-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-04",
+          "SCN-04-AT-05",
+          "SCN-04-AT-06"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 3,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          3,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-04",
+      "npc_id": "juan",
+      "message": "¿Por qué creías que Stevens había hecho descubrir tus negocios y tenías pruebas de eso?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-07",
+        "SCN-04-AT-08"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-07",
+        "SCN-01-AT-03",
+        "SCN-04-AT-08"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-07",
+          "dense_similarity": 0.642508,
+          "lexical_score": 5.888108,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.939363
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.436081,
+            "lexical_score": 0.233999,
+            "fusion_score": 0.772288,
+            "canonical_similarity": 0.728777
+          },
+          {
+            "chunk_id": "SCN-04-AT-08",
+            "dense_similarity": 0.546135,
+            "lexical_score": 4.007542,
+            "fusion_score": 0.913492,
+            "canonical_similarity": 0.859361
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 151.68,
+        "fact_ids_to_record": [
+          "CL-JUA-02"
+        ]
+      },
+      "elapsed_ms": 155.196,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-07",
+          "SCN-04-AT-08"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-07",
+          "SCN-01-AT-03",
+          "SCN-04-AT-08"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-05",
+      "npc_id": "juan",
+      "message": "¿Qué resentimiento le tenías a Stevens y con qué seguridad lo contabas?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-07",
+        "SCN-04-AT-09"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-09",
+        "SCN-01-AT-05",
+        "SCN-04-AT-15"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-09",
+          "dense_similarity": 0.43678,
+          "lexical_score": 7.734708,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.595373,
+            "lexical_score": 0.212556,
+            "fusion_score": 0.96498,
+            "canonical_similarity": 0.912623
+          },
+          {
+            "chunk_id": "SCN-04-AT-15",
+            "dense_similarity": 0.608916,
+            "lexical_score": 0.189011,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.562291
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 154.9,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.387,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-07",
+          "SCN-04-AT-09"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-09",
+          "SCN-01-AT-05",
+          "SCN-04-AT-15"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-06",
+      "npc_id": "juan",
+      "message": "¿Qué dinero podías ganar con la muerte de tu hermana y te atraía cobrarlo?",
+      "state": "policy",
+      "gold_chunk_ids": [
+        "SCN-04-AT-10",
+        "SCN-04-AT-11"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-11",
+        "SCN-04-AT-06",
+        "SCN-04-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-11",
+          "dense_similarity": 0.588023,
+          "lexical_score": 3.858533,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.902612
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-06",
+            "dense_similarity": 0.538991,
+            "lexical_score": 5.085291,
+            "fusion_score": 0.864225,
+            "canonical_similarity": 0.690533
+          },
+          {
+            "chunk_id": "SCN-04-AT-04",
+            "dense_similarity": 0.530894,
+            "lexical_score": 4.694609,
+            "fusion_score": 0.841804,
+            "canonical_similarity": 0.67419
+          }
+        ],
+        "available_count": 23,
+        "embedding_ms": 154.46,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.017,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-10",
+          "SCN-04-AT-11"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-11",
+          "SCN-04-AT-06",
+          "SCN-04-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-07",
+      "npc_id": "juan",
+      "message": "¿Dónde estuviste entre las cinco y la medianoche, según la policía?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-12",
+        "SCN-04-AT-13"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-12",
+        "SCN-04-AT-13"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-12",
+          "dense_similarity": 0.64967,
+          "lexical_score": 6.312859,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-13",
+            "dense_similarity": 0.582322,
+            "lexical_score": 5.811546,
+            "fusion_score": 0.853558,
+            "canonical_similarity": 0.512978
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 156.96,
+        "fact_ids_to_record": [
+          "CL-JUA-03"
+        ]
+      },
+      "elapsed_ms": 160.458,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-12",
+          "SCN-04-AT-13"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-12",
+          "SCN-04-AT-13"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-08",
+      "npc_id": "juan",
+      "message": "¿Qué pasó con Esteban en el almuerzo cuando se enteró del cambio de herencia?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-14",
+        "SCN-04-AT-15",
+        "SCN-04-AT-16"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-14",
+        "SCN-04-AT-16",
+        "SCN-04-AT-15"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-14",
+          "dense_similarity": 0.599243,
+          "lexical_score": 5.11707,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.973539
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-16",
+            "dense_similarity": 0.630959,
+            "lexical_score": 7.530383,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.847876
+          },
+          {
+            "chunk_id": "SCN-04-AT-15",
+            "dense_similarity": 0.612823,
+            "lexical_score": 3.910366,
+            "fusion_score": 0.979639,
+            "canonical_similarity": 0.953717
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 156.17,
+        "fact_ids_to_record": [
+          "CL-EST-01"
+        ]
+      },
+      "elapsed_ms": 159.562,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-14",
+          "SCN-04-AT-15",
+          "SCN-04-AT-16"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-14",
+          "SCN-04-AT-16",
+          "SCN-04-AT-15"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 3,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          3,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-09",
+      "npc_id": "juan",
+      "message": "¿Te importaba cobrar una parte menor de la herencia?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-17"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-17"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-17",
+          "dense_similarity": 0.467152,
+          "lexical_score": 3.477962,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 21,
+        "embedding_ms": 155.39,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.814,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-17"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-17"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-10",
+      "npc_id": "juan",
+      "message": "¿De verdad te alegró que muriera tu hermana?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-06",
+        "SCN-04-AT-05",
+        "SCN-04-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-06",
+          "dense_similarity": 0.698027,
+          "lexical_score": 2.751255,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-05",
+            "dense_similarity": 0.649823,
+            "lexical_score": 2.634101,
+            "fusion_score": 0.903232,
+            "canonical_similarity": 0.738571
+          },
+          {
+            "chunk_id": "SCN-04-AT-04",
+            "dense_similarity": 0.640923,
+            "lexical_score": 2.879315,
+            "fusion_score": 0.885366,
+            "canonical_similarity": 0.735264
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 148.15,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 151.629,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-06",
+          "SCN-04-AT-05",
+          "SCN-04-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-11",
+      "npc_id": "juan",
+      "message": "¿A qué te vinculaste después de recuperar la libertad?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-03",
+          "dense_similarity": 0.616906,
+          "lexical_score": 11.18734,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 21,
+        "embedding_ms": 155.54,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.849,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-03"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-12",
+      "npc_id": "juan",
+      "message": "¿Qué antecedentes tenías por drogas y violencia?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-04-AT-01",
+        "SCN-04-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-04-AT-02",
+        "SCN-04-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-04-AT-02",
+          "dense_similarity": 0.627169,
+          "lexical_score": 3.599776,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-03",
+            "dense_similarity": 0.560879,
+            "lexical_score": 2.93899,
+            "fusion_score": 0.832089,
+            "canonical_similarity": 0.478358
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 149.54,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 153.04,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-04-AT-01",
+          "SCN-04-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-04-AT-02",
+          "SCN-04-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.5,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-13",
+      "npc_id": "juan",
+      "message": "¿Qué cianuro había en los reactivos de Erpa?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 21,
+        "embedding_ms": 153.67,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 155.736,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "JUA-14",
+      "npc_id": "juan",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-04-AT-09",
+        "SCN-01-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.550695,
+          "lexical_score": 0.224301,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.989056
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-04-AT-09",
+            "dense_similarity": 0.275747,
+            "lexical_score": 0.119361,
+            "fusion_score": 0.834723,
+            "canonical_similarity": 0.825594
+          },
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.579156,
+            "lexical_score": 0.212556,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.940972
+          }
+        ],
+        "available_count": 21,
+        "embedding_ms": 153.59,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.972,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-04-AT-09",
+          "SCN-01-AT-05"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-01",
+      "npc_id": "esteban",
+      "message": "¿A qué te dedicabas profesionalmente?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-05-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-05-AT-01"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-05-AT-01",
+          "dense_similarity": 0.406316,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 12,
+        "embedding_ms": 155.29,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 157.493,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-05-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-05-AT-01"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-02",
+      "npc_id": "esteban",
+      "message": "¿Qué trámite de seguro habías gestionado para Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-05-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-05-AT-02",
+        "SCN-01-AT-03",
+        "SCN-05-AT-01"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-05-AT-02",
+          "dense_similarity": 0.717822,
+          "lexical_score": 4.379526,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.519465,
+            "lexical_score": 0.406387,
+            "fusion_score": 0.475018,
+            "canonical_similarity": 0.503186
+          },
+          {
+            "chunk_id": "SCN-05-AT-01",
+            "dense_similarity": 0.593127,
+            "lexical_score": 1.412639,
+            "fusion_score": 0.571681,
+            "canonical_similarity": 0.217949
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 151.52,
+        "fact_ids_to_record": [
+          "CL-POL-01"
+        ]
+      },
+      "elapsed_ms": 153.897,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-05-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-05-AT-02",
+          "SCN-01-AT-03",
+          "SCN-05-AT-01"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-03",
+      "npc_id": "esteban",
+      "message": "¿Quiénes figuraban como beneficiarios de la póliza?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-05-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-05-AT-03",
+        "SCN-05-AT-01"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-05-AT-03",
+          "dense_similarity": 0.70331,
+          "lexical_score": 6.217263,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-05-AT-01",
+            "dense_similarity": 0.538078,
+            "lexical_score": 2.805292,
+            "fusion_score": 0.611794,
+            "canonical_similarity": 0.058667
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 157.02,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 159.419,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-05-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-05-AT-03",
+          "SCN-05-AT-01"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-04",
+      "npc_id": "esteban",
+      "message": "¿Cómo describís la discusión sobre dinero y reconocés que fue fuerte?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-05-AT-04",
+        "SCN-07-AT-05"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-05-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-05-AT-04",
+          "dense_similarity": 0.525715,
+          "lexical_score": 7.672405,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 23,
+        "embedding_ms": 155.66,
+        "fact_ids_to_record": [
+          "CL-EST-02"
+        ]
+      },
+      "elapsed_ms": 159.496,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-05-AT-04",
+          "SCN-07-AT-05"
+        ],
+        "returned_chunk_ids": [
+          "SCN-05-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-05",
+      "npc_id": "esteban",
+      "message": "¿Dónde estabas desde las seis y qué impedía que volvieras en secreto?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-05-AT-05",
+        "SCN-05-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-05-AT-05",
+        "SCN-05-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-05-AT-05",
+          "dense_similarity": 0.455648,
+          "lexical_score": 4.158577,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.935574
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-05-AT-06",
+            "dense_similarity": 0.517701,
+            "lexical_score": 4.65948,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.865001
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 159.59,
+        "fact_ids_to_record": [
+          "CL-EST-05"
+        ]
+      },
+      "elapsed_ms": 161.934,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-05-AT-05",
+          "SCN-05-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-05-AT-05",
+          "SCN-05-AT-06"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-06",
+      "npc_id": "esteban",
+      "message": "¿Dónde apareció guardada la póliza actualizada?",
+      "state": "policy",
+      "gold_chunk_ids": [
+        "SCN-07-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-01",
+        "SCN-05-AT-03",
+        "SCN-07-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-01",
+          "dense_similarity": 0.665621,
+          "lexical_score": 4.246594,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-05-AT-03",
+            "dense_similarity": 0.445969,
+            "lexical_score": 1.151474,
+            "fusion_score": 0.569669,
+            "canonical_similarity": 0.569669
+          },
+          {
+            "chunk_id": "SCN-07-AT-02",
+            "dense_similarity": 0.496928,
+            "lexical_score": 1.112728,
+            "fusion_score": 0.625914,
+            "canonical_similarity": 0.480796
+          }
+        ],
+        "available_count": 16,
+        "embedding_ms": 147.51,
+        "fact_ids_to_record": [
+          "CL-POL-02"
+        ]
+      },
+      "elapsed_ms": 150.328,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-01",
+          "SCN-05-AT-03",
+          "SCN-07-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-07",
+      "npc_id": "esteban",
+      "message": "¿Cómo se repartía el beneficio nuevo entre Pablo, Juan y vos?",
+      "state": "policy",
+      "gold_chunk_ids": [
+        "SCN-07-AT-02",
+        "SCN-07-AT-03",
+        "SCN-07-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-02",
+        "SCN-07-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-02",
+          "dense_similarity": 0.577458,
+          "lexical_score": 3.571124,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-07-AT-03",
+            "dense_similarity": 0.559492,
+            "lexical_score": 3.571124,
+            "fusion_score": 0.949605,
+            "canonical_similarity": 0.70123
+          }
+        ],
+        "available_count": 16,
+        "embedding_ms": 155.99,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.801,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-02",
+          "SCN-07-AT-03",
+          "SCN-07-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-02",
+          "SCN-07-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.666667,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-08",
+      "npc_id": "esteban",
+      "message": "¿La pelea fue fuerte y qué reparto esperabas recibir?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-07-AT-05",
+        "SCN-07-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-06",
+          "dense_similarity": 0.605226,
+          "lexical_score": 6.065,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.966427
+        },
+        "support": [],
+        "available_count": 23,
+        "embedding_ms": 150.89,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.585,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-05",
+          "SCN-07-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-09",
+      "npc_id": "esteban",
+      "message": "¿A quién acusaste de manipular a Stevens para quedarse con el doble?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-07-AT-07"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-05",
+        "SCN-07-AT-07",
+        "SCN-05-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-05",
+          "dense_similarity": 0.495494,
+          "lexical_score": 0.447799,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.981393
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-07-AT-07",
+            "dense_similarity": 0.752937,
+            "lexical_score": 4.953694,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.871765
+          },
+          {
+            "chunk_id": "SCN-05-AT-02",
+            "dense_similarity": 0.53123,
+            "lexical_score": 0.427528,
+            "fusion_score": 0.987401,
+            "canonical_similarity": 0.969367
+          }
+        ],
+        "available_count": 23,
+        "embedding_ms": 154.38,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.1,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-07"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-05",
+          "SCN-07-AT-07",
+          "SCN-05-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-10",
+      "npc_id": "esteban",
+      "message": "¿Cómo te fuiste de la casa después de la discusión?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-07-AT-08"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-08"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-08",
+          "dense_similarity": 0.550448,
+          "lexical_score": 4.124999,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 23,
+        "embedding_ms": 150.52,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.043,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-08"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-08"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-11",
+      "npc_id": "esteban",
+      "message": "¿Qué motivo fuerte te daba la póliza y qué no explicaba sobre el crimen?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-07-AT-09",
+        "SCN-07-AT-10"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-10",
+        "SCN-07-AT-09",
+        "SCN-05-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-10",
+          "dense_similarity": 0.69653,
+          "lexical_score": 11.488973,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-07-AT-09",
+            "dense_similarity": 0.596915,
+            "lexical_score": 11.522313,
+            "fusion_score": 0.764889,
+            "canonical_similarity": 0.679343
+          },
+          {
+            "chunk_id": "SCN-05-AT-03",
+            "dense_similarity": 0.442987,
+            "lexical_score": 0.718145,
+            "fusion_score": 0.526516,
+            "canonical_similarity": 0.537213
+          }
+        ],
+        "available_count": 23,
+        "embedding_ms": 158.75,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 162.275,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-09",
+          "SCN-07-AT-10"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-10",
+          "SCN-07-AT-09",
+          "SCN-05-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-12",
+      "npc_id": "esteban",
+      "message": "¿Tu coartada en Lister seguía confirmada?",
+      "state": "policy_inspected",
+      "gold_chunk_ids": [
+        "SCN-07-AT-11"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-07-AT-11",
+        "SCN-05-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-07-AT-11",
+          "dense_similarity": 0.694398,
+          "lexical_score": 13.283245,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-05-AT-06",
+            "dense_similarity": 0.558307,
+            "lexical_score": 3.548514,
+            "fusion_score": 0.679803,
+            "canonical_similarity": 0.222196
+          }
+        ],
+        "available_count": 23,
+        "embedding_ms": 150.08,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 153.778,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-07-AT-11"
+        ],
+        "returned_chunk_ids": [
+          "SCN-07-AT-11",
+          "SCN-05-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-13",
+      "npc_id": "esteban",
+      "message": "¿Quién puso el veneno en el hielo?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 12,
+        "embedding_ms": 154.84,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.149,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "EST-14",
+      "npc_id": "esteban",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-01-AT-05",
+        "SCN-01-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.550695,
+          "lexical_score": 0.387824,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.985585
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.579156,
+            "lexical_score": 0.365559,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.924288
+          },
+          {
+            "chunk_id": "SCN-01-AT-02",
+            "dense_similarity": 0.535302,
+            "lexical_score": 0.403171,
+            "fusion_score": 0.859641,
+            "canonical_similarity": 0.847249
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 148.21,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 150.345,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-01-AT-05",
+          "SCN-01-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-01",
+      "npc_id": "pablo",
+      "message": "¿Qué profesión ejercías antes de que te inhabilitaran y por qué?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-01"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-01",
+          "dense_similarity": 0.56084,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 18,
+        "embedding_ms": 156.09,
+        "fact_ids_to_record": [
+          "CL-PAB-02"
+        ]
+      },
+      "elapsed_ms": 158.846,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-01"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-02",
+      "npc_id": "pablo",
+      "message": "¿Dónde trabajás y en qué sección de Erpa?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-02",
+        "SCN-06-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-03",
+        "SCN-06-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-03",
+          "dense_similarity": 0.610531,
+          "lexical_score": 5.486425,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-02",
+            "dense_similarity": 0.569268,
+            "lexical_score": 1.513612,
+            "fusion_score": 0.908316,
+            "canonical_similarity": 0.54269
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 150.7,
+        "fact_ids_to_record": [
+          "CL-PAB-03"
+        ]
+      },
+      "elapsed_ms": 153.662,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-02",
+          "SCN-06-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-03",
+          "SCN-06-AT-02"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-03",
+      "npc_id": "pablo",
+      "message": "¿Qué sustancias o reactivos podías manejar habitualmente en tu trabajo?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-03",
+        "SCN-06-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-04",
+          "dense_similarity": 0.549383,
+          "lexical_score": 2.244376,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 18,
+        "embedding_ms": 155.7,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.685,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-03",
+          "SCN-06-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-04",
+      "npc_id": "pablo",
+      "message": "¿Cómo te ayudaba Stevens económicamente y cómo conseguiste una parte mayor?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-05",
+        "SCN-06-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-05",
+        "SCN-01-AT-03",
+        "SCN-06-AT-08"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-05",
+          "dense_similarity": 0.687165,
+          "lexical_score": 11.458786,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.531004,
+            "lexical_score": 0.963926,
+            "fusion_score": 0.891197,
+            "canonical_similarity": 0.893896
+          },
+          {
+            "chunk_id": "SCN-06-AT-08",
+            "dense_similarity": 0.628389,
+            "lexical_score": 3.153535,
+            "fusion_score": 0.867337,
+            "canonical_similarity": 0.754247
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 152.91,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.277,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-05",
+          "SCN-06-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-05",
+          "SCN-01-AT-03",
+          "SCN-06-AT-08"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-05",
+      "npc_id": "pablo",
+      "message": "¿Negás haberla manipulado para obtener más dinero y decís que podía disponer libremente de su fortuna?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-06",
+        "SCN-06-AT-07",
+        "SCN-06-AT-08"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-08",
+        "SCN-06-AT-07"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-08",
+          "dense_similarity": 0.531176,
+          "lexical_score": 5.342355,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.968338
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-07",
+            "dense_similarity": 0.528017,
+            "lexical_score": 9.241875,
+            "fusion_score": 0.990357,
+            "canonical_similarity": 0.853082
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 156.47,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 159.504,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-06",
+          "SCN-06-AT-07",
+          "SCN-06-AT-08"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-08",
+          "SCN-06-AT-07"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.666667,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-06",
+      "npc_id": "pablo",
+      "message": "¿Por qué señalaste a Juan como posible responsable?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-09"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-09"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-09",
+          "dense_similarity": 0.589342,
+          "lexical_score": 1.276782,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 18,
+        "embedding_ms": 148.7,
+        "fact_ids_to_record": [
+          "CL-PAB-06"
+        ]
+      },
+      "elapsed_ms": 151.653,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-09"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-09"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-07",
+      "npc_id": "pablo",
+      "message": "¿Dónde estabas desde las seis y qué tenían en común las coartadas?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-10",
+        "SCN-06-AT-12"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-10",
+        "SCN-06-AT-12"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-10",
+          "dense_similarity": 0.535939,
+          "lexical_score": 4.960015,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.966671
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-12",
+            "dense_similarity": 0.510036,
+            "lexical_score": 4.901782,
+            "fusion_score": 0.954434,
+            "canonical_similarity": 0.923484
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 157.43,
+        "fact_ids_to_record": [
+          "CL-PAB-05"
+        ]
+      },
+      "elapsed_ms": 160.447,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-10",
+          "SCN-06-AT-12"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-10",
+          "SCN-06-AT-12"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-08",
+      "npc_id": "pablo",
+      "message": "¿Los tres hermanos tenían motivos y también coartadas para la hora de la muerte?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-06-AT-11",
+        "SCN-06-AT-12"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-06-AT-12",
+        "SCN-06-AT-11"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-06-AT-12",
+          "dense_similarity": 0.68283,
+          "lexical_score": 14.378175,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.972145
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-11",
+            "dense_similarity": 0.711962,
+            "lexical_score": 12.020315,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.964936
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 151.47,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.644,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-11",
+          "SCN-06-AT-12"
+        ],
+        "returned_chunk_ids": [
+          "SCN-06-AT-12",
+          "SCN-06-AT-11"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-09",
+      "npc_id": "pablo",
+      "message": "¿Qué admitiste haber hecho al reparar la heladera y qué pieza cambiaste?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-11-AT-01",
+        "SCN-11-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-11-AT-01",
+        "SCN-11-AT-12",
+        "SCN-11-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-11-AT-01",
+          "dense_similarity": 0.67113,
+          "lexical_score": 4.132696,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-11-AT-12",
+            "dense_similarity": 0.607907,
+            "lexical_score": 3.32582,
+            "fusion_score": 0.855189,
+            "canonical_similarity": 0.552761
+          },
+          {
+            "chunk_id": "SCN-11-AT-02",
+            "dense_similarity": 0.601741,
+            "lexical_score": 0.937456,
+            "fusion_score": 0.841065,
+            "canonical_similarity": 0.656693
+          }
+        ],
+        "available_count": 30,
+        "embedding_ms": 154.71,
+        "fact_ids_to_record": [
+          "CL-PAB-07"
+        ]
+      },
+      "elapsed_ms": 159.508,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-11-AT-01",
+          "SCN-11-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-11-AT-01",
+          "SCN-11-AT-12",
+          "SCN-11-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-10",
+      "npc_id": "pablo",
+      "message": "¿Qué negás haber tocado dentro de la heladera, en las cubeteras o en el agua?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-11-AT-03",
+        "SCN-11-AT-04",
+        "SCN-11-AT-12"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-11-AT-04",
+        "SCN-11-AT-08",
+        "SCN-11-AT-12"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-11-AT-04",
+          "dense_similarity": 0.537566,
+          "lexical_score": 10.648845,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.991609
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-11-AT-08",
+            "dense_similarity": 0.519877,
+            "lexical_score": 2.158171,
+            "fusion_score": 0.929551,
+            "canonical_similarity": 0.377913
+          },
+          {
+            "chunk_id": "SCN-11-AT-12",
+            "dense_similarity": 0.521587,
+            "lexical_score": 6.43248,
+            "fusion_score": 0.936362,
+            "canonical_similarity": 0.112257
+          }
+        ],
+        "available_count": 30,
+        "embedding_ms": 150.48,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 154.947,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-11-AT-03",
+          "SCN-11-AT-04",
+          "SCN-11-AT-12"
+        ],
+        "returned_chunk_ids": [
+          "SCN-11-AT-04",
+          "SCN-11-AT-08",
+          "SCN-11-AT-12"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.666667,
+        "precision": 0.666667,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-11",
+      "npc_id": "pablo",
+      "message": "¿Cómo reaccionaste al enterarte de que el veneno estaba en el hielo y negaste haber puesto cianuro?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-11-AT-05",
+        "SCN-11-AT-07"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-11-AT-05",
+        "SCN-11-AT-07",
+        "SCN-11-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-11-AT-05",
+          "dense_similarity": 0.67307,
+          "lexical_score": 12.013994,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-11-AT-07",
+            "dense_similarity": 0.603762,
+            "lexical_score": 12.99827,
+            "fusion_score": 0.836123,
+            "canonical_similarity": 0.628769
+          },
+          {
+            "chunk_id": "SCN-11-AT-06",
+            "dense_similarity": 0.554596,
+            "lexical_score": 4.051264,
+            "fusion_score": 0.719871,
+            "canonical_similarity": 0.145135
+          }
+        ],
+        "available_count": 30,
+        "embedding_ms": 159.18,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 163.711,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-11-AT-05",
+          "SCN-11-AT-07"
+        ],
+        "returned_chunk_ids": [
+          "SCN-11-AT-05",
+          "SCN-11-AT-07",
+          "SCN-11-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-12",
+      "npc_id": "pablo",
+      "message": "¿Qué reactivos manejabas en Erpa y qué decías de los demás empleados del laboratorio?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-06-AT-03",
+        "SCN-06-AT-04",
+        "SCN-11-AT-09"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-11-AT-09",
+        "SCN-06-AT-02",
+        "SCN-06-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-11-AT-09",
+          "dense_similarity": 0.693076,
+          "lexical_score": 6.25369,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.958323
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-02",
+            "dense_similarity": 0.628436,
+            "lexical_score": 7.020582,
+            "fusion_score": 0.869795,
+            "canonical_similarity": 0.551142
+          },
+          {
+            "chunk_id": "SCN-06-AT-04",
+            "dense_similarity": 0.532862,
+            "lexical_score": 3.548167,
+            "fusion_score": 0.727085,
+            "canonical_similarity": 0.702363
+          }
+        ],
+        "available_count": 30,
+        "embedding_ms": 153.1,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 157.448,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-06-AT-03",
+          "SCN-06-AT-04",
+          "SCN-11-AT-09"
+        ],
+        "returned_chunk_ids": [
+          "SCN-11-AT-09",
+          "SCN-06-AT-02",
+          "SCN-06-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.666667,
+        "precision": 0.666667,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-13",
+      "npc_id": "pablo",
+      "message": "¿Cuál era el reparto porcentual exacto de la póliza?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 18,
+        "embedding_ms": 154.42,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.327,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "PAB-14",
+      "npc_id": "pablo",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-06-AT-11",
+        "SCN-01-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.550695,
+          "lexical_score": 0.921767,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.985509
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-06-AT-11",
+            "dense_similarity": 0.345128,
+            "lexical_score": 0.0,
+            "fusion_score": 0.986587,
+            "canonical_similarity": 0.97229
+          },
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.579156,
+            "lexical_score": 0.870976,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.941634
+          }
+        ],
+        "available_count": 18,
+        "embedding_ms": 152.55,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.137,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-06-AT-11",
+          "SCN-01-AT-05"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-01",
+      "npc_id": "quimico",
+      "message": "¿La muerte fue natural o encontraste signos de intoxicación?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-15"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-15",
+        "SCN-01-AT-16"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-15",
+          "dense_similarity": 0.751172,
+          "lexical_score": 9.737184,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-16",
+            "dense_similarity": 0.591508,
+            "lexical_score": 4.434459,
+            "fusion_score": 0.652206,
+            "canonical_similarity": 0.633072
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 216.63,
+        "fact_ids_to_record": [
+          "CL-FOR-01"
+        ]
+      },
+      "elapsed_ms": 219.115,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-15"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-15",
+          "SCN-01-AT-16"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-02",
+      "npc_id": "quimico",
+      "message": "¿Ya podías identificar qué sustancia tóxica era?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-16"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-16",
+        "SCN-01-AT-17"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-16",
+          "dense_similarity": 0.692313,
+          "lexical_score": 9.001141,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-17",
+            "dense_similarity": 0.413773,
+            "lexical_score": 0.0,
+            "fusion_score": 0.449914,
+            "canonical_similarity": 0.454359
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 149.55,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 151.829,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-16"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-16",
+          "SCN-01-AT-17"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-03",
+      "npc_id": "quimico",
+      "message": "¿Qué líquidos y qué recipientes ibas a analizar?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-17",
+        "SCN-01-AT-18"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-17",
+        "SCN-01-AT-18",
+        "SCN-01-AT-19"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-17",
+          "dense_similarity": 0.600815,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-18",
+            "dense_similarity": 0.619754,
+            "lexical_score": 2.935971,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.783302
+          },
+          {
+            "chunk_id": "SCN-01-AT-19",
+            "dense_similarity": 0.519087,
+            "lexical_score": 0.0,
+            "fusion_score": 0.758933,
+            "canonical_similarity": 0.469272
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 155.69,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.063,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-17",
+          "SCN-01-AT-18"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-17",
+          "SCN-01-AT-18",
+          "SCN-01-AT-19"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-04",
+      "npc_id": "quimico",
+      "message": "¿Por qué tardaban los resultados y por qué no querías adelantar una conclusión?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-19",
+        "SCN-01-AT-20"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-19",
+        "SCN-01-AT-20"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-19",
+          "dense_similarity": 0.439031,
+          "lexical_score": 0.0,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-20",
+            "dense_similarity": 0.515793,
+            "lexical_score": 2.815108,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.669066
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 153.16,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 155.482,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-19",
+          "SCN-01-AT-20"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-19",
+          "SCN-01-AT-20"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-05",
+      "npc_id": "quimico",
+      "message": "¿Qué salió limpio en los análisis y seguía confirmada la intoxicación?",
+      "state": "poison_confirmed",
+      "gold_chunk_ids": [
+        "SCN-08-AT-01",
+        "SCN-08-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-08-AT-02",
+        "SCN-01-AT-15",
+        "SCN-08-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-08-AT-02",
+          "dense_similarity": 0.703299,
+          "lexical_score": 10.811956,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.964565
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-15",
+            "dense_similarity": 0.676064,
+            "lexical_score": 2.030665,
+            "fusion_score": 0.931997,
+            "canonical_similarity": 0.68116
+          },
+          {
+            "chunk_id": "SCN-08-AT-03",
+            "dense_similarity": 0.676576,
+            "lexical_score": 1.469318,
+            "fusion_score": 0.933275,
+            "canonical_similarity": 0.788767
+          }
+        ],
+        "available_count": 15,
+        "embedding_ms": 161.83,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 164.535,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-08-AT-01",
+          "SCN-08-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-08-AT-02",
+          "SCN-01-AT-15",
+          "SCN-08-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-06",
+      "npc_id": "quimico",
+      "message": "¿Se descartó que el tóxico estuviera en los líquidos analizados?",
+      "state": "poison_confirmed",
+      "gold_chunk_ids": [
+        "SCN-08-AT-01",
+        "SCN-08-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-08-AT-03",
+        "SCN-01-AT-17",
+        "SCN-01-AT-16"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-08-AT-03",
+          "dense_similarity": 0.714609,
+          "lexical_score": 8.720276,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.948792
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-17",
+            "dense_similarity": 0.492334,
+            "lexical_score": 0.0,
+            "fusion_score": 0.939855,
+            "canonical_similarity": 0.891727
+          },
+          {
+            "chunk_id": "SCN-01-AT-16",
+            "dense_similarity": 0.574666,
+            "lexical_score": 0.0,
+            "fusion_score": 0.82511,
+            "canonical_similarity": 0.782858
+          }
+        ],
+        "available_count": 15,
+        "embedding_ms": 155.46,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.106,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-08-AT-01",
+          "SCN-08-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-08-AT-03",
+          "SCN-01-AT-17",
+          "SCN-01-AT-16"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.333333,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-07",
+      "npc_id": "quimico",
+      "message": "¿Qué viste en el plato y por qué esa humedad hizo revisar otro ingrediente del whisky?",
+      "state": "liquids_cleared",
+      "gold_chunk_ids": [
+        "SCN-08-AT-04",
+        "SCN-08-AT-05"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-08-AT-05",
+        "SCN-08-AT-01",
+        "SCN-08-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-08-AT-05",
+          "dense_similarity": 0.790831,
+          "lexical_score": 12.51827,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-08-AT-01",
+            "dense_similarity": 0.554491,
+            "lexical_score": 0.699755,
+            "fusion_score": 0.57028,
+            "canonical_similarity": 0.332648
+          },
+          {
+            "chunk_id": "SCN-08-AT-04",
+            "dense_similarity": 0.590228,
+            "lexical_score": 6.124796,
+            "fusion_score": 0.635258,
+            "canonical_similarity": 0.538285
+          }
+        ],
+        "available_count": 19,
+        "embedding_ms": 155.15,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.429,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-08-AT-04",
+          "SCN-08-AT-05"
+        ],
+        "returned_chunk_ids": [
+          "SCN-08-AT-05",
+          "SCN-08-AT-01",
+          "SCN-08-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-08",
+      "npc_id": "quimico",
+      "message": "¿Qué muestra faltaba y qué te pidieron analizar al volver?",
+      "state": "liquids_cleared",
+      "gold_chunk_ids": [
+        "SCN-08-AT-06",
+        "SCN-08-AT-07"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-08-AT-06",
+        "SCN-08-AT-07",
+        "SCN-01-AT-19"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-08-AT-06",
+          "dense_similarity": 0.550128,
+          "lexical_score": 5.240239,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-08-AT-07",
+            "dense_similarity": 0.599298,
+            "lexical_score": 4.747096,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.749932
+          },
+          {
+            "chunk_id": "SCN-01-AT-19",
+            "dense_similarity": 0.411154,
+            "lexical_score": 0.0,
+            "fusion_score": 0.627489,
+            "canonical_similarity": 0.627489
+          }
+        ],
+        "available_count": 19,
+        "embedding_ms": 151.82,
+        "fact_ids_to_record": [
+          "CL-ICE-01"
+        ]
+      },
+      "elapsed_ms": 155.088,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-08-AT-06",
+          "SCN-08-AT-07"
+        ],
+        "returned_chunk_ids": [
+          "SCN-08-AT-06",
+          "SCN-08-AT-07",
+          "SCN-01-AT-19"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-09",
+      "npc_id": "quimico",
+      "message": "¿Qué encontraste finalmente en los cubos de hielo?",
+      "state": "ice_hypothesis",
+      "gold_chunk_ids": [
+        "SCN-09-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-09-AT-01",
+        "SCN-08-AT-07",
+        "SCN-08-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-09-AT-01",
+          "dense_similarity": 0.584092,
+          "lexical_score": 1.920798,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-08-AT-07",
+            "dense_similarity": 0.580789,
+            "lexical_score": 1.366349,
+            "fusion_score": 0.99044,
+            "canonical_similarity": 0.319612
+          },
+          {
+            "chunk_id": "SCN-08-AT-06",
+            "dense_similarity": 0.572462,
+            "lexical_score": 2.14585,
+            "fusion_score": 0.966344,
+            "canonical_similarity": 0.362332
+          }
+        ],
+        "available_count": 22,
+        "embedding_ms": 153.11,
+        "fact_ids_to_record": [
+          "CL-ICE-03"
+        ]
+      },
+      "elapsed_ms": 157.155,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-09-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-09-AT-01",
+          "SCN-08-AT-07",
+          "SCN-08-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-10",
+      "npc_id": "quimico",
+      "message": "¿Qué había en el hielo y por qué las botellas estaban limpias?",
+      "state": "ice_found",
+      "gold_chunk_ids": [
+        "SCN-09-AT-01",
+        "SCN-09-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-09-AT-01",
+        "SCN-09-AT-02",
+        "SCN-08-AT-01"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-09-AT-01",
+          "dense_similarity": 0.55748,
+          "lexical_score": 1.920798,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-09-AT-02",
+            "dense_similarity": 0.722803,
+            "lexical_score": 12.09809,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.804449
+          },
+          {
+            "chunk_id": "SCN-08-AT-01",
+            "dense_similarity": 0.541976,
+            "lexical_score": 4.729885,
+            "fusion_score": 0.787614,
+            "canonical_similarity": 0.802662
+          }
+        ],
+        "available_count": 22,
+        "embedding_ms": 151.87,
+        "fact_ids_to_record": [
+          "CL-ICE-03"
+        ]
+      },
+      "elapsed_ms": 155.673,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-09-AT-01",
+          "SCN-09-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-09-AT-01",
+          "SCN-09-AT-02",
+          "SCN-08-AT-01"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-11",
+      "npc_id": "quimico",
+      "message": "¿Cómo pudo la criada introducir el veneno sin saberlo al servir el whisky?",
+      "state": "ice_found",
+      "gold_chunk_ids": [
+        "SCN-09-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-09-AT-03",
+        "SCN-08-AT-02",
+        "SCN-08-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-09-AT-03",
+          "dense_similarity": 0.726693,
+          "lexical_score": 7.129524,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-08-AT-02",
+            "dense_similarity": 0.529485,
+            "lexical_score": 1.586316,
+            "fusion_score": 0.560264,
+            "canonical_similarity": 0.266297
+          },
+          {
+            "chunk_id": "SCN-08-AT-05",
+            "dense_similarity": 0.46609,
+            "lexical_score": 1.394721,
+            "fusion_score": 0.418907,
+            "canonical_similarity": 0.38744
+          }
+        ],
+        "available_count": 22,
+        "embedding_ms": 156.96,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 160.926,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-09-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-09-AT-03",
+          "SCN-08-AT-02",
+          "SCN-08-AT-05"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-12",
+      "npc_id": "quimico",
+      "message": "¿Qué hallaron en Erpa y qué clase de control tenía esa sustancia?",
+      "state": "erpa_inspected",
+      "gold_chunk_ids": [
+        "SCN-12-AT-04",
+        "SCN-12-AT-05"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-04",
+        "SCN-12-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-04",
+          "dense_similarity": 0.705024,
+          "lexical_score": 3.877658,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-12-AT-05",
+            "dense_similarity": 0.685125,
+            "lexical_score": 7.111464,
+            "fusion_score": 0.959254,
+            "canonical_similarity": 0.450148
+          }
+        ],
+        "available_count": 24,
+        "embedding_ms": 152.0,
+        "fact_ids_to_record": [
+          "CL-ERP-01"
+        ]
+      },
+      "elapsed_ms": 155.883,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-04",
+          "SCN-12-AT-05"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-04",
+          "SCN-12-AT-05"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          2,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-13",
+      "npc_id": "quimico",
+      "message": "¿Quién decidió usar el hielo para matar a Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-01-AT-05",
+        "SCN-01-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.462311,
+          "lexical_score": 0.072086,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.996435
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.478243,
+            "lexical_score": 0.068132,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.88885
+          },
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.44018,
+            "lexical_score": 0.075367,
+            "fusion_score": 0.849847,
+            "canonical_similarity": 0.806535
+          }
+        ],
+        "available_count": 12,
+        "embedding_ms": 156.11,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.469,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-01-AT-05",
+          "SCN-01-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "QUI-14",
+      "npc_id": "quimico",
+      "message": "¿Qué porcentaje de la póliza recibía cada hermano?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 12,
+        "embedding_ms": 151.02,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 152.417,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-01",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué edad tenía la señora Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-01",
+        "SCN-01-AT-02",
+        "SCN-01-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-01",
+          "dense_similarity": 0.749408,
+          "lexical_score": 0.271707,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.909627
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-02",
+            "dense_similarity": 0.581031,
+            "lexical_score": 0.276265,
+            "fusion_score": 0.618388,
+            "canonical_similarity": 0.623638
+          },
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.597998,
+            "lexical_score": 0.278601,
+            "fusion_score": 0.519293,
+            "canonical_similarity": 0.549375
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 155.78,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 157.192,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-01",
+          "SCN-01-AT-02",
+          "SCN-01-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-02",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Cuántas veces había enviudado Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-02",
+        "SCN-01-AT-05",
+        "SCN-01-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-02",
+          "dense_similarity": 0.656294,
+          "lexical_score": 7.004901,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.561448,
+            "lexical_score": 0.124551,
+            "fusion_score": 0.419638,
+            "canonical_similarity": 0.392304
+          },
+          {
+            "chunk_id": "SCN-01-AT-03",
+            "dense_similarity": 0.5145,
+            "lexical_score": 0.139301,
+            "fusion_score": 0.195665,
+            "canonical_similarity": 0.272813
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 150.31,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 151.833,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-02",
+          "SCN-01-AT-05",
+          "SCN-01-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-03",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué se sabía de su fortuna y de su estado de salud?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-03",
+        "SCN-01-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-03",
+        "SCN-01-AT-04",
+        "SCN-01-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-03",
+          "dense_similarity": 0.594128,
+          "lexical_score": 0.191466,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.830481
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-04",
+            "dense_similarity": 0.55151,
+            "lexical_score": 0.191466,
+            "fusion_score": 0.973723,
+            "canonical_similarity": 0.808759
+          },
+          {
+            "chunk_id": "SCN-01-AT-06",
+            "dense_similarity": 0.509444,
+            "lexical_score": 0.143066,
+            "fusion_score": 0.376146,
+            "canonical_similarity": 0.161303
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 155.16,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.577,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-03",
+          "SCN-01-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-03",
+          "SCN-01-AT-04",
+          "SCN-01-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-04",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Cómo era el carácter de Stevens y había indicios de que preparara un suicidio?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-05",
+        "SCN-01-AT-06"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-01-AT-05",
+        "SCN-01-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.677441,
+          "lexical_score": 0.235787,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.688233,
+            "lexical_score": 0.187355,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.759072
+          },
+          {
+            "chunk_id": "SCN-01-AT-04",
+            "dense_similarity": 0.567237,
+            "lexical_score": 0.219158,
+            "fusion_score": 0.38895,
+            "canonical_similarity": 0.38895
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 154.6,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.156,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-05",
+          "SCN-01-AT-06"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-01-AT-05",
+          "SCN-01-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 2,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.666667,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-05",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué se sabía de la fortuna considerable de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-03",
+        "SCN-01-AT-05",
+        "SCN-01-AT-06"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-03",
+          "dense_similarity": 0.672796,
+          "lexical_score": 2.570856,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.588855,
+            "lexical_score": 0.187355,
+            "fusion_score": 0.445668,
+            "canonical_similarity": 0.415432
+          },
+          {
+            "chunk_id": "SCN-01-AT-06",
+            "dense_similarity": 0.558613,
+            "lexical_score": 0.204105,
+            "fusion_score": 0.245959,
+            "canonical_similarity": 0.176569
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 159.74,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 161.208,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-03",
+          "SCN-01-AT-05",
+          "SCN-01-AT-06"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-06",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Tenía Stevens buena salud antes de morir?",
+      "state": "initial",
+      "gold_chunk_ids": [
+        "SCN-01-AT-04"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-04",
+        "SCN-01-AT-06",
+        "SCN-01-AT-05"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-04",
+          "dense_similarity": 0.669189,
+          "lexical_score": 2.570856,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.851595
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-06",
+            "dense_similarity": 0.634491,
+            "lexical_score": 0.204105,
+            "fusion_score": 0.622549,
+            "canonical_similarity": 0.478556
+          },
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.614382,
+            "lexical_score": 0.187355,
+            "fusion_score": 0.405723,
+            "canonical_similarity": 0.405857
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 154.43,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 155.809,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-01-AT-04"
+        ],
+        "returned_chunk_ids": [
+          "SCN-01-AT-04",
+          "SCN-01-AT-06",
+          "SCN-01-AT-05"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 2,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.333333,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -2
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-07",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Cuál era la única avería que comprobaste en la heladera?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-01",
+        "SCN-12-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-01",
+          "dense_similarity": 0.754667,
+          "lexical_score": 5.842764,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.97884
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-12-AT-03",
+            "dense_similarity": 0.614904,
+            "lexical_score": 2.715018,
+            "fusion_score": 0.699271,
+            "canonical_similarity": 0.595536
+          }
+        ],
+        "available_count": 9,
+        "embedding_ms": 157.22,
+        "fact_ids_to_record": [
+          "CL-TEC-01"
+        ]
+      },
+      "elapsed_ms": 159.339,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-01",
+          "SCN-12-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-08",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Era necesario tocar el congelador para cambiar el fusible?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-02",
+        "SCN-12-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-02",
+          "dense_similarity": 0.722885,
+          "lexical_score": 8.269181,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-12-AT-03",
+            "dense_similarity": 0.576438,
+            "lexical_score": 1.841335,
+            "fusion_score": 0.71917,
+            "canonical_similarity": 0.336745
+          }
+        ],
+        "available_count": 9,
+        "embedding_ms": 152.07,
+        "fact_ids_to_record": [
+          "CL-TEC-02"
+        ]
+      },
+      "elapsed_ms": 154.171,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-02",
+          "SCN-12-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 0.5,
+        "tier": "all_ideal_plus_extras",
+        "priority_key": [
+          0,
+          1,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-09",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Cómo le sirvió a Pablo la reparación para acercarse a la heladera sin sospechas?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-03",
+          "dense_similarity": 0.808152,
+          "lexical_score": 9.707382,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 9,
+        "embedding_ms": 162.84,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 164.88,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-03"
+        ],
+        "exact_set": true,
+        "all_ideal_found": true,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-10",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Cuál era la avería y había que tocar el congelador para resolverla?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-01",
+        "SCN-12-AT-02"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-02",
+        "SCN-12-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-02",
+          "dense_similarity": 0.658439,
+          "lexical_score": 5.158302,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-12-AT-03",
+            "dense_similarity": 0.631821,
+            "lexical_score": 1.841335,
+            "fusion_score": 0.926935,
+            "canonical_similarity": 0.550211
+          }
+        ],
+        "available_count": 9,
+        "embedding_ms": 158.85,
+        "fact_ids_to_record": [
+          "CL-TEC-02"
+        ]
+      },
+      "elapsed_ms": 161.23,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-01",
+          "SCN-12-AT-02"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-02",
+          "SCN-12-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 0.5,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-11",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué avería comprobaste y qué acceso le dio la reparación a Pablo?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-01",
+        "SCN-12-AT-03"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-03"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-03",
+          "dense_similarity": 0.692874,
+          "lexical_score": 6.37036,
+          "fusion_score": 1.0,
+          "canonical_similarity": 1.0
+        },
+        "support": [],
+        "available_count": 9,
+        "embedding_ms": 170.33,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 172.333,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-01",
+          "SCN-12-AT-03"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-03"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 1,
+        "extra_count": 0,
+        "missing_count": 1,
+        "recall": 0.5,
+        "precision": 1.0,
+        "tier": "partial",
+        "priority_key": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-12",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué pieza había que cambiar exactamente?",
+      "state": "fridge_link",
+      "gold_chunk_ids": [
+        "SCN-12-AT-01"
+      ],
+      "retrieved_chunk_ids": [
+        "SCN-12-AT-02"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-12-AT-02",
+          "dense_similarity": 0.5206,
+          "lexical_score": 2.661679,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.908062
+        },
+        "support": [],
+        "available_count": 9,
+        "embedding_ms": 148.02,
+        "fact_ids_to_record": [
+          "CL-TEC-02"
+        ]
+      },
+      "elapsed_ms": 150.05,
+      "score": {
+        "gold_chunk_ids": [
+          "SCN-12-AT-01"
+        ],
+        "returned_chunk_ids": [
+          "SCN-12-AT-02"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 1,
+        "missing_count": 1,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -1
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-13",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué sustancia encontraron entre los reactivos de Erpa?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [],
+      "retrieval": {
+        "focus": null,
+        "support": [],
+        "available_count": 6,
+        "embedding_ms": 157.95,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 158.709,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [],
+        "exact_set": true,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 0,
+        "missing_count": 0,
+        "recall": 1.0,
+        "precision": 1.0,
+        "tier": "exact",
+        "priority_key": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "error": null
+    },
+    {
+      "model": "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0",
+      "strategy": "production",
+      "strategy_label": "Producción",
+      "case_id": "TEC-14",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "gold_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SCN-01-AT-06",
+        "SCN-01-AT-05",
+        "SCN-01-AT-04"
+      ],
+      "retrieval": {
+        "focus": {
+          "chunk_id": "SCN-01-AT-06",
+          "dense_similarity": 0.550695,
+          "lexical_score": 0.132572,
+          "fusion_score": 1.0,
+          "canonical_similarity": 0.88292
+        },
+        "support": [
+          {
+            "chunk_id": "SCN-01-AT-05",
+            "dense_similarity": 0.579156,
+            "lexical_score": 0.124551,
+            "fusion_score": 1.0,
+            "canonical_similarity": 0.715862
+          },
+          {
+            "chunk_id": "SCN-01-AT-04",
+            "dense_similarity": 0.515745,
+            "lexical_score": 0.139301,
+            "fusion_score": 0.845918,
+            "canonical_similarity": 0.75
+          }
+        ],
+        "available_count": 6,
+        "embedding_ms": 154.97,
+        "fact_ids_to_record": []
+      },
+      "elapsed_ms": 156.342,
+      "score": {
+        "gold_chunk_ids": [],
+        "returned_chunk_ids": [
+          "SCN-01-AT-06",
+          "SCN-01-AT-05",
+          "SCN-01-AT-04"
+        ],
+        "exact_set": false,
+        "all_ideal_found": false,
+        "correct_count": 0,
+        "extra_count": 3,
+        "missing_count": 0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "tier": "miss",
+        "priority_key": [
+          0,
+          0,
+          0,
+          -3
+        ]
+      },
+      "error": null
+    }
+  ]
+}

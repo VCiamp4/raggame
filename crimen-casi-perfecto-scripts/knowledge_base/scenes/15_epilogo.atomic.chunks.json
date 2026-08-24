@@ -1,0 +1,755 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-15",
+  "scene_file": "scenes/15_epilogo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-01",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          237,
+          241
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-01"
+      },
+      "source_text": "La investigación buscaba inicialmente a alguien que actuara en el momento de la muerte.",
+      "retrieval_text": "La investigación buscaba inicialmente a alguien que actuara en el momento de la muerte.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "error",
+          "costumbre",
+          "whisky",
+          "hielo",
+          "Pablo",
+          "método",
+          "La",
+          "investigación",
+          "buscaba",
+          "inicialmente",
+          "a",
+          "alguien",
+          "que",
+          "actuara",
+          "en",
+          "el",
+          "momento",
+          "de",
+          "muerte"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-02",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          237,
+          241
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-01"
+      },
+      "source_text": "Pablo no había envenenado una botella o un vaso determinados.",
+      "retrieval_text": "Pablo no había envenenado una botella o un vaso determinados.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "error",
+          "costumbre",
+          "whisky",
+          "hielo",
+          "Pablo",
+          "método",
+          "no",
+          "había",
+          "envenenado",
+          "una",
+          "botella",
+          "o",
+          "un",
+          "vaso",
+          "determinados"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-01",
+          "SCN-15-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-03",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          237,
+          241
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-01"
+      },
+      "source_text": "Pablo había envenenado la costumbre de Stevens de beber whisky con hielo.",
+      "retrieval_text": "Pablo había envenenado la costumbre de Stevens de beber whisky con hielo.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "error",
+          "costumbre",
+          "whisky",
+          "hielo",
+          "Pablo",
+          "método",
+          "había",
+          "envenenado",
+          "la",
+          "de",
+          "Stevens",
+          "beber",
+          "con"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-02",
+          "SCN-15-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-04",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          243,
+          247
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-02"
+      },
+      "source_text": "La criada parecía sospechosa porque había servido el vaso.",
+      "retrieval_text": "La criada parecía sospechosa porque había servido el vaso.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "esteban",
+        "juan",
+        "pablo",
+        "poliza",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "distracción",
+          "coartada",
+          "discusión",
+          "póliza",
+          "fusible",
+          "humedad",
+          "La",
+          "criada",
+          "parecía",
+          "sospechosa",
+          "porque",
+          "había",
+          "servido",
+          "el",
+          "vaso"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-03",
+          "SCN-15-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-05",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          243,
+          247
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-02"
+      },
+      "source_text": "Esteban parecía sospechoso porque había discutido violentamente con Stevens.",
+      "retrieval_text": "Esteban parecía sospechoso porque había discutido violentamente con Stevens.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "esteban",
+        "juan",
+        "pablo",
+        "poliza",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "distracción",
+          "coartada",
+          "discusión",
+          "póliza",
+          "fusible",
+          "humedad",
+          "Esteban",
+          "parecía",
+          "sospechoso",
+          "porque",
+          "había",
+          "discutido",
+          "violentamente",
+          "con",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-04",
+          "SCN-15-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-06",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          243,
+          247
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-02"
+      },
+      "source_text": "Juan parecía sospechoso porque odiaba a Stevens y se alegraba de su muerte.",
+      "retrieval_text": "Juan parecía sospechoso porque odiaba a Stevens y se alegraba de su muerte.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "esteban",
+        "juan",
+        "pablo",
+        "poliza",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "distracción",
+          "coartada",
+          "discusión",
+          "póliza",
+          "fusible",
+          "humedad",
+          "Juan",
+          "parecía",
+          "sospechoso",
+          "porque",
+          "odiaba",
+          "a",
+          "Stevens",
+          "y",
+          "se",
+          "alegraba",
+          "de",
+          "su",
+          "muerte"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-05",
+          "SCN-15-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-07",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          243,
+          247
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-02"
+      },
+      "source_text": "Pablo estaba lejos cuando Stevens murió y protegido por una coartada.",
+      "retrieval_text": "Pablo estaba lejos cuando Stevens murió y protegido por una coartada.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "esteban",
+        "juan",
+        "pablo",
+        "poliza",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "distracción",
+          "coartada",
+          "discusión",
+          "póliza",
+          "fusible",
+          "humedad",
+          "Pablo",
+          "estaba",
+          "lejos",
+          "cuando",
+          "Stevens",
+          "murió",
+          "y",
+          "protegido",
+          "por",
+          "una"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-06",
+          "SCN-15-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-08",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          243,
+          247
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-02"
+      },
+      "source_text": "La discusión, la póliza, el fusible y la humedad traicionaron el plan de Pablo.",
+      "retrieval_text": "La discusión, la póliza, el fusible y la humedad traicionaron el plan de Pablo.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "esteban",
+        "juan",
+        "pablo",
+        "poliza",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "distracción",
+          "coartada",
+          "discusión",
+          "póliza",
+          "fusible",
+          "humedad",
+          "La",
+          "el",
+          "y",
+          "traicionaron",
+          "plan",
+          "de",
+          "Pablo"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-07",
+          "SCN-15-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-09",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          249,
+          253
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-03"
+      },
+      "source_text": "El veneno no estaba en el whisky: estaba en el hielo.",
+      "retrieval_text": "El veneno no estaba en el whisky: estaba en el hielo.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "veneno",
+          "whisky",
+          "hielo",
+          "crimen casi perfecto",
+          "El",
+          "no",
+          "estaba",
+          "en"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-08",
+          "SCN-15-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-15-AT-10",
+      "scene_id": "SCN-15",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          249,
+          253
+        ],
+        "scene_file": "scenes/15_epilogo.md",
+        "parent_chunk_id": "SCN-15-CH-03"
+      },
+      "source_text": "La diferencia entre el whisky y el hielo convirtió el crimen perfecto en un crimen casi perfecto.",
+      "retrieval_text": "La diferencia entre el whisky y el hielo convirtió el crimen perfecto en un crimen casi perfecto.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "veneno",
+          "whisky",
+          "hielo",
+          "crimen casi perfecto",
+          "La",
+          "diferencia",
+          "entre",
+          "el",
+          "y",
+          "convirtió",
+          "crimen",
+          "perfecto",
+          "en",
+          "un",
+          "casi"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-15-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto."
+    }
+  ]
+}

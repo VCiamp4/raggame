@@ -1,37 +1,40 @@
 {
   "schema_version": 1,
-  "chunk_id": "SCN-10-CH-03",
+  "chunk_id": "SCN-10-AT-03",
   "scene_id": "SCN-10",
   "source": {
     "canonical_file": "un-crimen-casi-perfecto-version-final.md",
-    "canonical_lines": [161, 163],
-    "scene_file": "scenes/10_segundo_interrogatorio_criada.md"
+    "canonical_lines": [155, 165],
+    "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+    "parent_chunk_id": "SCN-10-CH-02"
   },
-  "source_text": "—¿Quién lo arregló?\n\n—El doctor Pablo.",
-  "retrieval_text": "La criada identifica al doctor Pablo como quien reparó la heladera pocos días antes del crimen.",
+  "source_text": "La heladera había fallado unos días antes.",
+  "retrieval_text": "La heladera había fallado unos días antes.",
   "kind": "testimony",
   "speakers": ["detective", "criada"],
-  "mentioned_entities": ["pablo", "heladera"],
+    "mentioned_entities": ["criada", "pablo", "heladera"],
   "knowledge_holders": ["criada"],
   "claim_status": "testimony",
   "availability": {
     "milestones_all": ["M40_POISON_IN_ICE"],
-    "facts_all": ["CL-ICE-03", "CL-FRI-01"],
+    "facts_all": ["CL-ICE-03", "CL-CRI-05"],
     "facts_any": [],
     "facts_none": [],
     "channels": ["chat_criada"]
   },
   "discovery": {
-    "fact_ids": ["CL-FRI-02"],
+    "fact_ids": ["CL-FRI-01"],
     "focus_eligible": true
   },
   "retrieval": {
-    "keywords": ["heladera", "arregló", "reparó", "Pablo"],
-    "neighbor_ids": [],
-    "priority": 1.0
+    "keywords": ["heladera", "falló", "arregló", "reparó", "Pablo"],
+    "neighbor_ids": ["SCN-10-AT-02", "SCN-10-AT-04"],
+    "priority": 1.5
   },
   "security": {
     "spoiler_level": 2,
     "resolution_only": false
-  }
+  },
+  "variant": "atomic",
+  "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente."
 }

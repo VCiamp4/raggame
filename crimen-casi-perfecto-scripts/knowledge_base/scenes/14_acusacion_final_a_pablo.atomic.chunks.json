@@ -1,0 +1,840 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-14",
+  "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-01",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          225,
+          225
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-01"
+      },
+      "source_text": "El detective confrontó a Pablo con el cianuro hallado en el hielo.",
+      "retrieval_text": "El detective confrontó a Pablo con el cianuro hallado en el hielo.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "erpa",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "acusación",
+          "Erpa",
+          "cianuro",
+          "avería",
+          "coartadas",
+          "Pablo",
+          "El",
+          "detective",
+          "confrontó",
+          "a",
+          "con",
+          "hallado",
+          "en",
+          "hielo"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-02",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          225,
+          225
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-01"
+      },
+      "source_text": "El técnico había confirmado que la avería de la heladera era insignificante.",
+      "retrieval_text": "El técnico había confirmado que la avería de la heladera era insignificante.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "erpa",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "acusación",
+          "Erpa",
+          "cianuro",
+          "avería",
+          "coartadas",
+          "Pablo",
+          "El",
+          "técnico",
+          "había",
+          "confirmado",
+          "que",
+          "la",
+          "de",
+          "heladera",
+          "era",
+          "insignificante"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-01",
+          "SCN-14-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-03",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          225,
+          225
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-01"
+      },
+      "source_text": "En Erpa había cianuro.",
+      "retrieval_text": "En Erpa había cianuro.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "erpa",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "acusación",
+          "Erpa",
+          "cianuro",
+          "avería",
+          "coartadas",
+          "Pablo",
+          "En",
+          "había"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-02",
+          "SCN-14-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-04",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          225,
+          225
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-01"
+      },
+      "source_text": "Pablo respondió que cada indicio aislado no probaba que fuera el asesino.",
+      "retrieval_text": "Pablo respondió que cada indicio aislado no probaba que fuera el asesino.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "erpa",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "acusación",
+          "Erpa",
+          "cianuro",
+          "avería",
+          "coartadas",
+          "Pablo",
+          "respondió",
+          "que",
+          "cada",
+          "indicio",
+          "aislado",
+          "no",
+          "probaba",
+          "fuera",
+          "el",
+          "asesino"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-03",
+          "SCN-14-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-05",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          227,
+          227
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-02"
+      },
+      "source_text": "Juan había pasado las horas del crimen dentro de una comisaría.",
+      "retrieval_text": "Juan había pasado las horas del crimen dentro de una comisaría.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "policia",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "comisaría",
+          "Esteban",
+          "Lister",
+          "criada",
+          "whisky limpio",
+          "había",
+          "pasado",
+          "las",
+          "horas",
+          "del",
+          "crimen",
+          "dentro",
+          "de",
+          "una"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-04",
+          "SCN-14-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-06",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          227,
+          227
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-02"
+      },
+      "source_text": "Esteban estaba en Lister desde las seis.",
+      "retrieval_text": "Esteban estaba en Lister desde las seis.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "policia",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "comisaría",
+          "Esteban",
+          "Lister",
+          "criada",
+          "whisky limpio",
+          "estaba",
+          "en",
+          "desde",
+          "las",
+          "seis"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-05",
+          "SCN-14-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-07",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          227,
+          227
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-02"
+      },
+      "source_text": "El whisky servido por la criada estaba limpio.",
+      "retrieval_text": "El whisky servido por la criada estaba limpio.",
+      "kind": "resolution",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "criada",
+        "policia",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "comisaría",
+          "Esteban",
+          "Lister",
+          "criada",
+          "whisky limpio",
+          "El",
+          "whisky",
+          "servido",
+          "por",
+          "la",
+          "estaba",
+          "limpio"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-14-AT-06",
+          "SCN-14-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-08",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          229,
+          235
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-03"
+      },
+      "source_text": "El detective acusó a Pablo por su acceso a la heladera.",
+      "retrieval_text": "El detective acusó a Pablo por su acceso a la heladera.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "acusación",
+          "hielo",
+          "heladera",
+          "confesión",
+          "pruebas",
+          "El",
+          "detective",
+          "acusó",
+          "a",
+          "por",
+          "su",
+          "acceso",
+          "la"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-14-AT-07",
+          "SCN-14-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-09",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          229,
+          235
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-03"
+      },
+      "source_text": "Pablo negó haber tocado las cubeteras.",
+      "retrieval_text": "Pablo negó haber tocado las cubeteras.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "acusación",
+          "hielo",
+          "heladera",
+          "confesión",
+          "pruebas",
+          "negó",
+          "haber",
+          "tocado",
+          "las",
+          "cubeteras"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-14-AT-08",
+          "SCN-14-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-10",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          229,
+          235
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-03"
+      },
+      "source_text": "Pablo nunca confesó.",
+      "retrieval_text": "Pablo nunca confesó.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "acusación",
+          "hielo",
+          "heladera",
+          "confesión",
+          "pruebas",
+          "nunca",
+          "confesó"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-14-AT-09",
+          "SCN-14-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-14-AT-11",
+      "scene_id": "SCN-14",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          229,
+          235
+        ],
+        "scene_file": "scenes/14_acusacion_final_a_pablo.md",
+        "parent_chunk_id": "SCN-14-CH-03"
+      },
+      "source_text": "El caso se sostenía en la relación entre el hielo envenenado, el acceso, los químicos, la costumbre y el beneficio económico.",
+      "retrieval_text": "El caso se sostenía en la relación entre el hielo envenenado, el acceso, los químicos, la costumbre y el beneficio económico.",
+      "kind": "resolution",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "acusación",
+          "hielo",
+          "heladera",
+          "confesión",
+          "pruebas",
+          "El",
+          "caso",
+          "se",
+          "sostenía",
+          "en",
+          "la",
+          "relación",
+          "entre",
+          "envenenado",
+          "acceso",
+          "los",
+          "químicos",
+          "costumbre",
+          "y",
+          "beneficio",
+          "económico"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-14-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    }
+  ]
+}

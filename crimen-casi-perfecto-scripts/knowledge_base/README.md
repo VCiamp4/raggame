@@ -10,6 +10,8 @@ Esta carpeta contiene la fuente canónica y su preparación editorial para el si
 - `chunk.schema.json`: contrato validable para los chunks que se generen a partir de las escenas.
 - `chunk.example.json`: instancia mínima y trazable del contrato.
 - `scenes/`: partición fiel del texto canónico en escenas narrativas. El texto comprendido entre `SOURCE_START` y `SOURCE_END` se copia literalmente de la versión final.
+- `scenes/*.atomic.chunks.json`: un archivo recuperable por cada escena, con 162 datos atómicos, procedencia, permisos y hechos que puede comunicar. Cada `retrieval_text` expresa un dato específico y `source_excerpt` conserva la procedencia editorial larga.
+- `backend/data/canonical_questions.json`: una pregunta canónica específica por átomo, revisada editorialmente; se usa como segunda representación del índice y nunca se envía al personaje.
 
 ## Contrato editorial de una escena
 
@@ -50,7 +52,7 @@ El frontmatter de cada archivo declara:
 
 1. El cuento completo es la única fuente textual de hechos del caso.
 2. Los guiones `v2` contienen personalidad y reglas de actuación, no conocimiento del crimen.
-3. Los chunks se derivan del cuento; no son respuestas redactadas para preguntas concretas.
+3. Los chunks se derivan del cuento; las preguntas canónicas son un índice editorial paralelo y no cambian el texto recuperable ni se inyectan en el prompt.
 4. Los metadatos controlan quién conoce un pasaje y cuándo puede recuperarse. El filtrado ocurre antes de la búsqueda vectorial para impedir spoilers.
 5. El estado del juego y la resolución de la acusación son deterministas. El modelo solo representa al personaje.
 6. Una sola inferencia generativa produce cada respuesta. No se usa otro LLM como clasificador en tiempo de juego.
@@ -66,6 +68,18 @@ El frontmatter de cada archivo declara:
 6. Validar el objeto contra `chunk.schema.json`.
 7. Revisar manualmente todo chunk con `spoiler_level` 2 o 3.
 8. Generar embeddings e indexar.
+
+Los chunks atómicos revisados se mantienen como artefactos editoriales
+versionados. Para construir o reconstruir el índice embeddinggemma con q1 y q2:
+
+```bash
+OLLAMA_EMBED_MODEL=hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0 \
+RAG_INDEX_PATH=backend/data/rag_index_atomic_embeddinggemma_two.sqlite3 \
+python3 -m backend.scripts.build_rag_index \
+  --force --canonical-questions-two backend/data/canonical_questions_two.json
+```
+
+El comando reutiliza esos JSON y no genera una segunda variante de chunks.
 
 ## Autoridad de los datos
 

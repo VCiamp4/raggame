@@ -1,0 +1,41 @@
+{
+  "source_generated_at": "2026-08-23T18:28:25.934680+00:00",
+  "reviewed_at": "2026-08-23",
+  "reviewer": "Codex, lectura manual contra corpus, estado, chunks y respuesta productiva de referencia",
+  "rubric": {
+    "4": "Correcta, completa, contenida y consistente con el estado y el personaje.",
+    "3": "Correcta en lo esencial, con una omisión, agregado o problema menor.",
+    "2": "Parcial o una abstención razonable que no logra contestar todo el hecho pedido.",
+    "1": "Mayormente incorrecta, inventada o contradictoria.",
+    "0": "Fallo crítico: filtración de un hecho bloqueado, inversión central o respuesta inutilizable."
+  },
+  "cases": {
+    "CRI-07": {"expected": "Negar que agregó algo extraño al whisky.", "current_production": {"score": 4, "note": "Negación completa y respaldada."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Negación completa, natural y más contenida después de quitar un extra.", "attribution": "none"}},
+    "CRI-14": {"expected": "Decir que la heladera había fallado unos días antes y que Pablo terminó reparándola.", "current_production": {"score": 2, "note": "Identifica a Pablo, pero el retrieval omitió el problema de la heladera."}, "per_chunk_current_prompt_temp035": {"score": 2, "note": "Respuesta idénticamente parcial: AT-03 ya faltaba antes de aplicar el umbral.", "attribution": "rag"}},
+    "CRI-15": {"expected": "No identificar al asesino en estado inicial.", "current_production": {"score": 4, "note": "Abstención segura."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica y segura; los tres extras aún superan el filtro individual.", "attribution": "none"}},
+    "EST-05": {"expected": "Ubicarse en Lister desde las 18:00 y explicar que la verificación descartó un regreso secreto.", "current_production": {"score": 3, "note": "Coartada completa, con el error menor «mi departamento»."}, "per_chunk_current_prompt_temp035": {"score": 3, "note": "Quitar el extra no corrige «mi departamento»; el error pertenece a la generación, no al retrieval.", "attribution": "llm"}},
+    "EST-10": {"expected": "Decir que se fue enfurecido de la casa.", "current_production": {"score": 4, "note": "Respuesta exacta."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta exacta usando únicamente el gold.", "attribution": "none"}},
+    "EST-14": {"expected": "No afirmar quién asesinó a Stevens en estado inicial.", "current_production": {"score": 3, "note": "Abstención correcta con una explicación poco natural sobre su imagen."}, "per_chunk_current_prompt_temp035": {"score": 3, "note": "Respuesta idéntica; el filtro no elimina estos tres extras.", "attribution": "llm"}},
+    "JUA-07": {"expected": "Dar la demora policial entre las 17:00 y medianoche.", "current_production": {"score": 4, "note": "Completa y precisa."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Completa y precisa después de eliminar el extra irrelevante.", "attribution": "none"}},
+    "JUA-09": {"expected": "Negar preocupación por una parte menor porque cobraría por otra vía.", "current_production": {"score": 4, "note": "Correcta."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Correcta y en personaje usando solo el gold.", "attribution": "none"}},
+    "JUA-13": {"expected": "No inventar qué cianuro había en estado inicial.", "current_production": {"score": 4, "note": "Abstención segura y en personaje."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica con contexto vacío.", "attribution": "none"}},
+    "PAB-01": {"expected": "Decir que era veterinario y fue inhabilitado por dopar caballos.", "current_production": {"score": 4, "note": "Contesta ambas partes."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Contesta ambas partes de forma exacta con únicamente el chunk gold.", "attribution": "none"}},
+    "PAB-10": {"expected": "Negar haber tocado cubeteras y agua, admitiendo la reparación.", "current_production": {"score": 4, "note": "Incluye las dos negaciones y la reparación."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica; AT-12 cubre el gold nominal redundante AT-03.", "attribution": "none"}},
+    "PAB-14": {"expected": "No identificar al asesino en estado inicial.", "current_production": {"score": 4, "note": "No adivina y exige evidencia."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "No adivina, exige evidencia y permanece en personaje.", "attribution": "none"}},
+    "POR-07": {"expected": "Decir que no había lucha, no faltaba dinero y las ventanas estaban cerradas.", "current_production": {"score": 4, "note": "Responde los tres hechos."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Responde correctamente los tres hechos; el contexto no cambió.", "attribution": "none"}},
+    "POR-12": {"expected": "Identificar a la criada como la última persona que vio viva a Stevens.", "current_production": {"score": 4, "note": "Exacta y concisa."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica, exacta y concisa.", "attribution": "none"}},
+    "POR-15": {"expected": "No identificar al asesino en estado inicial.", "current_production": {"score": 3, "note": "Se abstiene, pero usa que Stevens estaba sola como explicación y agrega el hallazgo del cuerpo."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "El contexto vacío produce la abstención ideal, directa y desde el oficio del portero.", "attribution": "retrieval_improvement"}},
+    "QUI-04": {"expected": "Explicar que el análisis llevaba tiempo y que no correspondía concluir antes del laboratorio.", "current_production": {"score": 4, "note": "Completa y respaldada."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Completa y respaldada usando solamente los dos gold.", "attribution": "none"}},
+    "QUI-11": {"expected": "Explicar la introducción involuntaria del veneno mediante los cubos.", "current_production": {"score": 4, "note": "Completa y correcta."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica; el retrieval tampoco cambia.", "attribution": "none"}},
+    "QUI-13": {"expected": "No afirmar quién decidió usar hielo en estado inicial.", "current_production": {"score": 4, "note": "Abstención profesional y segura."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica y segura; los extras sobreviven al umbral individual.", "attribution": "none"}},
+    "TEC-03": {"expected": "Decir que Stevens tenía una fortuna considerable y buena salud.", "current_production": {"score": 4, "note": "Responde exactamente ambas partes."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica y contenida.", "attribution": "none"}},
+    "TEC-05": {"expected": "Decir que Stevens poseía una fortuna considerable.", "current_production": {"score": 4, "note": "Correcta y contenida."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica, correcta y contenida.", "attribution": "none"}},
+    "TEC-14": {"expected": "No identificar al asesino en estado inicial.", "current_production": {"score": 4, "note": "Abstención desde su oficio."}, "per_chunk_current_prompt_temp035": {"score": 4, "note": "Respuesta idéntica y plenamente en personaje.", "attribution": "none"}}
+  },
+  "conclusion": {
+    "promote_retrieval_only": true,
+    "reason": "Con prompt, temperatura y seed productivos, el filtro individual obtiene 3,810/4 frente a 3,762/4: 1 win, 20 ties, 0 losses y delta +1. En los ocho casos cuyo contexto cambió no apareció ninguna regresión; POR-15 mejoró al obtener el vacío ideal.",
+    "do_not_promote": "No promover GROUNDING_RULES ni temperatura 0: esas dos variables causaron las regresiones del stack combinado en el holdout.",
+    "limitations": "Una sola generación determinista por caso; el holdout es nuevo para el benchmark generativo, pero sus mensajes provienen del dataset de retrieval de 100 casos ya usado durante la calibración."
+  }
+}

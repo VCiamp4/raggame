@@ -1,0 +1,770 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-12",
+  "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-01",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          203,
+          203
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-01"
+      },
+      "source_text": "El técnico comprobó que la única avería de la heladera era un fusible.",
+      "retrieval_text": "El técnico comprobó que la única avería de la heladera era un fusible.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "tecnico_heladera"
+      ],
+      "mentioned_entities": [
+        "tecnico_heladera",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-TEC-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "técnico",
+          "fusible",
+          "avería",
+          "congelador",
+          "reparación",
+          "Pablo",
+          "El",
+          "comprobó",
+          "que",
+          "la",
+          "única",
+          "de",
+          "heladera",
+          "era",
+          "un"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-12-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-02",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          203,
+          203
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-01"
+      },
+      "source_text": "El técnico comprobó que cambiar el fusible no exigía tocar el congelador.",
+      "retrieval_text": "El técnico comprobó que cambiar el fusible no exigía tocar el congelador.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "tecnico_heladera"
+      ],
+      "mentioned_entities": [
+        "tecnico_heladera",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-TEC-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "técnico",
+          "fusible",
+          "avería",
+          "congelador",
+          "reparación",
+          "Pablo",
+          "El",
+          "comprobó",
+          "que",
+          "cambiar",
+          "no",
+          "exigía",
+          "tocar"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-12-AT-01",
+          "SCN-12-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-03",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          203,
+          203
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-01"
+      },
+      "source_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
+      "retrieval_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "tecnico_heladera"
+      ],
+      "mentioned_entities": [
+        "tecnico_heladera",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "técnico",
+          "fusible",
+          "avería",
+          "congelador",
+          "reparación",
+          "Pablo",
+          "La",
+          "dio",
+          "a",
+          "una",
+          "excusa",
+          "para",
+          "acercarse",
+          "heladera",
+          "sin",
+          "despertar",
+          "sospechas"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-12-AT-02",
+          "SCN-12-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-04",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          203,
+          203
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-02"
+      },
+      "source_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
+      "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "perito_quimico",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-PAB-03",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-ERP-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "cianuro",
+          "reactivos",
+          "controlado",
+          "Pablo",
+          "inspección",
+          "Una",
+          "de",
+          "comprobó",
+          "que",
+          "entre",
+          "sus",
+          "controlados",
+          "había"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-12-AT-03",
+          "SCN-12-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-05",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          203,
+          203
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-02"
+      },
+      "source_text": "El cianuro era una sustancia de uso controlado.",
+      "retrieval_text": "El cianuro era una sustancia de uso controlado.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "perito_quimico",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-PAB-03",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "cianuro",
+          "reactivos",
+          "controlado",
+          "Pablo",
+          "inspección",
+          "El",
+          "era",
+          "una",
+          "sustancia",
+          "de",
+          "uso"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-12-AT-04",
+          "SCN-12-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-06",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          205,
+          205
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-03"
+      },
+      "source_text": "Pablo conocía el hábito de Stevens de beber whisky con hielo.",
+      "retrieval_text": "Pablo conocía el hábito de Stevens de beber whisky con hielo.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-ERP-01",
+          "CL-TEC-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": []
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "piezas",
+          "hábito",
+          "heladera",
+          "químicos",
+          "beneficiario",
+          "conocía",
+          "el",
+          "de",
+          "Stevens",
+          "beber",
+          "whisky",
+          "con",
+          "hielo"
+        ],
+        "priority": 0.5,
+        "neighbor_ids": [
+          "SCN-12-AT-05",
+          "SCN-12-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-07",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          205,
+          205
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-03"
+      },
+      "source_text": "Pablo había tenido acceso reciente a la heladera.",
+      "retrieval_text": "Pablo había tenido acceso reciente a la heladera.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-ERP-01",
+          "CL-TEC-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": []
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "piezas",
+          "hábito",
+          "heladera",
+          "químicos",
+          "beneficiario",
+          "había",
+          "tenido",
+          "acceso",
+          "reciente",
+          "a",
+          "la"
+        ],
+        "priority": 0.5,
+        "neighbor_ids": [
+          "SCN-12-AT-06",
+          "SCN-12-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-08",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          205,
+          205
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-03"
+      },
+      "source_text": "Pablo poseía conocimientos para manipular sustancias químicas.",
+      "retrieval_text": "Pablo poseía conocimientos para manipular sustancias químicas.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-ERP-01",
+          "CL-TEC-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": []
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "piezas",
+          "hábito",
+          "heladera",
+          "químicos",
+          "beneficiario",
+          "poseía",
+          "conocimientos",
+          "para",
+          "manipular",
+          "sustancias",
+          "químicas"
+        ],
+        "priority": 0.5,
+        "neighbor_ids": [
+          "SCN-12-AT-07",
+          "SCN-12-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-09",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          205,
+          205
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-03"
+      },
+      "source_text": "Pablo trabajaba en un lugar donde podía encontrar cianuro.",
+      "retrieval_text": "Pablo trabajaba en un lugar donde podía encontrar cianuro.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-ERP-01",
+          "CL-TEC-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": []
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "piezas",
+          "hábito",
+          "heladera",
+          "químicos",
+          "beneficiario",
+          "trabajaba",
+          "en",
+          "un",
+          "lugar",
+          "donde",
+          "podía",
+          "encontrar",
+          "cianuro"
+        ],
+        "priority": 0.5,
+        "neighbor_ids": [
+          "SCN-12-AT-08",
+          "SCN-12-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-12-AT-10",
+      "scene_id": "SCN-12",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          205,
+          205
+        ],
+        "scene_file": "scenes/12_inspecciones_tecnica_y_erpa.md",
+        "parent_chunk_id": "SCN-12-CH-03"
+      },
+      "source_text": "Pablo era el principal beneficiario de la modificación de la póliza.",
+      "retrieval_text": "Pablo era el principal beneficiario de la modificación de la póliza.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-ERP-01",
+          "CL-TEC-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": []
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "piezas",
+          "hábito",
+          "heladera",
+          "químicos",
+          "beneficiario",
+          "era",
+          "el",
+          "principal",
+          "de",
+          "la",
+          "modificación",
+          "póliza"
+        ],
+        "priority": 0.5,
+        "neighbor_ids": [
+          "SCN-12-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    }
+  ]
+}

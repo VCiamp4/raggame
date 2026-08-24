@@ -4,11 +4,10 @@
 
 Generar respuestas breves y coherentes de los NPC usando una ventana de contexto artificialmente limitada. El modelo recibe solamente:
 
-1. la persona breve del NPC (`guiones/v2`);
-2. el estado mínimo de la conversación;
-3. uno o más pasajes del cuento recuperados para el turno actual;
-4. los dos intercambios completos más recientes;
-5. el mensaje actual del jugador.
+1. un `system` estable con las reglas comunes y la persona breve del NPC (`guiones/v2`);
+2. el historial completo de turnos ya terminados, en orden, con solo el texto del jugador y la respuesta del NPC;
+3. un mensaje `user` del turno actual que contiene `<retrieved_context>` y `<user_message>`;
+4. el estado narrativo aplicado como filtros (sus IDs no se inyectan al modelo).
 
 El sistema debe impedir que un NPC recupere información que no conoce o información futura que todavía no está habilitada por la investigación.
 
@@ -55,7 +54,9 @@ source_text: "—No. Lo hacía la heladera."
 retrieval_text: "La criada declara que el hielo de las bebidas de la señora Stevens lo producía la heladera."
 ```
 
-`source_text` debe ser una cita textual y trazable a una escena. `retrieval_text` puede:
+En los chunks atómicos, `source_text` y `retrieval_text` son el mismo dato
+breve, trazable mediante `source_excerpt`, `parent_chunk_id` y
+`canonical_lines`. `retrieval_text` puede:
 
 - identificar al hablante;
 - reemplazar pronombres ambiguos por entidades ya presentes;
@@ -75,38 +76,38 @@ El contrato completo está en `chunk.schema.json`. Ejemplo abreviado:
 
 ```yaml
 schema_version: 1
-chunk_id: SCN-10-CH-03
+chunk_id: SCN-10-AT-03
 scene_id: SCN-10
 source:
   canonical_file: un-crimen-casi-perfecto-version-final.md
-  canonical_lines: [161, 163]
+  canonical_lines: [155, 165]
   scene_file: scenes/10_segundo_interrogatorio_criada.md
-source_text: |-
-  —¿Quién lo arregló?
-
-  —El doctor Pablo.
-retrieval_text: "La criada identifica al doctor Pablo como quien reparó la heladera pocos días antes del crimen."
+  parent_chunk_id: SCN-10-CH-02
+source_text: "La heladera había fallado unos días antes."
+retrieval_text: "La heladera había fallado unos días antes."
 kind: testimony
 speakers: [detective, criada]
-mentioned_entities: [pablo, heladera]
-knowledge_holders: [criada, detective]
+mentioned_entities: [criada, pablo, heladera]
+knowledge_holders: [criada]
 claim_status: testimony
 availability:
   milestones_all: [M40_POISON_IN_ICE]
-  facts_all: [CL-ICE-03]
+  facts_all: [CL-ICE-03, CL-CRI-05]
   facts_any: []
   facts_none: []
   channels: [chat_criada]
 discovery:
-  fact_ids: [CL-FRI-02]
+  fact_ids: [CL-FRI-01]
   focus_eligible: true
 retrieval:
-  keywords: [heladera, arregló, reparó, Pablo, técnico]
-  neighbor_ids: [SCN-10-CH-02]
-  priority: 1.0
+  keywords: [heladera, falló, arregló, reparó, Pablo]
+  neighbor_ids: [SCN-10-AT-02, SCN-10-AT-04]
+  priority: 1.5
 security:
   spoiler_level: 2
   resolution_only: false
+variant: atomic
+source_excerpt: "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente."
 ```
 
 ## Vocabularios cerrados
@@ -148,7 +149,7 @@ Un chunk puede participar en un chat solamente si:
 4. se cumplen todos los hechos de `facts_all`;
 5. si `facts_any` no está vacío, al menos uno está descubierto;
 6. ningún hecho de `facts_none` está descubierto;
-7. `resolution_only` es falso o el caso ya fue resuelto.
+7. `resolution_only` es falso; los chats de NPC nunca reciben la resolución, ni siquiera después de acusar.
 
 Para declaraciones del propio NPC, `knowledge_holders` suele contener al NPC. Para evidencia física puede contener solo `detective` hasta que el jugador se la mencione. El mensaje del usuario no altera permisos: escribir “ya sé que había cianuro” no vuelve verdadero ni accesible un hecho bloqueado.
 
@@ -159,62 +160,82 @@ Para declaraciones del propio NPC, `knowledge_holders` suele contener al NPC. Pa
 - `2`: piezas del mecanismo o vínculos incriminatorios importantes.
 - `3`: reconstrucción final e identidad del culpable.
 
-Todos los chunks de nivel 2 requieren revisión manual. Los de nivel 3 llevan `resolution_only: true` y se excluyen físicamente del índice de juego temprano cuando sea posible.
+Todos los chunks de nivel 2 requieren revisión manual. Los de nivel 3 llevan `resolution_only: true` y se excluyen del conjunto candidato antes de calcular similitudes. Pueden persistirse en el mismo SQLite para una futura ruta separada de epílogo.
 
-## Índices
+## Índice implementado
 
-Se recomienda construir dos índices desde el mismo corpus:
+El índice vive en `backend/data/rag_index_atomic_embeddinggemma_two.sqlite3`.
+Contiene los 162 vectores atómicos de pasaje y dos conjuntos de 162 vectores de
+preguntas canónicas en `float32`, junto con versión de esquema, modelo,
+dimensión y huellas SHA-256. Las preguntas q1 están en
+`backend/data/canonical_questions.json` y las q2 en
+`backend/data/canonical_questions_two.json`; ambas fueron congeladas y
+revisadas editorialmente. Si cambia un chunk, una pregunta o el modelo configurado,
+el backend rechaza el índice viejo en vez de mezclar versiones.
 
-1. `investigation`: niveles 0–2 y sujeto a filtros de estado.
-2. `resolution`: nivel 3; solo para epílogo, evaluación o explicación final.
+El modelo elegido es `hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0` mediante
+`/api/embed` de Ollama:
 
-No se duplica ni reescribe la fuente: cada entrada conserva el mismo `chunk_id` y procedencia.
+- documentos atómicos: únicamente `retrieval_text` y palabras clave; el `source_excerpt` largo queda fuera del embedding;
+- preguntas canónicas: q1 y q2 específicas y complementarias por átomo, embebidas con la misma instrucción de consulta;
+- consultas: `task: search result | query: <pregunta>`;
+- documentos: `title: none | text: <retrieval_text>\nPalabras clave: <keywords>`;
+- dimensión conservada: 768; no se aplica reducción.
 
-Para este corpus pequeño no hace falta un servidor vectorial. Es suficiente persistir:
+No hace falta un servidor vectorial para 162 entradas. SQLite aporta persistencia y validación; la similitud coseno y BM25 se calculan en memoria sobre el subconjunto permitido. Los chunks de resolución también tienen representación persistida para un futuro epílogo, pero se excluyen antes del ranking de cualquier chat de NPC.
 
-- `chunks.jsonl` con texto y metadatos;
-- una matriz local de embeddings;
-- un índice léxico BM25;
-- búsqueda y filtros en el proceso del backend.
+### Corpus indexado
 
-Como baseline de CPU y español puede usarse [`intfloat/multilingual-e5-small`](https://huggingface.co/intfloat/multilingual-e5-small); los chunks están muy por debajo de su límite de 512 tokens y deben codificarse con los prefijos `query:` y `passage:` indicados por su modelo. [`BAAI/bge-m3`](https://huggingface.co/BAAI/bge-m3) queda como alternativa de mayor costo y permite recuperación densa y dispersa multilingüe. La decisión se debe tomar con una suite de consultas del propio juego, no con benchmarks generales.
+El único corpus activo es `atomic`: 162 chunks derivados de las mismas 15
+escenas. Cada `retrieval_text` contiene un único dato breve (normalmente una
+oración). La metadata de permisos, hechos y spoilers se conserva en el JSON;
+`source_excerpt` mantiene el pasaje editorial completo para auditoría, pero no
+se usa para embeddings ni se inyecta en el prompt.
+
+El corpus se renderiza en el prompt como datos breves, sin anteponer
+`claim_status`, voces, lectura desambiguada ni el texto fuente largo.
+
+Para construir o reconstruir el índice:
+
+```bash
+python3 -m backend.scripts.build_rag_index --force
+```
+
+El comando lee los 15 archivos `*.atomic.chunks.json` existentes y pide los
+embeddings por lotes. Sin `--force`, reutiliza un índice cuya huella y modelo
+coincidan.
 
 ## Recuperación híbrida
 
 Flujo de un turno:
 
-1. Construir la consulta con el mensaje actual y, solo si hace falta para resolver una referencia, el último intercambio.
+1. Construir la consulta únicamente con la pregunta actual. El historial queda disponible para generación, pero nunca contamina el embedding de retrieval.
 2. Filtrar chunks por NPC, canal, hitos, hechos internos y spoiler.
-3. Recuperar hasta 8 candidatos combinando similitud densa y BM25.
-4. Fusionar rankings mediante Reciprocal Rank Fusion.
-5. Aplicar un umbral calibrado con consultas positivas y negativas.
-6. Elegir un `focus_chunk`.
-7. Agregar como máximo dos `support_chunks`, evitando duplicados semánticos.
-8. Empaquetar el contexto dentro del presupuesto de tokens.
-9. Generar una única respuesta.
-10. Si la respuesta terminó correctamente, registrar los `fact_ids` del `focus_chunk`, ejecutar derivaciones y recalcular las pistas visibles.
+3. Formar la unión de los top-8 por similitud al pasaje y los top-8 por similitud a la pregunta canónica.
+4. Normalizar pasaje, q1 y q2 dentro de los chunks disponibles. Combinar las señales canónicas como `0,75*q1 + 0,25*q2` y usar `max(pasaje, canónica_combinada)` como relevancia. Antes de eso, si el mejor `max(pasaje, q1, q2)` raw es menor que `0,50`, devolver contexto vacío.
+5. Elegir un `focus_chunk` con desempate determinista por orden semántico/corpus, nunca por `chunk_id`.
+6. Seleccionar hasta dos `support_chunk` mediante MMR (`lambda=0,70`), penalizando padres y vecinos repetidos; solo pueden contener hechos ya descubiertos o hechos del propio focus.
+7. Empaquetar el contexto dentro del presupuesto de tokens.
+8. Generar una única respuesta.
+9. Si la respuesta terminó correctamente, registrar los `fact_ids` del `focus_chunk`, ejecutar derivaciones y recalcular las pistas visibles.
 
 No se marca automáticamente como descubierto un hecho de un support chunk.
 
 ## Selección del focus chunk
 
-Prioridad:
-
-1. candidato pertinente que contenga un hecho todavía no descubierto;
-2. candidato pertinente ya descubierto si el jugador pide aclaración;
-3. contexto personal o ambiental;
-4. ningún chunk, si todos quedan bajo el umbral.
-
-Cuando hay un focus chunk con un hecho nuevo, el prompt indica al NPC que lo comunique naturalmente en la respuesta. Esto permite actualizar el estado y, cuando corresponda, formar una pista visible sin una segunda llamada clasificadora. Si la generación falla o se cancela, no se modifica el estado.
+El ranking no bonifica hechos nuevos ni penaliza hechos ya descubiertos: el
+estado decide disponibilidad, no relevancia. Puede devolverse contexto vacío si
+no hay chunks permitidos o si ninguno de los elementos seleccionados alcanza el
+umbral raw. Si la generación termina correctamente, se registran los
+`fact_ids` del focus; si falla o se cancela, no se modifica el estado.
 
 ## Repetición y contradicciones
 
-Los chunks ya descubiertos siguen siendo recuperables. Se prefieren como soporte y pueden volver a ser focus ante preguntas explícitas. El estado estructurado conserva:
+Los chunks ya descubiertos siguen siendo recuperables y pueden volver a ser focus ante preguntas explícitas. Para los apoyos, MMR penaliza repetir el mismo padre o vecinos; la seguridad de hechos sigue prevaleciendo sobre la diversidad. El estado estructurado conserva:
 
 - IDs de hechos internos descubiertos;
 - IDs de pistas visibles formadas;
-- IDs de chunks ya comunicados;
-- acusaciones realizadas;
+- acusación y desenlace;
 - posturas canónicas del NPC, por ejemplo que Pablo niega tocar las cubeteras.
 
 El historial textual no es la memoria factual permanente.
@@ -225,42 +246,78 @@ Configuración candidata: `num_ctx=1536`, incluyendo salida.
 
 | Componente | Presupuesto orientativo |
 |---|---:|
-| Reglas compartidas y persona v2 | 180–260 tokens |
-| Estado mínimo | 40–100 |
-| Focus chunk | 80–180 |
-| Hasta dos support chunks | 100–240 |
-| Dos intercambios completos | 250–450 |
-| Mensaje actual | 30–120 |
+| Reglas compartidas y persona v2 (prefijo estable) | 180–260 tokens |
+| Estado narrativo (aplicado fuera del prompt) | 0 |
+| Historial completo de turnos anteriores | variable |
+| `<retrieved_context>` actual | 80–360 |
+| `<user_message>` actual | 30–120 |
 | Respuesta reservada | 120–180 |
 | Plantilla y margen | 150–250 |
 
-Si el paquete excede el límite, se eliminan en este orden:
+`OLLAMA_MAX_HISTORY=0` conserva todo el historial. Un valor positivo limita la
+cantidad de mensajes enviados, pero puede romper antes el prefijo cacheable.
+El límite físico sigue siendo `num_ctx`; por eso una partida larga debe
+calibrarse con consultas reales y, si hace falta, reducir el número de chunks
+o configurar un límite explícito de historial.
 
-1. support chunk de menor puntaje;
-2. intercambio más antiguo;
-3. segundo support chunk;
-4. detalles opcionales del estado.
+Si se implementa una poda por contexto, se deben eliminar turnos completos y
+desde el más antiguo:
 
-Nunca se truncan la persona, el focus chunk ni el mensaje actual. Los mensajes individuales del jugador deben tener un límite de longitud.
+1. turno más antiguo;
+2. support chunk del turno actual;
+3. detalles opcionales del estado.
+
+Nunca se truncan la persona ni el mensaje actual. Los mensajes individuales del
+jugador deben tener un límite de longitud.
 
 ## Forma del prompt generativo
 
 ```text
-[Reglas compartidas]
-[Persona v2]
-[Estado mínimo: nombre del interlocutor y posturas persistentes]
+[SYSTEM]
+Reglas comunes
+Persona v2
 
-Información pertinente para esta respuesta:
+[HISTORY]
+[user turn 1, solo el texto original del jugador]
+[assistant turn 1]
+...
+[user turn N-1, solo el texto original del jugador]
+[assistant turn N-1]
+
+[CURRENT TURN]
+<retrieved_context>
+Datos disponibles si hacen falta; no es necesario usar ninguno.
 - [focus chunk con procedencia interna]
 - [support chunks opcionales]
-
-Conversación reciente:
-[dos intercambios]
-
-Jugador: [mensaje actual]
+</retrieved_context>
+<user_message>
+[mensaje actual]
+</user_message>
 ```
 
 El modelo no recibe el catálogo entero de hechos o pistas visibles, el grafo, el nombre del culpable ni chunks bloqueados.
+
+Los códigos `CL-*`, `PI-*` y `M*` no se envían al modelo. Solo determinan qué
+datos pueden participar. `claim_status` queda fuera del prompt: se envía
+únicamente el dato atómico recuperado y las reglas generales del personaje
+piden conservar la cautela de su redacción.
+
+## Runtime y concurrencia
+
+Generación y embeddings tienen endpoints configurables por separado:
+
+- `OLLAMA_CHAT_BASE_URL`
+- `OLLAMA_EMBED_BASE_URL`
+
+Hoy ambos pueden apuntar al mismo Ollama. En ese caso el backend serializa las llamadas para evitar que dos solicitudes compitan dentro del mismo runtime; `OLLAMA_MAX_LOADED_MODELS=2` permite mantener `gemma4:e4b` y `hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0` residentes.
+
+Cada request establece `keep_alive=30m`. El historial se conserva completo por
+defecto (`OLLAMA_MAX_HISTORY=0`). El contexto recuperado es efímero: solo se
+agrega al mensaje `user` del turno actual. Al confirmar una respuesta se guarda
+en la sesión el par `{role: user, content: pregunta_original}` y
+`{role: assistant, content: respuesta}`. Así el historial no duplica pasajes,
+no filtra metadata de retrieval y conserva un prefijo estable para la caché.
+Un valor positivo de `OLLAMA_MAX_HISTORY` habilita un límite explícito.
 
 ## Recuperación, hechos y pistas visibles
 
@@ -288,7 +345,7 @@ Los agentes pueden proponer:
 
 Validaciones obligatorias:
 
-1. todo `source_text` existe literalmente en una escena;
+1. todo chunk atómico conserva su procedencia en `source_excerpt` y `canonical_lines`;
 2. todos los párrafos canónicos están cubiertos o marcados como no indexables;
 3. ningún `retrieval_text` agrega hechos;
 4. todos los IDs pertenecen a vocabularios cerrados;
@@ -304,7 +361,7 @@ La suite debe separar recuperación y generación.
 
 ### Retrieval
 
-- Recall@1 y Recall@3 sobre preguntas con chunk esperado.
+- Hit@1, Hit@3 y MRR sobre preguntas con gold editorial de uno o más átomos; la evaluación de las respuestas queda para revisión manual separada.
 - tasa de falsos positivos en preguntas no relacionadas.
 - tasa de recuperación de chunks bloqueados: debe ser 0.
 - exactitud del NPC/etapa filtrados: debe ser 100%.
@@ -319,12 +376,10 @@ La suite debe separar recuperación y generación.
 - no contradice posturas persistentes;
 - TTFT y tiempo total.
 
-## Decisiones pendientes de calibración
+## Decisiones ya calibradas
 
-- modelo de embeddings definitivo;
-- pesos de dense/BM25 en la fusión;
-- umbral mínimo de similitud;
-- cantidad óptima de support chunks;
-- si un hecho comunicado se registra siempre o solo tras una respuesta completada sin error.
+- el runtime usa embeddinggemma con un gate raw fijo de `0,50`, aplicado antes de la normalización por consulta; en el benchmark editorial de 100 consultas permite abstenerse ante consultas irrelevantes;
+- la pregunta canónica complementa, no reemplaza, al pasaje original;
+- el segundo support se limita por MMR y por seguridad de hechos para evitar repetir el mismo dato o adelantar pistas.
 
-Estas decisiones requieren datos de consultas reales; no modifican el contrato del corpus.
+Los hechos del focus se registran únicamente después de que la respuesta termina sin error. Estas calibraciones no modifican el contrato del corpus.

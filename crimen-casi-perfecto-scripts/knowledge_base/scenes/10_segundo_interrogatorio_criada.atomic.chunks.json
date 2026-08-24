@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-10",
+  "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-01",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          139,
+          153
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-01"
+      },
+      "source_text": "Stevens siempre tomaba el whisky con hielo.",
+      "retrieval_text": "Stevens siempre tomaba el whisky con hielo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CRI-05"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "siempre",
+          "whisky",
+          "hielo",
+          "heladera",
+          "cubos",
+          "costumbre",
+          "Stevens",
+          "tomaba",
+          "el",
+          "con"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-10-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-02",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          139,
+          153
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-01"
+      },
+      "source_text": "Los cubos de hielo no se compraban: los producía la heladera.",
+      "retrieval_text": "Los cubos de hielo no se compraban: los producía la heladera.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "siempre",
+          "whisky",
+          "hielo",
+          "heladera",
+          "cubos",
+          "costumbre",
+          "Los",
+          "de",
+          "no",
+          "se",
+          "compraban",
+          "producía",
+          "la"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-10-AT-01",
+          "SCN-10-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-03",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          155,
+          165
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-02"
+      },
+      "source_text": "La heladera había fallado unos días antes.",
+      "retrieval_text": "La heladera había fallado unos días antes.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-FRI-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "heladera",
+          "falló",
+          "arregló",
+          "reparó",
+          "Pablo",
+          "técnico",
+          "congelador",
+          "La",
+          "había",
+          "fallado",
+          "unos",
+          "días",
+          "antes"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-10-AT-02",
+          "SCN-10-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-04",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          155,
+          165
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-02"
+      },
+      "source_text": "No llamaron a un técnico para reparar la heladera.",
+      "retrieval_text": "No llamaron a un técnico para reparar la heladera.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "heladera",
+          "falló",
+          "arregló",
+          "reparó",
+          "Pablo",
+          "técnico",
+          "congelador",
+          "No",
+          "llamaron",
+          "a",
+          "un",
+          "para",
+          "reparar",
+          "la"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-10-AT-03",
+          "SCN-10-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-05",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          155,
+          165
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-02"
+      },
+      "source_text": "Pablo fue quien reparó la heladera.",
+      "retrieval_text": "Pablo fue quien reparó la heladera.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-FRI-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "heladera",
+          "falló",
+          "arregló",
+          "reparó",
+          "Pablo",
+          "técnico",
+          "congelador",
+          "fue",
+          "quien",
+          "la"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-10-AT-04",
+          "SCN-10-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-10-AT-06",
+      "scene_id": "SCN-10",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          155,
+          165
+        ],
+        "scene_file": "scenes/10_segundo_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-10-CH-02"
+      },
+      "source_text": "La reparación dio a Pablo acceso directo al congelador.",
+      "retrieval_text": "La reparación dio a Pablo acceso directo al congelador.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M40_POISON_IN_ICE"
+        ],
+        "facts_all": [
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "heladera",
+          "falló",
+          "arregló",
+          "reparó",
+          "Pablo",
+          "técnico",
+          "congelador",
+          "La",
+          "reparación",
+          "dio",
+          "a",
+          "acceso",
+          "directo",
+          "al"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-10-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen."
+    }
+  ]
+}

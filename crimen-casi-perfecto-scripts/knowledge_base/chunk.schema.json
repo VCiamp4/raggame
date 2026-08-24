@@ -11,6 +11,7 @@
     "source",
     "source_text",
     "retrieval_text",
+    "variant",
     "kind",
     "speakers",
     "mentioned_entities",
@@ -25,9 +26,12 @@
     "schema_version": {
       "const": 1
     },
+    "variant": {
+      "const": "atomic"
+    },
     "chunk_id": {
       "type": "string",
-      "pattern": "^SCN-[0-9]{2}-CH-[0-9]{2}$"
+      "pattern": "^SCN-[0-9]{2}-AT-[0-9]{2}$"
     },
     "scene_id": {
       "type": "string",
@@ -54,10 +58,18 @@
         "scene_file": {
           "type": "string",
           "pattern": "^scenes/[0-9]{2}_[a-z0-9_]+\\.md$"
+        },
+        "parent_chunk_id": {
+          "type": "string",
+          "pattern": "^SCN-[0-9]{2}-CH-[0-9]{2}$"
         }
       }
     },
     "source_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_excerpt": {
       "type": "string",
       "minLength": 1
     },
@@ -144,7 +156,7 @@
         },
         "neighbor_ids": {
           "type": "array",
-          "items": {"type": "string", "pattern": "^SCN-[0-9]{2}-CH-[0-9]{2}$"},
+          "items": {"type": "string", "pattern": "^SCN-[0-9]{2}-AT-[0-9]{2}$"},
           "uniqueItems": true
         },
         "priority": {

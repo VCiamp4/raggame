@@ -228,21 +228,22 @@ Estos hechos no entran en el índice de investigación ni en el contexto de Pabl
 
 ## Estado de sesión
 
-Representación mínima sugerida:
+Snapshot expuesto por el backend:
 
 ```json
 {
+  "session_id": "default",
   "discovered_facts": [],
   "discovered_clues": [],
-  "communicated_chunks": [],
-  "completed_actions": [],
+  "milestones": ["M00_CASE_OPEN"],
   "talked_to": [],
   "accusation": null,
-  "outcome": "in_progress"
+  "outcome": "in_progress",
+  "accusable_npcs": []
 }
 ```
 
-Al comunicar correctamente un focus chunk, el juego agrega sus `fact_ids`, ejecuta el cierre de derivaciones y reevalúa las condiciones de las pistas visibles. Todo es idempotente: comunicar dos veces el mismo chunk no duplica hechos ni pistas ni vuelve a disparar una transición.
+Cuando termina correctamente una respuesta cuyo focus es descubrible, el juego agrega sus `fact_ids`, ejecuta el cierre de derivaciones y reevalúa las condiciones de las pistas visibles. Todo es idempotente: recuperar dos veces el mismo dato no duplica hechos ni pistas ni vuelve a disparar una transición.
 
 ## Pistas visibles del tablero
 
