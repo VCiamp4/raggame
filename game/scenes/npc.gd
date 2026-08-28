@@ -11,6 +11,20 @@ signal response_completed()                # nuevo: fin de respuesta
 
 @onready var interaction_area: Area3D = $InteractionArea
 
+# Tamaño del colisionador del NPC.
+#
+# Los modelos PSX miden ~3.2 unidades de alto nativos (después cada
+# escena los escala a gusto). La cápsula usa ese mismo tamaño en el
+# espacio local del NPC, así al heredar la escala de la instancia
+# queda proporcional al modelo sin importar dónde se lo coloque.
+#
+# Capas de colisión: layer 1 (default, igual que las paredes) para que
+# el move_and_slide del jugador lo empuje. El InteractionArea va a ver
+# este cuerpo también, pero _on_body_entered ya filtra por grupo
+# "player", así que no molesta.
+const NPC_COLLIDER_RADIUS := 0.35
+const NPC_COLLIDER_HEIGHT := 3.2
+
 const BACKEND_HOST = "127.0.0.1"
 const BACKEND_PORT = 8000
 const BACKEND_PATH = "/dialogue_stream"
@@ -25,6 +39,39 @@ func _ready() -> void:
 	interaction_area.body_exited.connect(_on_body_exited)
 	if clothes_texture != null:
 		_apply_clothes_texture()
+	_add_collision()
+
+
+# ------------------------------------------------------------
+# COLISIÓN FÍSICA DEL NPC
+# ------------------------------------------------------------
+# Creamos un StaticBody3D con cápsula como hija del NPC.
+#
+# ¿Por qué StaticBody3D y no CharacterBody3D?
+# Porque por ahora los NPCs están quietos. Si más adelante se
+# mueven o son empujables, se cambia por AnimatableBody3D.
+#
+# La cápsula está centrada en su propio origen, así que la subimos
+# media altura para que los pies apoyen en y=0, igual que el modelo.
+# ------------------------------------------------------------
+
+func _add_collision() -> void:
+
+	var body := StaticBody3D.new()
+	body.name = "CollisionBody"
+
+	var shape_node := CollisionShape3D.new()
+	shape_node.name = "CollisionShape3D"
+
+	var capsule := CapsuleShape3D.new()
+	capsule.radius = NPC_COLLIDER_RADIUS
+	capsule.height = NPC_COLLIDER_HEIGHT
+	shape_node.shape = capsule
+
+	shape_node.position.y = NPC_COLLIDER_HEIGHT / 2.0
+
+	body.add_child(shape_node)
+	add_child(body)
 
 
 func _apply_clothes_texture() -> void:
