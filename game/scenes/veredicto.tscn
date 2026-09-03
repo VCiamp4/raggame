@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://fy3h0opfbnhf"]
+
+[ext_resource type="Script" uid="uid://d31ws8jwuhqu0" path="res://scenes/veredicto.gd" id="1_n537w"]
+
+[node name="Control" type="Control" unique_id=1181225807]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n537w")

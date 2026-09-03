@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d4m7a3umrmd1s"]
+
+[ext_resource type="PackedScene" uid="uid://bypwqpjgyb8sb" path="res://assets/Cow by Poly by Google - 0OToIgkcVM7.glb" id="1_2odp0"]
+[ext_resource type="PackedScene" uid="uid://b22x3iu7yytqe" path="res://assets/Lab Assets/GLB/Furniture/Counters/counter_counter_side_outlet.glb" id="2_5a8uo"]
+[ext_resource type="PackedScene" uid="uid://vwoy3evwo7lg" path="res://assets/Lab Assets/GLB/Furniture/Counters/counter_counter.glb" id="3_4tgyg"]
+[ext_resource type="PackedScene" uid="uid://dlqnkfjka3wlb" path="res://assets/Lab Assets/GLB/Heating Equipment/heating_equipment_bunsen_burner.glb" id="4_p261k"]
+[ext_resource type="PackedScene" uid="uid://ceolqw7mii8iw" path="res://assets/Lab Assets/GLB/Machines/machine_electronic_scale.glb" id="5_poq00"]
+[ext_resource type="PackedScene" uid="uid://dpn50q80deecj" path="res://assets/Lab Assets/GLB/Machines/machine_hot_plate.glb" id="6_45drv"]
+[ext_resource type="PackedScene" uid="uid://clr4lix5hv72w" path="res://assets/Lab Assets/GLB/Machines/machine_microscope.glb" id="7_d7v6f"]
+[ext_resource type="PackedScene" uid="uid://cd1xqfrwetn5" path="res://assets/Lab Assets/GLB/PPE - Safety/ppe_fire_extinguisher_clamp.glb" id="8_c8vxd"]
+[ext_resource type="PackedScene" uid="uid://dv1w5m5xa8cfq" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/computer.glb" id="9_6pmj3"]
+[ext_resource type="PackedScene" uid="uid://dyi0kl06vva18" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/CrtMonitor.glb" id="10_liwng"]
+[ext_resource type="PackedScene" uid="uid://d2w70dmejepm4" path="res://assets/Lab Assets/GLB/Heating Equipment/heating_equipment_ring_stand.glb" id="11_lprxf"]
+[ext_resource type="PackedScene" uid="uid://0rl0jffoi5h8" path="res://assets/Lab Assets/GLB/Dishes/dish_evaporating_dish.glb" id="12_8huxt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
+size = Vector2(3, 6)
+
+[node name="Node3D" type="Node3D" unique_id=459800692]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1152430635]
+mesh = SubResource("PlaneMesh_arjtg")
+
+[node name="Cow by Poly by Google - 0OToIgkcVM7" parent="." unique_id=1252148571 instance=ExtResource("1_2odp0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.0087638, 0, -2.0911295)
+
+[node name="Low Poly - Lab Assets" parent="." unique_id=438496709 instance=ExtResource("2_5a8uo")]
+transform = Transform3D(9.843771e-05, 0, -0.005999193, 0, 0.006, 0, 0.005999193, 0, 9.843771e-05, -1.315033, 0.21205702, -0.4455937)
+
+[node name="Low Poly - Lab Assets2" parent="." unique_id=809770799 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.3078527, 0.21152902, -0.07931559)
+
+[node name="Low Poly - Lab Assets3" parent="." unique_id=1490057907 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.3007054, 0.21152902, 0.27653414)
+
+[node name="Low Poly - Lab Assets4" parent="." unique_id=690075390 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2929622, 0.21152902, 0.64674276)
+
+[node name="Low Poly - Lab Assets5" parent="." unique_id=1251161074 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2842503, 0.21152902, 1.0161092)
+
+[node name="Low Poly - Lab Assets6" parent="." unique_id=1376130437 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2742715, 0.21152902, 1.3788106)
+
+[node name="Low Poly - Lab Assets7" parent="." unique_id=1114686504 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2696338, 0.21152902, 1.7464759)
+
+[node name="Low Poly - Lab Assets8" parent="." unique_id=589900072 instance=ExtResource("4_p261k")]
+transform = Transform3D(0.00057402573, 0, 0.0019158536, 0, 0.002, 0, -0.0019158536, 0, 0.00057402573, -1.2566652, 0.44840157, 0.07054925)
+
+[node name="Low Poly - Lab Assets9" parent="." unique_id=1138271034 instance=ExtResource("5_poq00")]
+transform = Transform3D(0.0034475848, 0, -0.0036213477, 0, 0.005, 0, 0.0036213477, 0, 0.0034475848, -1.292391, 0.44255435, 0.47851127)
+
+[node name="Low Poly - Lab Assets10" parent="." unique_id=1367860358 instance=ExtResource("6_45drv")]
+transform = Transform3D(-0.000270944, 0, -0.004992653, 0, 0.005, 0, 0.004992653, 0, -0.000270944, -1.383399, 0.44600743, -0.39512908)
+
+[node name="Low Poly - Lab Assets11" parent="." unique_id=634239059 instance=ExtResource("7_d7v6f")]
+transform = Transform3D(-0.00038169365, 0, 0.003981747, 0, 0.004, 0, -0.003981747, 0, -0.00038169365, -1.0813825, 0.45710468, 0.95263964)
+
+[node name="Low Poly - Lab Assets13" parent="." unique_id=1171816210 instance=ExtResource("7_d7v6f")]
+transform = Transform3D(-0.00038169365, 0, 0.003981747, 0, 0.004, 0, -0.003981747, 0, -0.00038169365, -1.0813825, 0.45710468, 1.0972216)
+
+[node name="Low Poly - Lab Assets12" parent="." unique_id=457368244 instance=ExtResource("8_c8vxd")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, -1.2209166, 0.14336419, 1.9912369)
+
+[node name="computer" parent="." unique_id=1462532266 instance=ExtResource("9_6pmj3")]
+transform = Transform3D(-0.24323781, 0, 0.43684706, 0, 0.5, 0, -0.43684706, 0, -0.24323781, -1.2837336, 0.4427082, 1.7373693)
+
+[node name="CrtMonitor2" parent="." unique_id=272869421 instance=ExtResource("10_liwng")]
+transform = Transform3D(0.06945929, 0, 0.3939231, 0, 0.4, 0, -0.3939231, 0, 0.06945929, -1.3074467, 0.43752754, 1.4696976)
+
+[node name="Low Poly - Lab Assets14" parent="." unique_id=548014506 instance=ExtResource("11_lprxf")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.3079096, 0.23609531, -2.7778418)
+
+[node name="Low Poly - Lab Assets15" parent="." unique_id=1665491601 instance=ExtResource("12_8huxt")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 1.3072721, 0.27930582, -2.7527888)

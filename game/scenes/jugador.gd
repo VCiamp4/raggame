@@ -61,7 +61,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if highlighted_object != null and not in_dialogue:
-				_examine_object(highlighted_object)
+				if highlighted_object.is_in_group("pizarron"):
+					highlighted_object.interact()   # abre el lineup
+				else:
+					_examine_object(highlighted_object)   # copa: muestra texto
 
 
 # ---------- NPCs (con LLM) ----------
@@ -147,7 +150,8 @@ func _check_examinable_under_mouse() -> void:
 	var found: Node = null
 	if result and result.has("collider"):
 		var collider = result["collider"]
-		if collider.is_in_group("examinable"):
+		# Detecta tanto examinables (copa) como el pizarrón
+		if collider.is_in_group("examinable") or collider.is_in_group("pizarron"):
 			var dist = global_position.distance_to(collider.global_position)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider

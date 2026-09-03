@@ -1,7 +1,8 @@
 extends StaticBody3D
 
-@export var location_name: String = "Departamento"
-@export var rotation_speed: float = 0.5  # velocidad de giro (radianes/seg)
+@export var location_name: String = "Laboratorio"
+@export_file("*.tscn") var scene_path: String = "res://scenes/laboratorio.gd"
+@export var rotation_speed: float = 0.5
 
 var is_highlighted: bool = false
 var mesh_instance: MeshInstance3D
@@ -47,3 +48,7 @@ func unhighlight() -> void:
 
 func get_location_name() -> String:
 	return location_name
+
+
+func get_scene_path() -> String:
+	return scene_path

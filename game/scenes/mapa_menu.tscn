@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://vjiqmk52m2sc"]
 
-[ext_resource type="Script" uid="uid://dvu08gyxk030h" path="res://scenes/comisaria.gd" id="1_np711"]
 [ext_resource type="Script" uid="uid://18jk28jlcr6o" path="res://scenes/mapa_menu.gd" id="1_yd01t"]
 [ext_resource type="Script" uid="uid://dalmks2p153vh" path="res://scenes/laboratorio.gd" id="2_0q7od"]
+[ext_resource type="Script" uid="uid://dvu08gyxk030h" path="res://scenes/comisaria.gd" id="2_s17ix"]
 [ext_resource type="PackedScene" uid="uid://6hjk1mm65kgr" path="res://assets/PSX modular house interior pack/props/Sheriff star.glb" id="3_1pmob"]
 [ext_resource type="Script" uid="uid://r33q52eotv8f" path="res://scenes/oficina.gd" id="3_uvvj8"]
 [ext_resource type="Script" uid="uid://cjfqfy0jihqtt" path="res://scenes/departamento.gd" id="4_5s2bk"]
@@ -37,7 +37,7 @@ mesh = SubResource("PlaneMesh_arjtg")
 
 [node name="comisaria" type="StaticBody3D" parent="." unique_id=220424357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4166365, 1.1537161, -3.134451)
-script = ExtResource("1_np711")
+script = ExtResource("2_s17ix")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="comisaria" unique_id=1293506861]
 shape = SubResource("BoxShape3D_1pmob")

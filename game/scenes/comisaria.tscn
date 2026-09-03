@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dksa6k5hhgytj" path="res://assets/PSX modular house interior pack/props/chair.glb" id="12_5ax6i"]
 [ext_resource type="PackedScene" uid="uid://b1qdgajxfcbfm" path="res://assets/PSX modular house interior pack/props/clock.glb" id="13_fhysb"]
 [ext_resource type="PackedScene" uid="uid://6puk6ia2hstk" path="res://assets/Chandelier/Debris Papers by Quaternius - MujITy1NRR.glb" id="14_r00i4"]
-[ext_resource type="PackedScene" uid="uid://dg4kg1akrsagl" path="res://assets/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy (1).glb" id="15_21tgf"]
+[ext_resource type="Script" uid="uid://cb5216nom5lfv" path="res://scenes/pizarron.gd" id="15_hncaa"]
+[ext_resource type="PackedScene" uid="uid://dshn8ikaars" path="res://assets/Chair/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy.glb" id="16_owl32"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -35,6 +36,9 @@ size = Vector3(1.2333374, 1.4770508, 1.15094)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spahn"]
 size = Vector3(0.5909424, 1.8276367, 0.73236084)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hncaa"]
+size = Vector3(0.091796875, 1.0709229, 1.7998505)
 
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
@@ -276,5 +280,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.019533, 4.0470314, 0.45013
 [node name="Root Scene2" parent="." unique_id=928750400 instance=ExtResource("14_r00i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.170643, 1.1804467, 2.7862263)
 
-[node name="Cork Board by Jarlan Perez - 5Ql0Sdq6fmy (1)" parent="." unique_id=1928812323 instance=ExtResource("15_21tgf")]
+[node name="pizarron" type="StaticBody3D" parent="." unique_id=1881522535]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.8565083, 2.4651618, 3.0734)
+collision_layer = 2
+script = ExtResource("15_hncaa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pizarron" unique_id=1665713245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026367188, -0.10662842, 0.02393341)
+shape = SubResource("BoxShape3D_hncaa")
+
+[node name="Cork Board by Jarlan Perez - 5Ql0Sdq6fmy" parent="pizarron" unique_id=661720195 instance=ExtResource("16_owl32")]
