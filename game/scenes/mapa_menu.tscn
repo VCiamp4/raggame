@@ -48,6 +48,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 [node name="laboratorio" type="StaticBody3D" parent="." unique_id=761352682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2109513, 0.7609401, 2.7003098)
 script = ExtResource("2_0q7od")
+location_name = "Laboratorio"
+scene_path = "res://scenes/laboratorio.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="laboratorio" unique_id=334377214]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053919315, 0.11784053, 0.13285685)

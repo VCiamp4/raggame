@@ -52,3 +52,7 @@ func get_location_name() -> String:
 
 func get_scene_path() -> String:
 	return scene_path
+
+
+func get_scene_path() -> String:
+	return scene_path

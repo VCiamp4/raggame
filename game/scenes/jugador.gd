@@ -1,9 +1,10 @@
 extends CharacterBody3D
 
-const SPEED = 3.0
+const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
+@onready var walking: Node3D = $Walking
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
@@ -35,11 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Movimiento
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		walking.rotation.y = atan2(direction.x, direction.z)
 		if anim_player and not anim_player.is_playing():
 			anim_player.play("mixamo_com")
 	else:
@@ -55,9 +57,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not in_dialogue:
 		if nearby_npc != null:
 			_open_dialogue()
+	elif event.is_action_pressed("examine") and not in_dialogue:
+		if highlighted_object != null:
+			_examine_object(highlighted_object)
 	elif event.is_action_pressed("ui_cancel") and in_dialogue:
 		_close_dialogue()
 	
+	# Click izquierdo también examina (compatibilidad con mouse)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if highlighted_object != null and not in_dialogue:
@@ -86,7 +92,10 @@ func _close_dialogue() -> void:
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
-	
+
+	# Chequear si el input activa algún evento/pista
+	EventManager.check_input(text)
+
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
@@ -114,15 +123,13 @@ func _on_response_completed() -> void:
 
 func _on_npc_entered_range(npc: Node) -> void:
 	nearby_npc = npc
-	if not in_dialogue:
-		dialogue_ui.show_prompt(npc.npc_name)
+	_update_prompt()
 
 
 func _on_npc_exited_range(npc: Node) -> void:
 	if nearby_npc == npc:
 		nearby_npc = null
-		if not in_dialogue:
-			dialogue_ui.hide_prompt()
+		_update_prompt()
 
 
 # ---------- Objetos examinables (sin LLM) ----------
@@ -135,9 +142,17 @@ func _process(_delta: float) -> void:
 
 
 func _check_examinable_under_mouse() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_origin = camera.project_ray_origin(mouse_pos)
-	var ray_dir = camera.project_ray_normal(mouse_pos)
+	var ray_origin: Vector3
+	var ray_dir: Vector3
+	if InputManager.using_controller:
+		# Con mando no hay cursor: el rayo sale del centro de la pantalla.
+		var center := get_viewport().get_visible_rect().size / 2.0
+		ray_origin = camera.project_ray_origin(center)
+		ray_dir = camera.project_ray_normal(center)
+	else:
+		var mouse_pos = get_viewport().get_mouse_position()
+		ray_origin = camera.project_ray_origin(mouse_pos)
+		ray_dir = camera.project_ray_normal(mouse_pos)
 	var ray_end = ray_origin + ray_dir * 100.0
 	
 	var space_state = get_world_3d().direct_space_state
@@ -161,12 +176,36 @@ func _check_examinable_under_mouse() -> void:
 		if found != null:
 			found.highlight()
 			highlighted_object = found
+		_update_prompt()
 
 
 func _clear_highlight() -> void:
 	if highlighted_object != null:
 		highlighted_object.unhighlight()
 		highlighted_object = null
+		if not in_dialogue:
+			_update_prompt()
+
+
+# ------------------------------------------------------------
+# PROMPT DE INTERACCIÓN
+# ------------------------------------------------------------
+# Decide qué mostrar en el cartel según el contexto:
+#
+#     1. Objeto examinable bajo el cursor/mira -> "[F]/(X) Examinar X"
+#     2. NPC cerca                             -> "[E]/(A) Hablar con X"
+#     3. Nada cerca                            -> oculta el cartel
+# ------------------------------------------------------------
+
+func _update_prompt() -> void:
+	if in_dialogue:
+		return
+	if highlighted_object != null:
+		dialogue_ui.show_prompt(highlighted_object.object_name, "Examinar", "examine")
+	elif nearby_npc != null:
+		dialogue_ui.show_prompt(nearby_npc.npc_name)
+	else:
+		dialogue_ui.hide_prompt()
 
 
 func _examine_object(obj: Node) -> void:

@@ -74,3 +74,4 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.3079096, 0.2360953
 
 [node name="Low Poly - Lab Assets15" parent="." unique_id=1665491601 instance=ExtResource("12_8huxt")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 1.3072721, 0.27930582, -2.7527888)
+

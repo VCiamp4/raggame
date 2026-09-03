@@ -10,9 +10,14 @@ var prompt_label: Label
 signal text_submitted(text: String)
 
 var current_npc_response: String = ""
+var _prompt_target_name: String = ""
+var _prompt_verb: String = "Hablar con"
+var _prompt_action: String = "interact"
 
 
 func _ready() -> void:
+	InputManager.device_changed.connect(_on_device_changed)
+
 	# Panel de fondo del diálogo
 	panel = ColorRect.new()
 	panel.color = Color(0, 0, 0, 0.85)
@@ -95,6 +100,7 @@ func show_dialogue(npc_name: String) -> void:
 	name_label.text = npc_name
 	panel.show()
 	input_field.text = ""
+	input_field.placeholder_text = "Escribí algo y presioná " + InputManager.action_glyph() + "..."
 	input_field.editable = true
 	input_field.grab_focus()
 
@@ -144,13 +150,24 @@ func set_input_enabled(enabled: bool) -> void:
 		input_field.grab_focus()
 
 
-func show_prompt(npc_name: String) -> void:
-	prompt_label.text = "[E] Hablar con " + npc_name
+func show_prompt(target_name: String, verb: String = "Hablar con", action: String = "interact") -> void:
+	_prompt_target_name = target_name
+	_prompt_verb = verb
+	_prompt_action = action
+	prompt_label.text = InputManager.action_glyph(action) + " " + verb + " " + target_name
 	prompt_label.show()
 
 
 func hide_prompt() -> void:
+	_prompt_target_name = ""
 	prompt_label.hide()
+
+
+func _on_device_changed(_using_controller: bool) -> void:
+	if panel.visible:
+		input_field.placeholder_text = "Escribí algo y presioná " + InputManager.action_glyph("interact") + "..."
+	if _prompt_target_name != "":
+		prompt_label.text = InputManager.action_glyph(_prompt_action) + " " + _prompt_verb + " " + _prompt_target_name
 
 
 func _on_text_submitted(text: String) -> void:
