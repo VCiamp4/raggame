@@ -33,6 +33,11 @@ size = Vector3(1, 1, 1.0014343)
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
 
+[node name="Portero" parent="." instance=ExtResource("12_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+npc_id = "portero"
+npc_name = "Portero"
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1938173594]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2012582832]

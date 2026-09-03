@@ -75,8 +75,20 @@ mesh = SubResource("PlaneMesh_e73fq")
 transform = Transform3D(20, 0, 0, 0, 0.5, 0, 0, 0, 20, 0, -0.17949021, 0)
 shape = SubResource("BoxShape3D_p0ph1")
 
-[node name="Node3D" parent="." unique_id=2084363322 instance=ExtResource("3_hv3sm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15302563, -0.0037901402, -7.8513794)
+[node name="Esteban" parent="." unique_id=2084363322 instance=ExtResource("3_hv3sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -4)
+npc_id = "esteban"
+npc_name = "Esteban"
+
+[node name="Pablo" parent="." instance=ExtResource("3_hv3sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -4)
+npc_id = "pablo"
+npc_name = "Pablo"
+
+[node name="PeritoQuimico" parent="." instance=ExtResource("3_hv3sm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+npc_id = "quimico"
+npc_name = "Perito químico"
 
 [node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("4_2ou2y")]
 

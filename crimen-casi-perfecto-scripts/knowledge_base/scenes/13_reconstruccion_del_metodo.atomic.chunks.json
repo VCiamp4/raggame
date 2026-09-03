@@ -1,0 +1,1202 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-13",
+  "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-01",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          207,
+          211
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-01"
+      },
+      "source_text": "La discusión comenzó cuando Esteban descubrió que la póliza había sido modificada a favor de Pablo.",
+      "retrieval_text": "La discusión comenzó cuando Esteban descubrió que la póliza había sido modificada a favor de Pablo.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "criada",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-RES-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "reconstrucción",
+          "discusión",
+          "Esteban",
+          "Pablo",
+          "póliza",
+          "whisky",
+          "La",
+          "comenzó",
+          "cuando",
+          "descubrió",
+          "que",
+          "había",
+          "sido",
+          "modificada",
+          "a",
+          "favor",
+          "de"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-02",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          207,
+          211
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-01"
+      },
+      "source_text": "La discusión dejó alterada a Stevens.",
+      "retrieval_text": "La discusión dejó alterada a Stevens.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "criada",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "reconstrucción",
+          "discusión",
+          "Esteban",
+          "Pablo",
+          "póliza",
+          "whisky",
+          "La",
+          "dejó",
+          "alterada",
+          "a",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-01",
+          "SCN-13-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-03",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          207,
+          211
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-01"
+      },
+      "source_text": "Después de la discusión, Stevens pidió un whisky para tranquilizarse.",
+      "retrieval_text": "Después de la discusión, Stevens pidió un whisky para tranquilizarse.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "criada",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "reconstrucción",
+          "discusión",
+          "Esteban",
+          "Pablo",
+          "póliza",
+          "whisky",
+          "Después",
+          "de",
+          "la",
+          "Stevens",
+          "pidió",
+          "un",
+          "para",
+          "tranquilizarse"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-02",
+          "SCN-13-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-04",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          213,
+          215
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-02"
+      },
+      "source_text": "La criada sirvió whisky limpio con hielo.",
+      "retrieval_text": "La criada sirvió whisky limpio con hielo.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "portero",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky",
+          "hielo",
+          "derritió",
+          "cianuro",
+          "diario",
+          "19:00",
+          "La",
+          "criada",
+          "sirvió",
+          "limpio",
+          "con"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-03",
+          "SCN-13-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-05",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          213,
+          215
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-02"
+      },
+      "source_text": "La criada salió a las 19:00 y fue la última persona que vio viva a Stevens.",
+      "retrieval_text": "La criada salió a las 19:00 y fue la última persona que vio viva a Stevens.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "portero",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky",
+          "hielo",
+          "derritió",
+          "cianuro",
+          "diario",
+          "19:00",
+          "La",
+          "criada",
+          "salió",
+          "a",
+          "las",
+          "19",
+          "00",
+          "y",
+          "fue",
+          "última",
+          "persona",
+          "que",
+          "vio",
+          "viva",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-04",
+          "SCN-13-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-06",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          213,
+          215
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-02"
+      },
+      "source_text": "El portero dejó el diario a las 19:10 sin ver a Stevens.",
+      "retrieval_text": "El portero dejó el diario a las 19:10 sin ver a Stevens.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "portero",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky",
+          "hielo",
+          "derritió",
+          "cianuro",
+          "diario",
+          "19:00",
+          "El",
+          "portero",
+          "dejó",
+          "a",
+          "las",
+          "19",
+          "10",
+          "sin",
+          "ver",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-05",
+          "SCN-13-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-07",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          213,
+          215
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-02"
+      },
+      "source_text": "Mientras Stevens leía, el hielo se derritió y pasó el cianuro a la bebida.",
+      "retrieval_text": "Mientras Stevens leía, el hielo se derritió y pasó el cianuro a la bebida.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "portero",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-ICE-04"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky",
+          "hielo",
+          "derritió",
+          "cianuro",
+          "diario",
+          "19:00",
+          "Mientras",
+          "Stevens",
+          "leía",
+          "el",
+          "se",
+          "y",
+          "pasó",
+          "a",
+          "la",
+          "bebida"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-06",
+          "SCN-13-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-08",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          213,
+          215
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-02"
+      },
+      "source_text": "Cuando Stevens tomó el whisky recibió la dosis que la mató.",
+      "retrieval_text": "Cuando Stevens tomó el whisky recibió la dosis que la mató.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "portero",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky",
+          "hielo",
+          "derritió",
+          "cianuro",
+          "diario",
+          "19:00",
+          "Cuando",
+          "Stevens",
+          "tomó",
+          "el",
+          "recibió",
+          "la",
+          "dosis",
+          "que",
+          "mató"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-07",
+          "SCN-13-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-09",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          217,
+          219
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-03"
+      },
+      "source_text": "Pablo contaminó el agua del congelador con cianuro durante la reparación.",
+      "retrieval_text": "Pablo contaminó el agua del congelador con cianuro durante la reparación.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "heladera",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-RES-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "fusible",
+          "contaminó",
+          "agua",
+          "congelador",
+          "coartada",
+          "el",
+          "del",
+          "con",
+          "cianuro",
+          "durante",
+          "la",
+          "reparación"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-13-AT-08",
+          "SCN-13-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-10",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          217,
+          219
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-03"
+      },
+      "source_text": "Pablo cambió efectivamente el fusible de la heladera.",
+      "retrieval_text": "Pablo cambió efectivamente el fusible de la heladera.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "heladera",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "fusible",
+          "contaminó",
+          "agua",
+          "congelador",
+          "coartada",
+          "cambió",
+          "efectivamente",
+          "el",
+          "de",
+          "la",
+          "heladera"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-13-AT-09",
+          "SCN-13-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-11",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          217,
+          219
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-03"
+      },
+      "source_text": "Pablo no necesitaba estar presente cuando Stevens murió.",
+      "retrieval_text": "Pablo no necesitaba estar presente cuando Stevens murió.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "heladera",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "fusible",
+          "contaminó",
+          "agua",
+          "congelador",
+          "coartada",
+          "no",
+          "necesitaba",
+          "estar",
+          "presente",
+          "cuando",
+          "Stevens",
+          "murió"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-13-AT-10",
+          "SCN-13-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-12",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          217,
+          219
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-03"
+      },
+      "source_text": "La coartada laboral de Pablo formaba parte del método.",
+      "retrieval_text": "La coartada laboral de Pablo formaba parte del método.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "senora_stevens",
+        "heladera",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-RES-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "fusible",
+          "contaminó",
+          "agua",
+          "congelador",
+          "coartada",
+          "La",
+          "laboral",
+          "de",
+          "formaba",
+          "parte",
+          "del",
+          "método"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-13-AT-11",
+          "SCN-13-AT-13"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-13",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          221,
+          223
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-04"
+      },
+      "source_text": "Pablo esperaba seguir obteniendo ayuda económica de Stevens.",
+      "retrieval_text": "Pablo esperaba seguir obteniendo ayuda económica de Stevens.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "esteban",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "temprano",
+          "pelea",
+          "whisky",
+          "adelantó",
+          "plan",
+          "esperaba",
+          "seguir",
+          "obteniendo",
+          "ayuda",
+          "económica",
+          "de",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-12",
+          "SCN-13-AT-14"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-14",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          221,
+          223
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-04"
+      },
+      "source_text": "Pablo no esperaba que Stevens muriera tan pronto.",
+      "retrieval_text": "Pablo no esperaba que Stevens muriera tan pronto.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "esteban",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "temprano",
+          "pelea",
+          "whisky",
+          "adelantó",
+          "plan",
+          "no",
+          "esperaba",
+          "que",
+          "Stevens",
+          "muriera",
+          "tan",
+          "pronto"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-13",
+          "SCN-13-AT-15"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-15",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          221,
+          223
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-04"
+      },
+      "source_text": "La pelea con Esteban hizo que Stevens pidiera el whisky antes de lo habitual.",
+      "retrieval_text": "La pelea con Esteban hizo que Stevens pidiera el whisky antes de lo habitual.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "esteban",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-RES-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "temprano",
+          "pelea",
+          "whisky",
+          "adelantó",
+          "plan",
+          "La",
+          "con",
+          "Esteban",
+          "hizo",
+          "que",
+          "Stevens",
+          "pidiera",
+          "el",
+          "antes",
+          "de",
+          "lo",
+          "habitual"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-14",
+          "SCN-13-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-13-AT-16",
+      "scene_id": "SCN-13",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          221,
+          223
+        ],
+        "scene_file": "scenes/13_reconstruccion_del_metodo.md",
+        "parent_chunk_id": "SCN-13-CH-04"
+      },
+      "source_text": "La pelea adelantó involuntariamente la ejecución del mecanismo.",
+      "retrieval_text": "La pelea adelantó involuntariamente la ejecución del mecanismo.",
+      "kind": "reconstruction",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "esteban",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "detective"
+      ],
+      "claim_status": "ground_truth",
+      "availability": {
+        "milestones_all": [
+          "M81_VICTORY"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "resolution"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "temprano",
+          "pelea",
+          "whisky",
+          "adelantó",
+          "plan",
+          "La",
+          "involuntariamente",
+          "ejecución",
+          "del",
+          "mecanismo"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-13-AT-15"
+        ]
+      },
+      "security": {
+        "spoiler_level": 3,
+        "resolution_only": true
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+    }
+  ]
+}

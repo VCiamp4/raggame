@@ -1,0 +1,931 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-11",
+  "scene_file": "scenes/11_confrontacion_a_pablo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-01",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          167,
+          181
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-01"
+      },
+      "source_text": "Pablo admitió haber reparado la heladera.",
+      "retrieval_text": "Pablo admitió haber reparado la heladera.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-07"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "reparación",
+          "fusible",
+          "cubeteras",
+          "agua",
+          "congelador",
+          "admitió",
+          "haber",
+          "reparado",
+          "la",
+          "heladera"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-11-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-02",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          167,
+          181
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-01"
+      },
+      "source_text": "Pablo dijo que el arreglo consistió en cambiar un fusible.",
+      "retrieval_text": "Pablo dijo que el arreglo consistió en cambiar un fusible.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "reparación",
+          "fusible",
+          "cubeteras",
+          "agua",
+          "congelador",
+          "dijo",
+          "que",
+          "el",
+          "arreglo",
+          "consistió",
+          "en",
+          "cambiar",
+          "un"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-11-AT-01",
+          "SCN-11-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-03",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          167,
+          181
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-01"
+      },
+      "source_text": "Pablo negó haber tocado las cubeteras.",
+      "retrieval_text": "Pablo negó haber tocado las cubeteras.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "reparación",
+          "fusible",
+          "cubeteras",
+          "agua",
+          "congelador",
+          "negó",
+          "haber",
+          "tocado",
+          "las"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-11-AT-02",
+          "SCN-11-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-04",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          167,
+          181
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-01"
+      },
+      "source_text": "Pablo negó haber tocado el agua del congelador.",
+      "retrieval_text": "Pablo negó haber tocado el agua del congelador.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "reparación",
+          "fusible",
+          "cubeteras",
+          "agua",
+          "congelador",
+          "negó",
+          "haber",
+          "tocado",
+          "el",
+          "del"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-11-AT-03",
+          "SCN-11-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-05",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          183,
+          197
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-02"
+      },
+      "source_text": "Pablo hizo una pausa al saber que el veneno estaba en el hielo.",
+      "retrieval_text": "Pablo hizo una pausa al saber que el veneno estaba en el hielo.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "cianuro",
+          "hielo",
+          "cocina",
+          "niega",
+          "fusible",
+          "agua",
+          "hizo",
+          "una",
+          "pausa",
+          "al",
+          "saber",
+          "que",
+          "el",
+          "veneno",
+          "estaba",
+          "en"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-11-AT-04",
+          "SCN-11-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-06",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          183,
+          197
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-02"
+      },
+      "source_text": "Pablo insistió en que solo había cambiado un fusible.",
+      "retrieval_text": "Pablo insistió en que solo había cambiado un fusible.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "cianuro",
+          "hielo",
+          "cocina",
+          "niega",
+          "fusible",
+          "agua",
+          "insistió",
+          "en",
+          "que",
+          "solo",
+          "había",
+          "cambiado",
+          "un"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-11-AT-05",
+          "SCN-11-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-07",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          183,
+          197
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-02"
+      },
+      "source_text": "Pablo negó haber puesto cianuro.",
+      "retrieval_text": "Pablo negó haber puesto cianuro.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "cianuro",
+          "hielo",
+          "cocina",
+          "niega",
+          "fusible",
+          "agua",
+          "negó",
+          "haber",
+          "puesto"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-11-AT-06",
+          "SCN-11-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-08",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          183,
+          197
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-02"
+      },
+      "source_text": "Pablo propuso investigar a cualquiera con acceso a la cocina.",
+      "retrieval_text": "Pablo propuso investigar a cualquiera con acceso a la cocina.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "heladera"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "cianuro",
+          "hielo",
+          "cocina",
+          "niega",
+          "fusible",
+          "agua",
+          "propuso",
+          "investigar",
+          "a",
+          "cualquiera",
+          "con",
+          "acceso",
+          "la"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-11-AT-07",
+          "SCN-11-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-09",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          199,
+          201
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-03"
+      },
+      "source_text": "Pablo dijo que muchos empleados de Erpa manipulaban reactivos.",
+      "retrieval_text": "Pablo dijo que muchos empleados de Erpa manipulaban reactivos.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "reactivos",
+          "empleados",
+          "beneficio",
+          "Juan",
+          "cubeteras",
+          "Pablo",
+          "dijo",
+          "que",
+          "muchos",
+          "de",
+          "manipulaban"
+        ],
+        "priority": 0.9,
+        "neighbor_ids": [
+          "SCN-11-AT-08",
+          "SCN-11-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-10",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          199,
+          201
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-03"
+      },
+      "source_text": "Pablo atribuyó el reparto de la póliza a la voluntad de Stevens.",
+      "retrieval_text": "Pablo atribuyó el reparto de la póliza a la voluntad de Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "reactivos",
+          "empleados",
+          "beneficio",
+          "Juan",
+          "cubeteras",
+          "Pablo",
+          "atribuyó",
+          "el",
+          "reparto",
+          "de",
+          "la",
+          "póliza",
+          "a",
+          "voluntad",
+          "Stevens"
+        ],
+        "priority": 0.9,
+        "neighbor_ids": [
+          "SCN-11-AT-09",
+          "SCN-11-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-11",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          199,
+          201
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-03"
+      },
+      "source_text": "Pablo volvió a señalar a Juan por sus antecedentes y su relación con las drogas.",
+      "retrieval_text": "Pablo volvió a señalar a Juan por sus antecedentes y su relación con las drogas.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "reactivos",
+          "empleados",
+          "beneficio",
+          "Juan",
+          "cubeteras",
+          "Pablo",
+          "volvió",
+          "a",
+          "señalar",
+          "por",
+          "sus",
+          "antecedentes",
+          "y",
+          "su",
+          "relación",
+          "con",
+          "las",
+          "drogas"
+        ],
+        "priority": 0.9,
+        "neighbor_ids": [
+          "SCN-11-AT-10",
+          "SCN-11-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-11-AT-12",
+      "scene_id": "SCN-11",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          199,
+          201
+        ],
+        "scene_file": "scenes/11_confrontacion_a_pablo.md",
+        "parent_chunk_id": "SCN-11-CH-03"
+      },
+      "source_text": "Pablo admitió haber reparado la heladera, pero negó tocar el agua o las cubeteras.",
+      "retrieval_text": "Pablo admitió haber reparado la heladera, pero negó tocar el agua o las cubeteras.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "erpa",
+        "heladera",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M50_PABLO_FRIDGE_LINK"
+        ],
+        "facts_all": [
+          "CL-FRI-02",
+          "CL-ICE-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Erpa",
+          "reactivos",
+          "empleados",
+          "beneficio",
+          "Juan",
+          "cubeteras",
+          "Pablo",
+          "admitió",
+          "haber",
+          "reparado",
+          "la",
+          "heladera",
+          "pero",
+          "negó",
+          "tocar",
+          "el",
+          "agua",
+          "o",
+          "las"
+        ],
+        "priority": 0.9,
+        "neighbor_ids": [
+          "SCN-11-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+    }
+  ]
+}

@@ -7,3 +7,9 @@ __pycache__/
 *.pyc
 venv/
 .venv/
+
+# Ollama
+ollama_models/
+
+# Local runtime configuration
+.env

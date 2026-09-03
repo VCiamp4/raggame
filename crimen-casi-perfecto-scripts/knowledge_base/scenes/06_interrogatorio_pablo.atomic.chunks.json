@@ -1,0 +1,917 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-06",
+  "scene_file": "scenes/06_interrogatorio_pablo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-01",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          73,
+          73
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-01"
+      },
+      "source_text": "Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.",
+      "retrieval_text": "Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "veterinario",
+          "caballos",
+          "dopaje",
+          "Erpa",
+          "químicos",
+          "reactivos",
+          "había",
+          "ejercido",
+          "como",
+          "hasta",
+          "que",
+          "lo",
+          "inhabilitaron",
+          "por",
+          "dopar",
+          "de",
+          "carrera"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-06-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-02",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          73,
+          73
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-01"
+      },
+      "source_text": "Pablo trabajaba en Erpa Cía., un laboratorio dedicado al análisis de leche.",
+      "retrieval_text": "Pablo trabajaba en Erpa Cía., un laboratorio dedicado al análisis de leche.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "veterinario",
+          "caballos",
+          "dopaje",
+          "Erpa",
+          "químicos",
+          "reactivos",
+          "trabajaba",
+          "en",
+          "Cía",
+          "un",
+          "laboratorio",
+          "dedicado",
+          "al",
+          "análisis",
+          "de",
+          "leche"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-06-AT-01",
+          "SCN-06-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-03",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          73,
+          73
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-01"
+      },
+      "source_text": "Pablo trabajaba en la sección de químicos de Erpa.",
+      "retrieval_text": "Pablo trabajaba en la sección de químicos de Erpa.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "veterinario",
+          "caballos",
+          "dopaje",
+          "Erpa",
+          "químicos",
+          "reactivos",
+          "trabajaba",
+          "en",
+          "la",
+          "sección",
+          "de"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-06-AT-02",
+          "SCN-06-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-04",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          73,
+          73
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-01"
+      },
+      "source_text": "Pablo tenía acceso habitual a distintos reactivos.",
+      "retrieval_text": "Pablo tenía acceso habitual a distintos reactivos.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "erpa"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "veterinario",
+          "caballos",
+          "dopaje",
+          "Erpa",
+          "químicos",
+          "reactivos",
+          "tenía",
+          "acceso",
+          "habitual",
+          "a",
+          "distintos"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-06-AT-03",
+          "SCN-06-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-05",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          75,
+          79
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-02"
+      },
+      "source_text": "Stevens ayudaba económicamente a Pablo.",
+      "retrieval_text": "Stevens ayudaba económicamente a Pablo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "dinero",
+          "ayuda",
+          "parte mayor",
+          "Juan",
+          "antecedentes",
+          "fortuna",
+          "Stevens",
+          "ayudaba",
+          "económicamente",
+          "a"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-06-AT-04",
+          "SCN-06-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-06",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          75,
+          79
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-02"
+      },
+      "source_text": "Pablo había convencido a Stevens de dejarle una parte mayor de su dinero.",
+      "retrieval_text": "Pablo había convencido a Stevens de dejarle una parte mayor de su dinero.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-04"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "dinero",
+          "ayuda",
+          "parte mayor",
+          "Juan",
+          "antecedentes",
+          "fortuna",
+          "había",
+          "convencido",
+          "a",
+          "Stevens",
+          "de",
+          "dejarle",
+          "una",
+          "parte",
+          "mayor",
+          "su"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-06-AT-05",
+          "SCN-06-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-07",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          75,
+          79
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-02"
+      },
+      "source_text": "Pablo negó haber manipulado a Stevens para recibir más dinero.",
+      "retrieval_text": "Pablo negó haber manipulado a Stevens para recibir más dinero.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "dinero",
+          "ayuda",
+          "parte mayor",
+          "Juan",
+          "antecedentes",
+          "fortuna",
+          "negó",
+          "haber",
+          "manipulado",
+          "a",
+          "Stevens",
+          "para",
+          "recibir",
+          "más"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-06-AT-06",
+          "SCN-06-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-08",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          75,
+          79
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-02"
+      },
+      "source_text": "Pablo sostuvo que Stevens era libre de disponer de su fortuna.",
+      "retrieval_text": "Pablo sostuvo que Stevens era libre de disponer de su fortuna.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "dinero",
+          "ayuda",
+          "parte mayor",
+          "Juan",
+          "antecedentes",
+          "fortuna",
+          "sostuvo",
+          "que",
+          "Stevens",
+          "era",
+          "libre",
+          "de",
+          "disponer",
+          "su"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-06-AT-07",
+          "SCN-06-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-09",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          75,
+          79
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-02"
+      },
+      "source_text": "Pablo señaló a Juan por sus antecedentes y su falta de escrúpulos.",
+      "retrieval_text": "Pablo señaló a Juan por sus antecedentes y su falta de escrúpulos.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "pablo"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-06"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "dinero",
+          "ayuda",
+          "parte mayor",
+          "Juan",
+          "antecedentes",
+          "fortuna",
+          "señaló",
+          "a",
+          "por",
+          "sus",
+          "y",
+          "su",
+          "falta",
+          "de",
+          "escrúpulos"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-06-AT-08",
+          "SCN-06-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-10",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          81,
+          83
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-03"
+      },
+      "source_text": "Pablo estaba en Erpa desde las 18:00 y su permanencia fue comprobada.",
+      "retrieval_text": "Pablo estaba en Erpa desde las 18:00 y su permanencia fue comprobada.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "erpa",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-PAB-05"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "coartada",
+          "Erpa",
+          "seis",
+          "trabajo",
+          "comprobada",
+          "estaba",
+          "en",
+          "desde",
+          "las",
+          "18",
+          "00",
+          "y",
+          "su",
+          "permanencia",
+          "fue"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-06-AT-09",
+          "SCN-06-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-11",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          81,
+          83
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-03"
+      },
+      "source_text": "Los tres hermanos tenían motivos para la muerte.",
+      "retrieval_text": "Los tres hermanos tenían motivos para la muerte.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "erpa",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "coartada",
+          "Erpa",
+          "seis",
+          "trabajo",
+          "comprobada",
+          "Los",
+          "tres",
+          "hermanos",
+          "tenían",
+          "motivos",
+          "para",
+          "la",
+          "muerte"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-06-AT-10",
+          "SCN-06-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-06-AT-12",
+      "scene_id": "SCN-06",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          81,
+          83
+        ],
+        "scene_file": "scenes/06_interrogatorio_pablo.md",
+        "parent_chunk_id": "SCN-06-CH-03"
+      },
+      "source_text": "Los tres hermanos también tenían coartadas para el momento de la muerte.",
+      "retrieval_text": "Los tres hermanos también tenían coartadas para el momento de la muerte.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "erpa",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_pablo"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Pablo",
+          "coartada",
+          "Erpa",
+          "seis",
+          "trabajo",
+          "comprobada",
+          "Los",
+          "tres",
+          "hermanos",
+          "también",
+          "tenían",
+          "coartadas",
+          "para",
+          "el",
+          "momento",
+          "de",
+          "la",
+          "muerte"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-06-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+    }
+  ]
+}

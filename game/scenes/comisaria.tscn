@@ -59,6 +59,11 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.084106, 0.014526367,
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.91612303, 7.040468)
 
+[node name="Juan" parent="." instance=ExtResource("16_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+npc_id = "juan"
+npc_name = "Juan"
+
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1084285559]
 
 [node name="desk" parent="StaticBody3D2" unique_id=799118630 instance=ExtResource("2_eecqw")]
