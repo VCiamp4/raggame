@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bq7estbn2k1dm" path="res://scenes/npcs/esteban.tscn" id="12_esteban"]
 [ext_resource type="PackedScene" uid="uid://c3ju4nnpc8v2h" path="res://scenes/npcs/juan.tscn" id="13_juan"]
 [ext_resource type="PackedScene" uid="uid://d5cr1ad9p2mw" path="res://scenes/npcs/criada.tscn" id="14_criada"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="15_portero"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -33,7 +34,7 @@ size = Vector3(1, 1, 1.0014343)
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
 
-[node name="Portero" parent="." instance=ExtResource("12_npc")]
+[node name="Portero" parent="." instance=ExtResource("15_portero")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
 npc_id = "portero"
 npc_name = "Portero"
@@ -105,8 +106,10 @@ omni_range = 12.665853
 [node name="Carpet_1" parent="." unique_id=1184074916 instance=ExtResource("2_kf3pl")]
 transform = Transform3D(3.9999704, 0, 0.015365777, 0, 4, 0, -0.015365777, 0, 3.9999704, 0.37657785, 0.03883253, 0.07419443)
 
-[node name="AreaLight3D" type="AreaLight3D" parent="Carpet_1" unique_id=231464502]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.0923669, 0.23050618, 0.13254218)
+[node name="AmbientLight" type="OmniLight3D" parent="Carpet_1" unique_id=231464502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+omni_range = 10.0
+light_energy = 2.0
 
 [node name="FlowerPot4" parent="." unique_id=1008932510 instance=ExtResource("5_wfjri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3312956, 1.0227929, -7.3820105)
@@ -142,10 +145,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9394407, 2.3819447, 0.7247
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.939439, 1.7118459, -0.56710994)
 
 [node name="Esteban" parent="." instance=ExtResource("12_esteban")]
-transform = Transform3D(-0.139, 0, -0.686, 0, 0.7, 0, 0.686, 0, -0.139, 2.9, 0, -0.6)
+transform = Transform3D(-0.198571, 0, -0.98, 0, 1, 0, 0.98, 0, -0.198571, 2.9, 0, -0.6)
 
 [node name="Juan" parent="." instance=ExtResource("13_juan")]
-transform = Transform3D(0.639, 0, 0.56, 0, 0.85, 0, -0.56, 0, 0.639, -2.8, 0, -3.2)
+transform = Transform3D(0.751765, 0, 0.658824, 0, 1, 0, -0.658824, 0, 0.751765, -2.8, 0, -3.2)
 
 [node name="Criada" parent="." instance=ExtResource("14_criada")]
-transform = Transform3D(-0.572, 0, 0.239, 0, 0.62, 0, -0.239, 0, -0.572, -2.2, 0, 5.2)
+transform = Transform3D(-0.922581, 0, 0.385484, 0, 1, 0, -0.385484, 0, -0.922581, -2.2, 0, 5.2)

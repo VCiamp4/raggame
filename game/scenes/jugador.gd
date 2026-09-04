@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const ChatInterfacesRes = preload("res://data/chat_interfaces.gd")
+const FALL_RESET_HEIGHT := -5.0
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var walking: Node3D = $Walking
@@ -10,18 +12,26 @@ const JUMP_VELOCITY = 4.5
 
 const EXAMINE_DISTANCE = 3.0
 var highlighted_object: Node = null
+var nearby_pizarron: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
+var spawn_transform: Transform3D
+var fade_layer: CanvasLayer
+var fade_rect: ColorRect
 
 
 func _ready() -> void:
+	spawn_transform = global_transform
 	add_to_group("player")
 	for npc in get_tree().get_nodes_in_group("npc"):
 		if npc.has_signal("player_entered_range"):
 			npc.player_entered_range.connect(_on_npc_entered_range)
 			npc.player_exited_range.connect(_on_npc_exited_range)
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
+	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
+	_create_fade_overlay()
+
 
 
 func _physics_process(delta: float) -> void:
@@ -51,16 +61,27 @@ func _physics_process(delta: float) -> void:
 			anim_player.pause()
 	
 	move_and_slide()
+	if global_position.y < FALL_RESET_HEIGHT:
+		_reset_to_spawn()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not in_dialogue:
 		if nearby_npc != null:
 			_open_dialogue()
+		elif highlighted_object != null and highlighted_object.is_in_group("pizarron"):
+			highlighted_object.interact()
+		elif nearby_pizarron != null:
+			nearby_pizarron.interact()
 	elif event.is_action_pressed("examine") and not in_dialogue:
 		if highlighted_object != null:
-			_examine_object(highlighted_object)
-	elif event.is_action_pressed("ui_cancel") and in_dialogue:
+			if highlighted_object.is_in_group("pizarron"):
+				highlighted_object.interact()
+			else:
+				_examine_object(highlighted_object)
+		elif nearby_pizarron != null:
+			nearby_pizarron.interact()
+	elif event.is_action_pressed("ui_quit_dialogue") and in_dialogue:
 		_close_dialogue()
 	
 	# Click izquierdo también examina (compatibilidad con mouse)
@@ -77,8 +98,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _open_dialogue() -> void:
 	in_dialogue = true
+	var profile = ChatInterfacesRes.profile_for(nearby_npc.npc_id)
+	dialogue_ui.apply_profile(profile)
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(nearby_npc.npc_name)
+	var display_name = profile.get("display_name", nearby_npc.npc_name)
+	if display_name == "":
+		display_name = nearby_npc.npc_name
+	dialogue_ui.show_dialogue(display_name)
 	dialogue_ui.set_input_enabled(true)   # input visible para escribirle al NPC
 
 
@@ -87,6 +113,11 @@ func _close_dialogue() -> void:
 	dialogue_ui.hide_dialogue()
 	if nearby_npc != null:
 		dialogue_ui.show_prompt(nearby_npc.npc_name)
+
+
+func _on_dialogue_close_requested() -> void:
+	if in_dialogue:
+		_close_dialogue()
 
 
 func _on_text_submitted(text: String) -> void:
@@ -137,8 +168,10 @@ func _on_npc_exited_range(npc: Node) -> void:
 func _process(_delta: float) -> void:
 	if in_dialogue:
 		_clear_highlight()
+		nearby_pizarron = null
 		return
 	_check_examinable_under_mouse()
+	_update_nearby_pizarron()
 
 
 func _check_examinable_under_mouse() -> void:
@@ -179,12 +212,56 @@ func _check_examinable_under_mouse() -> void:
 		_update_prompt()
 
 
+func _update_nearby_pizarron() -> void:
+	var previous := nearby_pizarron
+	var closest: Node = null
+	var best_distance := EXAMINE_DISTANCE
+	for node in get_tree().get_nodes_in_group("pizarron"):
+		if node is Node3D:
+			var distance := global_position.distance_to(node.global_position)
+			if distance <= EXAMINE_DISTANCE and distance < best_distance:
+				best_distance = distance
+				closest = node
+	nearby_pizarron = closest
+	if previous != nearby_pizarron:
+		_update_prompt()
+
+
 func _clear_highlight() -> void:
 	if highlighted_object != null:
 		highlighted_object.unhighlight()
 		highlighted_object = null
 		if not in_dialogue:
 			_update_prompt()
+
+
+func _reset_to_spawn() -> void:
+	global_transform = spawn_transform
+	velocity = Vector3.ZERO
+	if fade_layer == null:
+		_create_fade_overlay()
+
+
+func _create_fade_overlay() -> void:
+	if fade_layer != null and is_instance_valid(fade_layer):
+		return
+	fade_layer = CanvasLayer.new()
+	fade_layer.layer = 99
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_rect.modulate.a = 1.0
+	fade_layer.add_child(fade_rect)
+	add_child(fade_layer)
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 0.0, 0.8)
+	tween.finished.connect(func():
+		if is_instance_valid(fade_layer):
+			fade_layer.queue_free()
+		fade_layer = null
+		fade_rect = null
+	)
 
 
 # ------------------------------------------------------------
@@ -201,9 +278,23 @@ func _update_prompt() -> void:
 	if in_dialogue:
 		return
 	if highlighted_object != null:
-		dialogue_ui.show_prompt(highlighted_object.object_name, "Examinar", "examine")
+		var label := _interaction_label(highlighted_object)
+		var action_name := "examine"
+		var verb := "Examinar"
+		if highlighted_object.is_in_group("pizarron"):
+			action_name = "interact"
+			verb = "Abrir"
+		dialogue_ui.show_prompt(label, verb, action_name)
+	elif nearby_pizarron != null:
+		var board_label := _interaction_label(nearby_pizarron)
+		dialogue_ui.show_prompt(board_label, "Abrir", "interact")
 	elif nearby_npc != null:
-		dialogue_ui.show_prompt(nearby_npc.npc_name)
+		var profile = ChatInterfacesRes.profile_for(nearby_npc.npc_id)
+		var display_name = profile.get("display_name", nearby_npc.npc_name)
+		if display_name == "":
+			display_name = nearby_npc.npc_name
+		dialogue_ui.apply_profile(profile)
+		dialogue_ui.show_prompt(display_name)
 	else:
 		dialogue_ui.hide_prompt()
 
@@ -212,9 +303,23 @@ func _examine_object(obj: Node) -> void:
 	in_dialogue = true
 	_clear_highlight()
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(obj.object_name)
+	var label := _interaction_label(obj)
+	dialogue_ui.show_dialogue(label)
 	# Mostramos solo la descripción (sin "Vos:" ni input, no hay LLM acá)
-	dialogue_ui.start_npc_response(obj.object_name)
+	dialogue_ui.start_npc_response(label)
 	dialogue_ui.append_npc_chunk(obj.get_description())
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(false)
+
+
+func _interaction_label(target: Node) -> String:
+	if target == null:
+		return ""
+	if target.has_method("get_interaction_label"):
+		var custom = target.get_interaction_label()
+		if typeof(custom) == TYPE_STRING and custom != "":
+			return custom
+	var prop_value = target.get("object_name")
+	if typeof(prop_value) == TYPE_STRING and prop_value != "":
+		return prop_value
+	return target.name

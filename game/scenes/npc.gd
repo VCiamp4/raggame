@@ -2,9 +2,11 @@ extends Node3D
 
 @export var npc_id: String = ""
 @export var npc_name: String = ""
+@export var clothes_texture: Texture2D
 @export var session_id: String = "default"
 @export var backend_host: String = "127.0.0.1"
 @export var backend_port: int = 8000
+@export var show_name_label: bool = true
 
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
@@ -14,9 +16,13 @@ signal response_completed()
 @onready var interaction_area: Area3D = $InteractionArea
 
 const BACKEND_PATH = "/dialogue_stream"
+const NPC_COLLIDER_RADIUS := 0.35
+const NPC_COLLIDER_HEIGHT := 3.2
+const LABEL_VERTICAL_OFFSET := 0.4
 
 var http_client: HTTPClient
 var is_streaming: bool = false
+var name_label: Label3D = null
 
 
 func _ready() -> void:
@@ -26,6 +32,7 @@ func _ready() -> void:
 	if clothes_texture != null:
 		_apply_clothes_texture()
 	_add_collision()
+	_update_name_label()
 
 
 # ------------------------------------------------------------
@@ -72,6 +79,31 @@ func _apply_clothes_texture() -> void:
 	if dup is BaseMaterial3D:
 		dup.albedo_texture = clothes_texture
 	mesh_instance.set_surface_override_material(0, dup)
+
+
+func _ensure_name_label() -> void:
+	if not show_name_label:
+		if name_label and is_instance_valid(name_label):
+			name_label.queue_free()
+		name_label = null
+		return
+	if name_label and is_instance_valid(name_label):
+		return
+	name_label = Label3D.new()
+	name_label.name = "NameLabel"
+	name_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	name_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	name_label.pixel_size = 0.01
+	add_child(name_label)
+
+
+func _update_name_label() -> void:
+	_ensure_name_label()
+	if name_label == null:
+		return
+	name_label.text = npc_name
+	name_label.position = Vector3(0, NPC_COLLIDER_HEIGHT + LABEL_VERTICAL_OFFSET, 0)
 
 
 func _find_mesh(node: Node) -> MeshInstance3D:

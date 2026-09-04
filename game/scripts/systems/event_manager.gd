@@ -1,5 +1,7 @@
 extends Node
 
+const EventCatalogResource = preload("res://data/events/events.gd")
+
 
 # ============================================================
 # EVENT MANAGER
@@ -71,12 +73,7 @@ var activated_events: Dictionary = {}
 # Diccionario de keywords → event_id
 # Si el input del jugador contiene alguna keyword (case-insensitive),
 # se activa el evento asociado.
-var keyword_events: Dictionary = {
-	"poliza de seguro": "poliza_de_seguro",
-	"póliza de seguro": "poliza_de_seguro",
-	"seguro de vida": "poliza_de_seguro",
-	"póliza": "poliza_de_seguro",
-}
+var keyword_events: Dictionary = _build_keyword_map()
 
 
 # ============================================================
@@ -176,6 +173,10 @@ func reset_events() -> void:
 	activated_events.clear()
 
 
+func clue_info(event_id: String) -> Dictionary:
+	return EventCatalogResource.get_clue(event_id)
+
+
 # ============================================================
 # CHEQUEAR INPUT DEL JUGADOR
 # ============================================================
@@ -193,14 +194,27 @@ func reset_events() -> void:
 # ============================================================
 
 func check_input(input_text: String) -> bool:
-	var lower_input = input_text.to_lower()
-	var activated_any = false
+	var normalized: String = input_text.strip_edges().to_lower()
+	var activated_any := false
 
-	for keyword in keyword_events:
-		if lower_input.find(keyword) != -1:
+	for keyword in keyword_events.keys():
+		if normalized == keyword:
 			var event_id = keyword_events[keyword]
 			if not has_event(event_id):
 				activate_event(event_id)
 				activated_any = true
+				NotificationManager.show_clue_notification(event_id)
 
 	return activated_any
+
+
+static func _build_keyword_map() -> Dictionary:
+	var map: Dictionary = {}
+	var catalog: Dictionary = EventCatalog.get_clue_index()
+	for clue_id in catalog.keys():
+		var clue_data: Dictionary = catalog[clue_id]
+		var keywords: Array = clue_data.get("keywords", [])
+		for raw_keyword in keywords:
+			var normalized: String = str(raw_keyword).to_lower()
+			map[normalized] = clue_id
+	return map

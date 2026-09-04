@@ -57,13 +57,14 @@ func _ready() -> void:
 	canvas.add_child(btn_salir)
 	
 		# Audio de ambiente
-	var ambiente = AudioStreamPlayer.new()
+	var ambiente := AudioStreamPlayer.new()
 	var stream = load("res://audio/438135__craigsmith__g16-11-police-teletype-and-ambience.wav")
 	if stream is AudioStreamWAV:
 		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	ambiente.bus = "Music"
 	ambiente.stream = stream
 	ambiente.autoplay = true
-	ambiente.volume_db = -8
+	ambiente.volume_db = -20
 	add_child(ambiente)
 	
 	# Viñeta (shader encima de todo)
@@ -97,7 +98,7 @@ func _crear_vineta(canvas: CanvasLayer) -> void:
 	var overlay = ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
 	var shader = Shader.new()
 	shader.code = """
 shader_type canvas_item;
@@ -107,26 +108,17 @@ uniform float vignette_radius = 0.75;
 uniform float grain_amount = 0.08;
 uniform float flicker_amount = 0.06;
 
-// Ruido pseudoaleatorio
 float rand(vec2 co) {
 	return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
 }
 
 void fragment() {
 	vec2 uv = UV;
-	
-	// Viñeta
 	float dist = distance(uv, vec2(0.5));
 	float vignette = smoothstep(vignette_radius, vignette_radius - 0.4, dist);
 	float vig_alpha = (1.0 - vignette) * vignette_intensity;
-	
-	// Grano de film (cambia cada frame usando TIME)
 	float grain = rand(uv + fract(TIME)) * grain_amount;
-	
-	// Flicker (parpadeo sutil de toda la pantalla)
 	float flicker = (rand(vec2(TIME, TIME)) - 0.5) * flicker_amount;
-	
-	// Combinamos: la viñeta y el flicker oscurecen, el grano es ruido
 	float darkness = vig_alpha + flicker;
 	COLOR = vec4(vec3(grain), grain + darkness);
 }
