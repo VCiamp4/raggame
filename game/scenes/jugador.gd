@@ -124,21 +124,23 @@ func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
 
+	dialogue_ui.set_input_enabled(false)
+
 	# Chequear si el input activa algún evento/pista
-	EventManager.check_input(text)
+	var matched_keyword := EventManager.check_input(text)
 
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
 	dialogue_ui.start_npc_response(nearby_npc.npc_name)
-	
-	# Conectar señales de streaming
-	if not nearby_npc.response_chunk.is_connected(_on_response_chunk):
-		nearby_npc.response_chunk.connect(_on_response_chunk)
-	if not nearby_npc.response_completed.is_connected(_on_response_completed):
-		nearby_npc.response_completed.connect(_on_response_completed, CONNECT_ONE_SHOT)
-	
-	nearby_npc.request_response(text)
+	_emit_keyword_feedback(matched_keyword)
+
+
+func _emit_keyword_feedback(matched_keyword: bool) -> void:
+	var response_text := "Eso me hace acordar..." if matched_keyword else "Quiero mi abogado"
+	dialogue_ui.append_npc_chunk(response_text)
+	dialogue_ui.finish_npc_response()
+	dialogue_ui.set_input_enabled(true)
 
 
 func _on_response_chunk(text: String) -> void:
@@ -309,7 +311,7 @@ func _examine_object(obj: Node) -> void:
 	dialogue_ui.start_npc_response(label)
 	dialogue_ui.append_npc_chunk(obj.get_description())
 	dialogue_ui.finish_npc_response()
-	dialogue_ui.set_input_enabled(false)
+	dialogue_ui.set_input_enabled(false, true)
 
 
 func _interaction_label(target: Node) -> String:

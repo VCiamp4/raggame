@@ -197,11 +197,20 @@ func _scroll_to_bottom() -> void:
 	scroll_container.scroll_vertical = int(scrollbar.max_value)
 
 
-func set_input_enabled(enabled: bool) -> void:
+func set_input_enabled(enabled: bool, hide_when_disabled: bool = false) -> void:
 	input_field.editable = enabled
-	input_field.visible = enabled
 	if enabled:
-		input_field.grab_focus()
+		input_field.visible = true
+		if input_field.is_inside_tree():
+			input_field.call_deferred("grab_focus")
+		else:
+			input_field.grab_focus()
+	else:
+		if hide_when_disabled:
+			input_field.visible = false
+		else:
+			input_field.visible = true
+		input_field.release_focus()
 
 
 func show_prompt(target_name: String, verb: String = "", action: String = "") -> void:
@@ -230,9 +239,8 @@ func _on_device_changed(_using_controller: bool) -> void:
 func _on_text_submitted(text: String) -> void:
 	if text.strip_edges() == "":
 		return
-	text_submitted.emit(text)
 	input_field.text = ""
-	input_field.editable = false
+	text_submitted.emit(text)
 
 
 func _exit_hint_update() -> void:

@@ -189,23 +189,23 @@ func clue_info(event_id: String) -> Dictionary:
 #     EventManager.check_input("¿Sabés algo de la póliza de seguro?")
 #     -> activa "poliza_de_seguro"
 #
-# Devuelve true si se activó algún evento.
+# Devuelve true si la entrada coincide exactamente con una keyword
+# registrada, aunque la pista ya hubiese sido descubierta antes.
 #
 # ============================================================
 
 func check_input(input_text: String) -> bool:
 	var normalized: String = input_text.strip_edges().to_lower()
-	var activated_any := false
+	if normalized == "":
+		return false
+	if not keyword_events.has(normalized):
+		return false
 
-	for keyword in keyword_events.keys():
-		if normalized == keyword:
-			var event_id = keyword_events[keyword]
-			if not has_event(event_id):
-				activate_event(event_id)
-				activated_any = true
-				NotificationManager.show_clue_notification(event_id)
-
-	return activated_any
+	var event_id: String = keyword_events[normalized]
+	if not has_event(event_id):
+		activate_event(event_id)
+		NotificationManager.show_clue_notification(event_id)
+	return true
 
 
 static func _build_keyword_map() -> Dictionary:
