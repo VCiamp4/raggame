@@ -41,6 +41,9 @@ size = Vector3(0.5909424, 1.8276367, 0.73236084)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hncaa"]
 size = Vector3(0.091796875, 1.0709229, 1.7998505)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_table32"]
+size = Vector3(2.6, 0.8, 1.4)
+
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2108742498]
@@ -56,6 +59,10 @@ shape = SubResource("BoxShape3D_rv06a")
 
 [node name="table32" parent="StaticBody3D" unique_id=160290928 instance=ExtResource("2_odxpy")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.084106, 0.014526367, 3.0697732)
+
+[node name="CollisionShape3D_table" type="CollisionShape3D" parent="StaticBody3D" unique_id=2108742499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.084106, 0.55, 3.0697732)
+shape = SubResource("BoxShape3D_table32")
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.91612303, 7.040468)
