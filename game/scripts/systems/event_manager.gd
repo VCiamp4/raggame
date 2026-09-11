@@ -69,6 +69,7 @@ signal event_activated(event_id)
 # ------------------------------------------------------------
 
 var activated_events: Dictionary = {}
+var event_history: Array = []
 
 # Diccionario de keywords → event_id
 # Si el input del jugador contiene alguna keyword (case-insensitive),
@@ -119,6 +120,7 @@ func activate_event(event_id: String) -> void:
 	# --------------------------------------------------------
 
 	activated_events[event_id] = true
+	event_history.append(event_id)
 
 
 	# --------------------------------------------------------
@@ -171,10 +173,15 @@ func has_event(event_id: String) -> bool:
 func reset_events() -> void:
 
 	activated_events.clear()
+	event_history.clear()
 
 
 func clue_info(event_id: String) -> Dictionary:
 	return EventCatalogResource.get_clue(event_id)
+
+
+func get_event_history() -> Array:
+	return event_history.duplicate(true)
 
 
 # ============================================================

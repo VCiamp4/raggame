@@ -29,7 +29,8 @@ assets/                Empty at repo root (kept for future)
 
 ```
 menu_inicio.tscn  ← MAIN SCENE (title “EL DEPARTAMENTO”, shader vignette, ambience)
-  └─ Jugar → mapa_menu.tscn (3D hub “tablón”) — click rotating models (group nodo_mapa)
+  └─ Jugar → overlay para elegir dificultad (Informe guiado/Fácil, Procedimiento/Medio, Contra reloj/Difícil) que persiste en `Global`
+        └─ mapa_menu.tscn (3D hub “tablón”) — click rotating models (group nodo_mapa)
         ├─ comisaria.tscn     (police station, has pizarron trigger)
         ├─ laboratorio.tscn   (Pablo’s lab; note hub script default path is wrong)
         ├─ departamento→Hall.tscn (Esteban, Juan, Criada playable scene)
@@ -56,7 +57,8 @@ menu_inicio.tscn  ← MAIN SCENE (title “EL DEPARTAMENTO”, shader vignette, 
 
 ### Systems scripts (`game/scripts/systems/`)
 
-- `event_manager.gd` — global clue registry. `activated_events` dictionary, signal `event_activated(event_id)`, helpers `activate_event`, `has_event`, `reset_events`, `check_input(text)` (lowercase substring search contra el catálogo). `_build_keyword_map()` se alimenta de `data/events/events.gd`, así que cada entrada nueva en el recurso queda disponible sin tocar código.
+- `event_manager.gd` — global clue registry. `activated_events` dictionary, signal `event_activated(event_id)`, helpers `activate_event`, `has_event`, `reset_events`, `check_input(text)` (lowercase substring search contra el catálogo). `_build_keyword_map()` se alimenta de `data/events/events.gd`, así que cada entrada nueva en el recurso queda disponible sin tocar código. También mantiene `event_history` para que el botón de pistas pueda saber cuál fue la última pista descubierta.
+- `data/hints/hints.gd` — `Resource` (`HintCatalog`) que asocia cada ID de pista (`PI-xxx`) con un texto guía y provee un fallback genérico.
 - `input_manager.gd` — remembers last input device (keyboard/mouse vs joypad). Emits `device_changed(using_controller)`, and provides `action_glyph(action="interact")` / `cancel_glyph()` returning strings like `[E]`, `(A)`, `[Esc]`, `(B)`.
 - `pistas.md` — empty whiteboard for future clue workflow ideas.
 
@@ -72,7 +74,7 @@ Movement uses built-in `ui_left/right/up/down`. `ui_cancel` inherits Godot defau
 
 ### Core scripts & scenes
 
-- **jugador.tscn / jugador.gd** — player `CharacterBody3D`. Handles movement, animation (`mixamo_com`), prompt display, object highlighting (ray, mask 2, ignores areas), dialogue interactions, and `pizarron` clicks (left mouse triggers lineup). Calls `EventManager.check_input` before sending HTTP requests via nearby NPC.
+- **jugador.tscn / jugador.gd** — player `CharacterBody3D`. Handles movement, animation (`mixamo_com`), prompt display, object highlighting (ray, mask 2, ignores areas), dialogue interactions, and `pizarron` clicks (left mouse triggers lineup). Calls `EventManager.check_input` before sending HTTP requests via nearby NPC. Añade un botón “Pistas” (lateral derecho) que dispara `NotificationManager.show_message()` con el hint correspondiente según `HintCatalog`.
 - **npc.tscn / npc.gd + scenes/npcs/** — base NPC blueprint. Adds itself to group `npc`, spawns a StaticBody3D capsule collider (radius 0.35, height 3.2 local), wires an Area3D for proximity signals, and streams responses via `HTTPClient` (manual `poll()` loop, emits `response_chunk(text)` and `response_completed`). `clothes_texture` duplicates the first mesh material for recolors (Esteban green, Juan blue, Pablo blue, Criada pink, Forense default).
 - **dialogue_ui.gd** — CanvasLayer UI instanced inside `jugador.tscn`. Builds panel + name + scrollable `RichTextLabel` + input field + prompt label entirely via code. Integrates InputManager for glyphs and placeholder text. NOTE: `campo.tscn` still instantiates the older `DialogueUI.tscn` + `DialogueUI.gd` pair.
 - **copa.gd / copa.tscn** — pattern for examinables: StaticBody3D, group `examinable`, highlight/unhighlight via emission overlay, `get_description()` returns multiline text. `CollisionShape3D` on layer 2 so the player ray can detect it.

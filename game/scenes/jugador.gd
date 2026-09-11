@@ -4,6 +4,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const ChatInterfacesRes = preload("res://data/chat_interfaces.gd")
 const FALL_RESET_HEIGHT := -5.0
+const HintCatalogRes = preload("res://data/hints/hints.gd")
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var walking: Node3D = $Walking
@@ -20,6 +21,8 @@ var in_dialogue: bool = false
 var spawn_transform: Transform3D
 var fade_layer: CanvasLayer
 var fade_rect: ColorRect
+var hint_layer: CanvasLayer
+var hint_button: Button
 
 
 func _ready() -> void:
@@ -32,6 +35,7 @@ func _ready() -> void:
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
 	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
 	_create_fade_overlay()
+	_create_hint_button()
 
 
 
@@ -286,6 +290,45 @@ func _create_fade_overlay() -> void:
 		fade_layer = null
 		fade_rect = null
 	)
+
+
+func _create_hint_button() -> void:
+	if hint_layer != null and is_instance_valid(hint_layer):
+		return
+	hint_layer = CanvasLayer.new()
+	hint_layer.layer = 90
+	add_child(hint_layer)
+
+	hint_button = Button.new()
+	hint_button.text = "Pistas"
+	hint_button.anchor_left = 1
+	hint_button.anchor_right = 1
+	hint_button.anchor_top = 0.15
+	hint_button.anchor_bottom = 0.15
+	hint_button.offset_left = -180
+	hint_button.offset_right = -40
+	hint_button.offset_top = -30
+	hint_button.offset_bottom = 30
+	hint_button.focus_mode = Control.FOCUS_NONE
+	hint_button.tooltip_text = "Mostrar una pista basada en tu progreso"
+	hint_button.theme = null
+	hint_button.pressed.connect(_on_hint_button_pressed)
+	hint_layer.add_child(hint_button)
+
+
+func _on_hint_button_pressed() -> void:
+	var hint_text := _current_hint_text()
+	NotificationManager.show_message(hint_text)
+
+
+func _current_hint_text() -> String:
+	var history := EventManager.get_event_history()
+	for i in range(history.size() - 1, -1, -1):
+		var event_id: String = str(history[i])
+		var hint_text := HintCatalogRes.hint_for_event(event_id)
+		if hint_text != "":
+			return hint_text
+	return HintCatalogRes.default_hint()
 
 
 # ------------------------------------------------------------
