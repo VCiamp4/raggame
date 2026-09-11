@@ -17,11 +17,15 @@
 [ext_resource type="Script" uid="uid://cb5216nom5lfv" path="res://scenes/pizarron.gd" id="15_hncaa"]
 [ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="16_npc"]
 [ext_resource type="PackedScene" uid="uid://dshn8ikaars" path="res://assets/Chair/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy.glb" id="16_owl32"]
+[ext_resource type="PackedScene" uid="uid://b3uq5kfbwtfwq" path="res://scenes/salida_mapa.tscn" id="30_salida"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rv06a"]
 size = Vector3(16.023167, 0.014099121, 15.989886)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_table32"]
+size = Vector3(2.6, 0.8, 1.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
 size = Vector3(1.8901367, 1.4331055, 0.8729248)
@@ -40,9 +44,6 @@ size = Vector3(0.5909424, 1.8276367, 0.73236084)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hncaa"]
 size = Vector3(0.091796875, 1.0709229, 1.7998505)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_table32"]
-size = Vector3(2.6, 0.8, 1.4)
 
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
@@ -66,6 +67,10 @@ shape = SubResource("BoxShape3D_table32")
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.91612303, 7.040468)
+
+[node name="SalidaMapa" parent="." unique_id=2054021126 instance=ExtResource("30_salida")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 5.5)
+object_name = "Volver al tablón"
 
 [node name="Juan" parent="." unique_id=1253734769 instance=ExtResource("16_npc")]
 transform = Transform3D(0.96160257, 0, -0.27444607, 0, 1, 0, 0.27444607, 0, 0.96160257, 1.9264297, 0.030231714, 0.74760246)

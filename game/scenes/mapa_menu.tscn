@@ -131,6 +131,7 @@ outline_size = 2
 [node name="oficina" type="StaticBody3D" parent="." unique_id=931335755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8664885, 0.7643118, 1.6607003)
 script = ExtResource("3_uvvj8")
+scene_path = "res://scenes/oficina.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="oficina" unique_id=623836390]
 shape = SubResource("BoxShape3D_nbej8")
@@ -150,6 +151,7 @@ outline_size = 2
 [node name="departamento" type="StaticBody3D" parent="." unique_id=357792772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5541806, 0.5203934, -6.5046277)
 script = ExtResource("4_5s2bk")
+scene_path = "res://scenes/Hall.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="departamento" unique_id=320404879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00063180923, 0.38528913, -0.02375555)

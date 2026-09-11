@@ -13,6 +13,7 @@ const FALL_RESET_HEIGHT := -5.0
 const EXAMINE_DISTANCE = 3.0
 var highlighted_object: Node = null
 var nearby_pizarron: Node = null
+var nearby_exit: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
@@ -69,18 +70,22 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not in_dialogue:
 		if nearby_npc != null:
 			_open_dialogue()
-		elif highlighted_object != null and highlighted_object.is_in_group("pizarron"):
+		elif highlighted_object != null and (highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa")):
 			highlighted_object.interact()
 		elif nearby_pizarron != null:
 			nearby_pizarron.interact()
+		elif nearby_exit != null:
+			nearby_exit.interact()
 	elif event.is_action_pressed("examine") and not in_dialogue:
 		if highlighted_object != null:
-			if highlighted_object.is_in_group("pizarron"):
+			if highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa"):
 				highlighted_object.interact()
 			else:
 				_examine_object(highlighted_object)
 		elif nearby_pizarron != null:
 			nearby_pizarron.interact()
+		elif nearby_exit != null:
+			nearby_exit.interact()
 	elif event.is_action_pressed("ui_quit_dialogue") and in_dialogue:
 		_close_dialogue()
 	
@@ -88,8 +93,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if highlighted_object != null and not in_dialogue:
-				if highlighted_object.is_in_group("pizarron"):
-					highlighted_object.interact()   # abre el lineup
+				if highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa"):
+					highlighted_object.interact()   # abre el lineup o vuelve al mapa
 				else:
 					_examine_object(highlighted_object)   # copa: muestra texto
 
@@ -171,9 +176,11 @@ func _process(_delta: float) -> void:
 	if in_dialogue:
 		_clear_highlight()
 		nearby_pizarron = null
+		nearby_exit = null
 		return
 	_check_examinable_under_mouse()
 	_update_nearby_pizarron()
+	_update_nearby_exit()
 
 
 func _check_examinable_under_mouse() -> void:
@@ -200,8 +207,8 @@ func _check_examinable_under_mouse() -> void:
 	var found: Node = null
 	if result and result.has("collider"):
 		var collider = result["collider"]
-		# Detecta tanto examinables (copa) como el pizarrón
-		if collider.is_in_group("examinable") or collider.is_in_group("pizarron"):
+		# Detecta examinables, pizarrones y salidas al mapa
+		if collider.is_in_group("examinable") or collider.is_in_group("pizarron") or collider.is_in_group("salida_mapa"):
 			var dist = global_position.distance_to(collider.global_position)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider
@@ -226,6 +233,21 @@ func _update_nearby_pizarron() -> void:
 				closest = node
 	nearby_pizarron = closest
 	if previous != nearby_pizarron:
+		_update_prompt()
+
+
+func _update_nearby_exit() -> void:
+	var previous := nearby_exit
+	var closest: Node = null
+	var best_distance := EXAMINE_DISTANCE
+	for node in get_tree().get_nodes_in_group("salida_mapa"):
+		if node is Node3D:
+			var distance := global_position.distance_to(node.global_position)
+			if distance <= EXAMINE_DISTANCE and distance < best_distance:
+				best_distance = distance
+				closest = node
+	nearby_exit = closest
+	if previous != nearby_exit:
 		_update_prompt()
 
 
@@ -286,10 +308,16 @@ func _update_prompt() -> void:
 		if highlighted_object.is_in_group("pizarron"):
 			action_name = "interact"
 			verb = "Abrir"
+		elif highlighted_object.is_in_group("salida_mapa"):
+			action_name = "interact"
+			verb = "Regresar"
 		dialogue_ui.show_prompt(label, verb, action_name)
 	elif nearby_pizarron != null:
 		var board_label := _interaction_label(nearby_pizarron)
 		dialogue_ui.show_prompt(board_label, "Abrir", "interact")
+	elif nearby_exit != null:
+		var exit_label := _interaction_label(nearby_exit)
+		dialogue_ui.show_prompt(exit_label, "Regresar", "interact")
 	elif nearby_npc != null:
 		var profile = ChatInterfacesRes.profile_for(nearby_npc.npc_id)
 		var display_name = profile.get("display_name", nearby_npc.npc_name)

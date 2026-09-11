@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3uq5kfbwtfwq"]
+
+[ext_resource type="Script" uid="uid://d4yjpl00mkwgm" path="res://scenes/salida_mapa.gd" id="1_xawuw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_exit"]
+top_radius = 0.25
+bottom_radius = 0.35
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exit"]
+albedo_color = Color(0.258824, 0.905882, 0.905882, 1)
+metallic = 0.1
+roughness = 0.35
+emission_enabled = true
+emission = Color(0.176471, 0.776471, 1, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exit"]
+size = Vector3(0.5, 0.7, 0.5)
+
+[node name="SalidaMapa" type="StaticBody3D" unique_id=1543290172]
+collision_layer = 2
+script = ExtResource("1_xawuw")
+rotation_speed = 0.65
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1543290173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+material_override = SubResource("StandardMaterial3D_exit")
+mesh = SubResource("CylinderMesh_exit")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1543290174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "Regresar"
+pixel_size = 0.01
+billboard = 1
+outline_size = 2
+modulate = Color(1, 0.945098, 0.819608, 1)
+outline_modulate = Color(0.0784314, 0.0705882, 0.14902, 0.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1543290175]
+shape = SubResource("BoxShape3D_exit")

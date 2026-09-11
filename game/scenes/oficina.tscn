@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cjp388d0u2mrq"]
+
+[ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_jug"]
+[ext_resource type="PackedScene" uid="uid://dlpvlrxa5wmy7" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/desk.glb" id="2_desk"]
+[ext_resource type="PackedScene" uid="uid://dv1w5m5xa8cfq" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/computer.glb" id="3_pc"]
+[ext_resource type="Texture2D" uid="uid://jkwt3d0cq1dr" path="res://assets/WoodFloor070_1K-JPG/WoodFloor070_1K-JPG_Color.jpg" id="4_floor"]
+[ext_resource type="Texture2D" uid="uid://cshcau4jmf56n" path="res://assets/Bricks104_2K-JPG/Bricks104_2K-JPG_Color.jpg" id="5_wall"]
+[ext_resource type="PackedScene" uid="uid://b3uq5kfbwtfwq" path="res://scenes/salida_mapa.tscn" id="6_exit"]
+
+[sub_resource type="Environment" id="Environment_oficina"]
+background_mode = 1
+ambient_light_color = Color(0.125, 0.135, 0.2, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+shading_mode = 2
+albedo_texture = ExtResource("4_floor")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
+shading_mode = 2
+albedo_texture = ExtResource("5_wall")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wall"]
+size = Vector2(10, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(10, 0.2, 10)
+
+[node name="Oficina" type="Node3D" unique_id=1154300648]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1154300649]
+environment = SubResource("Environment_oficina")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1154300650]
+transform = Transform3D(0.9396926, 0.17101009, -0.29619813, 0, 0.8660254, 0.5, 0.34202015, -0.4698463, 0.8137977, 0, 3, 0)
+light_energy = 1.4
+sky_mode = 2
+
+[node name="AccentLight" type="OmniLight3D" parent="." unique_id=1154300651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 2.5)
+light_color = Color(0.992157, 0.764706, 0.521569, 1)
+light_energy = 2.2
+
+[node name="CharacterBody3D" parent="." unique_id=1154300652 instance=ExtResource("1_jug")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.55, -2.5)
+
+[node name="SalidaMapa" parent="." unique_id=1154300660 instance=ExtResource("6_exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+object_name = "Salir del caso"
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1154300653]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1154300654]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_floor")
+mesh = SubResource("PlaneMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1154300655]
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=1154300656]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -5)
+material_override = SubResource("StandardMaterial3D_wall")
+mesh = SubResource("PlaneMesh_wall")
+
+[node name="Desk" parent="." unique_id=1154300657 instance=ExtResource("2_desk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -1.5, 0, 1.5)
+
+[node name="Computer" parent="Desk" unique_id=1154300658 instance=ExtResource("3_pc")]
+transform = Transform3D(-0.9961947, 0, -0.08715577, 0, 1, 0, 0.08715577, 0, -0.9961947, 0.6, 1, -1.1)
+
+[node name="Note" type="Label3D" parent="." unique_id=1154300659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+text = "Oficina provisional\n(escena en construcción)"
+billboard = 1
+pixel_size = 0.01
+outline_size = 2
+modulate = Color(1, 0.937255, 0.843137, 1)
+outline_modulate = Color(0.0470588, 0.0431373, 0.0862745, 0.9)

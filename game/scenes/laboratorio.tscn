@@ -12,14 +12,40 @@
 [ext_resource type="PackedScene" uid="uid://dyi0kl06vva18" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/CrtMonitor.glb" id="10_liwng"]
 [ext_resource type="PackedScene" uid="uid://d2w70dmejepm4" path="res://assets/Lab Assets/GLB/Heating Equipment/heating_equipment_ring_stand.glb" id="11_lprxf"]
 [ext_resource type="PackedScene" uid="uid://0rl0jffoi5h8" path="res://assets/Lab Assets/GLB/Dishes/dish_evaporating_dish.glb" id="12_8huxt"]
+[ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="13_player"]
+[ext_resource type="Texture2D" uid="uid://jkwt3d0cq1dr" path="res://assets/WoodFloor070_1K-JPG/WoodFloor070_1K-JPG_Color.jpg" id="14_floor"]
+[ext_resource type="PackedScene" uid="uid://b3uq5kfbwtfwq" path="res://scenes/salida_mapa.tscn" id="20_salida"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+shading_mode = 2
+albedo_texture = ExtResource("14_floor")
+uv1_scale = Vector3(2, 2, 2)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 size = Vector2(3, 6)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(3, 0.3, 6)
+
 [node name="Node3D" type="Node3D" unique_id=459800692]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1152430635]
+[node name="CharacterBody3D" parent="." unique_id=1015322458 instance=ExtResource("13_player")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.7743869, -2.5)
+
+[node name="SalidaMapa" parent="." unique_id=1385257740 instance=ExtResource("20_salida")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+object_name = "Volver al tablón"
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1152430635]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1152430636]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_floor")
 mesh = SubResource("PlaneMesh_arjtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1152430637]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 6, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_floor")
 
 [node name="Cow by Poly by Google - 0OToIgkcVM7" parent="." unique_id=1252148571 instance=ExtResource("1_2odp0")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.0087638, 0, -2.0911295)
@@ -34,7 +60,7 @@ transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.005998787
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.3007054, 0.21152902, 0.27653414)
 
 [node name="Low Poly - Lab Assets4" parent="." unique_id=690075390 instance=ExtResource("3_4tgyg")]
-transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2929622, 0.21152902, 0.64674276)
+transform = Transform3D(0.00012059158, 0, -0.005998787, 0, 0.006, 0, 0.005998787, 0, 0.00012059158, -1.2929622, 0.21152902, 0.64674276)
 
 [node name="Low Poly - Lab Assets5" parent="." unique_id=1251161074 instance=ExtResource("3_4tgyg")]
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2842503, 0.21152902, 1.0161092)
@@ -74,4 +100,3 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.3079096, 0.2360953
 
 [node name="Low Poly - Lab Assets15" parent="." unique_id=1665491601 instance=ExtResource("12_8huxt")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 1.3072721, 0.27930582, -2.7527888)
-

@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ju4nnpc8v2h" path="res://scenes/npcs/juan.tscn" id="13_juan"]
 [ext_resource type="PackedScene" uid="uid://d5cr1ad9p2mw" path="res://scenes/npcs/criada.tscn" id="14_criada"]
 [ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="15_portero"]
+[ext_resource type="PackedScene" uid="uid://b3uq5kfbwtfwq" path="res://scenes/salida_mapa.tscn" id="16_salida"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -33,6 +34,10 @@ size = Vector3(1, 1, 1.0014343)
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
+
+[node name="SalidaMapa" parent="." unique_id=1527382205 instance=ExtResource("16_salida")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 5.2)
+object_name = "Volver al tablón"
 
 [node name="Portero" parent="." instance=ExtResource("15_portero")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
