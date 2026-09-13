@@ -31,7 +31,7 @@ def root():
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
     try:
-        persona = dialogue_service.get_persona(req.npc_id)
+        system_prompt = dialogue_service.get_system_prompt(req.npc_id)
     except KeyError:
         raise HTTPException(
             status_code=404,
@@ -44,14 +44,14 @@ def dialogue_stream(req: DialogueRequest):
     payload = {
         "model": MODEL,
         "messages": [
-            {"role": "system", "content": persona},
+            system_prompt,
             *history[-MAX_HISTORY:],
             user_msg,
         ],
         "stream": True,
         "think": False,
         "options": {
-            "num_predict": 200,
+            "num_predict": 160,
             "temperature": 0.8,
         }
     }
