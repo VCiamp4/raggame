@@ -3,18 +3,13 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 import json
 import requests
-from collections import defaultdict
-from backend.dialogue import DialogueService
+from backend.rag.dialogue import DialogueService
 
 app = FastAPI()
 dialogue_service = DialogueService()
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MODEL = "gemma4:e4b"
-
-# Memoria de conversación en RAM, por (session_id, npc_id)
-HISTORIES = defaultdict(list)
-MAX_HISTORY = 20  # últimos N mensajes (≈10 turnos) que se le mandan al modelo
 
 
 class DialogueRequest(BaseModel):
@@ -31,23 +26,20 @@ def root():
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
     try:
-        system_prompt = dialogue_service.get_system_prompt(req.npc_id)
+        message = dialogue_service.get_message(
+                session_id=req.session_id,
+                npc_id=req.npc_id,
+                player_input=req.player_input,
+            )
     except KeyError:
         raise HTTPException(
             status_code=404,
             detail=f"NPC '{req.npc_id}' no existe",
         )
-    
-    history = HISTORIES[(req.session_id, req.npc_id)]
-    user_msg = {"role": "user", "content": req.player_input}
 
     payload = {
         "model": MODEL,
-        "messages": [
-            system_prompt,
-            *history[-MAX_HISTORY:],
-            user_msg,
-        ],
+        "messages": message,
         "stream": True,
         "think": False,
         "options": {
@@ -70,7 +62,11 @@ def dialogue_stream(req: DialogueRequest):
                 if data.get("done", False):
                     break
         # Recién guardamos el turno (pregunta + respuesta) cuando terminó bien.
-        history.append(user_msg)
-        history.append({"role": "assistant", "content": reply})
+        dialogue_service.save_response(
+            session_id=req.session_id,
+            npc_id=req.npc_id,
+            player_input=req.player_input,
+            response=reply,
+        )
 
     return StreamingResponse(generate(), media_type="text/plain")
