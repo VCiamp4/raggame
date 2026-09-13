@@ -1,0 +1,289 @@
+{
+  "scene_id": "SCN-01",
+  "chunks": [
+    {
+      "chunk_id": "SCN-01-AT-01",
+      "retrieval_text": "La señora Stevens tenía sesenta y ocho años.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Qué edad tenía la señora Stevens?",
+        "q2": "¿Cuál era la edad de la víctima?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-02",
+      "retrieval_text": "La señora Stevens había enviudado tres veces.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cuántas veces había enviudado la señora Stevens?",
+        "q2": "¿Cuántas veces había quedado viuda la señora Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-03",
+      "retrieval_text": "La señora Stevens poseía una fortuna considerable.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Qué se sabía de la fortuna de la señora Stevens?",
+        "q2": "¿Qué importancia tenía el patrimonio de Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-04",
+      "retrieval_text": "La señora Stevens gozaba de buena salud.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Tenía Stevens algún problema de salud antes de morir?",
+        "q2": "¿La víctima tenía problemas de salud conocidos?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-05",
+      "retrieval_text": "Quienes conocían a Stevens la describían como autoritaria y poco dispuesta a tolerar contradicciones.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cómo describían sus conocidos el carácter de Stevens?",
+        "q2": "¿Qué rasgos de personalidad destacaban quienes conocían a Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-06",
+      "retrieval_text": "Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Había indicios de que Stevens preparara su propio suicidio?",
+        "q2": "¿Había preparado Stevens de alguna manera su propia muerte?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "chunk_id": "SCN-01-AT-07",
+      "retrieval_text": "La criada y el portero encontraron a Stevens muerta en el comedor.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Quiénes encontraron a Stevens muerta y en qué lugar?",
+        "q2": "¿Quién halló el cuerpo y en qué habitación estaba?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-08",
+      "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Cómo estaba asegurada la puerta desde el interior?",
+        "q2": "¿Qué impedía abrir la puerta desde el lado exterior?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-09",
+      "retrieval_text": "No había señales de entrada forzada.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Encontraron señales de que alguien hubiera forzado la entrada?",
+        "q2": "¿La escena mostraba que alguien hubiera entrado por la fuerza?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-10",
+      "retrieval_text": "Junto al cadáver había un diario de la tarde anterior.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué objeto de lectura estaba junto al cadáver?",
+        "q2": "¿Qué material estaba junto al cuerpo de Stevens?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-11",
+      "retrieval_text": "Cerca del cadáver había un vaso de whisky.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué bebida apareció cerca del cadáver?",
+        "q2": "¿Qué había para beber cerca del cadáver?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-12",
+      "retrieval_text": "No había señales de lucha ni faltaba dinero.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué indicaban la escena sobre una lucha o un robo?",
+        "q2": "¿Qué indicios permitían descartar una pelea o un robo?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-13",
+      "retrieval_text": "Las ventanas estaban cerradas.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Las ventanas estaban abiertas o cerradas?",
+        "q2": "¿Podía alguien haber entrado por las ventanas?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-14",
+      "retrieval_text": "Todo indicaba que Stevens estaba sola al morir.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué hacía pensar que Stevens estaba sola al morir?",
+        "q2": "¿Qué detalle apoyaba la idea de que Stevens murió sin compañía?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "chunk_id": "SCN-01-AT-15",
+      "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué determinó el perito sobre una muerte natural o una intoxicación?",
+        "q2": "¿Qué causa de muerte estableció inicialmente el perito?"
+      },
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál."
+    },
+    {
+      "chunk_id": "SCN-01-AT-16",
+      "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Pudo el perito identificar ya la sustancia tóxica?",
+        "q2": "¿Qué seguía sin saberse sobre el tóxico?"
+      },
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál."
+    },
+    {
+      "chunk_id": "SCN-01-AT-17",
+      "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué líquidos pensaba analizar el perito?",
+        "q2": "¿Qué muestras líquidas formaban parte del análisis?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "chunk_id": "SCN-01-AT-18",
+      "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué recipientes relacionados con la muerte iba a examinar el perito?",
+        "q2": "¿Qué debía examinar el perito además de las bebidas?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "chunk_id": "SCN-01-AT-19",
+      "retrieval_text": "El proceso de análisis llevaría tiempo.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué no podían conocerse enseguida los resultados del análisis?",
+        "q2": "¿Por qué el análisis no podía resolverse de inmediato?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "chunk_id": "SCN-01-AT-20",
+      "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué el perito se negó a adelantar una conclusión?",
+        "q2": "¿Qué necesitaba hacer el perito antes de opinar sobre la muerte?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    }
+  ]
+}

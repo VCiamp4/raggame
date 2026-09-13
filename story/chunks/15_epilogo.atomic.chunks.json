@@ -1,0 +1,125 @@
+{
+  "scene_id": "SCN-15",
+  "chunks": [
+    {
+      "chunk_id": "SCN-15-AT-01",
+      "retrieval_text": "La investigación buscaba inicialmente a alguien que actuara en el momento de la muerte.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿A quién buscaba inicialmente la investigación como autor del crimen?",
+        "q2": "¿Qué clase de autor buscaban al principio los investigadores?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "chunk_id": "SCN-15-AT-02",
+      "retrieval_text": "Pablo no había envenenado una botella o un vaso determinados.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué tipo de recipiente no había envenenado Pablo?",
+        "q2": "¿Qué objetos concretos no había contaminado Pablo?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "chunk_id": "SCN-15-AT-03",
+      "retrieval_text": "Pablo había envenenado la costumbre de Stevens de beber whisky con hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué costumbre de Stevens había envenenado Pablo en lugar de una botella?",
+        "q2": "¿Qué hábito cotidiano convirtió Pablo en el vehículo del veneno?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría."
+    },
+    {
+      "chunk_id": "SCN-15-AT-04",
+      "retrieval_text": "La criada parecía sospechosa porque había servido el vaso.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué parecía sospechosa la criada?",
+        "q2": "¿Qué acción de la criada la colocaba inicialmente bajo sospecha?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "chunk_id": "SCN-15-AT-05",
+      "retrieval_text": "Esteban parecía sospechoso porque había discutido violentamente con Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué hacía sospechoso a Esteban?",
+        "q2": "¿Qué conducta de Esteban alimentaba las sospechas contra él?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "chunk_id": "SCN-15-AT-06",
+      "retrieval_text": "Juan parecía sospechoso porque odiaba a Stevens y se alegraba de su muerte.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué actitud de Juan lo hacía parecer sospechoso?",
+        "q2": "¿Qué sentimientos de Juan hacían que pareciera capaz del crimen?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "chunk_id": "SCN-15-AT-07",
+      "retrieval_text": "Pablo estaba lejos cuando Stevens murió y protegido por una coartada.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Pablo cuando murió Stevens y qué lo protegía?",
+        "q2": "¿Qué protegía a Pablo de la sospecha basada sólo en su ubicación?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "chunk_id": "SCN-15-AT-08",
+      "retrieval_text": "La discusión, la póliza, el fusible y la humedad traicionaron el plan de Pablo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué elementos terminaron traicionando el plan de Pablo?",
+        "q2": "¿Qué pistas terminaron revelando el plan de Pablo?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato."
+    },
+    {
+      "chunk_id": "SCN-15-AT-09",
+      "retrieval_text": "El veneno no estaba en el whisky: estaba en el hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba el veneno, si no estaba en el whisky?",
+        "q2": "¿En qué parte de la bebida estaba realmente la sustancia mortal?"
+      },
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto."
+    },
+    {
+      "chunk_id": "SCN-15-AT-10",
+      "retrieval_text": "La diferencia entre el whisky y el hielo convirtió el crimen perfecto en un crimen casi perfecto.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué el mecanismo del hielo convirtió el crimen perfecto en casi perfecto?",
+        "q2": "¿Qué detalle del modo de beber de Stevens hizo que el plan casi funcionara?"
+      },
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto."
+    }
+  ]
+}

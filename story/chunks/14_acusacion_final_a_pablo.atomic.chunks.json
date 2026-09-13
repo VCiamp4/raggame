@@ -1,0 +1,137 @@
+{
+  "scene_id": "SCN-14",
+  "chunks": [
+    {
+      "chunk_id": "SCN-14-AT-01",
+      "retrieval_text": "El detective confrontó a Pablo con el cianuro hallado en el hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Con qué prueba del hielo confrontó el detective a Pablo?",
+        "q2": "¿Qué evidencia material del congelador mostró el detective a Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "chunk_id": "SCN-14-AT-02",
+      "retrieval_text": "El técnico había confirmado que la avería de la heladera era insignificante.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué había confirmado el técnico sobre la avería?",
+        "q2": "¿Qué importancia real tenía la falla que había reparado Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "chunk_id": "SCN-14-AT-03",
+      "retrieval_text": "En Erpa había cianuro.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué sustancia se comprobó que había en Erpa?",
+        "q2": "¿Qué sustancia peligrosa estaba disponible en el trabajo de Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "chunk_id": "SCN-14-AT-04",
+      "retrieval_text": "Pablo respondió que cada indicio aislado no probaba que fuera el asesino.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué decía Pablo que un indicio aislado no bastaba para probar su culpabilidad?",
+        "q2": "¿Cómo intentó Pablo relativizar la fuerza de las pruebas?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino."
+    },
+    {
+      "chunk_id": "SCN-14-AT-05",
+      "retrieval_text": "Juan había pasado las horas del crimen dentro de una comisaría.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde pasó Juan las horas del crimen?",
+        "q2": "¿Qué registro oficial respaldaba la coartada de Juan?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "chunk_id": "SCN-14-AT-06",
+      "retrieval_text": "Esteban estaba en Lister desde las seis.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Esteban desde las seis?",
+        "q2": "¿Desde qué hora constaba que Esteban estaba fuera del departamento?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "chunk_id": "SCN-14-AT-07",
+      "retrieval_text": "El whisky servido por la criada estaba limpio.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué se determinó sobre la limpieza del whisky servido por la criada?",
+        "q2": "¿Qué reveló el análisis sobre la bebida que había servido la criada?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio."
+    },
+    {
+      "chunk_id": "SCN-14-AT-08",
+      "retrieval_text": "El detective acusó a Pablo por su acceso a la heladera.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué el detective acusó a Pablo en relación con la heladera?",
+        "q2": "¿Qué vínculo entre Pablo y la heladera usó el detective para acusarlo?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "chunk_id": "SCN-14-AT-09",
+      "retrieval_text": "Pablo negó haber tocado las cubeteras.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué siguió negando Pablo sobre las cubeteras?",
+        "q2": "¿Qué contacto con los recipientes de hielo continuó negando Pablo?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "chunk_id": "SCN-14-AT-10",
+      "retrieval_text": "Pablo nunca confesó.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Pablo llegó a confesar el crimen?",
+        "q2": "¿Pablo reconoció ser el autor del crimen?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    },
+    {
+      "chunk_id": "SCN-14-AT-11",
+      "retrieval_text": "El caso se sostenía en la relación entre el hielo envenenado, el acceso, los químicos, la costumbre y el beneficio económico.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué conjunto de indicios conectaba el hielo, el acceso, los químicos, la costumbre y el dinero?",
+        "q2": "¿Qué conjunto de circunstancias conectaba a Pablo con el método y el beneficio?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso."
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "scene_id": "SCN-04",
+  "chunks": [
+    {
+      "chunk_id": "SCN-04-AT-01",
+      "retrieval_text": "Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué delito relacionado con drogas había sido condenado Juan?",
+        "q2": "¿Por qué clase de delitos había cumplido condena Juan?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "chunk_id": "SCN-04-AT-02",
+      "retrieval_text": "Juan también había sido condenado por episodios de violencia y daños a la propiedad.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué otros delitos figuraban en los antecedentes de Juan?",
+        "q2": "¿Qué antecedentes violentos o materiales tenía Juan además de los delitos de drogas?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "chunk_id": "SCN-04-AT-03",
+      "retrieval_text": "Después de recuperar la libertad, Juan se vinculó con chantajes y extorsiones.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿A qué actividades se vinculó Juan después de salir en libertad?",
+        "q2": "¿A qué negocios ilegales se dedicó Juan al recuperar la libertad?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "chunk_id": "SCN-04-AT-04",
+      "retrieval_text": "Juan dijo que no quería a su hermana.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué sentía Juan por su hermana?",
+        "q2": "¿Qué vínculo afectivo decía tener Juan con su hermana?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "chunk_id": "SCN-04-AT-05",
+      "retrieval_text": "Juan dijo que la muerte de su hermana no le afectaba demasiado.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Cómo decía Juan que le afectaba la muerte de su hermana?",
+        "q2": "¿Cómo describió Juan su reacción ante la muerte de Stevens?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "chunk_id": "SCN-04-AT-06",
+      "retrieval_text": "Juan admitió que le alegraba la muerte de su hermana.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Juan llegó a admitir que se alegraba por la muerte de su hermana?",
+        "q2": "¿Juan reconoció sentir alivio o alegría por la muerte?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "chunk_id": "SCN-04-AT-07",
+      "retrieval_text": "Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué creía Juan que Stevens había hecho descubrir sus negocios?",
+        "q2": "¿Qué responsabilidad atribuía Juan a Stevens por sus problemas con la policía?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "chunk_id": "SCN-04-AT-08",
+      "retrieval_text": "Juan no tenía pruebas de que Stevens lo hubiera denunciado.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Tenía Juan pruebas de que Stevens lo hubiera denunciado?",
+        "q2": "¿Qué pruebas tenía Juan para sostener su acusación contra Stevens?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "chunk_id": "SCN-04-AT-09",
+      "retrieval_text": "Juan hablaba de ese resentimiento con una seguridad casi obsesiva.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Cómo hablaba Juan del resentimiento que le tenía a Stevens?",
+        "q2": "¿Con qué intensidad expresaba Juan su rencor hacia Stevens?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "chunk_id": "SCN-04-AT-10",
+      "retrieval_text": "Juan sabía que la muerte de Stevens podía dejarle dinero.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué beneficio económico podía obtener Juan si Stevens moría?",
+        "q2": "¿Qué ganancia podía recibir Juan si su hermana moría?"
+      },
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable."
+    },
+    {
+      "chunk_id": "SCN-04-AT-11",
+      "retrieval_text": "A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Le resultaba atractiva a Juan la posibilidad de cobrar por la muerte?",
+        "q2": "¿Cómo veía Juan la posibilidad de cobrar la herencia?"
+      },
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable."
+    },
+    {
+      "chunk_id": "SCN-04-AT-12",
+      "retrieval_text": "La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Dónde estuvo Juan entre las cinco de la tarde y la medianoche, según la policía?",
+        "q2": "¿Qué hizo Juan durante el período en que ocurrió el crimen?"
+      },
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía."
+    },
+    {
+      "chunk_id": "SCN-04-AT-13",
+      "retrieval_text": "Juan no estuvo en el departamento durante las horas críticas.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Estuvo Juan en el departamento durante las horas críticas?",
+        "q2": "¿Tuvo Juan oportunidad de estar dentro del departamento?"
+      },
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía."
+    },
+    {
+      "chunk_id": "SCN-04-AT-14",
+      "retrieval_text": "Juan aseguró que Esteban salió furioso del almuerzo.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué contó Juan sobre el estado de ánimo de Esteban al salir del almuerzo?",
+        "q2": "¿Cómo describió Juan la salida de Esteban del almuerzo?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "chunk_id": "SCN-04-AT-15",
+      "retrieval_text": "Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué provocó, según Juan, la furia de Esteban contra el cambio en la herencia?",
+        "q2": "¿Qué noticia sobre la herencia hizo reaccionar mal a Esteban?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "chunk_id": "SCN-04-AT-16",
+      "retrieval_text": "Juan dijo que Esteban tomó el cambio en el dinero como una ofensa personal.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué interpretó Esteban como una ofensa personal el cambio de dinero?",
+        "q2": "¿Por qué interpretó Esteban el nuevo reparto como una afrenta?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "chunk_id": "SCN-04-AT-17",
+      "retrieval_text": "Juan no se preocupaba demasiado por recibir una cantidad menor porque también cobraría dinero.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué decía Juan que no le preocupaba recibir una parte menor?",
+        "q2": "¿Por qué Juan decía poder aceptar una herencia más pequeña?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    }
+  ]
+}

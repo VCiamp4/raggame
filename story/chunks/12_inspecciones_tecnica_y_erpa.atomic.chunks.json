@@ -1,0 +1,125 @@
+{
+  "scene_id": "SCN-12",
+  "chunks": [
+    {
+      "chunk_id": "SCN-12-AT-01",
+      "retrieval_text": "El técnico comprobó que la única avería de la heladera era un fusible.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cuál era, según el técnico, la única avería de la heladera?",
+        "q2": "¿Qué componente era el único que realmente estaba roto?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "chunk_id": "SCN-12-AT-02",
+      "retrieval_text": "El técnico comprobó que cambiar el fusible no exigía tocar el congelador.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Era necesario tocar el congelador para cambiar el fusible?",
+        "q2": "¿Era necesario abrir o manipular el congelador para ese arreglo?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "chunk_id": "SCN-12-AT-03",
+      "retrieval_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cómo le permitió la reparación a Pablo acercarse a la heladera sin sospechas?",
+        "q2": "¿Qué apariencia legítima le daba la reparación a la presencia de Pablo junto a la heladera?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas."
+    },
+    {
+      "chunk_id": "SCN-12-AT-04",
+      "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué sustancia controlada encontraron entre los reactivos de Erpa?",
+        "q2": "¿Qué reactivo peligroso apareció durante la inspección de Erpa?"
+      },
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado."
+    },
+    {
+      "chunk_id": "SCN-12-AT-05",
+      "retrieval_text": "El cianuro era una sustancia de uso controlado.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué carácter tenía el cianuro dentro del control de sustancias?",
+        "q2": "¿Por qué el cianuro no era un material de uso libre?"
+      },
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado."
+    },
+    {
+      "chunk_id": "SCN-12-AT-06",
+      "retrieval_text": "Pablo conocía el hábito de Stevens de beber whisky con hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué costumbre de Stevens conocía Pablo sobre el whisky?",
+        "q2": "¿Qué hábito de la víctima conocía Pablo y podía aprovechar?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "chunk_id": "SCN-12-AT-07",
+      "retrieval_text": "Pablo había tenido acceso reciente a la heladera.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué acceso reciente había tenido Pablo a la heladera?",
+        "q2": "¿Qué oportunidad reciente vinculaba a Pablo con la heladera?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "chunk_id": "SCN-12-AT-08",
+      "retrieval_text": "Pablo poseía conocimientos para manipular sustancias químicas.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué conocimientos tenía Pablo que le permitían manipular químicos?",
+        "q2": "¿Qué preparación profesional tenía Pablo para manejar químicos?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "chunk_id": "SCN-12-AT-09",
+      "retrieval_text": "Pablo trabajaba en un lugar donde podía encontrar cianuro.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿En qué lugar de trabajo podía Pablo encontrar cianuro?",
+        "q2": "¿En qué entorno laboral podía Pablo conseguir cianuro?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    },
+    {
+      "chunk_id": "SCN-12-AT-10",
+      "retrieval_text": "Pablo era el principal beneficiario de la modificación de la póliza.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Quién quedó como principal beneficiario de la póliza modificada?",
+        "q2": "¿Quién resultaba favorecido por encima de los demás en el nuevo seguro?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza."
+    }
+  ]
+}
