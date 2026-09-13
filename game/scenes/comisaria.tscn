@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://6puk6ia2hstk" path="res://assets/Chandelier/Debris Papers by Quaternius - MujITy1NRR.glb" id="14_r00i4"]
 [ext_resource type="Script" uid="uid://cb5216nom5lfv" path="res://scenes/pizarron.gd" id="15_hncaa"]
 [ext_resource type="PackedScene" uid="uid://dshn8ikaars" path="res://assets/Chair/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy.glb" id="16_owl32"]
+[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="17_npc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -290,3 +291,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026367188, -0.10662842, 0.
 shape = SubResource("BoxShape3D_hncaa")
 
 [node name="Cork Board by Jarlan Perez - 5Ql0Sdq6fmy" parent="pizarron" unique_id=661720195 instance=ExtResource("16_owl32")]
+
+[node name="Criada" parent="." instance=ExtResource("17_npc")]
+npc_id = "criada"
+npc_name = "Criada"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5)
+
+[node name="Juan" parent="." instance=ExtResource("17_npc")]
+npc_id = "juan"
+npc_name = "Juan"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.5)
