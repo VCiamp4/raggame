@@ -63,7 +63,7 @@ func _start_stream(player_input: String) -> void:
 	var body = JSON.stringify({
 		"npc_id": npc_id,
 		"player_input": player_input,
-		"session_id": "default"
+		"session_id": Global.session_id
 	})
 	var headers = [
 		"Content-Type: application/json",
