@@ -11,7 +11,10 @@
         "q1": "¿Qué profesión ejercía Pablo antes de ser inhabilitado y por qué?",
         "q2": "¿Qué profesión había perdido Pablo y cuál fue la causa?"
       },
-      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-02",
@@ -23,7 +26,12 @@
         "q1": "¿En qué empresa trabajaba Pablo y qué analizaba allí?",
         "q2": "¿Qué tipo de laboratorio era Erpa y qué función cumplía allí Pablo?"
       },
-      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-PAB-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-03",
@@ -35,7 +43,10 @@
         "q1": "¿En qué sección de Erpa trabajaba Pablo?",
         "q2": "¿En qué área especializada de Erpa trabajaba Pablo?"
       },
-      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-04",
@@ -47,7 +58,12 @@
         "q1": "¿A qué sustancias tenía acceso habitual Pablo en Erpa?",
         "q2": "¿Qué materiales de laboratorio podía manejar Pablo en su trabajo?"
       },
-      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él."
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-08",
+      "necessary_facts": [
+        "CL-PAB-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-05",
@@ -59,7 +75,10 @@
         "q1": "¿De qué manera ayudaba Stevens económicamente a Pablo?",
         "q2": "¿De qué manera dependía Pablo del dinero de Stevens?"
       },
-      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-06",
@@ -71,7 +90,12 @@
         "q1": "¿Cómo consiguió Pablo que Stevens le dejara una parte mayor?",
         "q2": "¿Cómo logró Pablo mejorar la parte de la fortuna que recibiría?"
       },
-      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": "CL-PAB-04",
+      "necessary_facts": [
+        "CL-EST-01"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-07",
@@ -83,7 +107,10 @@
         "q1": "¿Qué negó Pablo sobre haber manipulado a Stevens por dinero?",
         "q2": "¿Qué negó Pablo haber hecho para obtener una herencia mayor?"
       },
-      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-08",
@@ -95,7 +122,10 @@
         "q1": "¿Qué argumento usó Pablo sobre la libertad de Stevens para disponer de su fortuna?",
         "q2": "¿Qué argumento dio Pablo sobre el derecho de Stevens a usar su dinero?"
       },
-      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-09",
@@ -107,7 +137,10 @@
         "q1": "¿Por qué señaló Pablo a Juan como posible responsable?",
         "q2": "¿Qué razón utilizó Pablo para desviar las sospechas hacia Juan?"
       },
-      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos."
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": "CL-PAB-06",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-10",
@@ -119,7 +152,10 @@
         "q1": "¿Dónde estaba Pablo desde las seis y cómo se comprobó su permanencia?",
         "q2": "¿Cómo se comprobó que Pablo permaneció en Erpa?"
       },
-      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": "CL-PAB-05",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-11",
@@ -131,7 +167,10 @@
         "q1": "¿Qué motivo compartían los tres hermanos para querer muerta a Stevens?",
         "q2": "¿Qué interés compartían los tres hermanos en la muerte de Stevens?"
       },
-      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-06-AT-12",
@@ -143,7 +182,10 @@
         "q1": "¿Qué tenían en común las coartadas de los tres hermanos?",
         "q2": "¿Qué elemento de sus relatos protegía a los tres hermanos durante la hora crítica?"
       },
-      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas."
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }

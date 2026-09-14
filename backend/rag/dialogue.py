@@ -47,8 +47,8 @@ class DialogueService:
             "content": f"Reglas comunes:\n{SHARED_RULES}\n\nPersona del personaje:\n{persona}",
         }
 
-    def get_chunks(self, npc_id: str, player_input: str) -> str:
-        chunks = retrieve_chunks(npc_id, player_input)
+    def get_chunks(self, npc_id: str, player_input: str, session_id: str) -> str:
+        chunks = retrieve_chunks(npc_id, player_input, session_id)
         if not chunks:
             return ""
 
@@ -69,7 +69,7 @@ class DialogueService:
         """
         system_prompt = self.get_system_prompt(npc_id)
         history = self.HISTORIES[(session_id, npc_id)]
-        context_chunks = self.get_chunks(npc_id, player_input)
+        context_chunks = self.get_chunks(npc_id, player_input, session_id)
         content = f"<user_message>\n{player_input}\n</user_message>"
         if context_chunks:
             content = f"{context_chunks}\n\n{content}"

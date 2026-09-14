@@ -11,7 +11,10 @@
         "q1": "¿A qué se dedicaba Esteban profesionalmente?",
         "q2": "¿Cuál era el trabajo de Esteban?"
       },
-      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-05-AT-02",
@@ -23,7 +26,10 @@
         "q1": "¿Qué trámite de seguro había gestionado Esteban para Stevens?",
         "q2": "¿Qué seguro había tramitado Esteban para la señora Stevens?"
       },
-      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": "CL-POL-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-05-AT-03",
@@ -35,7 +41,12 @@
         "q1": "¿Quiénes figuraban como beneficiarios de la póliza?",
         "q2": "¿Quiénes cobraban la póliza cuando fue contratada?"
       },
-      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-05-AT-04",
@@ -47,7 +58,10 @@
         "q1": "¿Cómo describió Esteban la discusión sobre dinero del almuerzo?",
         "q2": "¿Cómo presentó Esteban la conversación sobre dinero que tuvo en el almuerzo?"
       },
-      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": "CL-EST-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-05-AT-05",
@@ -59,7 +73,10 @@
         "q1": "¿Dónde estaba Esteban desde las seis de la tarde hasta la mañana?",
         "q2": "¿En qué lugar se encontraba Esteban durante la noche del crimen?"
       },
-      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento."
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
+      "fact_id": "CL-EST-05",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-05-AT-06",
@@ -71,7 +88,10 @@
         "q1": "¿Por qué la coartada de Esteban impedía que volviera secretamente al departamento?",
         "q2": "¿Qué hacía imposible que Esteban volviera sin ser detectado?"
       },
-      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento."
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }

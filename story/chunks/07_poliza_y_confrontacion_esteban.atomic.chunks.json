@@ -11,43 +11,29 @@
         "q1": "¿Dónde apareció guardada la póliza actualizada?",
         "q2": "¿En qué mueble se encontró el documento de seguro modificado?"
       },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "fact_id": "CL-POL-02",
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-07-AT-02",
-      "retrieval_text": "La nueva póliza asignaba a Pablo el 50% del beneficio.",
+      "retrieval_text": "La nueva póliza asignaba el 50% del beneficio a Pablo, el 25% a Juan y el 25% a Esteban.",
       "knowledge_holders": [
         "esteban"
       ],
       "questions": {
-        "q1": "¿Qué porcentaje del beneficio asignaba la nueva póliza a Pablo?",
-        "q2": "¿Qué parte del seguro nuevo quedaba para Pablo?"
+        "q1": "¿Cómo se repartía el beneficio de la nueva póliza entre los tres hermanos?",
+        "q2": "¿Qué porcentaje recibirían Pablo, Juan y Esteban?"
       },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
-    },
-    {
-      "chunk_id": "SCN-07-AT-03",
-      "retrieval_text": "La nueva póliza asignaba a Juan el 25% del beneficio.",
-      "knowledge_holders": [
-        "esteban"
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "fact_id": "CL-POL-03",
+      "necessary_facts": [
+        "CL-POL-02"
       ],
-      "questions": {
-        "q1": "¿Qué porcentaje de la póliza correspondía a Juan?",
-        "q2": "¿Qué proporción del beneficio recibiría Juan?"
-      },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
-    },
-    {
-      "chunk_id": "SCN-07-AT-04",
-      "retrieval_text": "La nueva póliza asignaba a Esteban el 25% del beneficio.",
-      "knowledge_holders": [
-        "esteban"
-      ],
-      "questions": {
-        "q1": "¿Qué porcentaje de la póliza correspondía a Esteban?",
-        "q2": "¿Qué proporción del beneficio recibiría Esteban?"
-      },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-07-AT-05",
@@ -59,7 +45,13 @@
         "q1": "¿Cómo reconoció Esteban que había sido la discusión sobre la póliza?",
         "q2": "¿Cómo calificó Esteban el enfrentamiento por la póliza?"
       },
-      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": "CL-EST-03",
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
     },
     {
       "chunk_id": "SCN-07-AT-06",
@@ -71,7 +63,13 @@
         "q1": "¿Qué reparto esperaba recibir Esteban en lugar del nuevo?",
         "q2": "¿Qué distribución del seguro consideraba justa Esteban?"
       },
-      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
     },
     {
       "chunk_id": "SCN-07-AT-07",
@@ -83,7 +81,13 @@
         "q1": "¿Qué acusación hizo Esteban contra Pablo por el reparto?",
         "q2": "¿De qué acusó Esteban a Pablo en relación con la herencia?"
       },
-      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
     },
     {
       "chunk_id": "SCN-07-AT-08",
@@ -95,7 +99,13 @@
         "q1": "¿Cómo se fue Esteban de la casa después de la discusión?",
         "q2": "¿En qué estado de ánimo abandonó Esteban la casa?"
       },
-      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
     },
     {
       "chunk_id": "SCN-07-AT-09",
@@ -107,7 +117,12 @@
         "q1": "¿Por qué la póliza constituía un motivo especialmente fuerte para Esteban?",
         "q2": "¿Qué interés económico convertía la póliza en un motivo para Esteban?"
       },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-07-AT-10",
@@ -119,7 +134,12 @@
         "q1": "¿Qué cuestión del crimen no explicaba la póliza?",
         "q2": "¿Qué parte del asesinato quedaba sin resolver aun con la póliza?"
       },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-07-AT-11",
@@ -131,7 +151,12 @@
         "q1": "¿Seguía confirmada la coartada de Esteban en Lister?",
         "q2": "¿Qué evidencia seguía respaldando la ubicación de Esteban en Lister?"
       },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
     }
   ]
 }

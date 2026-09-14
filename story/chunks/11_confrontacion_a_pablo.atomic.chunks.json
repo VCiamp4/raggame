@@ -11,7 +11,12 @@
         "q1": "¿Qué admitió Pablo haber hecho con la heladera?",
         "q2": "¿Qué intervención en la heladera reconoció Pablo?"
       },
-      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": "CL-PAB-07",
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-02",
@@ -23,7 +28,12 @@
         "q1": "¿Qué pieza dijo Pablo que había cambiado?",
         "q2": "¿Qué pieza afirmó Pablo haber reemplazado?"
       },
-      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-03",
@@ -35,7 +45,12 @@
         "q1": "¿Qué negó Pablo haber tocado dentro de la heladera?",
         "q2": "¿Qué parte donde se guardaba el hielo dijo Pablo no haber tocado?"
       },
-      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-04",
@@ -47,7 +62,12 @@
         "q1": "¿Qué negó Pablo haber tocado en relación con el agua del congelador?",
         "q2": "¿Qué dijo Pablo sobre el agua que había en el congelador?"
       },
-      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco."
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-05",
@@ -59,7 +79,13 @@
         "q1": "¿Cómo reaccionó Pablo al enterarse de que el veneno estaba en el hielo?",
         "q2": "¿Qué reacción tuvo Pablo cuando relacionaron el veneno con el hielo?"
       },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-06",
@@ -71,7 +97,13 @@
         "q1": "¿Qué insistió Pablo que había hecho, y solamente hecho, en la reparación?",
         "q2": "¿Qué alcance le dio Pablo a su trabajo de reparación?"
       },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-07",
@@ -83,7 +115,13 @@
         "q1": "¿Negó Pablo haber puesto cianuro?",
         "q2": "¿Qué participación en el envenenamiento rechazó Pablo explícitamente?"
       },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-08",
@@ -95,7 +133,13 @@
         "q1": "¿A quién propuso Pablo investigar por tener acceso a la cocina?",
         "q2": "¿A quiénes sugirió Pablo buscar entre los posibles responsables?"
       },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga."
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-09",
@@ -107,7 +151,13 @@
         "q1": "¿Qué dijo Pablo sobre los empleados de Erpa y los reactivos?",
         "q2": "¿Qué dijo Pablo sobre quiénes podían manejar sustancias en Erpa?"
       },
-      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-10",
@@ -119,7 +169,13 @@
         "q1": "¿A quién atribuyó Pablo la decisión sobre el reparto de la póliza?",
         "q2": "¿A qué atribuyó Pablo la decisión de cambiar los beneficiarios?"
       },
-      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-11",
@@ -131,7 +187,13 @@
         "q1": "¿Por qué volvió Pablo a señalar a Juan?",
         "q2": "¿Qué antecedentes de Juan volvió a usar Pablo para acusarlo?"
       },
-      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-11-AT-12",
@@ -143,7 +205,13 @@
         "q1": "¿Qué parte de la reparación admitió Pablo y qué cosas siguió negando?",
         "q2": "¿Qué parte del arreglo aceptó Pablo y qué contacto siguió rechazando?"
       },
-      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa."
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
     }
   ]
 }

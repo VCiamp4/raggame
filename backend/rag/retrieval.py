@@ -2,9 +2,9 @@ import json
 import math
 from dataclasses import dataclass
 from pathlib import Path
-
 import numpy as np
 import requests
+from backend.rag.game_state import is_available, update_fact, is_support
 
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
@@ -21,6 +21,9 @@ class Chunk:
     knowledge_holders: list[str]
     questions: dict[str, str]
     source_excerpt: str
+    fact_id: str | None
+    necessary_facts: list[str]
+    sufficient_facts: list[str]
     retrieval_embedding: list[float]
     q1_embedding: list[float]
     q2_embedding: list[float]
@@ -77,10 +80,10 @@ def cosine_similarity(left: list[float], right: list[float]) -> float:
 CHUNKS = load_chunks()
 
 
-def retrieve_chunks(npc_id: str, player_input: str) -> list[str]:
+def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str]:
     chunks = []
     for chunk in CHUNKS:
-        if npc_id in chunk.knowledge_holders:
+        if is_available(chunk, npc_id, session_id):
             chunks.append(chunk)
 
     if not chunks:
@@ -96,10 +99,22 @@ def retrieve_chunks(npc_id: str, player_input: str) -> list[str]:
             cosine_similarity(query_embedding, chunk.q2_embedding),
         )
         if score >= MIN_SIMILARITY:
-            scored_chunks.append((score, chunk.retrieval_text))
+            scored_chunks.append((score, chunk))
+
+    if not scored_chunks:
+        return []
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
-    retrieved_chunks = []
-    for _, text in scored_chunks[:MAX_CHUNKS]:
-        retrieved_chunks.append(text)
-    return retrieved_chunks
+    focus = scored_chunks[0][1]
+    retrieved_chunks = [focus]
+    for _, candidate in scored_chunks[1:]:
+        if is_support(focus, candidate, session_id):
+            retrieved_chunks.append(candidate)
+            if len(retrieved_chunks) >= MAX_CHUNKS:
+                break
+    update_fact(session_id, focus.fact_id)
+
+    retrieved_texts = []
+    for chunk in retrieved_chunks:
+        retrieved_texts.append(chunk.retrieval_text)
+    return retrieved_texts

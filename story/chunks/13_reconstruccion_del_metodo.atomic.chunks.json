@@ -11,7 +11,10 @@
         "q1": "¿Qué descubrió Esteban que desencadenó la discusión?",
         "q2": "¿Qué hecho sobre el seguro puso en marcha la pelea?"
       },
-      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": "CL-RES-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-02",
@@ -23,7 +26,10 @@
         "q1": "¿Cómo quedó Stevens después de la discusión?",
         "q2": "¿Cómo afectó la discusión al estado de Stevens?"
       },
-      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-03",
@@ -35,7 +41,10 @@
         "q1": "¿Qué pidió Stevens para tranquilizarse después de discutir?",
         "q2": "¿Qué hizo Stevens para calmarse luego del enfrentamiento?"
       },
-      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse."
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-04",
@@ -47,7 +56,10 @@
         "q1": "¿Qué sirvió la criada y qué contenía el hielo?",
         "q2": "¿Qué recibió Stevens en el vaso además del whisky?"
       },
-      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-05",
@@ -59,7 +71,10 @@
         "q1": "¿A qué hora se fue la criada y qué importancia tuvo su salida?",
         "q2": "¿A qué hora se retiró la criada y qué observación dejó atrás?"
       },
-      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-06",
@@ -71,7 +86,10 @@
         "q1": "¿Qué hizo el portero a las 19:10 y llegó a ver a Stevens?",
         "q2": "¿Qué hizo el portero al entregar el diario y qué no pudo observar?"
       },
-      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-07",
@@ -83,7 +101,10 @@
         "q1": "¿Cómo pasó el cianuro del hielo a la bebida mientras Stevens leía?",
         "q2": "¿Cómo llegó el tóxico del hielo al whisky mientras Stevens leía?"
       },
-      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": "CL-ICE-04",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-08",
@@ -95,7 +116,10 @@
         "q1": "¿Qué ocurrió cuando Stevens finalmente tomó el whisky?",
         "q2": "¿En qué momento recibió Stevens la cantidad mortal?"
       },
-      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató."
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-09",
@@ -107,7 +131,10 @@
         "q1": "¿Cómo contaminó Pablo el agua del congelador?",
         "q2": "¿En qué momento y lugar contaminó Pablo el agua que luego se congeló?"
       },
-      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": "CL-RES-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-10",
@@ -119,7 +146,10 @@
         "q1": "¿Qué reparación realizó efectivamente Pablo?",
         "q2": "¿Qué pieza reemplazó Pablo durante su visita a la heladera?"
       },
-      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-11",
@@ -131,7 +161,10 @@
         "q1": "¿Por qué Pablo no necesitaba estar presente al producirse la muerte?",
         "q2": "¿Por qué el plan no requería que Pablo estuviera junto a Stevens al final?"
       },
-      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-12",
@@ -143,7 +176,10 @@
         "q1": "¿Cómo formaba parte la coartada laboral de Pablo del método?",
         "q2": "¿Cómo ayudaba la presencia de Pablo en Erpa a ocultar el método?"
       },
-      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí."
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": "CL-RES-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-13",
@@ -155,7 +191,10 @@
         "q1": "¿Qué esperaba seguir recibiendo Pablo de Stevens?",
         "q2": "¿Qué esperaba Pablo que continuara haciendo Stevens por él?"
       },
-      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-14",
@@ -167,7 +206,10 @@
         "q1": "¿Qué no esperaba Pablo respecto del momento de la muerte?",
         "q2": "¿Qué momento de la muerte no había previsto Pablo?"
       },
-      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-15",
@@ -179,7 +221,10 @@
         "q1": "¿Cómo hizo la pelea que Stevens pidiera el whisky antes de lo habitual?",
         "q2": "¿Por qué la discusión hizo que el whisky se sirviera antes?"
       },
-      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": "CL-RES-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-13-AT-16",
@@ -191,7 +236,10 @@
         "q1": "¿Qué efecto tuvo la pelea sobre el momento en que se activó el mecanismo?",
         "q2": "¿Qué consecuencia imprevista tuvo la pelea sobre el plan?"
       },
-      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución."
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }
