@@ -11,7 +11,7 @@
         "q1": "¿Dónde apareció guardada la póliza actualizada?",
         "q2": "¿En qué mueble se encontró el documento de seguro modificado?"
       },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
       "fact_id": "CL-POL-02",
       "necessary_facts": [
         "CL-POL-01"
@@ -28,7 +28,7 @@
         "q1": "¿Cómo se repartía el beneficio de la nueva póliza entre los tres hermanos?",
         "q2": "¿Qué porcentaje recibirían Pablo, Juan y Esteban?"
       },
-      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
       "fact_id": "CL-POL-03",
       "necessary_facts": [
         "CL-POL-02"

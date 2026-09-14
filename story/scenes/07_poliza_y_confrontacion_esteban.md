@@ -10,7 +10,7 @@ index_policy: investigation
 ---
 
 <!-- SOURCE_START -->
-La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.
+La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.
 
 El acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.
 

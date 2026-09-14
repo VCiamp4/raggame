@@ -66,7 +66,7 @@ Esteban era corredor de seguros. Dos meses antes había convencido a la señora 
 
 —Juan dramatiza todo —dijo.
 
-Admitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.
+Admitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vió con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.
 
 También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.
 
@@ -82,7 +82,7 @@ Pablo tampoco podía haber estado presente en el departamento durante las horas 
 
 Teníamos, por lo tanto, tres hermanos con motivos y tres coartadas.
 
-La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.
+La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.
 
 El acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.
 
