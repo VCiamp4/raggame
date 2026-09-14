@@ -123,4 +123,9 @@ Movement uses built-in `ui_left/right/up/down`. `ui_cancel` inherits Godot defau
 - `npc.gd` duplicates the first mesh material to apply `clothes_texture`; ensure NPC scenes have a MeshInstance child.
 - Git history highlights: monorepo restructure (`game/` + `backend/`), EventManager introduction, controller support, menu/lineup prototype.
 
+## 9. Status (2026-09-14)
+
+- La cámara en `game/scenes/jugador.tscn` se acercó y apuntó ligeramente hacia abajo para evitar que el jugador vea el fondo vacío, mejorando el enfoque en interiores.
+- Próximos pendientes siguen siendo los descritos en "Known issues & gaps" (pistas jugables, rutas del hub, iluminación del Hall, etc.).
+
 Use this file as the canonical reference for high-level context.
