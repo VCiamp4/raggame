@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6h0d1atu0gar"]
 
-[ext_resource type="Script" uid="uid://cs8ed8rsej1hs" path="res://copa.gd" id="1_jmrb8"]
+[ext_resource type="Script" uid="uid://cs8ed8rsej1hs" path="res://scenes/copa.gd" id="1_jmrb8"]
 [ext_resource type="ArrayMesh" uid="uid://hik3we1gksyq" path="res://assets/drink/model.obj" id="2_48702"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b7cia"]

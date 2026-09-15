@@ -1,0 +1,441 @@
+{
+  "selection_version": "validation-v1",
+  "dataset": "/home/lukis/projects/raggame/backend/data/retrieval_benchmark_100.json",
+  "algorithm": {
+    "normalization": "backend.rag.corpus.normalize_text",
+    "excluded_if_normalized_message_equals_any_CONVERSATIONS_question": true,
+    "strata": {
+      "0": "len(expected_chunk_ids)==0",
+      "1": "==1",
+      "2+": ">=2"
+    },
+    "per_npc": 3,
+    "selection_key": "SHA256(case_id + '|validation-v1') ascending, case_id ascending tie-break",
+    "substitution": "nearest cardinality stratum by fixed order 0,1,2+; deterministic; no retrieval/chat results"
+  },
+  "eligible_count": 100,
+  "excluded_text_count": 0,
+  "npc_counts": {
+    "criada": 3,
+    "esteban": 3,
+    "juan": 3,
+    "pablo": 3,
+    "portero": 3,
+    "quimico": 3,
+    "tecnico_heladera": 3
+  },
+  "substitutions": [],
+  "selected_cases": [
+    {
+      "id": "CRI-15",
+      "npc_id": "criada",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "47216507753a1c55c7b8774259a7992e32428f1bc36f1f52fe9427b78b78ae70",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "CRI-07",
+      "npc_id": "criada",
+      "message": "¿Le agregaste algo raro al whisky?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-02-AT-11"
+      ],
+      "selection_hash": "175ff10ab5766a4a113cac398754f1fc0835617cf9f656eae4034aae050377ab",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "CRI-14",
+      "npc_id": "criada",
+      "message": "¿Qué problema tuvo la heladera y quién terminó arreglándola?",
+      "state": "ice_found",
+      "expected_chunk_ids": [
+        "SCN-10-AT-03",
+        "SCN-10-AT-05"
+      ],
+      "selection_hash": "12779dd78e026725d25dc1be1fb3f19c9dfd665a125bc2032b8a2eddeb935bbe",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [
+          "CL-FOR-01",
+          "CL-FOR-02",
+          "CL-FOR-03",
+          "CL-ICE-01",
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "milestones": [
+          "M00_CASE_OPEN",
+          "M10_POISONING_CONFIRMED",
+          "M20_LIQUIDS_CLEARED",
+          "M30_ICE_HYPOTHESIS",
+          "M40_POISON_IN_ICE"
+        ]
+      }
+    },
+    {
+      "id": "EST-14",
+      "npc_id": "esteban",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "06d6f0640c9a55922687316d1742fccaf67d10d51e78584b70a718bda4c1980e",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "EST-10",
+      "npc_id": "esteban",
+      "message": "¿Cómo te fuiste de la casa después de la discusión?",
+      "state": "policy_inspected",
+      "expected_chunk_ids": [
+        "SCN-07-AT-08"
+      ],
+      "selection_hash": "0aec524e9a6e36e02b074ac45c0728f446273dbfe48365c29be827906db328ea",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [
+          "CL-POL-01",
+          "CL-POL-02"
+        ],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "EST-05",
+      "npc_id": "esteban",
+      "message": "¿Dónde estabas desde las seis y qué impedía que volvieras en secreto?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-05-AT-05",
+        "SCN-05-AT-06"
+      ],
+      "selection_hash": "0658a0a65fe6f5d0a0f8c0be871c89d2d7d8f6b6cadb53fd5b4fa4090ac3515b",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "JUA-13",
+      "npc_id": "juan",
+      "message": "¿Qué cianuro había en los reactivos de Erpa?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "2ef6d5cafcb7604f38b72abc499a533fb04c38e7ea90fb3b8c2144282f86ab19",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "JUA-09",
+      "npc_id": "juan",
+      "message": "¿Te importaba cobrar una parte menor de la herencia?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-04-AT-17"
+      ],
+      "selection_hash": "1615743aacb2fa68729d134383e0935211050c31d59aaa3c07151560a65b0f65",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "JUA-07",
+      "npc_id": "juan",
+      "message": "¿Dónde estuviste entre las cinco y la medianoche, según la policía?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-04-AT-12",
+        "SCN-04-AT-13"
+      ],
+      "selection_hash": "1090a5472061b7e39f39a0eb27beddd4d18cf3aad67dabe9cfbf942e391c8522",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "PAB-14",
+      "npc_id": "pablo",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "0bd5281a9a01918e8635e033b13319ce8606a3b3d8596ad379bec5bd24a72e9c",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "PAB-01",
+      "npc_id": "pablo",
+      "message": "¿Qué profesión ejercías antes de que te inhabilitaran y por qué?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-06-AT-01"
+      ],
+      "selection_hash": "6231e940347dea82d7fbaf22212c0132c75a4a37614769c6276326d4154699c8",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "PAB-10",
+      "npc_id": "pablo",
+      "message": "¿Qué negás haber tocado dentro de la heladera, en las cubeteras o en el agua?",
+      "state": "fridge_link",
+      "expected_chunk_ids": [
+        "SCN-11-AT-03",
+        "SCN-11-AT-04",
+        "SCN-11-AT-12"
+      ],
+      "selection_hash": "0b6ad6d14faa3ebd060c0d259b82993765f4db1efb128c0962a0111dbf486c5e",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [
+          "CL-FOR-01",
+          "CL-FOR-02",
+          "CL-FOR-03",
+          "CL-ICE-01",
+          "CL-ICE-03",
+          "CL-CRI-05",
+          "CL-FRI-01",
+          "CL-FRI-02"
+        ],
+        "milestones": [
+          "M00_CASE_OPEN",
+          "M10_POISONING_CONFIRMED",
+          "M20_LIQUIDS_CLEARED",
+          "M30_ICE_HYPOTHESIS",
+          "M40_POISON_IN_ICE",
+          "M50_PABLO_FRIDGE_LINK"
+        ]
+      }
+    },
+    {
+      "id": "POR-15",
+      "npc_id": "portero",
+      "message": "¿Podés decirme quién la asesinó?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "e5a07fcf8965a84aa0cf360914d1e6c758fb1fcb6204ddacf46584ee23a21ac6",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "POR-12",
+      "npc_id": "portero",
+      "message": "¿Quién fue la última persona que vio viva a la señora Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-03-AT-04"
+      ],
+      "selection_hash": "15cc33b4820d756912ae9cbe56be35bdf6c45430288c22e9659fb47f804c2b3c",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "POR-07",
+      "npc_id": "portero",
+      "message": "¿Había señales de lucha o faltaba dinero, y las ventanas estaban abiertas?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-01-AT-12",
+        "SCN-01-AT-13"
+      ],
+      "selection_hash": "20d4160879a0e33419cee4095acd64ac8357ee90db5fb51fac17f73c81fa6af7",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "QUI-13",
+      "npc_id": "quimico",
+      "message": "¿Quién decidió usar el hielo para matar a Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "38c34c0bbc7d8aa15432921e8568f75f0f685c9e8d899e009d2e1fe7ca6ab91f",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "QUI-11",
+      "npc_id": "quimico",
+      "message": "¿Cómo pudo la criada introducir el veneno sin saberlo al servir el whisky?",
+      "state": "ice_found",
+      "expected_chunk_ids": [
+        "SCN-09-AT-03"
+      ],
+      "selection_hash": "075a40af680acf2e6ad9529a02db2172b63d6d2a4c26f2986178ae6581d8626b",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [
+          "CL-FOR-01",
+          "CL-FOR-02",
+          "CL-FOR-03",
+          "CL-ICE-01",
+          "CL-ICE-03",
+          "CL-CRI-05"
+        ],
+        "milestones": [
+          "M00_CASE_OPEN",
+          "M10_POISONING_CONFIRMED",
+          "M20_LIQUIDS_CLEARED",
+          "M30_ICE_HYPOTHESIS",
+          "M40_POISON_IN_ICE"
+        ]
+      }
+    },
+    {
+      "id": "QUI-04",
+      "npc_id": "quimico",
+      "message": "¿Por qué tardaban los resultados y por qué no querías adelantar una conclusión?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-01-AT-19",
+        "SCN-01-AT-20"
+      ],
+      "selection_hash": "5d3a6eaa048e0b310426b3fa1efc043c8919741de4ba1ff1ebd8a7f180e98f2d",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "TEC-14",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Quién fue el asesino de Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [],
+      "selection_hash": "788a828c6f1032b2d1eab3fd4b7ddeb2b814d8ce8d2f5e2b4650c49718fe2561",
+      "requested_stratum": "0",
+      "selected_stratum": "0",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "TEC-05",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué se sabía de la fortuna considerable de Stevens?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-01-AT-03"
+      ],
+      "selection_hash": "21bae1be4d7d6bc3cb0b3683c9e2d2fd2063faea6560ca52ba030fa9c76b0072",
+      "requested_stratum": "1",
+      "selected_stratum": "1",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    },
+    {
+      "id": "TEC-03",
+      "npc_id": "tecnico_heladera",
+      "message": "¿Qué se sabía de su fortuna y de su estado de salud?",
+      "state": "initial",
+      "expected_chunk_ids": [
+        "SCN-01-AT-03",
+        "SCN-01-AT-04"
+      ],
+      "selection_hash": "156604c0e4ec071c5336afc0ae55d26170e27df5627a232e5a07320105763a54",
+      "requested_stratum": "2+",
+      "selected_stratum": "2+",
+      "state_data": {
+        "facts": [],
+        "milestones": [
+          "M00_CASE_OPEN"
+        ]
+      }
+    }
+  ]
+}

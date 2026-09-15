@@ -1,0 +1,1266 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-02",
+  "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-01",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          13,
+          15
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-01"
+      },
+      "source_text": "La criada había trabajado durante años para la señora Stevens.",
+      "retrieval_text": "La criada había trabajado durante años para la señora Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "maltrato",
+          "violenta",
+          "insultos",
+          "gritos",
+          "humillaciones",
+          "patrona",
+          "La",
+          "criada",
+          "había",
+          "trabajado",
+          "durante",
+          "años",
+          "para",
+          "señora",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-02",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          13,
+          15
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-01"
+      },
+      "source_text": "La criada identifica a Stevens como su patrona.",
+      "retrieval_text": "La criada identifica a Stevens como su patrona.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "maltrato",
+          "violenta",
+          "insultos",
+          "gritos",
+          "humillaciones",
+          "patrona",
+          "La",
+          "criada",
+          "identifica",
+          "a",
+          "Stevens",
+          "como",
+          "su"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-01",
+          "SCN-02-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-03",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          13,
+          15
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-01"
+      },
+      "source_text": "La señora Stevens solía tratar mal a la criada.",
+      "retrieval_text": "La señora Stevens solía tratar mal a la criada.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CRI-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "maltrato",
+          "violenta",
+          "insultos",
+          "gritos",
+          "humillaciones",
+          "patrona",
+          "La",
+          "señora",
+          "Stevens",
+          "solía",
+          "tratar",
+          "mal",
+          "a",
+          "criada"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-02",
+          "SCN-02-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-04",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          13,
+          15
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-01"
+      },
+      "source_text": "La señora Stevens se enojaba por todo y encontraba errores en el trabajo de la criada.",
+      "retrieval_text": "La señora Stevens se enojaba por todo y encontraba errores en el trabajo de la criada.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "maltrato",
+          "violenta",
+          "insultos",
+          "gritos",
+          "humillaciones",
+          "patrona",
+          "La",
+          "señora",
+          "Stevens",
+          "se",
+          "enojaba",
+          "por",
+          "todo",
+          "y",
+          "encontraba",
+          "errores",
+          "en",
+          "el",
+          "trabajo",
+          "de",
+          "criada"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-03",
+          "SCN-02-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-05",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          17,
+          17
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-02"
+      },
+      "source_text": "Vecinos y conocidos describían a Stevens como despótica y violenta con el servicio.",
+      "retrieval_text": "Vecinos y conocidos describían a Stevens como despótica y violenta con el servicio.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "vecinos",
+          "maltrato",
+          "violenta",
+          "insultos",
+          "humillaciones",
+          "salario",
+          "y",
+          "conocidos",
+          "describían",
+          "a",
+          "Stevens",
+          "como",
+          "despótica",
+          "con",
+          "el",
+          "servicio"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-02-AT-04",
+          "SCN-02-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-06",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          17,
+          17
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-02"
+      },
+      "source_text": "Stevens insultaba, gritaba y humillaba al servicio.",
+      "retrieval_text": "Stevens insultaba, gritaba y humillaba al servicio.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "vecinos",
+          "maltrato",
+          "violenta",
+          "insultos",
+          "humillaciones",
+          "salario",
+          "Stevens",
+          "insultaba",
+          "gritaba",
+          "y",
+          "humillaba",
+          "al",
+          "servicio"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-02-AT-05",
+          "SCN-02-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-07",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          17,
+          17
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-02"
+      },
+      "source_text": "La criada soportaba el maltrato porque necesitaba el empleo.",
+      "retrieval_text": "La criada soportaba el maltrato porque necesitaba el empleo.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "vecinos",
+          "maltrato",
+          "violenta",
+          "insultos",
+          "humillaciones",
+          "salario",
+          "La",
+          "criada",
+          "soportaba",
+          "el",
+          "porque",
+          "necesitaba",
+          "empleo"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-02-AT-06",
+          "SCN-02-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-08",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          17,
+          17
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-02"
+      },
+      "source_text": "Stevens pagaba buenos salarios.",
+      "retrieval_text": "Stevens pagaba buenos salarios.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "vecinos",
+          "maltrato",
+          "violenta",
+          "insultos",
+          "humillaciones",
+          "salario",
+          "Stevens",
+          "pagaba",
+          "buenos",
+          "salarios"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-02-AT-07",
+          "SCN-02-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-09",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          17,
+          17
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-02"
+      },
+      "source_text": "El maltrato ofrecía un motivo posible contra Stevens, aunque todavía era general.",
+      "retrieval_text": "El maltrato ofrecía un motivo posible contra Stevens, aunque todavía era general.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "vecinos",
+          "maltrato",
+          "violenta",
+          "insultos",
+          "humillaciones",
+          "salario",
+          "El",
+          "ofrecía",
+          "un",
+          "motivo",
+          "posible",
+          "contra",
+          "Stevens",
+          "aunque",
+          "todavía",
+          "era",
+          "general"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-02-AT-08",
+          "SCN-02-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-10",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          19,
+          27
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-03"
+      },
+      "source_text": "La criada preparó el vaso de whisky hallado junto al cadáver.",
+      "retrieval_text": "La criada preparó el vaso de whisky hallado junto al cadáver.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "sirvió",
+          "preparó",
+          "whisky",
+          "vaso",
+          "discusión",
+          "veneno",
+          "La",
+          "criada",
+          "el",
+          "de",
+          "hallado",
+          "junto",
+          "al",
+          "cadáver"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-02-AT-09",
+          "SCN-02-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-11",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          19,
+          27
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-03"
+      },
+      "source_text": "La criada jura que no agregó nada extraño al vaso.",
+      "retrieval_text": "La criada jura que no agregó nada extraño al vaso.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "sirvió",
+          "preparó",
+          "whisky",
+          "vaso",
+          "discusión",
+          "veneno",
+          "La",
+          "criada",
+          "jura",
+          "que",
+          "no",
+          "agregó",
+          "nada",
+          "extraño",
+          "al"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-02-AT-10",
+          "SCN-02-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-12",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          19,
+          27
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-03"
+      },
+      "source_text": "Stevens pidió el whisky para calmarse después de una discusión.",
+      "retrieval_text": "Stevens pidió el whisky para calmarse después de una discusión.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CRI-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "sirvió",
+          "preparó",
+          "whisky",
+          "vaso",
+          "discusión",
+          "veneno",
+          "Stevens",
+          "pidió",
+          "el",
+          "para",
+          "calmarse",
+          "después",
+          "de",
+          "una"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-02-AT-11",
+          "SCN-02-AT-13"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-13",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          19,
+          27
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-03"
+      },
+      "source_text": "La criada dejó la bebida sobre la mesa.",
+      "retrieval_text": "La criada dejó la bebida sobre la mesa.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "sirvió",
+          "preparó",
+          "whisky",
+          "vaso",
+          "discusión",
+          "veneno",
+          "La",
+          "criada",
+          "dejó",
+          "bebida",
+          "sobre",
+          "mesa"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-02-AT-12",
+          "SCN-02-AT-14"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-14",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          19,
+          27
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-03"
+      },
+      "source_text": "La criada no podía asegurar que Stevens hubiera probado el whisky en ese momento.",
+      "retrieval_text": "La criada no podía asegurar que Stevens hubiera probado el whisky en ese momento.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "sirvió",
+          "preparó",
+          "whisky",
+          "vaso",
+          "discusión",
+          "veneno",
+          "La",
+          "criada",
+          "no",
+          "podía",
+          "asegurar",
+          "que",
+          "Stevens",
+          "hubiera",
+          "probado",
+          "el",
+          "en",
+          "ese",
+          "momento"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-02-AT-13",
+          "SCN-02-AT-15"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-15",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          29,
+          29
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-04"
+      },
+      "source_text": "La criada oyó voces y gritos, pero no entendió la discusión.",
+      "retrieval_text": "La criada oyó voces y gritos, pero no entendió la discusión.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "portero"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "discusión",
+          "gritos",
+          "diario",
+          "portero",
+          "siete",
+          "La",
+          "criada",
+          "oyó",
+          "voces",
+          "y",
+          "pero",
+          "no",
+          "entendió"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-14",
+          "SCN-02-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-16",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          29,
+          29
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-04"
+      },
+      "source_text": "Poco antes de las siete, Stevens pidió que le hicieran llegar el diario.",
+      "retrieval_text": "Poco antes de las siete, Stevens pidió que le hicieran llegar el diario.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "portero"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "discusión",
+          "gritos",
+          "diario",
+          "portero",
+          "siete",
+          "Poco",
+          "antes",
+          "de",
+          "las",
+          "Stevens",
+          "pidió",
+          "que",
+          "le",
+          "hicieran",
+          "llegar",
+          "el"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-15",
+          "SCN-02-AT-17"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-02-AT-17",
+      "scene_id": "SCN-02",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          29,
+          29
+        ],
+        "scene_file": "scenes/02_primer_interrogatorio_criada.md",
+        "parent_chunk_id": "SCN-02-CH-04"
+      },
+      "source_text": "Al marcharse, la criada pidió al portero que subiera el diario.",
+      "retrieval_text": "Al marcharse, la criada pidió al portero que subiera el diario.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "criada"
+      ],
+      "mentioned_entities": [
+        "criada",
+        "senora_stevens",
+        "portero"
+      ],
+      "knowledge_holders": [
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CRI-04"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "discusión",
+          "gritos",
+          "diario",
+          "portero",
+          "siete",
+          "Al",
+          "marcharse",
+          "la",
+          "criada",
+          "pidió",
+          "que",
+          "subiera",
+          "el"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-02-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera."
+    }
+  ]
+}

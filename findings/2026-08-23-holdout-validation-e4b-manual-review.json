@@ -1,0 +1,187 @@
+{
+  "source_generated_at": "2026-08-23T18:13:58.085254+00:00",
+  "reviewed_at": "2026-08-23",
+  "reviewer": "Codex, lectura manual contra corpus, estado, chunks recuperados y personaje",
+  "rubric": {
+    "4": "Correcta, completa, contenida y consistente con el estado y el personaje.",
+    "3": "Correcta en lo esencial, con una omisión, agregado o problema menor.",
+    "2": "Parcial o una abstención razonable que no logra contestar todo el hecho pedido.",
+    "1": "Mayormente incorrecta, inventada o contradictoria.",
+    "0": "Fallo crítico: filtración de un hecho bloqueado, inversión central o respuesta inutilizable."
+  },
+  "cases": {
+    "CRI-07": {
+      "expected": "Negar que agregó algo extraño al whisky.",
+      "retrieval_note": "Ambos stacks recuperan el gold SCN-02-AT-11. El candidato elimina SCN-02-AT-14, pero conserva SCN-02-AT-10, que es pertinente aunque no sea gold.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Negación directa, completa y respaldada; el agregado sobre si Stevens bebió sigue siendo pertinente.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "La negación central es correcta, pero cierra con la frase confusa «no sé de qué podría haber sido».", "attribution": "llm"}
+      }
+    },
+    "CRI-14": {
+      "expected": "Decir que la heladera había fallado unos días antes y que Pablo terminó reparándola.",
+      "retrieval_note": "Ambos recuperan SCN-10-AT-05 pero omiten SCN-10-AT-03, aunque su raw similarity es 0,848. El gold se perdió en ranking/selección/MMR antes del umbral, no por el embedding ni por el filtro individual.",
+      "answers": {
+        "current_production": {"score": 2, "note": "Identifica a Pablo, pero no puede responder qué había ocurrido con la heladera porque falta AT-03.", "attribution": "rag"},
+        "candidate": {"score": 2, "note": "Misma respuesta parcial por el mismo miss previo al umbral; el nerviosismo agregado no repara la omisión.", "attribution": "rag"}
+      }
+    },
+    "CRI-15": {
+      "expected": "No identificar al asesino ni adelantar la resolución en estado inicial.",
+      "retrieval_note": "El gold es vacío, pero ambos stacks conservan tres chunks no ideales porque superan individualmente 0,50. El LLM evita convertirlos en una acusación.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Se abstiene correctamente y solo agrega cómo encontró el cuerpo, un dato disponible y seguro.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Se abstiene, no revela culpables y permanece en personaje.", "attribution": "none"}
+      }
+    },
+    "EST-05": {
+      "expected": "Ubicarse en Lister desde las 18:00 hasta la mañana siguiente y explicar que la verificación policial descartó un regreso secreto.",
+      "retrieval_note": "Ambos contienen los dos gold. El candidato elimina el extra SCN-01-AT-01 y queda exacto.",
+      "answers": {
+        "current_production": {"score": 3, "note": "Da la coartada completa, pero dice «regreso secreto a mi departamento», cambiando el departamento de Stevens por el propio.", "attribution": "llm"},
+        "candidate": {"score": 4, "note": "Respuesta completa, precisa y sin el error de posesión.", "attribution": "none"}
+      }
+    },
+    "EST-10": {
+      "expected": "Decir que se fue enfurecido de la casa.",
+      "retrieval_note": "El candidato deja únicamente el gold SCN-07-AT-08; producción conserva además dos extras.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Responde exactamente cómo se fue y no usa los extras.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "El hecho es correcto, pero «si no mal recuerdo» introduce una duda injustificada pese a tener evidencia exacta.", "attribution": "llm"}
+      }
+    },
+    "EST-14": {
+      "expected": "No afirmar quién asesinó a Stevens en estado inicial.",
+      "retrieval_note": "El gold es vacío y ambos stacks conservan tres extras; el umbral individual tampoco logra abstenerse.",
+      "answers": {
+        "current_production": {"score": 3, "note": "Se abstiene correctamente, pero deriva hacia su imagen profesional y una explicación poco natural.", "attribution": "llm"},
+        "candidate": {"score": 4, "note": "Abstención precisa, breve y segura.", "attribution": "none"}
+      }
+    },
+    "JUA-07": {
+      "expected": "Decir que estuvo demorado en una comisaría entre las 17:00 y la medianoche, según verificó la policía.",
+      "retrieval_note": "Ambos recuperan los dos gold; el candidato elimina el extra SCN-01-AT-01.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Completa y precisa.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Completa, precisa y con un cierre compatible con el personaje.", "attribution": "none"}
+      }
+    },
+    "JUA-09": {
+      "expected": "Negar que le preocupara cobrar una parte menor porque recibiría dinero por otra vía.",
+      "retrieval_note": "Ambos recuperan el gold; el candidato elimina dos extras y queda exacto.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Correcta y directa.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Correcta, explícita y en personaje.", "attribution": "none"}
+      }
+    },
+    "JUA-13": {
+      "expected": "No inventar qué cianuro había en los reactivos de Erpa porque el estado inicial no lo habilita.",
+      "retrieval_note": "Ambos stacks devuelven vacío, exactamente como el gold.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Admite no saberlo y responde con el tono confrontativo de Juan.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "La abstención es correcta, pero el cierre es gramaticalmente torpe y demasiado formal para Juan.", "attribution": "llm"}
+      }
+    },
+    "PAB-01": {
+      "expected": "Decir que ejercía como veterinario y que fue inhabilitado por dopar caballos de carrera.",
+      "retrieval_note": "Ambos recuperan el gold SCN-06-AT-01; el candidato elimina dos extras y recibe solo el dato exacto.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Contesta profesión y causa de la inhabilitación de forma exacta.", "attribution": "none"},
+        "candidate": {"score": 2, "note": "Contesta que era veterinario, pero omite por completo el dopaje pese a recibir el chunk exacto.", "attribution": "llm"}
+      }
+    },
+    "PAB-10": {
+      "expected": "Negar haber tocado las cubeteras y el agua del congelador, admitiendo únicamente la reparación.",
+      "retrieval_note": "Ambos omiten SCN-11-AT-03, pero SCN-11-AT-12 ya contiene esa negación junto con la del agua. El gold está redundante y el miss nominal no produce pérdida factual.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Incluye las dos negaciones y la admisión de la reparación.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Incluye exactamente las dos negaciones y la reparación.", "attribution": "none"}
+      }
+    },
+    "PAB-14": {
+      "expected": "No identificar al asesino ni adelantar la resolución en estado inicial.",
+      "retrieval_note": "El gold es vacío; ambos conservan tres extras, por lo que el filtro individual no resuelve este caso de abstención.",
+      "answers": {
+        "current_production": {"score": 4, "note": "No adivina ni acusa y exige evidencia, coherente con Pablo.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Abstención segura y bien contenida.", "attribution": "none"}
+      }
+    },
+    "POR-07": {
+      "expected": "Decir que no había señales de lucha, no faltaba dinero y las ventanas estaban cerradas.",
+      "retrieval_note": "Los dos stacks reciben ambos gold y el mismo extra SCN-01-AT-09; no hay diferencia de RAG entre respuestas.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Responde correctamente los tres hechos pedidos.", "attribution": "none"},
+        "candidate": {"score": 2, "note": "Solo confirma las ventanas y se abstiene incorrectamente sobre lucha y dinero pese a tener ambos hechos; además escribe «recordo».", "attribution": "llm"}
+      }
+    },
+    "POR-12": {
+      "expected": "Identificar a la criada como la última persona que vio viva a Stevens.",
+      "retrieval_note": "Ambos recuperan el gold y dos extras que no afectan la respuesta.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Exacta y concisa.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Exacta y concisa.", "attribution": "none"}
+      }
+    },
+    "POR-15": {
+      "expected": "No identificar al asesino en estado inicial.",
+      "retrieval_note": "Producción devuelve tres extras; el filtro individual los elimina todos y obtiene el vacío ideal.",
+      "answers": {
+        "current_production": {"score": 3, "note": "Se abstiene correctamente, pero usa que Stevens estaba sola como explicación causal y agrega cómo hallaron el cuerpo sin necesidad.", "attribution": "rag+llm"},
+        "candidate": {"score": 4, "note": "Abstención directa, segura y sin convertir datos laterales en una explicación.", "attribution": "none"}
+      }
+    },
+    "QUI-04": {
+      "expected": "Explicar que el análisis llevaba tiempo y que no correspondía concluir antes de trabajar en el laboratorio.",
+      "retrieval_note": "Ambos contienen los dos gold; el candidato elimina SCN-01-AT-16 y queda exacto.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Completa y científicamente coherente; el dato extra sobre la sustancia también estaba respaldado.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Responde las dos causas pedidas de forma suficiente.", "attribution": "none"}
+      }
+    },
+    "QUI-11": {
+      "expected": "Explicar que la criada pudo introducir el veneno sin saberlo al agregar los cubos al whisky puro.",
+      "retrieval_note": "Ambos recuperan el gold y los mismos dos extras; no hay diferencia de retrieval.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Explicación completa y correcta.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Explicación completa, directa y respaldada.", "attribution": "none"}
+      }
+    },
+    "QUI-13": {
+      "expected": "No afirmar quién decidió usar el hielo, porque esa resolución no está disponible en estado inicial.",
+      "retrieval_note": "El gold es vacío y ambos conservan tres extras; la salida depende de la disciplina del LLM.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Abstención correcta, profesional y plenamente en personaje.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "No revela nada, pero menciona «historial conversacional», lenguaje del sistema que rompe parcialmente el papel.", "attribution": "prompt+llm"}
+      }
+    },
+    "TEC-03": {
+      "expected": "Decir que Stevens poseía una fortuna considerable y gozaba de buena salud.",
+      "retrieval_note": "Ambos contienen los dos gold y el extra SCN-01-AT-06; el filtro individual no elimina ese extra.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Responde exactamente las dos partes y se detiene.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "Responde bien, pero añade sin que se le pregunte que no preparaba un suicidio.", "attribution": "llm"}
+      }
+    },
+    "TEC-05": {
+      "expected": "Decir únicamente que Stevens poseía una fortuna considerable y que no se conocían más detalles.",
+      "retrieval_note": "Ambos recuperan el gold y los mismos dos extras; la respuesta ignora correctamente los extras.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Correcta, honesta y contenida.", "attribution": "none"},
+        "candidate": {"score": 4, "note": "Correcta, honesta y contenida.", "attribution": "none"}
+      }
+    },
+    "TEC-14": {
+      "expected": "No identificar al asesino en estado inicial.",
+      "retrieval_note": "El gold es vacío y ambos conservan tres extras, por lo que la abstención depende del modelo.",
+      "answers": {
+        "current_production": {"score": 4, "note": "Se abstiene y lo justifica desde su oficio, sin salir del personaje.", "attribution": "none"},
+        "candidate": {"score": 3, "note": "La abstención es correcta, pero habla de «historial» y «datos que me proporcionaste», exponiendo el andamiaje del prompt.", "attribution": "prompt+llm"}
+      }
+    }
+  },
+  "conclusion": {
+    "candidate_stack_supported": false,
+    "reason": "El filtro por chunk sigue quitando extras sin perder gold en estos 21 casos, pero el grounding actual más temperatura 0 provoca sobreabstención, omisiones y lenguaje meta. El stack combinado no debe promoverse tal como está.",
+    "next_high_value_test": "Aislar el filtro por chunk manteniendo exactamente el prompt y la temperatura productivos sobre los mismos 21 casos."
+  }
+}

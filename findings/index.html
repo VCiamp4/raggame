@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Findings · Un crimen casi perfecto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">RAGGame · Findings</a>
+      <nav class="nav" aria-label="Findings">
+        <a href="index.html" aria-current="page">Índice</a>
+        <a href="2026-08-23-flujo-mensaje-rag-produccion.html">Flujo actual</a>
+        <a href="2026-08-21-rag-y-chunks-atomicos.html">RAG</a>
+        <a href="2026-08-21-bm25-y-retrieval.html">Retrieval híbrido</a>
+        <a href="2026-08-22-benchmark-retrieval-100.html">Retrieval 100</a>
+        <a href="2026-08-23-benchmark-rag-e4b-current-vs-per-chunk-050-quality.html">Benchmark RAG</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">Registro técnico</p>
+      <h1>Conclusiones verificadas del proyecto</h1>
+      <p class="lead">Una vista legible de las decisiones y mediciones que siguen vigentes. Los findings conservan la metodología y los resultados de las pruebas realizadas; el runtime productivo se documenta por separado.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <p class="kicker">Arquitectura actual</p>
+        <p class="metric">Mensaje → respuesta</p>
+        <p>Explica filtros, embeddinggemma, ranking q1+q2, gate, prompt, Gemma 4, streaming y estado.</p>
+        <a href="2026-08-23-flujo-mensaje-rag-produccion.html">Ver el flujo productivo completo →</a>
+      </article>
+      <article class="card">
+        <p class="kicker">Corpus activo</p>
+        <p class="metric">162 chunks</p>
+        <p>15 escenas atómicas, con procedencia editorial y filtros de disponibilidad.</p>
+        <a href="2026-08-21-rag-y-chunks-atomicos.html">Leer el finding de RAG →</a>
+      </article>
+      <article class="card">
+        <p class="kicker">Retrieval</p>
+        <p class="metric">Dense + BM25</p>
+        <p>La búsqueda híbrida queda documentada como baseline técnico del corpus.</p>
+        <a href="2026-08-21-bm25-y-retrieval.html">Leer el finding de retrieval →</a>
+      </article>
+      <article class="card">
+        <p class="kicker">Benchmark retrieval</p>
+        <p class="metric">100 consultas</p>
+        <p>Evalúa solo los chunks recuperados, con gold editorial de 0 a 3 por consulta.</p>
+        <a href="2026-08-22-benchmark-retrieval-100.html">Abrir el benchmark de retrieval →</a>
+      </article>
+      <article class="card">
+        <p class="kicker">Benchmark RAG</p>
+        <p class="metric">Gemma 4 E4B</p>
+        <p>Compara el comportamiento actual del servicio con el gate por chunk de 0,50.</p>
+        <a href="2026-08-23-benchmark-rag-e4b-current-vs-per-chunk-050-quality.html">Abrir el benchmark RAG →</a>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top: 16px">
+      <h2>Decisiones que siguen vigentes</h2>
+      <ul>
+        <li>El backend usa <code>embeddinggemma-300m</code> y el índice local <code>backend/data/rag_index_atomic_embeddinggemma_two.sqlite3</code>.</li>
+        <li>El índice combina el pasaje original con dos preguntas canónicas por chunk; el ranking usa el pool filtrado y un gate raw de <code>0,50</code>.</li>
+        <li>El historial guarda solo la pregunta original y la respuesta; el contexto recuperado es efímero.</li>
+        <li>La revisión manual final separa fallas de disponibilidad, retrieval y generación; no se presenta una heurística automática como evaluación editorial.</li>
+        <li>El modelo de chat se mantiene residente con <code>keep_alive</code>; cambiar <code>num_ctx</code> o descargarlo puede invalidar la caché de prompt.</li>
+      </ul>
+    </section>
+
+    <p class="footer">Mediciones hechas en CPU local. Las cifras son comparables dentro de cada suite, no una garantía para otro hardware.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,856 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-07",
+  "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-01",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          85,
+          87
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-01"
+      },
+      "source_text": "La póliza actualizada fue encontrada en el cajón del escritorio de Stevens.",
+      "retrieval_text": "La póliza actualizada fue encontrada en el cajón del escritorio de Stevens.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "senora_stevens",
+        "poliza",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-01",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-POL-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "póliza",
+          "cajón",
+          "50%",
+          "25%",
+          "mitad",
+          "cuarta parte",
+          "beneficio",
+          "La",
+          "actualizada",
+          "fue",
+          "encontrada",
+          "en",
+          "el",
+          "del",
+          "escritorio",
+          "de",
+          "Stevens"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-07-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-02",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          85,
+          87
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-01"
+      },
+      "source_text": "La nueva póliza asignaba a Pablo el 50% del beneficio.",
+      "retrieval_text": "La nueva póliza asignaba a Pablo el 50% del beneficio.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "senora_stevens",
+        "poliza",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-01",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "póliza",
+          "cajón",
+          "50%",
+          "25%",
+          "mitad",
+          "cuarta parte",
+          "beneficio",
+          "La",
+          "nueva",
+          "asignaba",
+          "a",
+          "Pablo",
+          "el",
+          "50",
+          "del"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-07-AT-01",
+          "SCN-07-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-03",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          85,
+          87
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-01"
+      },
+      "source_text": "La nueva póliza asignaba a Juan el 25% del beneficio.",
+      "retrieval_text": "La nueva póliza asignaba a Juan el 25% del beneficio.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "senora_stevens",
+        "poliza",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-01",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "póliza",
+          "cajón",
+          "50%",
+          "25%",
+          "mitad",
+          "cuarta parte",
+          "beneficio",
+          "La",
+          "nueva",
+          "asignaba",
+          "a",
+          "Juan",
+          "el",
+          "25",
+          "del"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-07-AT-02",
+          "SCN-07-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-04",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          85,
+          87
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-01"
+      },
+      "source_text": "La nueva póliza asignaba a Esteban el 25% del beneficio.",
+      "retrieval_text": "La nueva póliza asignaba a Esteban el 25% del beneficio.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "pablo",
+        "juan",
+        "esteban",
+        "senora_stevens",
+        "poliza",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-01",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "póliza",
+          "cajón",
+          "50%",
+          "25%",
+          "mitad",
+          "cuarta parte",
+          "beneficio",
+          "La",
+          "nueva",
+          "asignaba",
+          "a",
+          "Esteban",
+          "el",
+          "25",
+          "del"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-07-AT-03",
+          "SCN-07-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada que Esteban le había llevado aquella tarde.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-05",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          89,
+          99
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-02"
+      },
+      "source_text": "Esteban admitió que la discusión sobre la póliza había sido fuerte.",
+      "retrieval_text": "Esteban admitió que la discusión sobre la póliza había sido fuerte.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza",
+        "criada"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-02",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-EST-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "pelea",
+          "Pablo",
+          "manipular",
+          "doble",
+          "póliza",
+          "admitió",
+          "que",
+          "la",
+          "discusión",
+          "sobre",
+          "había",
+          "sido",
+          "fuerte"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-07-AT-04",
+          "SCN-07-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-06",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          89,
+          99
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-02"
+      },
+      "source_text": "Esteban esperaba un reparto equitativo.",
+      "retrieval_text": "Esteban esperaba un reparto equitativo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza",
+        "criada"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-02",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "pelea",
+          "Pablo",
+          "manipular",
+          "doble",
+          "póliza",
+          "esperaba",
+          "un",
+          "reparto",
+          "equitativo"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-07-AT-05",
+          "SCN-07-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-07",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          89,
+          99
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-02"
+      },
+      "source_text": "Esteban acusó a Pablo de manipular a Stevens para recibir el doble.",
+      "retrieval_text": "Esteban acusó a Pablo de manipular a Stevens para recibir el doble.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza",
+        "criada"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-02",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "pelea",
+          "Pablo",
+          "manipular",
+          "doble",
+          "póliza",
+          "acusó",
+          "a",
+          "de",
+          "Stevens",
+          "para",
+          "recibir",
+          "el"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-07-AT-06",
+          "SCN-07-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-08",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          89,
+          99
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-02"
+      },
+      "source_text": "Esteban salió enfurecido de la casa.",
+      "retrieval_text": "Esteban salió enfurecido de la casa.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza",
+        "criada"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [
+          "CL-POL-02",
+          "CL-EST-01"
+        ],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "pelea",
+          "Pablo",
+          "manipular",
+          "doble",
+          "póliza",
+          "salió",
+          "enfurecido",
+          "de",
+          "la",
+          "casa"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-07-AT-07",
+          "SCN-07-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-09",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          101,
+          101
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-03"
+      },
+      "source_text": "La póliza daba a Esteban un motivo fuerte.",
+      "retrieval_text": "La póliza daba a Esteban un motivo fuerte.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-POL-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "motivo",
+          "método",
+          "Lister",
+          "coartada",
+          "La",
+          "póliza",
+          "daba",
+          "a",
+          "Esteban",
+          "un",
+          "fuerte"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-07-AT-08",
+          "SCN-07-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-10",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          101,
+          101
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-03"
+      },
+      "source_text": "La póliza no explicaba el método del crimen.",
+      "retrieval_text": "La póliza no explicaba el método del crimen.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-POL-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "motivo",
+          "método",
+          "Lister",
+          "coartada",
+          "La",
+          "póliza",
+          "no",
+          "explicaba",
+          "el",
+          "del",
+          "crimen"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-07-AT-09",
+          "SCN-07-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-07-AT-11",
+      "scene_id": "SCN-07",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          101,
+          101
+        ],
+        "scene_file": "scenes/07_poliza_y_confrontacion_esteban.md",
+        "parent_chunk_id": "SCN-07-CH-03"
+      },
+      "source_text": "La coartada de Esteban en Lister seguía confirmada.",
+      "retrieval_text": "La coartada de Esteban en Lister seguía confirmada.",
+      "kind": "investigator_inference",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "inference",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-POL-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "motivo",
+          "método",
+          "Lister",
+          "coartada",
+          "La",
+          "de",
+          "Esteban",
+          "en",
+          "seguía",
+          "confirmada"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-07-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada."
+    }
+  ]
+}

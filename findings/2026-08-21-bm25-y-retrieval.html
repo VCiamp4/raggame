@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retrieval híbrido y BM25 · Findings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">RAGGame · Findings</a>
+      <nav class="nav" aria-label="Findings">
+        <a href="index.html">Índice</a>
+        <a href="2026-08-21-rag-y-chunks-atomicos.html">RAG</a>
+        <a href="2026-08-21-bm25-y-retrieval.html" aria-current="page">BM25</a>
+        <a href="2026-08-22-benchmark-retrieval-100.html">Retrieval 100</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">Finding · 21 de agosto de 2026</p>
+      <h1>Retrieval híbrido y BM25</h1>
+      <p class="lead">BM25 aporta coincidencia léxica exacta; los embeddings aportan equivalencia semántica. La combinación es más robusta para nombres, objetos y términos del caso.</p>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <h2>Qué hace BM25</h2>
+        <p>BM25 cuenta coincidencias de palabras entre la pregunta y cada chunk. Los términos raros pesan más y los documentos largos no reciben una ventaja automática.</p>
+        <p>Así, un embedding puede entender que “veneno” y “cianuro” están relacionados, mientras BM25 rescata coincidencias exactas como “fusible”, “heladera” o “Pablo”.</p>
+      </article>
+      <article class="card">
+        <h2>Qué no hace</h2>
+        <p>No decide si el dato está disponible para el NPC, no desbloquea pistas y no reemplaza la similitud densa.</p>
+        <div class="callout orange"><strong>Regla</strong>La disponibilidad narrativa y el umbral denso siguen siendo filtros independientes del ranking léxico.</div>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top: 16px">
+      <h2>Resultado medido</h2>
+      <p>Suite de 21 preguntas positivas y negativas con <code>qwen3-embedding:0.6b</code> y umbral denso <code>0.55</code>:</p>
+      <table>
+        <thead><tr><th>Variante</th><th>Dense + BM25</th><th>Dense solamente</th></tr></thead>
+        <tbody>
+          <tr><td>Corpus editorial</td><td class="num"><strong>20/21</strong></td><td class="num">16/21</td></tr>
+          <tr><td>Corpus atómico</td><td class="num"><strong>20/21</strong></td><td class="num">18/21</td></tr>
+        </tbody>
+      </table>
+      <p>Ninguna configuración devolvió un chunk visible para una pregunta negativa. BM25 mejoró el recall, aunque puede empujar al primer lugar un chunk lexicalmente parecido de otra escena.</p>
+    </section>
+
+    <section class="card" style="margin-top: 16px">
+      <h2>Consecuencia operativa</h2>
+      <p>La consulta «¿en qué trabajás y qué hacés allí?» puede tener baja similitud densa aunque el dato correcto exista. El chunk de trabajo de Pablo está disponible para él, pero no se inyecta si el ranking no supera el umbral.</p>
+      <p>Antes de bajar globalmente el umbral conviene mejorar las palabras clave o el <code>retrieval_text</code> de ese chunk. Bajar el umbral sin calibración aumenta falsos positivos.</p>
+    </section>
+
+    <p class="footer"><a href="index.html">← Volver al índice</a></p>
+  </main>
+</body>
+</html>

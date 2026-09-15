@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-03",
+  "scene_file": "scenes/03_testimonio_portero.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-03-AT-01",
+      "scene_id": "SCN-03",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          31,
+          31
+        ],
+        "scene_file": "scenes/03_testimonio_portero.md",
+        "parent_chunk_id": "SCN-03-CH-01"
+      },
+      "source_text": "El portero dejó el diario bajo la puerta a las 19:10.",
+      "retrieval_text": "El portero dejó el diario bajo la puerta a las 19:10.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "portero"
+      ],
+      "mentioned_entities": [
+        "portero",
+        "criada",
+        "senora_stevens",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_portero",
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-POR-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "portero",
+          "diario",
+          "periódico",
+          "19:10",
+          "siete y diez",
+          "hora",
+          "dejó bajo la puerta",
+          "visitas",
+          "última",
+          "vida",
+          "El",
+          "dejó",
+          "bajo",
+          "la",
+          "puerta",
+          "a",
+          "las",
+          "19",
+          "10"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-03-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-03-AT-02",
+      "scene_id": "SCN-03",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          31,
+          31
+        ],
+        "scene_file": "scenes/03_testimonio_portero.md",
+        "parent_chunk_id": "SCN-03-CH-01"
+      },
+      "source_text": "El portero dejó el diario sin ver a Stevens.",
+      "retrieval_text": "El portero dejó el diario sin ver a Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "portero"
+      ],
+      "mentioned_entities": [
+        "portero",
+        "criada",
+        "senora_stevens",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_portero",
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "portero",
+          "diario",
+          "periódico",
+          "19:10",
+          "siete y diez",
+          "hora",
+          "dejó bajo la puerta",
+          "visitas",
+          "última",
+          "vida",
+          "El",
+          "dejó",
+          "sin",
+          "ver",
+          "a",
+          "Stevens"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-03-AT-01",
+          "SCN-03-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-03-AT-03",
+      "scene_id": "SCN-03",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          31,
+          31
+        ],
+        "scene_file": "scenes/03_testimonio_portero.md",
+        "parent_chunk_id": "SCN-03-CH-01"
+      },
+      "source_text": "Después de las 19:10 nadie subió a visitar a Stevens.",
+      "retrieval_text": "Después de las 19:10 nadie subió a visitar a Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "portero"
+      ],
+      "mentioned_entities": [
+        "portero",
+        "criada",
+        "senora_stevens",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_portero",
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-POR-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "portero",
+          "diario",
+          "periódico",
+          "19:10",
+          "siete y diez",
+          "hora",
+          "dejó bajo la puerta",
+          "visitas",
+          "última",
+          "vida",
+          "Después",
+          "de",
+          "las",
+          "19",
+          "10",
+          "nadie",
+          "subió",
+          "a",
+          "visitar",
+          "Stevens"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-03-AT-02",
+          "SCN-03-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-03-AT-04",
+      "scene_id": "SCN-03",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          31,
+          31
+        ],
+        "scene_file": "scenes/03_testimonio_portero.md",
+        "parent_chunk_id": "SCN-03-CH-01"
+      },
+      "source_text": "La criada fue la última persona que vio viva a Stevens.",
+      "retrieval_text": "La criada fue la última persona que vio viva a Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "portero"
+      ],
+      "mentioned_entities": [
+        "portero",
+        "criada",
+        "senora_stevens",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_portero",
+          "chat_criada"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CRI-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "portero",
+          "diario",
+          "periódico",
+          "19:10",
+          "siete y diez",
+          "hora",
+          "dejó bajo la puerta",
+          "visitas",
+          "última",
+          "vida",
+          "La",
+          "criada",
+          "fue",
+          "persona",
+          "que",
+          "vio",
+          "viva",
+          "a",
+          "Stevens"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-03-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos."
+    }
+  ]
+}

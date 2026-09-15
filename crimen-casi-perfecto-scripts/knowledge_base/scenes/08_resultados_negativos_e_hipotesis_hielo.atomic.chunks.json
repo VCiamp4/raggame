@@ -1,0 +1,547 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-08",
+  "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-01",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          103,
+          113
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-01"
+      },
+      "source_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
+      "retrieval_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "criada",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M10_POISONING_CONFIRMED"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-FOR-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky limpio",
+          "licores",
+          "agua",
+          "botellas",
+          "tóxico",
+          "resultados",
+          "El",
+          "whisky",
+          "los",
+          "demás",
+          "y",
+          "corriente",
+          "estaban",
+          "limpios"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-08-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-02",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          103,
+          113
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-01"
+      },
+      "source_text": "La intoxicación de Stevens seguía confirmada.",
+      "retrieval_text": "La intoxicación de Stevens seguía confirmada.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "criada",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M10_POISONING_CONFIRMED"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky limpio",
+          "licores",
+          "agua",
+          "botellas",
+          "tóxico",
+          "resultados",
+          "La",
+          "intoxicación",
+          "de",
+          "Stevens",
+          "seguía",
+          "confirmada"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-08-AT-01",
+          "SCN-08-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-03",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          103,
+          113
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-01"
+      },
+      "source_text": "El tóxico no estaba en los recipientes líquidos analizados.",
+      "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "criada",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M10_POISONING_CONFIRMED"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "whisky limpio",
+          "licores",
+          "agua",
+          "botellas",
+          "tóxico",
+          "resultados",
+          "El",
+          "no",
+          "estaba",
+          "en",
+          "los",
+          "recipientes",
+          "líquidos",
+          "analizados"
+        ],
+        "priority": 1.3,
+        "neighbor_ids": [
+          "SCN-08-AT-02",
+          "SCN-08-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-04",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          115,
+          117
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-02"
+      },
+      "source_text": "En un plato junto al vaso había una pequeña mancha de humedad.",
+      "retrieval_text": "En un plato junto al vaso había una pequeña mancha de humedad.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FOR-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-FOR-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "fotografía",
+          "humedad",
+          "plato",
+          "vaso",
+          "derretido",
+          "mancha",
+          "En",
+          "un",
+          "junto",
+          "al",
+          "había",
+          "una",
+          "pequeña",
+          "de"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-08-AT-03",
+          "SCN-08-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-05",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          115,
+          117
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-02"
+      },
+      "source_text": "La humedad del plato hizo necesario revisar qué otra cosa entraba normalmente en el whisky.",
+      "retrieval_text": "La humedad del plato hizo necesario revisar qué otra cosa entraba normalmente en el whisky.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "criada",
+        "senora_stevens",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FOR-02"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "fotografía",
+          "humedad",
+          "plato",
+          "vaso",
+          "derretido",
+          "mancha",
+          "La",
+          "del",
+          "hizo",
+          "necesario",
+          "revisar",
+          "qué",
+          "otra",
+          "cosa",
+          "entraba",
+          "normalmente",
+          "en",
+          "el",
+          "whisky"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-08-AT-04",
+          "SCN-08-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-06",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          119,
+          135
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-03"
+      },
+      "source_text": "El perito no había recibido ninguna muestra de hielo.",
+      "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FOR-02",
+          "CL-FOR-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-ICE-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "hielo",
+          "muestra",
+          "analizar",
+          "congelador",
+          "cubeteras",
+          "laboratorio",
+          "El",
+          "perito",
+          "no",
+          "había",
+          "recibido",
+          "ninguna",
+          "de"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-08-AT-05",
+          "SCN-08-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-08-AT-07",
+      "scene_id": "SCN-08",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          119,
+          135
+        ],
+        "scene_file": "scenes/08_resultados_negativos_e_hipotesis_hielo.md",
+        "parent_chunk_id": "SCN-08-CH-03"
+      },
+      "source_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
+      "retrieval_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-FOR-02",
+          "CL-FOR-03"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "hielo",
+          "muestra",
+          "analizar",
+          "congelador",
+          "cubeteras",
+          "laboratorio",
+          "El",
+          "detective",
+          "pidió",
+          "al",
+          "perito",
+          "que",
+          "regresara",
+          "para",
+          "y",
+          "las"
+        ],
+        "priority": 1.4,
+        "neighbor_ids": [
+          "SCN-08-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente."
+    }
+  ]
+}

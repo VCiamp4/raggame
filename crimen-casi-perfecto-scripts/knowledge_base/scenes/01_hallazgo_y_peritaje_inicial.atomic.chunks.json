@@ -1,0 +1,1568 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-01",
+  "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-01",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "La señora Stevens tenía sesenta y ocho años.",
+      "retrieval_text": "La señora Stevens tenía sesenta y ocho años.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "La",
+          "señora",
+          "Stevens",
+          "tenía",
+          "sesenta",
+          "y",
+          "ocho",
+          "años"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-02",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "La señora Stevens había enviudado tres veces.",
+      "retrieval_text": "La señora Stevens había enviudado tres veces.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "La",
+          "señora",
+          "Stevens",
+          "había",
+          "enviudado",
+          "tres",
+          "veces"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-01",
+          "SCN-01-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-03",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "La señora Stevens poseía una fortuna considerable.",
+      "retrieval_text": "La señora Stevens poseía una fortuna considerable.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "La",
+          "señora",
+          "Stevens",
+          "poseía",
+          "una",
+          "considerable"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-02",
+          "SCN-01-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-04",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "La señora Stevens gozaba de buena salud.",
+      "retrieval_text": "La señora Stevens gozaba de buena salud.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "La",
+          "señora",
+          "Stevens",
+          "gozaba",
+          "de",
+          "buena"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-03",
+          "SCN-01-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-05",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "Quienes conocían a Stevens la describían como autoritaria y poco dispuesta a tolerar contradicciones.",
+      "retrieval_text": "Quienes conocían a Stevens la describían como autoritaria y poco dispuesta a tolerar contradicciones.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "Quienes",
+          "conocían",
+          "a",
+          "Stevens",
+          "la",
+          "describían",
+          "como",
+          "autoritaria",
+          "y",
+          "poco",
+          "dispuesta",
+          "tolerar",
+          "contradicciones"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-04",
+          "SCN-01-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-06",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          3,
+          3
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-01"
+      },
+      "source_text": "Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
+      "retrieval_text": "Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "perito_quimico",
+        "tecnico_heladera"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero",
+          "chat_juan",
+          "chat_esteban",
+          "chat_pablo",
+          "chat_perito_quimico",
+          "chat_tecnico_heladera"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "señora Stevens",
+          "víctima",
+          "salud",
+          "fortuna",
+          "suicidio",
+          "Nada",
+          "indicaba",
+          "que",
+          "la",
+          "señora",
+          "Stevens",
+          "estuviera",
+          "preparando",
+          "un"
+        ],
+        "priority": 0.6,
+        "neighbor_ids": [
+          "SCN-01-AT-05",
+          "SCN-01-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-07",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "La criada y el portero encontraron a Stevens muerta en el comedor.",
+      "retrieval_text": "La criada y el portero encontraron a Stevens muerta en el comedor.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "La",
+          "criada",
+          "y",
+          "el",
+          "portero",
+          "encontraron",
+          "a",
+          "Stevens",
+          "muerta",
+          "en",
+          "comedor"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-06",
+          "SCN-01-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-08",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
+      "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CASE-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "La",
+          "estaba",
+          "asegurada",
+          "desde",
+          "dentro",
+          "con",
+          "una",
+          "de",
+          "acero"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-07",
+          "SCN-01-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-09",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "No había señales de entrada forzada.",
+      "retrieval_text": "No había señales de entrada forzada.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "No",
+          "había",
+          "señales",
+          "de",
+          "entrada",
+          "forzada"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-08",
+          "SCN-01-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-10",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "Junto al cadáver había un diario de la tarde anterior.",
+      "retrieval_text": "Junto al cadáver había un diario de la tarde anterior.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "Junto",
+          "al",
+          "había",
+          "un",
+          "de",
+          "la",
+          "tarde",
+          "anterior"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-09",
+          "SCN-01-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-11",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "Cerca del cadáver había un vaso de whisky.",
+      "retrieval_text": "Cerca del cadáver había un vaso de whisky.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-CASE-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "Cerca",
+          "del",
+          "había",
+          "un",
+          "vaso",
+          "de"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-10",
+          "SCN-01-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-12",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "No había señales de lucha ni faltaba dinero.",
+      "retrieval_text": "No había señales de lucha ni faltaba dinero.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "No",
+          "había",
+          "señales",
+          "de",
+          "lucha",
+          "ni",
+          "faltaba",
+          "dinero"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-11",
+          "SCN-01-AT-13"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-13",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "Las ventanas estaban cerradas.",
+      "retrieval_text": "Las ventanas estaban cerradas.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "Las",
+          "ventanas",
+          "estaban",
+          "cerradas"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-12",
+          "SCN-01-AT-14"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-14",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          5,
+          5
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-02"
+      },
+      "source_text": "Todo indicaba que Stevens estaba sola al morir.",
+      "retrieval_text": "Todo indicaba que Stevens estaba sola al morir.",
+      "kind": "physical_evidence",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "criada",
+        "portero",
+        "departamento",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "claim_status": "observation",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_criada",
+          "chat_portero"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "cadáver",
+          "puerta",
+          "cadena",
+          "whisky",
+          "diario",
+          "sola",
+          "Todo",
+          "indicaba",
+          "que",
+          "Stevens",
+          "estaba",
+          "al",
+          "morir"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-01-AT-13",
+          "SCN-01-AT-15"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-15",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          7,
+          9
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-03"
+      },
+      "source_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
+      "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "perito_quimico",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-FOR-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "perito",
+          "químico",
+          "intoxicación",
+          "veneno",
+          "muerte natural",
+          "muestras",
+          "El",
+          "descartó",
+          "una",
+          "muerte",
+          "natural",
+          "y",
+          "confirmó",
+          "signos",
+          "de"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-01-AT-14",
+          "SCN-01-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-16",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          7,
+          9
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-03"
+      },
+      "source_text": "El perito todavía no podía identificar la sustancia tóxica.",
+      "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "senora_stevens",
+        "perito_quimico",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "perito",
+          "químico",
+          "intoxicación",
+          "veneno",
+          "muerte natural",
+          "muestras",
+          "El",
+          "todavía",
+          "no",
+          "podía",
+          "identificar",
+          "la",
+          "sustancia",
+          "tóxica"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-01-AT-15",
+          "SCN-01-AT-17"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-17",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          11,
+          11
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-04"
+      },
+      "source_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+      "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "muestras",
+          "whisky",
+          "bebidas",
+          "agua",
+          "laboratorio",
+          "tiempo",
+          "El",
+          "perito",
+          "analizaría",
+          "las",
+          "demás",
+          "y",
+          "corriente"
+        ],
+        "priority": 0.7,
+        "neighbor_ids": [
+          "SCN-01-AT-16",
+          "SCN-01-AT-18"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-18",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          11,
+          11
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-04"
+      },
+      "source_text": "El perito también analizaría los recipientes relacionados con la muerte.",
+      "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "muestras",
+          "whisky",
+          "bebidas",
+          "agua",
+          "laboratorio",
+          "tiempo",
+          "El",
+          "perito",
+          "también",
+          "analizaría",
+          "los",
+          "recipientes",
+          "relacionados",
+          "con",
+          "la",
+          "muerte"
+        ],
+        "priority": 0.7,
+        "neighbor_ids": [
+          "SCN-01-AT-17",
+          "SCN-01-AT-19"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-19",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          11,
+          11
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-04"
+      },
+      "source_text": "El proceso de análisis llevaría tiempo.",
+      "retrieval_text": "El proceso de análisis llevaría tiempo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "muestras",
+          "whisky",
+          "bebidas",
+          "agua",
+          "laboratorio",
+          "tiempo",
+          "El",
+          "proceso",
+          "de",
+          "análisis",
+          "llevaría"
+        ],
+        "priority": 0.7,
+        "neighbor_ids": [
+          "SCN-01-AT-18",
+          "SCN-01-AT-20"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-01-AT-20",
+      "scene_id": "SCN-01",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          11,
+          11
+        ],
+        "scene_file": "scenes/01_hallazgo_y_peritaje_inicial.md",
+        "parent_chunk_id": "SCN-01-CH-04"
+      },
+      "source_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+      "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "senora_stevens",
+        "vaso_whisky",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "muestras",
+          "whisky",
+          "bebidas",
+          "agua",
+          "laboratorio",
+          "tiempo",
+          "El",
+          "perito",
+          "no",
+          "quiso",
+          "dar",
+          "una",
+          "conclusión",
+          "antes",
+          "de",
+          "trabajar",
+          "en"
+        ],
+        "priority": 0.7,
+        "neighbor_ids": [
+          "SCN-01-AT-19"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir."
+    }
+  ]
+}

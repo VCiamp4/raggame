@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG e historial · Findings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">RAGGame · Findings</a>
+      <nav class="nav" aria-label="Findings">
+        <a href="index.html">Índice</a>
+        <a href="2026-08-21-rag-y-chunks-atomicos.html" aria-current="page">RAG</a>
+        <a href="2026-08-21-bm25-y-retrieval.html">BM25</a>
+        <a href="2026-08-22-benchmark-retrieval-100.html">Retrieval 100</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">Finding · 21 de agosto de 2026</p>
+      <h1>RAG e historial conversacional</h1>
+      <p class="lead">El runtime usa un corpus atómico, filtros narrativos deterministas y un prompt cuyo historial no arrastra pasajes recuperados.</p>
+    </section>
+
+    <section class="card">
+      <h2>Decisión</h2>
+      <p>El runtime usa exclusivamente los <strong>162 chunks atómicos</strong> derivados de las 15 escenas. Cada chunk expresa un dato específico y breve; conserva <code>source_excerpt</code>, <code>parent_chunk_id</code>, líneas canónicas, permisos de conocimiento, hechos, hitos y nivel de spoiler.</p>
+    <p>La procedencia y la metadata controlan el retrieval, pero no se inyectan completas en el prompt. El índice activo es <code>backend/data/rag_index_atomic_embeddinggemma_two.sqlite3</code>, construido con <code>embeddinggemma-300m</code> y dos preguntas canónicas por chunk.</p>
+    </section>
+
+    <section class="grid two" style="margin-top: 16px">
+      <article class="card">
+        <h2>Prompt efectivo</h2>
+        <p>El <code>system</code> permanece estable: reglas comunes y persona breve. Los turnos terminados contienen únicamente mensajes <code>user</code> y <code>assistant</code>.</p>
+        <pre>&lt;retrieved_context&gt;
+Dato atómico permitido para este personaje y estado: ...
+&lt;/retrieved_context&gt;
+
+&lt;user_message&gt;
+Pregunta del jugador...
+&lt;/user_message&gt;</pre>
+        <div class="callout teal"><strong>Importante</strong>El bloque recuperado pertenece solo al turno actual. No se persiste en el historial.</div>
+      </article>
+      <article class="card">
+        <h2>Flujo de un turno</h2>
+        <ol>
+          <li>Se embebe la pregunta actual.</li>
+          <li>Se filtran NPC, canal, hitos, hechos y spoilers.</li>
+          <li>Se combinan similitud coseno y BM25 con RRF.</li>
+          <li>Se elige un focus y, como máximo, un apoyo compatible.</li>
+          <li>Se genera una única respuesta.</li>
+          <li>Al terminar correctamente, se registran hechos y derivaciones.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="card" style="margin-top: 16px">
+      <h2>Resultados comparables de roleplay</h2>
+      <p>Suite de 90 turnos por corpus: tres personajes, diez turnos por conversación y tres modelos de chat. En ambas ejecuciones corregidas hubo cero casos de contaminación del historial.</p>
+      <table>
+        <thead><tr><th>Corpus</th><th>Modelo</th><th>TTFT medio</th><th>TTFT mediano</th><th>Calidad media</th></tr></thead>
+        <tbody>
+          <tr><td>Atómico</td><td><code>gemma4:e4b</code></td><td class="num">3.903 s</td><td class="num">2.639 s</td><td class="num">3,37/5</td></tr>
+          <tr><td>Atómico</td><td><code>gemma4:e2b</code></td><td class="num">2.177 s</td><td class="num">1.530 s</td><td class="num">3,32/5</td></tr>
+          <tr><td>Atómico</td><td><code>lfm25-roleplay</code></td><td class="num">6.219 s</td><td class="num">7.156 s</td><td class="num">2,58/5</td></tr>
+          <tr><td>Editorial anterior</td><td><code>gemma4:e4b</code></td><td class="num">5.934 s</td><td class="num">6.119 s</td><td class="num">3,77/5</td></tr>
+          <tr><td>Editorial anterior</td><td><code>gemma4:e2b</code></td><td class="num">3.304 s</td><td class="num">3.483 s</td><td class="num">3,60/5</td></tr>
+          <tr><td>Editorial anterior</td><td><code>lfm25-roleplay</code></td><td class="num">6.410 s</td><td class="num">4.758 s</td><td class="num">2,72/5</td></tr>
+        </tbody>
+      </table>
+      <p>El corpus atómico redujo el prompt medio de aproximadamente 4.103 a 2.988 caracteres en esa ejecución.</p>
+    </section>
+
+    <p class="footer"><a href="index.html">← Volver al índice</a></p>
+  </main>
+</body>
+</html>

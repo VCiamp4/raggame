@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-05",
+  "scene_file": "scenes/05_interrogatorio_esteban.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-01",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          65,
+          69
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-01"
+      },
+      "source_text": "Esteban era corredor de seguros.",
+      "retrieval_text": "Esteban era corredor de seguros.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "juan",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "corredor",
+          "seguro",
+          "póliza",
+          "beneficiarios",
+          "discusión",
+          "dinero",
+          "era",
+          "de",
+          "seguros"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-05-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-02",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          65,
+          69
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-01"
+      },
+      "source_text": "Esteban había gestionado una póliza de vida para Stevens.",
+      "retrieval_text": "Esteban había gestionado una póliza de vida para Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "juan",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-POL-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "corredor",
+          "seguro",
+          "póliza",
+          "beneficiarios",
+          "discusión",
+          "dinero",
+          "había",
+          "gestionado",
+          "una",
+          "de",
+          "vida",
+          "para",
+          "Stevens"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-05-AT-01",
+          "SCN-05-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-03",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          65,
+          69
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-01"
+      },
+      "source_text": "Los tres hermanos figuraban como beneficiarios de la póliza.",
+      "retrieval_text": "Los tres hermanos figuraban como beneficiarios de la póliza.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "juan",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "corredor",
+          "seguro",
+          "póliza",
+          "beneficiarios",
+          "discusión",
+          "dinero",
+          "Los",
+          "tres",
+          "hermanos",
+          "figuraban",
+          "como",
+          "de",
+          "la"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-05-AT-02",
+          "SCN-05-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-04",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          65,
+          69
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-01"
+      },
+      "source_text": "Esteban minimizó la discusión sobre dinero durante el almuerzo.",
+      "retrieval_text": "Esteban minimizó la discusión sobre dinero durante el almuerzo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "esteban"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "juan",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-EST-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "corredor",
+          "seguro",
+          "póliza",
+          "beneficiarios",
+          "discusión",
+          "dinero",
+          "minimizó",
+          "la",
+          "sobre",
+          "durante",
+          "el",
+          "almuerzo"
+        ],
+        "priority": 1.2,
+        "neighbor_ids": [
+          "SCN-05-AT-03",
+          "SCN-05-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que le había mostrado a su hermana una póliza actualizada, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-05",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          71,
+          71
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-02"
+      },
+      "source_text": "La policía verificó que Esteban estaba en Lister desde las 18:00 hasta la mañana siguiente.",
+      "retrieval_text": "La policía verificó que Esteban estaba en Lister desde las 18:00 hasta la mañana siguiente.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "policia",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-EST-05"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "coartada",
+          "Lister",
+          "seis",
+          "mañana",
+          "negocios",
+          "policía",
+          "La",
+          "verificó",
+          "que",
+          "Esteban",
+          "estaba",
+          "en",
+          "desde",
+          "las",
+          "18",
+          "00",
+          "hasta",
+          "siguiente"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-05-AT-04",
+          "SCN-05-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-05-AT-06",
+      "scene_id": "SCN-05",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          71,
+          71
+        ],
+        "scene_file": "scenes/05_interrogatorio_esteban.md",
+        "parent_chunk_id": "SCN-05-CH-02"
+      },
+      "source_text": "La coartada de Esteban descartaba un regreso secreto al departamento.",
+      "retrieval_text": "La coartada de Esteban descartaba un regreso secreto al departamento.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "esteban",
+        "policia",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_esteban"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "coartada",
+          "Lister",
+          "seis",
+          "mañana",
+          "negocios",
+          "policía",
+          "La",
+          "de",
+          "Esteban",
+          "descartaba",
+          "un",
+          "regreso",
+          "secreto",
+          "al",
+          "departamento"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-05-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento."
+    }
+  ]
+}

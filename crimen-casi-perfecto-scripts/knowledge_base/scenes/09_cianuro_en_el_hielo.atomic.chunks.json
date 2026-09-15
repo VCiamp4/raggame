@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-09",
+  "scene_file": "scenes/09_cianuro_en_el_hielo.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-09-AT-01",
+      "scene_id": "SCN-09",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          137,
+          137
+        ],
+        "scene_file": "scenes/09_cianuro_en_el_hielo.md",
+        "parent_chunk_id": "SCN-09-CH-01"
+      },
+      "source_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
+      "retrieval_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "criada",
+        "senora_stevens",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M30_ICE_HYPOTHESIS"
+        ],
+        "facts_all": [
+          "CL-ICE-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-ICE-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "hielo",
+          "cianuro de potasio",
+          "congelador",
+          "cubeteras",
+          "concentración",
+          "mortal",
+          "El",
+          "contenía",
+          "cianuro",
+          "de",
+          "potasio",
+          "en",
+          "una",
+          "suficiente",
+          "para",
+          "matar"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-09-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-09-AT-02",
+      "scene_id": "SCN-09",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          137,
+          137
+        ],
+        "scene_file": "scenes/09_cianuro_en_el_hielo.md",
+        "parent_chunk_id": "SCN-09-CH-01"
+      },
+      "source_text": "Las botellas estaban limpias porque el veneno no había estado en ellas.",
+      "retrieval_text": "Las botellas estaban limpias porque el veneno no había estado en ellas.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "criada",
+        "senora_stevens",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M30_ICE_HYPOTHESIS"
+        ],
+        "facts_all": [
+          "CL-ICE-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "hielo",
+          "cianuro de potasio",
+          "congelador",
+          "cubeteras",
+          "concentración",
+          "mortal",
+          "Las",
+          "botellas",
+          "estaban",
+          "limpias",
+          "porque",
+          "el",
+          "veneno",
+          "no",
+          "había",
+          "estado",
+          "en",
+          "ellas"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-09-AT-01",
+          "SCN-09-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-09-AT-03",
+      "scene_id": "SCN-09",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          137,
+          137
+        ],
+        "scene_file": "scenes/09_cianuro_en_el_hielo.md",
+        "parent_chunk_id": "SCN-09-CH-01"
+      },
+      "source_text": "La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.",
+      "retrieval_text": "La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.",
+      "kind": "forensic_result",
+      "speakers": [
+        "detective",
+        "perito_quimico"
+      ],
+      "mentioned_entities": [
+        "perito_quimico",
+        "criada",
+        "senora_stevens",
+        "heladera",
+        "vaso_whisky"
+      ],
+      "knowledge_holders": [
+        "perito_quimico"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M30_ICE_HYPOTHESIS"
+        ],
+        "facts_all": [
+          "CL-ICE-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_perito_quimico"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "hielo",
+          "cianuro de potasio",
+          "congelador",
+          "cubeteras",
+          "concentración",
+          "mortal",
+          "La",
+          "criada",
+          "podía",
+          "haber",
+          "servido",
+          "whisky",
+          "puro",
+          "y",
+          "introducido",
+          "el",
+          "veneno",
+          "sin",
+          "saberlo",
+          "al",
+          "agregar",
+          "los",
+          "cubos"
+        ],
+        "priority": 1.5,
+        "neighbor_ids": [
+          "SCN-09-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 2,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera."
+    }
+  ]
+}

@@ -1,26 +1,42 @@
 extends CharacterBody3D
 
-const SPEED = 3.0
+const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const ChatInterfacesRes = preload("res://data/chat_interfaces.gd")
+const FALL_RESET_HEIGHT := -5.0
+const HintCatalogRes = preload("res://data/hints/hints.gd")
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
+@onready var walking: Node3D = $Walking
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
 const EXAMINE_DISTANCE = 3.0
 var highlighted_object: Node = null
+var nearby_pizarron: Node = null
+var nearby_exit: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
+var spawn_transform: Transform3D
+var fade_layer: CanvasLayer
+var fade_rect: ColorRect
+var hint_layer: CanvasLayer
+var hint_button: Button
 
 
 func _ready() -> void:
+	spawn_transform = global_transform
 	add_to_group("player")
 	for npc in get_tree().get_nodes_in_group("npc"):
 		if npc.has_signal("player_entered_range"):
 			npc.player_entered_range.connect(_on_npc_entered_range)
 			npc.player_exited_range.connect(_on_npc_exited_range)
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
+	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
+	_create_fade_overlay()
+	_create_hint_button()
+
 
 
 func _physics_process(delta: float) -> void:
@@ -35,11 +51,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Movimiento
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		walking.rotation.y = atan2(direction.x, direction.z)
 		if anim_player and not anim_player.is_playing():
 			anim_player.play("mixamo_com")
 	else:
@@ -49,20 +66,39 @@ func _physics_process(delta: float) -> void:
 			anim_player.pause()
 	
 	move_and_slide()
+	if global_position.y < FALL_RESET_HEIGHT:
+		_reset_to_spawn()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not in_dialogue:
 		if nearby_npc != null:
 			_open_dialogue()
-	elif event.is_action_pressed("ui_cancel") and in_dialogue:
+		elif highlighted_object != null and (highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa")):
+			highlighted_object.interact()
+		elif nearby_pizarron != null:
+			nearby_pizarron.interact()
+		elif nearby_exit != null:
+			nearby_exit.interact()
+	elif event.is_action_pressed("examine") and not in_dialogue:
+		if highlighted_object != null:
+			if highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa"):
+				highlighted_object.interact()
+			else:
+				_examine_object(highlighted_object)
+		elif nearby_pizarron != null:
+			nearby_pizarron.interact()
+		elif nearby_exit != null:
+			nearby_exit.interact()
+	elif event.is_action_pressed("ui_quit_dialogue") and in_dialogue:
 		_close_dialogue()
 	
+	# Click izquierdo también examina (compatibilidad con mouse)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if highlighted_object != null and not in_dialogue:
-				if highlighted_object.is_in_group("pizarron"):
-					highlighted_object.interact()   # abre el lineup
+				if highlighted_object.is_in_group("pizarron") or highlighted_object.is_in_group("salida_mapa"):
+					highlighted_object.interact()   # abre el lineup o vuelve al mapa
 				else:
 					_examine_object(highlighted_object)   # copa: muestra texto
 
@@ -71,8 +107,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _open_dialogue() -> void:
 	in_dialogue = true
+	var profile = ChatInterfacesRes.profile_for(nearby_npc.npc_id)
+	dialogue_ui.apply_profile(profile)
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(nearby_npc.npc_name)
+	var display_name = profile.get("display_name", nearby_npc.npc_name)
+	if display_name == "":
+		display_name = nearby_npc.npc_name
+	dialogue_ui.show_dialogue(display_name)
 	dialogue_ui.set_input_enabled(true)   # input visible para escribirle al NPC
 
 
@@ -83,22 +124,32 @@ func _close_dialogue() -> void:
 		dialogue_ui.show_prompt(nearby_npc.npc_name)
 
 
+func _on_dialogue_close_requested() -> void:
+	if in_dialogue:
+		_close_dialogue()
+
+
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
-	
+
+	dialogue_ui.set_input_enabled(false)
+
+	# Chequear si el input activa algún evento/pista
+	var matched_keyword := EventManager.check_input(text)
+
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
 	dialogue_ui.start_npc_response(nearby_npc.npc_name)
-	
-	# Conectar señales de streaming
-	if not nearby_npc.response_chunk.is_connected(_on_response_chunk):
-		nearby_npc.response_chunk.connect(_on_response_chunk)
-	if not nearby_npc.response_completed.is_connected(_on_response_completed):
-		nearby_npc.response_completed.connect(_on_response_completed, CONNECT_ONE_SHOT)
-	
-	nearby_npc.request_response(text)
+	_emit_keyword_feedback(matched_keyword)
+
+
+func _emit_keyword_feedback(matched_keyword: bool) -> void:
+	var response_text := "Eso me hace acordar..." if matched_keyword else "Quiero mi abogado"
+	dialogue_ui.append_npc_chunk(response_text)
+	dialogue_ui.finish_npc_response()
+	dialogue_ui.set_input_enabled(true)
 
 
 func _on_response_chunk(text: String) -> void:
@@ -114,15 +165,13 @@ func _on_response_completed() -> void:
 
 func _on_npc_entered_range(npc: Node) -> void:
 	nearby_npc = npc
-	if not in_dialogue:
-		dialogue_ui.show_prompt(npc.npc_name)
+	_update_prompt()
 
 
 func _on_npc_exited_range(npc: Node) -> void:
 	if nearby_npc == npc:
 		nearby_npc = null
-		if not in_dialogue:
-			dialogue_ui.hide_prompt()
+		_update_prompt()
 
 
 # ---------- Objetos examinables (sin LLM) ----------
@@ -130,14 +179,26 @@ func _on_npc_exited_range(npc: Node) -> void:
 func _process(_delta: float) -> void:
 	if in_dialogue:
 		_clear_highlight()
+		nearby_pizarron = null
+		nearby_exit = null
 		return
 	_check_examinable_under_mouse()
+	_update_nearby_pizarron()
+	_update_nearby_exit()
 
 
 func _check_examinable_under_mouse() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_origin = camera.project_ray_origin(mouse_pos)
-	var ray_dir = camera.project_ray_normal(mouse_pos)
+	var ray_origin: Vector3
+	var ray_dir: Vector3
+	if InputManager.using_controller:
+		# Con mando no hay cursor: el rayo sale del centro de la pantalla.
+		var center := get_viewport().get_visible_rect().size / 2.0
+		ray_origin = camera.project_ray_origin(center)
+		ray_dir = camera.project_ray_normal(center)
+	else:
+		var mouse_pos = get_viewport().get_mouse_position()
+		ray_origin = camera.project_ray_origin(mouse_pos)
+		ray_dir = camera.project_ray_normal(mouse_pos)
 	var ray_end = ray_origin + ray_dir * 100.0
 	
 	var space_state = get_world_3d().direct_space_state
@@ -150,8 +211,8 @@ func _check_examinable_under_mouse() -> void:
 	var found: Node = null
 	if result and result.has("collider"):
 		var collider = result["collider"]
-		# Detecta tanto examinables (copa) como el pizarrón
-		if collider.is_in_group("examinable") or collider.is_in_group("pizarron"):
+		# Detecta examinables, pizarrones y salidas al mapa
+		if collider.is_in_group("examinable") or collider.is_in_group("pizarron") or collider.is_in_group("salida_mapa"):
 			var dist = global_position.distance_to(collider.global_position)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider
@@ -161,21 +222,177 @@ func _check_examinable_under_mouse() -> void:
 		if found != null:
 			found.highlight()
 			highlighted_object = found
+		_update_prompt()
+
+
+func _update_nearby_pizarron() -> void:
+	var previous := nearby_pizarron
+	var closest: Node = null
+	var best_distance := EXAMINE_DISTANCE
+	for node in get_tree().get_nodes_in_group("pizarron"):
+		if node is Node3D:
+			var distance := global_position.distance_to(node.global_position)
+			if distance <= EXAMINE_DISTANCE and distance < best_distance:
+				best_distance = distance
+				closest = node
+	nearby_pizarron = closest
+	if previous != nearby_pizarron:
+		_update_prompt()
+
+
+func _update_nearby_exit() -> void:
+	var previous := nearby_exit
+	var closest: Node = null
+	var best_distance := EXAMINE_DISTANCE
+	for node in get_tree().get_nodes_in_group("salida_mapa"):
+		if node is Node3D:
+			var distance := global_position.distance_to(node.global_position)
+			if distance <= EXAMINE_DISTANCE and distance < best_distance:
+				best_distance = distance
+				closest = node
+	nearby_exit = closest
+	if previous != nearby_exit:
+		_update_prompt()
 
 
 func _clear_highlight() -> void:
 	if highlighted_object != null:
 		highlighted_object.unhighlight()
 		highlighted_object = null
+		if not in_dialogue:
+			_update_prompt()
+
+
+func _reset_to_spawn() -> void:
+	global_transform = spawn_transform
+	velocity = Vector3.ZERO
+	if fade_layer == null:
+		_create_fade_overlay()
+
+
+func _create_fade_overlay() -> void:
+	if fade_layer != null and is_instance_valid(fade_layer):
+		return
+	fade_layer = CanvasLayer.new()
+	fade_layer.layer = 99
+	fade_rect = ColorRect.new()
+	fade_rect.color = Color.BLACK
+	fade_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	fade_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_rect.modulate.a = 1.0
+	fade_layer.add_child(fade_rect)
+	add_child(fade_layer)
+	var tween := create_tween()
+	tween.tween_property(fade_rect, "modulate:a", 0.0, 0.8)
+	tween.finished.connect(func():
+		if is_instance_valid(fade_layer):
+			fade_layer.queue_free()
+		fade_layer = null
+		fade_rect = null
+	)
+
+
+func _create_hint_button() -> void:
+	if hint_layer != null and is_instance_valid(hint_layer):
+		return
+	hint_layer = CanvasLayer.new()
+	hint_layer.layer = 90
+	add_child(hint_layer)
+
+	hint_button = Button.new()
+	hint_button.text = "Pistas"
+	hint_button.anchor_left = 1
+	hint_button.anchor_right = 1
+	hint_button.anchor_top = 0.15
+	hint_button.anchor_bottom = 0.15
+	hint_button.offset_left = -180
+	hint_button.offset_right = -40
+	hint_button.offset_top = -30
+	hint_button.offset_bottom = 30
+	hint_button.focus_mode = Control.FOCUS_NONE
+	hint_button.tooltip_text = "Mostrar una pista basada en tu progreso"
+	hint_button.theme = null
+	hint_button.pressed.connect(_on_hint_button_pressed)
+	hint_layer.add_child(hint_button)
+
+
+func _on_hint_button_pressed() -> void:
+	var hint_text := _current_hint_text()
+	NotificationManager.show_message(hint_text)
+
+
+func _current_hint_text() -> String:
+	var history := EventManager.get_event_history()
+	for i in range(history.size() - 1, -1, -1):
+		var event_id: String = str(history[i])
+		var hint_text := HintCatalogRes.hint_for_event(event_id)
+		if hint_text != "":
+			return hint_text
+	return HintCatalogRes.default_hint()
+
+
+# ------------------------------------------------------------
+# PROMPT DE INTERACCIÓN
+# ------------------------------------------------------------
+# Decide qué mostrar en el cartel según el contexto:
+#
+#     1. Objeto examinable bajo el cursor/mira -> "[F]/(X) Examinar X"
+#     2. NPC cerca                             -> "[E]/(A) Hablar con X"
+#     3. Nada cerca                            -> oculta el cartel
+# ------------------------------------------------------------
+
+func _update_prompt() -> void:
+	if in_dialogue:
+		return
+	if highlighted_object != null:
+		var label := _interaction_label(highlighted_object)
+		var action_name := "examine"
+		var verb := "Examinar"
+		if highlighted_object.is_in_group("pizarron"):
+			action_name = "interact"
+			verb = "Abrir"
+		elif highlighted_object.is_in_group("salida_mapa"):
+			action_name = "interact"
+			verb = "Regresar"
+		dialogue_ui.show_prompt(label, verb, action_name)
+	elif nearby_pizarron != null:
+		var board_label := _interaction_label(nearby_pizarron)
+		dialogue_ui.show_prompt(board_label, "Abrir", "interact")
+	elif nearby_exit != null:
+		var exit_label := _interaction_label(nearby_exit)
+		dialogue_ui.show_prompt(exit_label, "Regresar", "interact")
+	elif nearby_npc != null:
+		var profile = ChatInterfacesRes.profile_for(nearby_npc.npc_id)
+		var display_name = profile.get("display_name", nearby_npc.npc_name)
+		if display_name == "":
+			display_name = nearby_npc.npc_name
+		dialogue_ui.apply_profile(profile)
+		dialogue_ui.show_prompt(display_name)
+	else:
+		dialogue_ui.hide_prompt()
 
 
 func _examine_object(obj: Node) -> void:
 	in_dialogue = true
 	_clear_highlight()
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(obj.object_name)
+	var label := _interaction_label(obj)
+	dialogue_ui.show_dialogue(label)
 	# Mostramos solo la descripción (sin "Vos:" ni input, no hay LLM acá)
-	dialogue_ui.start_npc_response(obj.object_name)
+	dialogue_ui.start_npc_response(label)
 	dialogue_ui.append_npc_chunk(obj.get_description())
 	dialogue_ui.finish_npc_response()
-	dialogue_ui.set_input_enabled(false)
+	dialogue_ui.set_input_enabled(false, true)
+
+
+func _interaction_label(target: Node) -> String:
+	if target == null:
+		return ""
+	if target.has_method("get_interaction_label"):
+		var custom = target.get_interaction_label()
+		if typeof(custom) == TYPE_STRING and custom != "":
+			return custom
+	var prop_value = target.get("object_name")
+	if typeof(prop_value) == TYPE_STRING and prop_value != "":
+		return prop_value
+	return target.name

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://a8p4bl0l4b6s"]
+
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="1_nh2m4"]
+[ext_resource type="PackedScene" uid="uid://b2ayc5apgytrb" path="res://assets/Characters_psx/Models/Male/Character_25_Doctor.fbx" id="2_abqhh"]
+[ext_resource type="Texture2D" path="res://assets/Characters_psx/Textures/tinted/pablo_blue.png" id="3_tint"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nh2m4"]
+radius = 2.5
+
+[node name="Pablo" type="Node3D" groups=["npc"]]
+script = ExtResource("1_nh2m4")
+npc_id = "Pablo"
+npc_name = "Pablo"
+clothes_texture = ExtResource("3_tint")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Character_25_Doctor" parent="MeshInstance3D" instance=ExtResource("2_abqhh")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
+shape = SubResource("SphereShape3D_nh2m4")

@@ -1,0 +1,1305 @@
+{
+  "schema_version": 1,
+  "variant": "atomic",
+  "scene_id": "SCN-04",
+  "scene_file": "scenes/04_interrogatorio_juan.md",
+  "chunks": [
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-01",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          33,
+          35
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-01"
+      },
+      "source_text": "Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.",
+      "retrieval_text": "Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-JUA-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "condena",
+          "estupefacientes",
+          "drogas",
+          "violencia",
+          "chantaje",
+          "había",
+          "sido",
+          "condenado",
+          "siete",
+          "años",
+          "antes",
+          "por",
+          "delitos",
+          "vinculados",
+          "con"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-02"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-02",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          33,
+          35
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-01"
+      },
+      "source_text": "Juan también había sido condenado por episodios de violencia y daños a la propiedad.",
+      "retrieval_text": "Juan también había sido condenado por episodios de violencia y daños a la propiedad.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "condena",
+          "estupefacientes",
+          "drogas",
+          "violencia",
+          "chantaje",
+          "también",
+          "había",
+          "sido",
+          "condenado",
+          "por",
+          "episodios",
+          "de",
+          "y",
+          "daños",
+          "a",
+          "la",
+          "propiedad"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-01",
+          "SCN-04-AT-03"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-03",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          33,
+          35
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-01"
+      },
+      "source_text": "Después de recuperar la libertad, Juan se vinculó con chantajes y extorsiones.",
+      "retrieval_text": "Después de recuperar la libertad, Juan se vinculó con chantajes y extorsiones.",
+      "kind": "narration",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "condena",
+          "estupefacientes",
+          "drogas",
+          "violencia",
+          "chantaje",
+          "Después",
+          "de",
+          "recuperar",
+          "la",
+          "libertad",
+          "se",
+          "vinculó",
+          "con",
+          "chantajes",
+          "y",
+          "extorsiones"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-02",
+          "SCN-04-AT-04"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-04",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          37,
+          51
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-02"
+      },
+      "source_text": "Juan dijo que no quería a su hermana.",
+      "retrieval_text": "Juan dijo que no quería a su hermana.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "quería",
+          "muerte",
+          "alegra",
+          "dolor",
+          "dijo",
+          "que",
+          "no",
+          "a",
+          "su",
+          "hermana"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-04-AT-03",
+          "SCN-04-AT-05"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-05",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          37,
+          51
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-02"
+      },
+      "source_text": "Juan dijo que la muerte de su hermana no le afectaba demasiado.",
+      "retrieval_text": "Juan dijo que la muerte de su hermana no le afectaba demasiado.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "quería",
+          "muerte",
+          "alegra",
+          "dolor",
+          "dijo",
+          "que",
+          "la",
+          "de",
+          "su",
+          "hermana",
+          "no",
+          "le",
+          "afectaba",
+          "demasiado"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-04-AT-04",
+          "SCN-04-AT-06"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-06",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          37,
+          51
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-02"
+      },
+      "source_text": "Juan admitió que le alegraba la muerte de su hermana.",
+      "retrieval_text": "Juan admitió que le alegraba la muerte de su hermana.",
+      "kind": "dialogue",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Juan",
+          "quería",
+          "muerte",
+          "alegra",
+          "dolor",
+          "admitió",
+          "que",
+          "le",
+          "alegraba",
+          "la",
+          "de",
+          "su",
+          "hermana"
+        ],
+        "priority": 0.8,
+        "neighbor_ids": [
+          "SCN-04-AT-05",
+          "SCN-04-AT-07"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-07",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          53,
+          53
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-03"
+      },
+      "source_text": "Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.",
+      "retrieval_text": "Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.",
+      "kind": "testimony",
+      "speakers": [
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-JUA-02"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "denunció",
+          "delató",
+          "drogas",
+          "rencor",
+          "obsesión",
+          "siete años",
+          "Juan",
+          "creía",
+          "que",
+          "Stevens",
+          "había",
+          "provocado",
+          "la",
+          "policía",
+          "descubriera",
+          "sus",
+          "negocios",
+          "con"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-06",
+          "SCN-04-AT-08"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-08",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          53,
+          53
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-03"
+      },
+      "source_text": "Juan no tenía pruebas de que Stevens lo hubiera denunciado.",
+      "retrieval_text": "Juan no tenía pruebas de que Stevens lo hubiera denunciado.",
+      "kind": "testimony",
+      "speakers": [
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "denunció",
+          "delató",
+          "drogas",
+          "rencor",
+          "obsesión",
+          "siete años",
+          "Juan",
+          "no",
+          "tenía",
+          "pruebas",
+          "de",
+          "que",
+          "Stevens",
+          "lo",
+          "hubiera",
+          "denunciado"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-07",
+          "SCN-04-AT-09"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-09",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          53,
+          53
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-03"
+      },
+      "source_text": "Juan hablaba de ese resentimiento con una seguridad casi obsesiva.",
+      "retrieval_text": "Juan hablaba de ese resentimiento con una seguridad casi obsesiva.",
+      "kind": "testimony",
+      "speakers": [
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "policia"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "denunció",
+          "delató",
+          "drogas",
+          "rencor",
+          "obsesión",
+          "siete años",
+          "Juan",
+          "hablaba",
+          "de",
+          "ese",
+          "resentimiento",
+          "con",
+          "una",
+          "seguridad",
+          "casi",
+          "obsesiva"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-08",
+          "SCN-04-AT-10"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-10",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          53,
+          53
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-04"
+      },
+      "source_text": "Juan sabía que la muerte de Stevens podía dejarle dinero.",
+      "retrieval_text": "Juan sabía que la muerte de Stevens podía dejarle dinero.",
+      "kind": "testimony",
+      "speakers": [
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-POL-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-JUA-04"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "dinero",
+          "herencia",
+          "póliza",
+          "beneficio",
+          "Juan",
+          "sabía",
+          "que",
+          "la",
+          "muerte",
+          "de",
+          "Stevens",
+          "podía",
+          "dejarle"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-09",
+          "SCN-04-AT-11"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-11",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          53,
+          53
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-04"
+      },
+      "source_text": "A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.",
+      "retrieval_text": "A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.",
+      "kind": "testimony",
+      "speakers": [
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [
+          "CL-POL-01"
+        ],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "dinero",
+          "herencia",
+          "póliza",
+          "beneficio",
+          "Juan",
+          "A",
+          "le",
+          "agradaba",
+          "la",
+          "posibilidad",
+          "de",
+          "recibir",
+          "por",
+          "muerte",
+          "Stevens"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-10",
+          "SCN-04-AT-12"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-12",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          55,
+          55
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-05"
+      },
+      "source_text": "La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.",
+      "retrieval_text": "La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "policia",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-JUA-03"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "coartada",
+          "comisaría",
+          "cinco",
+          "medianoche",
+          "accidente",
+          "policía",
+          "La",
+          "verificó",
+          "que",
+          "Juan",
+          "estuvo",
+          "demorado",
+          "en",
+          "una",
+          "desde",
+          "las",
+          "17",
+          "00",
+          "hasta"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-11",
+          "SCN-04-AT-13"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-13",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          55,
+          55
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-05"
+      },
+      "source_text": "Juan no estuvo en el departamento durante las horas críticas.",
+      "retrieval_text": "Juan no estuvo en el departamento durante las horas críticas.",
+      "kind": "testimony",
+      "speakers": [
+        "detective"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "policia",
+        "departamento"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "verified",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "coartada",
+          "comisaría",
+          "cinco",
+          "medianoche",
+          "accidente",
+          "policía",
+          "Juan",
+          "no",
+          "estuvo",
+          "en",
+          "el",
+          "departamento",
+          "durante",
+          "las",
+          "horas",
+          "críticas"
+        ],
+        "priority": 1.0,
+        "neighbor_ids": [
+          "SCN-04-AT-12",
+          "SCN-04-AT-14"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-14",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          57,
+          63
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-06"
+      },
+      "source_text": "Juan aseguró que Esteban salió furioso del almuerzo.",
+      "retrieval_text": "Juan aseguró que Esteban salió furioso del almuerzo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [
+          "CL-EST-01"
+        ],
+        "focus_eligible": true
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "almuerzo",
+          "Pablo",
+          "dinero",
+          "póliza",
+          "ofensa",
+          "Juan",
+          "aseguró",
+          "que",
+          "salió",
+          "del"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-04-AT-13",
+          "SCN-04-AT-15"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-15",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          57,
+          63
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-06"
+      },
+      "source_text": "Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.",
+      "retrieval_text": "Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "almuerzo",
+          "Pablo",
+          "dinero",
+          "póliza",
+          "ofensa",
+          "Juan",
+          "dijo",
+          "que",
+          "se",
+          "enfureció",
+          "al",
+          "saber",
+          "Stevens",
+          "favorecería",
+          "económicamente",
+          "a"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-04-AT-14",
+          "SCN-04-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-16",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          57,
+          63
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-06"
+      },
+      "source_text": "Juan dijo que Esteban tomó el cambio en el dinero como una ofensa personal.",
+      "retrieval_text": "Juan dijo que Esteban tomó el cambio en el dinero como una ofensa personal.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "almuerzo",
+          "Pablo",
+          "dinero",
+          "póliza",
+          "ofensa",
+          "Juan",
+          "dijo",
+          "que",
+          "tomó",
+          "el",
+          "cambio",
+          "en",
+          "como",
+          "una",
+          "personal"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-04-AT-15",
+          "SCN-04-AT-17"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    },
+    {
+      "schema_version": 1,
+      "chunk_id": "SCN-04-AT-17",
+      "scene_id": "SCN-04",
+      "source": {
+        "canonical_file": "un-crimen-casi-perfecto-version-final.md",
+        "canonical_lines": [
+          57,
+          63
+        ],
+        "scene_file": "scenes/04_interrogatorio_juan.md",
+        "parent_chunk_id": "SCN-04-CH-06"
+      },
+      "source_text": "Juan no se preocupaba demasiado por recibir una cantidad menor porque también cobraría dinero.",
+      "retrieval_text": "Juan no se preocupaba demasiado por recibir una cantidad menor porque también cobraría dinero.",
+      "kind": "testimony",
+      "speakers": [
+        "detective",
+        "juan"
+      ],
+      "mentioned_entities": [
+        "juan",
+        "esteban",
+        "pablo",
+        "senora_stevens",
+        "poliza"
+      ],
+      "knowledge_holders": [
+        "juan"
+      ],
+      "claim_status": "testimony",
+      "availability": {
+        "milestones_all": [
+          "M00_CASE_OPEN"
+        ],
+        "facts_all": [],
+        "facts_any": [],
+        "facts_none": [],
+        "channels": [
+          "chat_juan"
+        ]
+      },
+      "discovery": {
+        "fact_ids": [],
+        "focus_eligible": false
+      },
+      "retrieval": {
+        "keywords": [
+          "Esteban",
+          "furioso",
+          "almuerzo",
+          "Pablo",
+          "dinero",
+          "póliza",
+          "ofensa",
+          "Juan",
+          "no",
+          "se",
+          "preocupaba",
+          "demasiado",
+          "por",
+          "recibir",
+          "una",
+          "cantidad",
+          "menor",
+          "porque",
+          "también",
+          "cobraría"
+        ],
+        "priority": 1.1,
+        "neighbor_ids": [
+          "SCN-04-AT-16"
+        ]
+      },
+      "security": {
+        "spoiler_level": 1,
+        "resolution_only": false
+      },
+      "variant": "atomic",
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo."
+    }
+  ]
+}

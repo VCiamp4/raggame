@@ -1,3 +1,9 @@
+from __future__ import annotations
+
+import threading
+from collections import defaultdict
+
+import requests
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -19,8 +25,28 @@ class DialogueRequest(BaseModel):
 
 
 @app.get("/")
-def root():
-    return {"status": "ok", "message": "Servidor RAG-NPC andando"}
+def root() -> dict:
+    index_metadata = HybridIndex.metadata_from(SETTINGS.index_path)
+    return {
+        "status": "ok",
+        "message": "Servidor RAG-NPC configurado",
+        "chat_model": SETTINGS.chat_model,
+        "embedding_model": SETTINGS.embedding_model,
+        "index_present": bool(index_metadata),
+        "index_chunks": int(index_metadata.get("chunk_count", "0")),
+    }
+
+
+@app.get("/health")
+def health() -> dict:
+    service = _require_service()
+    try:
+        result = service.health()
+    except requests.RequestException as error:
+        raise HTTPException(status_code=503, detail=f"Ollama no responde: {error}") from error
+    if not result["ready"]:
+        raise HTTPException(status_code=503, detail=result)
+    return result
 
 
 @app.post("/dialogue_stream")

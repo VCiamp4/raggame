@@ -8,6 +8,12 @@ __pycache__/
 venv/
 .venv/
 
+# Ollama
+ollama_models/
+
+# Local runtime configuration
+.env
+
 # Generated RAG index
 backend/rag/embeddings.npz
 
