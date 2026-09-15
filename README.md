@@ -4,42 +4,74 @@ El juego Godot consulta un backend local que recupera datos atómicos permitidos
 
 Los resultados y decisiones técnicas están resumidos en [findings/index.html](findings/index.html).
 
-## Preparación
+## Docker (recomendado)
 
-Los dos modelos deben existir en Ollama:
+1. Generá los embeddings legacy si todavía no existen:
+   ```bash
+   python -m backend.scripts.build_embeddings  # requiere Ollama local con embeddinggemma
+   ```
+   Esto crea `backend/rag/embeddings.npz`, necesario para el `DialogueService` actual.
+2. Iniciá backend + modelos con Compose:
+   ```bash
+   docker compose up -d --build
+   ```
+   El servicio `npc-ollama` usa `docker/ollama-entrypoint.sh` para levantar `ollama serve`,
+   esperar a que el daemon responda y descargar automáticamente `gemma4:e4b` y
+   `hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0` dentro de `./ollama_models/`.
+   El servicio `rag-backend` se construye a partir de `Dockerfile.backend` y expone FastAPI en `http://127.0.0.1:8000`.
+3. Ejecutá `game/project.godot` de manera local. El cliente ya apunta a `127.0.0.1:8000`,
+   así que basta con tener los contenedores corriendo para que los NPC respondan.
 
-```bash
-docker exec npc-ollama ollama pull gemma4:e4b
-docker exec npc-ollama ollama pull hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0
-```
-
-La configuración reproducible del runtime está en `compose.ollama.yaml`. Admite dos modelos cargados a la vez; el backend mantiene cada uno residente durante 30 minutos y permite separar los endpoints más adelante.
-
-Con el entorno Python ya creado:
-
-```bash
-backend/venv/bin/pip install -r backend/requirements.txt
-OLLAMA_EMBED_MODEL=hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0 \
-RAG_INDEX_PATH=backend/data/rag_index_atomic_embeddinggemma_two.sqlite3 \
-backend/venv/bin/python -m backend.scripts.build_rag_index --force
-```
-
-El comando usa los 15 archivos `*.atomic.chunks.json`,
-`backend/data/canonical_questions.json` y el mapa congelado
-`backend/data/canonical_questions_two.json`. Crea 162 embeddings de pasajes,
-162 de q1 y 162 de q2. Ese índice es el único artefacto SQLite operativo del
-runtime.
-Los chunks no se regeneran durante la construcción del índice.
-
-## Ejecución
-
-Desde la raíz del repositorio:
+Apagá todo con `docker compose down`. Si solo necesitás el daemon de Ollama (por ejemplo, para reconstruir índices), podés usar `compose.ollama.yaml`:
 
 ```bash
-backend/venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 8000
+docker compose -f compose.ollama.yaml up -d
 ```
 
-Después se ejecuta `game/project.godot`. Todos los NPC usan la sesión `default`. El historial conversacional se mantiene separado por NPC, mientras que el estado estructurado de la sesión —hechos descubiertos, pistas e hitos— continúa al cambiar de escena. Ese estado puede desbloquear contexto para otros NPCs, respetando sus permisos narrativos. No se añadió ninguna interfaz nueva.
+Ese archivo comparte el mismo entrypoint y auto-descarga de modelos, pero omite el contenedor del backend.
+
+### Script todo-en-uno
+
+Si tenés Docker y Godot instalados en el host podés usar `scripts/run_game.sh`, que:
+
+1. levanta `npc-ollama`, genera `backend/rag/embeddings.npz` dentro del contenedor de backend (no instala dependencias en tu sistema) y vuelve a dejar el daemon corriendo;
+2. ejecuta `docker compose up -d --build` y espera a que `rag-backend` imprima “Application startup complete”;
+3. lanza Godot (`godot4` o `godot`, configurable via `GODOT_BIN`).
+
+Ejemplo:
+
+```bash
+./scripts/run_game.sh
+```
+
+El script mantiene los contenedores activos mientras Godot esté abierto y ejecuta `docker compose down` automáticamente al cerrar el juego o al recibir `Ctrl+C`. Si necesitás bajar todo sin abrir Godot, corré `./scripts/run_game.sh stop`. Ajustá `GODOT_BIN=/ruta/a/godot` si tu ejecutable no está en el PATH.
+
+## Configuración manual
+
+Los pasos siguientes siguen siendo útiles si preferís correr todo sin Docker.
+
+1. Levantá Ollama en tu host (o mediante `compose.ollama.yaml`). Luego descargá los modelos:
+   ```bash
+   docker exec npc-ollama ollama pull gemma4:e4b
+   docker exec npc-ollama ollama pull hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0
+   ```
+2. Creá el entorno Python:
+   ```bash
+   python -m venv backend/venv
+   backend/venv/bin/pip install -r backend/requirements.txt
+   ```
+3. (Opcional) Construí el índice híbrido SQLite si querés experimentar con `backend/rag/service.py`:
+   ```bash
+   OLLAMA_EMBED_MODEL=hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0 \
+   RAG_INDEX_PATH=backend/data/rag_index_atomic_embeddinggemma_two.sqlite3 \
+   backend/venv/bin/python -m backend.scripts.build_rag_index --force
+   ```
+4. Ejecutá el backend manualmente:
+   ```bash
+   backend/venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 8000
+   ```
+
+Después abrí `game/project.godot`. Todos los NPC usan la sesión `default`. El historial conversacional se mantiene separado por NPC, mientras que el estado estructurado de la sesión —hechos descubiertos, pistas e hitos— continúa al cambiar de escena.
 
 
 Endpoints útiles:

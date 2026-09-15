@@ -119,6 +119,7 @@ func _open_dialogue() -> void:
 
 func _close_dialogue() -> void:
 	in_dialogue = false
+	_disconnect_npc_signals(nearby_npc)
 	dialogue_ui.hide_dialogue()
 	if nearby_npc != null:
 		dialogue_ui.show_prompt(nearby_npc.npc_name)
@@ -136,20 +137,18 @@ func _on_text_submitted(text: String) -> void:
 	dialogue_ui.set_input_enabled(false)
 
 	# Chequear si el input activa algún evento/pista
-	var matched_keyword := EventManager.check_input(text)
+	EventManager.check_input(text)
 
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
 	dialogue_ui.start_npc_response(nearby_npc.npc_name)
-	_emit_keyword_feedback(matched_keyword)
-
-
-func _emit_keyword_feedback(matched_keyword: bool) -> void:
-	var response_text := "Eso me hace acordar..." if matched_keyword else "Quiero mi abogado"
-	dialogue_ui.append_npc_chunk(response_text)
-	dialogue_ui.finish_npc_response()
-	dialogue_ui.set_input_enabled(true)
+	_connect_npc_signals(nearby_npc)
+	if nearby_npc.has_method("request_response"):
+		nearby_npc.request_response(text)
+	else:
+		dialogue_ui.append_npc_chunk("[Este personaje no puede responder]")
+		_on_response_completed()
 
 
 func _on_response_chunk(text: String) -> void:
@@ -157,8 +156,7 @@ func _on_response_chunk(text: String) -> void:
 
 
 func _on_response_completed() -> void:
-	if nearby_npc != null and nearby_npc.response_chunk.is_connected(_on_response_chunk):
-		nearby_npc.response_chunk.disconnect(_on_response_chunk)
+	_disconnect_npc_signals(nearby_npc)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(true)
 
@@ -172,6 +170,24 @@ func _on_npc_exited_range(npc: Node) -> void:
 	if nearby_npc == npc:
 		nearby_npc = null
 		_update_prompt()
+
+
+func _connect_npc_signals(npc: Node) -> void:
+	if npc == null:
+		return
+	if not npc.response_chunk.is_connected(_on_response_chunk):
+		npc.response_chunk.connect(_on_response_chunk)
+	if not npc.response_completed.is_connected(_on_response_completed):
+		npc.response_completed.connect(_on_response_completed)
+
+
+func _disconnect_npc_signals(npc: Node) -> void:
+	if npc == null:
+		return
+	if npc.response_chunk.is_connected(_on_response_chunk):
+		npc.response_chunk.disconnect(_on_response_chunk)
+	if npc.response_completed.is_connected(_on_response_completed):
+		npc.response_completed.disconnect(_on_response_completed)
 
 
 # ---------- Objetos examinables (sin LLM) ----------

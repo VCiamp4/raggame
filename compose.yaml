@@ -7,6 +7,7 @@ services:
       - "11434:11434"
     volumes:
       - ./ollama_models:/root/.ollama
+      - ./docker/ollama-entrypoint.sh:/usr/local/bin/ollama-entrypoint.sh:ro
     environment:
       OLLAMA_HOST: 0.0.0.0:11434
       OLLAMA_MAX_LOADED_MODELS: "2"
@@ -16,3 +17,30 @@ services:
       OLLAMA_KEEP_ALIVE: 30m
       OLLAMA_LOAD_TIMEOUT: 20m
       LLAMA_ARG_SWA_FULL: "1"
+      OLLAMA_MODEL: gemma4:e4b
+      OLLAMA_EMBED_MODEL: hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0
+    entrypoint: ["/usr/local/bin/ollama-entrypoint.sh"]
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  rag-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: rag-backend
+    restart: unless-stopped
+    environment:
+      OLLAMA_BASE_URL: http://npc-ollama:11434
+      OLLAMA_CHAT_BASE_URL: http://npc-ollama:11434
+      OLLAMA_EMBED_BASE_URL: http://npc-ollama:11434
+      OLLAMA_MODEL: gemma4:e4b
+      OLLAMA_EMBED_MODEL: hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0
+    ports:
+      - "8000:8000"
+    depends_on:
+      npc-ollama:
+        condition: service_healthy

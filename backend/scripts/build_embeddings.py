@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -6,8 +7,10 @@ import requests
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
 EMBEDDINGS_PATH = Path(__file__).resolve().parents[1] / "rag" / "embeddings.npz"
-OLLAMA_URL = "http://localhost:11434/api/embed"
-MODEL = "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0"
+OLLAMA_URL = os.environ.get("OLLAMA_EMBED_URL", "http://localhost:11434/api/embed")
+MODEL = os.environ.get(
+    "OLLAMA_EMBED_MODEL", "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0"
+)
 
 
 def load_chunks():

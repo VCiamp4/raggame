@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://b1qdgajxfcbfm" path="res://assets/PSX modular house interior pack/props/clock.glb" id="13_fhysb"]
 [ext_resource type="PackedScene" uid="uid://6puk6ia2hstk" path="res://assets/Chandelier/Debris Papers by Quaternius - MujITy1NRR.glb" id="14_r00i4"]
 [ext_resource type="Script" uid="uid://cb5216nom5lfv" path="res://scenes/pizarron.gd" id="15_hncaa"]
-[ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="16_npc"]
 [ext_resource type="PackedScene" uid="uid://dshn8ikaars" path="res://assets/Chair/Cork Board by Jarlan Perez - 5Ql0Sdq6fmy.glb" id="16_owl32"]
 [ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="17_npc"]
+[ext_resource type="PackedScene" uid="uid://b3uq5kfbwtfwq" path="res://scenes/salida_mapa.tscn" id="30_salida"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -72,7 +72,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.91612303, 7.040468
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 5.5)
 object_name = "Volver al tablón"
 
-[node name="Juan" parent="." unique_id=1253734769 instance=ExtResource("16_npc")]
+[node name="Juan" parent="." unique_id=1253734769 instance=ExtResource("17_npc")]
 transform = Transform3D(0.96160257, 0, -0.27444607, 0, 1, 0, 0.27444607, 0, 0.96160257, 1.9264297, 0.030231714, 0.74760246)
 npc_id = "juan"
 npc_name = "Juan"
@@ -309,12 +309,12 @@ shape = SubResource("BoxShape3D_hncaa")
 
 [node name="Cork Board by Jarlan Perez - 5Ql0Sdq6fmy" parent="pizarron" unique_id=661720195 instance=ExtResource("16_owl32")]
 
-[node name="Criada" parent="." instance=ExtResource("17_npc")]
+[node name="Criada" parent="." unique_id=817334614 instance=ExtResource("17_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5)
 npc_id = "criada"
 npc_name = "Criada"
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3.5)
 
-[node name="Juan" parent="." instance=ExtResource("17_npc")]
+[node name="Juan2" parent="." unique_id=1406253452 instance=ExtResource("17_npc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.5)
 npc_id = "juan"
 npc_name = "Juan"
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.5)
