@@ -3,13 +3,11 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 import json
 import requests
+from backend.config import settings
 from backend.rag.dialogue import DialogueService
 
 app = FastAPI()
 dialogue_service = DialogueService()
-
-OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL = "gemma4:e4b"
 
 
 class DialogueRequest(BaseModel):
@@ -38,19 +36,19 @@ def dialogue_stream(req: DialogueRequest):
         )
 
     payload = {
-        "model": MODEL,
+        "model": settings.chat_model,
         "messages": message,
         "stream": True,
         "think": False,
         "options": {
-            "num_predict": 160,
-            "temperature": 0.8,
+            "num_predict": settings.num_predict,
+            "temperature": settings.temperature,
         }
     }
 
     def generate():
         reply = ""
-        with requests.post(OLLAMA_URL, json=payload, stream=True, timeout=(5, 300)) as r:
+        with requests.post(f"{settings.ollama_url}/api/chat", json=payload, stream=True, timeout=(5, 300)) as r:
             for line in r.iter_lines():
                 if not line:
                     continue

@@ -1,6 +1,7 @@
 from pathlib import Path
 from collections import defaultdict
 
+from backend.config import settings
 from backend.rag.retrieval import retrieve_chunks
 
 PERSONAJES_FILES = {
@@ -35,7 +36,6 @@ class DialogueService:
         self.personajes = load_personajes(Path(PERSONAJES_DIR))
         # Memoria de conversación en RAM, por (session_id, npc_id)
         self.HISTORIES = defaultdict(list)
-        self.MAX_HISTORY = 20  # últimos N mensajes (≈10 turnos) que se le mandan al modelo
 
     def get_persona(self, npc_id: str) -> str:
         """
@@ -89,7 +89,7 @@ class DialogueService:
 
         return [
             system_prompt,
-            *history[-self.MAX_HISTORY:],
+            *(history[-settings.max_history:] if settings.max_history else []),
             user_msg,
         ]
 

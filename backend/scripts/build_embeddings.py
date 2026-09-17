@@ -4,10 +4,10 @@ from pathlib import Path
 import numpy as np
 import requests
 
+from backend.config import settings
+
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
 EMBEDDINGS_PATH = Path(__file__).resolve().parents[1] / "rag" / "embeddings.npz"
-OLLAMA_URL = "http://localhost:11434/api/embed"
-MODEL = "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0"
 
 
 def load_chunks():
@@ -25,8 +25,8 @@ def get_embeddings(chunks):
         texts.append(chunk["questions"]["q2"])
 
     response = requests.post(
-        OLLAMA_URL,
-        json={"model": MODEL, "input": texts},
+        f"{settings.ollama_url}/api/embed",
+        json={"model": settings.embedding_model, "input": texts},
         timeout=600,
     )
     response.raise_for_status()

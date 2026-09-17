@@ -4,15 +4,12 @@ from dataclasses import dataclass
 from pathlib import Path
 import numpy as np
 import requests
+from backend.config import settings
 from backend.rag.game_state import is_available, update_fact, is_support
 
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
 EMBEDDINGS_PATH = Path(__file__).resolve().parent / "embeddings.npz"
-OLLAMA_URL = "http://localhost:11434/api/embed"
-MODEL = "hf.co/unsloth/embeddinggemma-300m-GGUF:Q4_0"
-MAX_CHUNKS = 3
-MIN_SIMILARITY = 0.5
 
 @dataclass
 class Chunk:
@@ -54,8 +51,8 @@ def load_chunks() -> list[Chunk]:
 
 def get_embedding(text: str) -> list[float]:
     response = requests.post(
-        OLLAMA_URL,
-        json={"model": MODEL, "input": [text]},
+        f"{settings.ollama_url}/api/embed",
+        json={"model": settings.embedding_model, "input": [text]},
         timeout=600,
     )
     response.raise_for_status()
@@ -98,7 +95,7 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
             cosine_similarity(query_embedding, chunk.q1_embedding),
             cosine_similarity(query_embedding, chunk.q2_embedding),
         )
-        if score >= MIN_SIMILARITY:
+        if score >= settings.min_similarity:
             scored_chunks.append((score, chunk))
 
     if not scored_chunks:
@@ -108,10 +105,10 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
     focus = scored_chunks[0][1]
     retrieved_chunks = [focus]
     for _, candidate in scored_chunks[1:]:
+        if len(retrieved_chunks) >= settings.max_chunks:
+            break
         if is_support(focus, candidate, session_id):
             retrieved_chunks.append(candidate)
-            if len(retrieved_chunks) >= MAX_CHUNKS:
-                break
     update_fact(session_id, focus.fact_id)
 
     retrieved_texts = []
