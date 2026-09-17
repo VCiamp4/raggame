@@ -1,0 +1,190 @@
+{
+  "name": "retrieval_v1",
+  "description": "Corpus inicial de calibracion y evaluacion generado a partir de los chunks actuales.",
+  "positive_generation": "Tres preguntas nuevas por cada chunk con fact_id alcanzable mediante un NPC jugable. No reutilizan literalmente q1 ni q2.",
+  "cases": [
+    {"id": "pos-scn-01-at-08-1", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "Cuando llegaste esa mañana, ¿qué trababa la puerta desde adentro?", "expected_focus": "SCN-01-AT-08"},
+    {"id": "pos-scn-01-at-08-2", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "¿Por qué no pudieron entrar usando la llave normalmente?", "expected_focus": "SCN-01-AT-08"},
+    {"id": "pos-scn-01-at-08-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "Contame cómo estaba cerrada la entrada cuando encontraron el cuerpo.", "expected_focus": "SCN-01-AT-08"},
+
+    {"id": "pos-scn-01-at-11-1", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "¿Había algún trago cerca de la señora cuando la hallaron?", "expected_focus": "SCN-01-AT-11"},
+    {"id": "pos-scn-01-at-11-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Qué vaso encontraron al lado del cuerpo?", "expected_focus": "SCN-01-AT-11"},
+    {"id": "pos-scn-01-at-11-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "En la escena, ¿había whisky junto a Stevens?", "expected_focus": "SCN-01-AT-11"},
+
+    {"id": "pos-scn-01-at-15-1", "kind": "positive", "npc_id": "quimico", "known_facts": [], "query": "¿El examen inicial indicó que falleció por causas naturales?", "expected_focus": "SCN-01-AT-15"},
+    {"id": "pos-scn-01-at-15-2", "kind": "positive", "npc_id": "quimico", "known_facts": [], "query": "Según su primera revisión, ¿había señales de que la hubieran intoxicado?", "expected_focus": "SCN-01-AT-15"},
+    {"id": "pos-scn-01-at-15-3", "kind": "positive", "npc_id": "quimico", "known_facts": [], "query": "¿Qué pudo concluir sobre la causa de muerte apenas examinó el cadáver?", "expected_focus": "SCN-01-AT-15"},
+
+    {"id": "pos-scn-02-at-03-1", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Su patrona la trataba bien en el día a día?", "expected_focus": "SCN-02-AT-03"},
+    {"id": "pos-scn-02-at-03-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Cómo era Stevens con usted cuando trabajaba en la casa?", "expected_focus": "SCN-02-AT-03"},
+    {"id": "pos-scn-02-at-03-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "Dicen que la señora era dura con el servicio, ¿también la maltrataba a usted?", "expected_focus": "SCN-02-AT-03"},
+
+    {"id": "pos-scn-02-at-12-1", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Qué la llevó a pedir una bebida justo después de la pelea?", "expected_focus": "SCN-02-AT-12"},
+    {"id": "pos-scn-02-at-12-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Para qué quería Stevens ese whisky tras discutir?", "expected_focus": "SCN-02-AT-12"},
+    {"id": "pos-scn-02-at-12-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Pidió el trago porque había quedado nerviosa con los gritos?", "expected_focus": "SCN-02-AT-12"},
+
+    {"id": "pos-scn-02-at-17-1", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "Antes de irse, ¿qué encargo le dejó al encargado del edificio?", "expected_focus": "SCN-02-AT-17"},
+    {"id": "pos-scn-02-at-17-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Le solicitó al portero que llevara algo al departamento?", "expected_focus": "SCN-02-AT-17"},
+    {"id": "pos-scn-02-at-17-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "Cuando terminó su jornada, ¿quién quedó encargado de subir el periódico?", "expected_focus": "SCN-02-AT-17"},
+
+    {"id": "pos-scn-03-at-01-1", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "¿A qué hora llevó el periódico y qué hizo con él al llegar?", "expected_focus": "SCN-03-AT-01"},
+    {"id": "pos-scn-03-at-01-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿El diario se entregó en mano o quedó debajo de la puerta?", "expected_focus": "SCN-03-AT-01"},
+    {"id": "pos-scn-03-at-01-3", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "A q hora dejó el diario en la entrada del departamento?", "expected_focus": "SCN-03-AT-01"},
+
+    {"id": "pos-scn-03-at-03-1", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "Después de entregar el periódico, ¿vio subir a alguna visita?", "expected_focus": "SCN-03-AT-03"},
+    {"id": "pos-scn-03-at-03-2", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "¿Entró alguien al piso pasada las siete y diez?", "expected_focus": "SCN-03-AT-03"},
+    {"id": "pos-scn-03-at-03-3", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Hubo visitantes luego de que el portero dejara el diario?", "expected_focus": "SCN-03-AT-03"},
+
+    {"id": "pos-scn-03-at-04-1", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "Entonces, ¿quién fue la última en verla con vida?", "expected_focus": "SCN-03-AT-04"},
+    {"id": "pos-scn-03-at-04-2", "kind": "positive", "npc_id": "criada", "known_facts": [], "query": "¿Fue usted la última persona que estuvo cara a cara con Stevens?", "expected_focus": "SCN-03-AT-04"},
+    {"id": "pos-scn-03-at-04-3", "kind": "positive", "npc_id": "portero", "known_facts": [], "query": "Si usted no la vio al dejar el diario, ¿quién tuvo el último contacto con ella?", "expected_focus": "SCN-03-AT-04"},
+
+    {"id": "pos-scn-04-at-01-1", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-JUA-02"], "query": "¿Es verdad que años atrás lo condenaron por vender drogas?", "expected_focus": "SCN-04-AT-01"},
+    {"id": "pos-scn-04-at-01-2", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-JUA-02"], "query": "Hablemos de su condena de hace siete años: ¿estaba relacionada con estupefacientes?", "expected_focus": "SCN-04-AT-01"},
+    {"id": "pos-scn-04-at-01-3", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-JUA-02"], "query": "Usted ya estuvo preso por asuntos de droga, ¿no?", "expected_focus": "SCN-04-AT-01"},
+
+    {"id": "pos-scn-04-at-07-1", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿Por qué responsabilizaba a su hermana de que la policía descubriera sus negocios?", "expected_focus": "SCN-04-AT-07"},
+    {"id": "pos-scn-04-at-07-2", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿De dónde viene ese rencor suyo hacia Stevens por el tema de las drogas?", "expected_focus": "SCN-04-AT-07"},
+    {"id": "pos-scn-04-at-07-3", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿Pensaba que ella lo había entregado a la policía?", "expected_focus": "SCN-04-AT-07"},
+
+    {"id": "pos-scn-04-at-10-1", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-POL-01"], "query": "¿Sabía que podía cobrar dinero si su hermana fallecía?", "expected_focus": "SCN-04-AT-10"},
+    {"id": "pos-scn-04-at-10-2", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-POL-01"], "query": "La muerte de Stevens también le convenía económicamente a usted, ¿cierto?", "expected_focus": "SCN-04-AT-10"},
+    {"id": "pos-scn-04-at-10-3", "kind": "positive", "npc_id": "juan", "known_facts": ["CL-POL-01"], "query": "¿Esperaba recibir una parte del seguro cuando ella muriera?", "expected_focus": "SCN-04-AT-10"},
+
+    {"id": "pos-scn-04-at-12-1", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿Dónde lo tuvieron retenido entre la tarde y la medianoche?", "expected_focus": "SCN-04-AT-12"},
+    {"id": "pos-scn-04-at-12-2", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿La policía comprobó que pasó las horas del crimen en una seccional?", "expected_focus": "SCN-04-AT-12"},
+    {"id": "pos-scn-04-at-12-3", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "Desde las cinco hasta las doce, ¿dónde estuvo usted exactamente?", "expected_focus": "SCN-04-AT-12"},
+
+    {"id": "pos-scn-04-at-14-1", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿En qué estado se fue Esteban después del almuerzo familiar?", "expected_focus": "SCN-04-AT-14"},
+    {"id": "pos-scn-04-at-14-2", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "Usted dijo que Esteban abandonó la casa hecho una furia, ¿verdad?", "expected_focus": "SCN-04-AT-14"},
+    {"id": "pos-scn-04-at-14-3", "kind": "positive", "npc_id": "juan", "known_facts": [], "query": "¿Cómo reaccionó su hermano Esteban al terminar aquella comida?", "expected_focus": "SCN-04-AT-14"},
+
+    {"id": "pos-scn-05-at-02-1", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Fue usted quien le consiguió el seguro de vida a Stevens?", "expected_focus": "SCN-05-AT-02"},
+    {"id": "pos-scn-05-at-02-2", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Qué póliza tramitó para su hermana unos meses antes?", "expected_focus": "SCN-05-AT-02"},
+    {"id": "pos-scn-05-at-02-3", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "Como corredor, ¿intervino en la contratación del seguro de Stevens?", "expected_focus": "SCN-05-AT-02"},
+
+    {"id": "pos-scn-05-at-04-1", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Por qué presentó la pelea por plata como una simple diferencia familiar?", "expected_focus": "SCN-05-AT-04"},
+    {"id": "pos-scn-05-at-04-2", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "Al principio usted le quitó importancia a la discusión del almuerzo, ¿no?", "expected_focus": "SCN-05-AT-04"},
+    {"id": "pos-scn-05-at-04-3", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Cómo describió inicialmente el desacuerdo por el dinero?", "expected_focus": "SCN-05-AT-04"},
+
+    {"id": "pos-scn-05-at-05-1", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Qué hacía en Lister durante la noche en que murió su hermana?", "expected_focus": "SCN-05-AT-05"},
+    {"id": "pos-scn-05-at-05-2", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Desde qué hora pudieron ubicarlo fuera de la ciudad?", "expected_focus": "SCN-05-AT-05"},
+    {"id": "pos-scn-05-at-05-3", "kind": "positive", "npc_id": "esteban", "known_facts": [], "query": "¿Está verificado que permaneció en Lister hasta la mañana siguiente?", "expected_focus": "SCN-05-AT-05"},
+
+    {"id": "pos-scn-06-at-01-1", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Por qué perdió la habilitación para trabajar como veterinario?", "expected_focus": "SCN-06-AT-01"},
+    {"id": "pos-scn-06-at-01-2", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "Antes de Erpa usted atendía animales, ¿qué pasó con su licencia?", "expected_focus": "SCN-06-AT-01"},
+    {"id": "pos-scn-06-at-01-3", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Lo inhabilitaron por dopaje de caballos de carrera?", "expected_focus": "SCN-06-AT-01"},
+
+    {"id": "pos-scn-06-at-03-1", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "Dentro de Erpa, ¿en qué sector cumplía tareas?", "expected_focus": "SCN-06-AT-03"},
+    {"id": "pos-scn-06-at-03-2", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Su puesto estaba en el área química del laboratorio?", "expected_focus": "SCN-06-AT-03"},
+    {"id": "pos-scn-06-at-03-3", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "Diga cuál era su sección de trabajo en la empresa.", "expected_focus": "SCN-06-AT-03"},
+
+    {"id": "pos-scn-06-at-04-1", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-PAB-03"], "query": "Por trabajar en química, ¿podía usar reactivos con frecuencia?", "expected_focus": "SCN-06-AT-04"},
+    {"id": "pos-scn-06-at-04-2", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-PAB-03"], "query": "¿Qué clase de sustancias tenía a su alcance en Erpa?", "expected_focus": "SCN-06-AT-04"},
+    {"id": "pos-scn-06-at-04-3", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-PAB-03"], "query": "Su trabajo le daba acceso normal a materiales químicos, ¿correcto?", "expected_focus": "SCN-06-AT-04"},
+
+    {"id": "pos-scn-06-at-06-1", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-EST-01"], "query": "¿Cómo logró que su hermana le reservara una porción mayor del dinero?", "expected_focus": "SCN-06-AT-06"},
+    {"id": "pos-scn-06-at-06-2", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-EST-01"], "query": "¿La convenció con favores y promesas para que lo beneficiara más?", "expected_focus": "SCN-06-AT-06"},
+    {"id": "pos-scn-06-at-06-3", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-EST-01"], "query": "Explique por qué Stevens iba a dejarle más a usted que a sus hermanos.", "expected_focus": "SCN-06-AT-06"},
+
+    {"id": "pos-scn-06-at-09-1", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "Cuando le pidieron un sospechoso, ¿por qué apuntó contra Juan?", "expected_focus": "SCN-06-AT-09"},
+    {"id": "pos-scn-06-at-09-2", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Usó el pasado criminal de Juan para acusarlo?", "expected_focus": "SCN-06-AT-09"},
+    {"id": "pos-scn-06-at-09-3", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Qué lo hacía desconfiar de Juan como posible asesino?", "expected_focus": "SCN-06-AT-09"},
+
+    {"id": "pos-scn-06-at-10-1", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Quién pudo confirmar que se encontraba en Erpa desde las seis?", "expected_focus": "SCN-06-AT-10"},
+    {"id": "pos-scn-06-at-10-2", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Está comprobado que no salió del laboratorio durante esas horas?", "expected_focus": "SCN-06-AT-10"},
+    {"id": "pos-scn-06-at-10-3", "kind": "positive", "npc_id": "pablo", "known_facts": [], "query": "¿Dónde estaba trabajando a partir de las 18?", "expected_focus": "SCN-06-AT-10"},
+
+    {"id": "pos-scn-07-at-01-1", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01"], "query": "¿En qué parte del escritorio apareció la versión modificada del seguro?", "expected_focus": "SCN-07-AT-01"},
+    {"id": "pos-scn-07-at-01-2", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01"], "query": "¿Dónde guardaba Stevens la póliza nueva?", "expected_focus": "SCN-07-AT-01"},
+    {"id": "pos-scn-07-at-01-3", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01"], "query": "Al registrar el departamento, ¿encontraron el documento dentro de un cajón?", "expected_focus": "SCN-07-AT-01"},
+
+    {"id": "pos-scn-07-at-02-1", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01", "CL-POL-02"], "query": "¿Qué proporción del seguro le tocaba a cada hermano en la modificación?", "expected_focus": "SCN-07-AT-02"},
+    {"id": "pos-scn-07-at-02-2", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01", "CL-POL-02"], "query": "¿Pablo quedaba con la mitad y ustedes con un cuarto cada uno?", "expected_focus": "SCN-07-AT-02"},
+    {"id": "pos-scn-07-at-02-3", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01", "CL-POL-02"], "query": "Detalle cómo quedó distribuido el beneficio entre Pablo, Juan y usted.", "expected_focus": "SCN-07-AT-02"},
+
+    {"id": "pos-scn-07-at-05-1", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-01", "CL-POL-02"], "query": "Frente al documento, ¿terminó reconociendo que la pelea había sido seria?", "expected_focus": "SCN-07-AT-05"},
+    {"id": "pos-scn-07-at-05-2", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-EST-01"], "query": "Juan dice que salió furioso; ¿admite ahora que discutieron fuerte?", "expected_focus": "SCN-07-AT-05"},
+    {"id": "pos-scn-07-at-05-3", "kind": "positive", "npc_id": "esteban", "known_facts": ["CL-POL-02"], "query": "Con la póliza a la vista, ¿seguía sosteniendo que fue una charla sin importancia?", "expected_focus": "SCN-07-AT-05"},
+
+    {"id": "pos-scn-08-at-01-1", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01"], "query": "¿Los análisis encontraron tóxicos en el whisky o en el agua de la canilla?", "expected_focus": "SCN-08-AT-01"},
+    {"id": "pos-scn-08-at-01-2", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01"], "query": "¿Qué resultado dieron las botellas de bebidas que revisó?", "expected_focus": "SCN-08-AT-01"},
+    {"id": "pos-scn-08-at-01-3", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01"], "query": "Confirmeme si los licores y el agua corriente no tenían veneno.", "expected_focus": "SCN-08-AT-01"},
+
+    {"id": "pos-scn-08-at-04-1", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01", "CL-FOR-02"], "query": "¿Qué era esa marca mojada que se veía en el platito al lado del vaso?", "expected_focus": "SCN-08-AT-04"},
+    {"id": "pos-scn-08-at-04-2", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01", "CL-FOR-02"], "query": "En las fotos aparece humedad cerca del trago, ¿dónde estaba exactamente?", "expected_focus": "SCN-08-AT-04"},
+    {"id": "pos-scn-08-at-04-3", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-01", "CL-FOR-02"], "query": "¿Encontraron un pequeño rastro húmedo sobre un plato?", "expected_focus": "SCN-08-AT-04"},
+
+    {"id": "pos-scn-08-at-06-1", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-02", "CL-FOR-03"], "query": "Además de los líquidos, ¿qué elemento de la bebida se olvidaron de mandar al laboratorio?", "expected_focus": "SCN-08-AT-06"},
+    {"id": "pos-scn-08-at-06-2", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-02", "CL-FOR-03"], "query": "¿Habían examinado algún cubito del congelador?", "expected_focus": "SCN-08-AT-06"},
+    {"id": "pos-scn-08-at-06-3", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-FOR-02", "CL-FOR-03"], "query": "¿Qué muestra clave no le habían entregado todavía?", "expected_focus": "SCN-08-AT-06"},
+
+    {"id": "pos-scn-09-at-01-1", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-ICE-01"], "query": "¿Qué reveló el laboratorio sobre los cubos del congelador?", "expected_focus": "SCN-09-AT-01"},
+    {"id": "pos-scn-09-at-01-2", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-ICE-01"], "query": "¿Había una dosis letal de cianuro de potasio en el hielo?", "expected_focus": "SCN-09-AT-01"},
+    {"id": "pos-scn-09-at-01-3", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-ICE-01"], "query": "Dígame qué veneno detectaron y si alcanzaba para matar.", "expected_focus": "SCN-09-AT-01"},
+
+    {"id": "pos-scn-10-at-01-1", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03"], "query": "¿La señora bebía el whisky solo o le ponía cubitos?", "expected_focus": "SCN-10-AT-01"},
+    {"id": "pos-scn-10-at-01-2", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03"], "query": "¿Era habitual que Stevens enfriara siempre el trago con hielo?", "expected_focus": "SCN-10-AT-01"},
+    {"id": "pos-scn-10-at-01-3", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03"], "query": "Cuando usted le servía whisky, ¿cómo acostumbraba tomarlo ella?", "expected_focus": "SCN-10-AT-01"},
+
+    {"id": "pos-scn-10-at-03-1", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "¿La heladera había empezado a funcionar mal poco antes del crimen?", "expected_focus": "SCN-10-AT-03"},
+    {"id": "pos-scn-10-at-03-2", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "Que inconveniente reciente tubieron con el refrigerador?", "expected_focus": "SCN-10-AT-03"},
+    {"id": "pos-scn-10-at-03-3", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "Antes de esa noche, ¿recuerda alguna falla del aparato que hacía el hielo?", "expected_focus": "SCN-10-AT-03"},
+
+    {"id": "pos-scn-10-at-05-1", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "Si no contrataron un técnico, ¿quién se ocupó de arreglar el refrigerador?", "expected_focus": "SCN-10-AT-05"},
+    {"id": "pos-scn-10-at-05-2", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "¿Fue el doctor Pablo quien metió mano en la heladera?", "expected_focus": "SCN-10-AT-05"},
+    {"id": "pos-scn-10-at-05-3", "kind": "positive", "npc_id": "criada", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "Nombre a la persona que hizo aquella reparación doméstica.", "expected_focus": "SCN-10-AT-05"},
+
+    {"id": "pos-scn-11-at-01-1", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-FRI-02"], "query": "¿Reconoce que usted intervino en la heladera de su hermana?", "expected_focus": "SCN-11-AT-01"},
+    {"id": "pos-scn-11-at-01-2", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-FRI-02"], "query": "La criada afirma que la reparó usted; ¿lo admite?", "expected_focus": "SCN-11-AT-01"},
+    {"id": "pos-scn-11-at-01-3", "kind": "positive", "npc_id": "pablo", "known_facts": ["CL-FRI-02"], "query": "¿Acepta haber hecho ese arreglo en el refrigerador?", "expected_focus": "SCN-11-AT-01"},
+
+    {"id": "pos-scn-12-at-01-1", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "Al revisar el aparato, ¿qué pieza encontró realmente averiada?", "expected_focus": "SCN-12-AT-01"},
+    {"id": "pos-scn-12-at-01-2", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿La falla se reducía únicamente a un fusible quemado?", "expected_focus": "SCN-12-AT-01"},
+    {"id": "pos-scn-12-at-01-3", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿Cuál fue su diagnóstico concreto sobre la avería?", "expected_focus": "SCN-12-AT-01"},
+
+    {"id": "pos-scn-12-at-02-1", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "Para reemplazar esa pieza, ¿hacía falta abrir la parte del congelador?", "expected_focus": "SCN-12-AT-02"},
+    {"id": "pos-scn-12-at-02-2", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿El arreglo justificaba manipular las cubeteras o el freezer?", "expected_focus": "SCN-12-AT-02"},
+    {"id": "pos-scn-12-at-02-3", "kind": "positive", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "Técnicamente, ¿podía cambiarse el fusible sin acercarse al hielo?", "expected_focus": "SCN-12-AT-02"},
+
+    {"id": "pos-scn-12-at-04-1", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-PAB-03", "CL-ICE-03"], "query": "¿La inspección del laboratorio donde trabajaba Pablo encontró cianuro disponible?", "expected_focus": "SCN-12-AT-04"},
+    {"id": "pos-scn-12-at-04-2", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-PAB-03", "CL-ICE-03"], "query": "Entre los productos controlados de Erpa, ¿apareció el mismo veneno?", "expected_focus": "SCN-12-AT-04"},
+    {"id": "pos-scn-12-at-04-3", "kind": "positive", "npc_id": "quimico", "known_facts": ["CL-PAB-03", "CL-ICE-03"], "query": "¿Qué sustancia peligrosa constaba en el inventario de reactivos de Erpa?", "expected_focus": "SCN-12-AT-04"},
+
+    {"id": "neg-social-01", "kind": "negative", "npc_id": "criada", "known_facts": [], "query": "Hola, ¿cómo está hoy?", "expected_focus": null},
+    {"id": "neg-social-02", "kind": "negative", "npc_id": "portero", "known_facts": [], "query": "¿Va a llover esta noche?", "expected_focus": null},
+    {"id": "neg-social-03", "kind": "negative", "npc_id": "juan", "known_facts": [], "query": "¿Qué equipo piensa que va a ganar el campeonato?", "expected_focus": null},
+    {"id": "neg-social-04", "kind": "negative", "npc_id": "esteban", "known_facts": [], "query": "¿Me recomienda un buen restaurante por acá?", "expected_focus": null},
+    {"id": "neg-social-05", "kind": "negative", "npc_id": "pablo", "known_facts": [], "query": "¿Le gusta escuchar música mientras trabaja?", "expected_focus": null},
+    {"id": "neg-social-06", "kind": "negative", "npc_id": "quimico", "known_facts": [], "query": "¿Cuánto falta para el fin de semana?", "expected_focus": null},
+    {"id": "neg-social-07", "kind": "negative", "npc_id": "tecnico_heladera", "known_facts": [], "query": "¿Sabe dónde queda la estación de tren?", "expected_focus": null},
+    {"id": "neg-social-09", "kind": "negative", "npc_id": "criada", "known_facts": ["CL-ICE-03"], "query": "¿Qué comida le gusta preparar para usted misma?", "expected_focus": null},
+    {"id": "neg-social-10", "kind": "negative", "npc_id": "portero", "known_facts": [], "query": "¿Hace muchos años que vive en este barrio?", "expected_focus": null},
+    {"id": "neg-social-11", "kind": "negative", "npc_id": "juan", "known_facts": ["CL-JUA-02"], "query": "¿Prefiere el verano o el invierno?", "expected_focus": null},
+    {"id": "neg-social-12", "kind": "negative", "npc_id": "esteban", "known_facts": ["CL-POL-01"], "query": "¿A qué hora abre el banco mañana?", "expected_focus": null},
+    {"id": "neg-social-13", "kind": "negative", "npc_id": "pablo", "known_facts": ["CL-PAB-03"], "query": "¿Tiene algún pasatiempo fuera del trabajo?", "expected_focus": null},
+    {"id": "neg-social-14", "kind": "negative", "npc_id": "quimico", "known_facts": ["CL-FOR-01"], "query": "¿Podría explicarme cómo hacer pan casero?", "expected_focus": null},
+    {"id": "neg-social-15", "kind": "negative", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿Qué película vio últimamente?", "expected_focus": null},
+    {"id": "neg-social-17", "kind": "negative", "npc_id": "criada", "known_facts": [], "query": "Perdón, me equivoqué de puerta.", "expected_focus": null},
+    {"id": "neg-social-18", "kind": "negative", "npc_id": "pablo", "known_facts": [], "query": "Gracias, no tengo más preguntas por ahora.", "expected_focus": null},
+
+    {"id": "neg-wrong-holder-01", "kind": "negative", "npc_id": "criada", "known_facts": ["CL-JUA-02"], "query": "¿Por qué condenaron a Juan por delitos relacionados con drogas?", "expected_focus": null},
+    {"id": "neg-wrong-holder-02", "kind": "negative", "npc_id": "portero", "known_facts": [], "query": "¿En qué sección del laboratorio trabajaba Pablo?", "expected_focus": null},
+    {"id": "neg-wrong-holder-03", "kind": "negative", "npc_id": "juan", "known_facts": ["CL-FOR-01"], "query": "¿Qué resultados dieron los análisis del whisky y del agua?", "expected_focus": null},
+    {"id": "neg-wrong-holder-04", "kind": "negative", "npc_id": "esteban", "known_facts": ["CL-ICE-01"], "query": "¿Qué concentración de cianuro encontró el perito en el hielo?", "expected_focus": null},
+    {"id": "neg-wrong-holder-05", "kind": "negative", "npc_id": "pablo", "known_facts": ["CL-FRI-02"], "query": "Como técnico, ¿era necesario tocar el congelador para cambiar el fusible?", "expected_focus": null},
+    {"id": "neg-wrong-holder-06", "kind": "negative", "npc_id": "quimico", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "¿Quién reparó la heladera de Stevens unos días antes?", "expected_focus": null},
+    {"id": "neg-wrong-holder-07", "kind": "negative", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿Cómo se repartían los porcentajes de la póliza nueva?", "expected_focus": null},
+    {"id": "neg-wrong-holder-08", "kind": "negative", "npc_id": "criada", "known_facts": [], "query": "¿Dónde estuvo Esteban desde las seis hasta la mañana siguiente?", "expected_focus": null},
+    {"id": "neg-wrong-holder-09", "kind": "negative", "npc_id": "portero", "known_facts": [], "query": "¿Por qué inhabilitaron a Pablo como veterinario?", "expected_focus": null},
+    {"id": "neg-wrong-holder-10", "kind": "negative", "npc_id": "juan", "known_facts": ["CL-POL-01", "CL-POL-02"], "query": "¿En qué cajón encontraron la póliza actualizada?", "expected_focus": null},
+    {"id": "neg-wrong-holder-11", "kind": "negative", "npc_id": "esteban", "known_facts": ["CL-JUA-02"], "query": "¿En qué comisaría tuvieron demorado a Juan durante el crimen?", "expected_focus": null},
+    {"id": "neg-wrong-holder-12", "kind": "negative", "npc_id": "pablo", "known_facts": ["CL-ICE-03"], "query": "¿Qué sustancia exacta identificó el análisis de los cubitos?", "expected_focus": null},
+    {"id": "neg-wrong-holder-13", "kind": "negative", "npc_id": "quimico", "known_facts": ["CL-FOR-01"], "query": "¿Sabe quién tuvo el último contacto con Stevens antes de que muriera?", "expected_focus": null},
+    {"id": "neg-wrong-holder-14", "kind": "negative", "npc_id": "tecnico_heladera", "known_facts": ["CL-FRI-02"], "query": "¿Qué hizo el portero con el diario a las siete y diez?", "expected_focus": null},
+    {"id": "neg-wrong-holder-15", "kind": "negative", "npc_id": "criada", "known_facts": ["CL-PAB-03", "CL-ICE-03"], "query": "¿Hallaron cianuro entre los reactivos de Erpa?", "expected_focus": null},
+    {"id": "neg-wrong-holder-16", "kind": "negative", "npc_id": "portero", "known_facts": ["CL-ICE-03", "CL-CRI-05"], "query": "¿La heladera había fallado antes de la muerte?", "expected_focus": null},
+    {"id": "neg-wrong-holder-17", "kind": "negative", "npc_id": "juan", "known_facts": ["CL-FRI-02"], "query": "¿Pablo reconoció haber arreglado el refrigerador?", "expected_focus": null},
+    {"id": "neg-wrong-holder-18", "kind": "negative", "npc_id": "esteban", "known_facts": [], "query": "¿Quién dejó el periódico debajo de la puerta?", "expected_focus": null}
+  ]
+}

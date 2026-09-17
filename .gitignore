@@ -13,3 +13,8 @@ backend/rag/embeddings.npz
 
 # Ollama models
 ollama_models/
+
+# Benchmark-specific
+benchmarks/**/embeddings_*.npz
+benchmarks/**/resultados_raw/
+benchmarks/**/resultados/

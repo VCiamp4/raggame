@@ -1,0 +1,2591 @@
+{
+  "chunks": [
+    {
+      "chunk_id": "SCN-01-AT-01",
+      "retrieval_text": "La señora Stevens tenía sesenta y ocho años.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Qué edad tenía la señora Stevens?",
+        "q2": "¿Cuál era la edad de la víctima?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-02",
+      "retrieval_text": "La señora Stevens había enviudado tres veces.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cuántas veces había enviudado la señora Stevens?",
+        "q2": "¿Cuántas veces había quedado viuda la señora Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-03",
+      "retrieval_text": "La señora Stevens poseía una fortuna considerable.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Qué se sabía de la fortuna de la señora Stevens?",
+        "q2": "¿Qué importancia tenía el patrimonio de Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-04",
+      "retrieval_text": "La señora Stevens gozaba de buena salud.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Tenía Stevens algún problema de salud antes de morir?",
+        "q2": "¿La víctima tenía problemas de salud conocidos?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-05",
+      "retrieval_text": "Quienes conocían a Stevens la describían como autoritaria y poco dispuesta a tolerar contradicciones.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cómo describían sus conocidos el carácter de Stevens?",
+        "q2": "¿Qué rasgos de personalidad destacaban quienes conocían a Stevens?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-06",
+      "retrieval_text": "Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
+      "knowledge_holders": [
+        "criada",
+        "portero",
+        "juan",
+        "esteban",
+        "pablo",
+        "quimico",
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Había indicios de que Stevens preparara su propio suicidio?",
+        "q2": "¿Había preparado Stevens de alguna manera su propia muerte?"
+      },
+      "source_excerpt": "La señora Stevens fue encontrada muerta una mañana en el comedor de su departamento. Tenía sesenta y ocho años, había enviudado tres veces, poseía una fortuna considerable y gozaba de una salud excelente. Su carácter, en cambio, no gozaba de la misma reputación. Quienes la conocían la describían como una mujer autoritaria, enérgica y poco dispuesta a tolerar contradicciones. Nada en su vida reciente permitía pensar que estuviera preparando un suicidio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-07",
+      "retrieval_text": "La criada y el portero encontraron a Stevens muerta en el comedor.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Quiénes encontraron a Stevens muerta y en qué lugar?",
+        "q2": "¿Quién halló el cuerpo y en qué habitación estaba?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-08",
+      "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Cómo estaba asegurada la puerta desde el interior?",
+        "q2": "¿Qué impedía abrir la puerta desde el lado exterior?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": "CL-CASE-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-09",
+      "retrieval_text": "No había señales de entrada forzada.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Encontraron señales de que alguien hubiera forzado la entrada?",
+        "q2": "¿La escena mostraba que alguien hubiera entrado por la fuerza?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-10",
+      "retrieval_text": "Junto al cadáver había un diario de la tarde anterior.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué objeto de lectura estaba junto al cadáver?",
+        "q2": "¿Qué material estaba junto al cuerpo de Stevens?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-11",
+      "retrieval_text": "Cerca del cadáver había un vaso de whisky.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué bebida apareció cerca del cadáver?",
+        "q2": "¿Qué había para beber cerca del cadáver?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": "CL-CASE-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-12",
+      "retrieval_text": "No había señales de lucha ni faltaba dinero.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué indicaban la escena sobre una lucha o un robo?",
+        "q2": "¿Qué indicios permitían descartar una pelea o un robo?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-13",
+      "retrieval_text": "Las ventanas estaban cerradas.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Las ventanas estaban abiertas o cerradas?",
+        "q2": "¿Podía alguien haber entrado por las ventanas?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-14",
+      "retrieval_text": "Todo indicaba que Stevens estaba sola al morir.",
+      "knowledge_holders": [
+        "criada",
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Qué hacía pensar que Stevens estaba sola al morir?",
+        "q2": "¿Qué detalle apoyaba la idea de que Stevens murió sin compañía?"
+      },
+      "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-15",
+      "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué determinó el perito sobre una muerte natural o una intoxicación?",
+        "q2": "¿Qué causa de muerte estableció inicialmente el perito?"
+      },
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
+      "fact_id": "CL-FOR-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-16",
+      "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Pudo el perito identificar ya la sustancia tóxica?",
+        "q2": "¿Qué seguía sin saberse sobre el tóxico?"
+      },
+      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-17",
+      "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué líquidos pensaba analizar el perito?",
+        "q2": "¿Qué muestras líquidas formaban parte del análisis?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-18",
+      "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué recipientes relacionados con la muerte iba a examinar el perito?",
+        "q2": "¿Qué debía examinar el perito además de las bebidas?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-19",
+      "retrieval_text": "El proceso de análisis llevaría tiempo.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué no podían conocerse enseguida los resultados del análisis?",
+        "q2": "¿Por qué el análisis no podía resolverse de inmediato?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-01-AT-20",
+      "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué el perito se negó a adelantar una conclusión?",
+        "q2": "¿Qué necesitaba hacer el perito antes de opinar sobre la muerte?"
+      },
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-01",
+      "retrieval_text": "La criada había trabajado durante años para la señora Stevens.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Desde cuándo trabajaba usted para la señora Stevens?",
+        "q2": "¿Cuánto tiempo llevaba la criada al servicio de Stevens?"
+      },
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-02",
+      "retrieval_text": "La criada identifica a Stevens como su patrona.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué era Stevens para usted dentro de la casa?",
+        "q2": "¿Qué relación laboral tenía la criada con Stevens?"
+      },
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-03",
+      "retrieval_text": "La señora Stevens solía tratar mal a la criada.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Cómo solía tratarla la señora Stevens?",
+        "q2": "¿Cómo era el trato habitual de Stevens hacia su empleada?"
+      },
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
+      "fact_id": "CL-CRI-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-04",
+      "retrieval_text": "La señora Stevens se enojaba por todo y encontraba errores en el trabajo de la criada.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Por qué se enojaba Stevens con el trabajo de la criada?",
+        "q2": "¿Qué encontraba mal Stevens en las tareas de la criada?"
+      },
+      "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-05",
+      "retrieval_text": "Vecinos y conocidos describían a Stevens como despótica y violenta con el servicio.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Cómo describían los vecinos el trato de Stevens hacia el servicio?",
+        "q2": "¿Cómo era vista Stevens por los vecinos en su trato con el personal?"
+      },
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-06",
+      "retrieval_text": "Stevens insultaba, gritaba y humillaba al servicio.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué les hacía Stevens a sus empleados cuando se enojaba?",
+        "q2": "¿De qué formas maltrataba Stevens a quienes trabajaban para ella?"
+      },
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-07",
+      "retrieval_text": "La criada soportaba el maltrato porque necesitaba el empleo.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Por qué siguió soportando la criada ese maltrato?",
+        "q2": "¿Qué obligaba a la criada a continuar en ese empleo?"
+      },
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-08",
+      "retrieval_text": "Stevens pagaba buenos salarios.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Stevens compensaba de algún modo el maltrato que daba al servicio?",
+        "q2": "¿Cómo eran los sueldos que pagaba Stevens?"
+      },
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-09",
+      "retrieval_text": "El maltrato ofrecía un motivo posible contra Stevens, aunque todavía era general.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Por qué el maltrato podía considerarse un motivo contra Stevens, aunque no concluyente?",
+        "q2": "¿Por qué el maltrato podía ser un motivo, pero no una prueba definitiva?"
+      },
+      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-10",
+      "retrieval_text": "La criada preparó el vaso de whisky hallado junto al cadáver.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué hizo la criada con el vaso de whisky encontrado?",
+        "q2": "¿Quién había preparado la bebida encontrada junto al cuerpo?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-11",
+      "retrieval_text": "La criada jura que no agregó nada extraño al vaso.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Agregó usted alguna sustancia extraña al vaso?",
+        "q2": "¿Qué aseguró la criada sobre el contenido que puso en el vaso?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-12",
+      "retrieval_text": "Stevens pidió el whisky para calmarse después de una discusión.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Por qué pidió Stevens un whisky después de la discusión?",
+        "q2": "¿Qué buscaba Stevens al pedir un whisky después de discutir?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
+      "fact_id": "CL-CRI-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-13",
+      "retrieval_text": "La criada dejó la bebida sobre la mesa.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Dónde dejó la criada el vaso después de servirlo?",
+        "q2": "¿En qué lugar quedó el vaso una vez servido?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-14",
+      "retrieval_text": "La criada no podía asegurar que Stevens hubiera probado el whisky en ese momento.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿La criada vio si Stevens llegó a probar el whisky en ese momento?",
+        "q2": "¿La criada supo si Stevens había bebido enseguida?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-15",
+      "retrieval_text": "La criada oyó voces y gritos, pero no entendió la discusión.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué oyó la criada durante la discusión y qué no logró entender?",
+        "q2": "¿Qué parte de la conversación alcanzó a percibir la criada?"
+      },
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-16",
+      "retrieval_text": "Poco antes de las siete, Stevens pidió que le hicieran llegar el diario.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué encargo hizo Stevens poco antes de las siete?",
+        "q2": "¿Qué quería recibir Stevens cerca de las siete?"
+      },
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-17",
+      "retrieval_text": "Al marcharse, la criada pidió al portero que subiera el diario.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué le pidió la criada al portero cuando se fue?",
+        "q2": "¿Qué tarea le encargó la criada al portero antes de irse?"
+      },
+      "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
+      "fact_id": "CL-CRI-04",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-03-AT-01",
+      "retrieval_text": "El portero dejó el diario bajo la puerta a las 19:10.",
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿A qué hora y dónde dejó el portero el diario?",
+        "q2": "¿Cuándo y cómo hizo llegar el portero el diario?"
+      },
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos.",
+      "fact_id": "CL-POR-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-03-AT-02",
+      "retrieval_text": "El portero dejó el diario sin ver a Stevens.",
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿El portero llegó a ver a Stevens al dejar el diario?",
+        "q2": "¿Tuvo el portero contacto visual con Stevens al entregar el diario?"
+      },
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-03-AT-03",
+      "retrieval_text": "Después de las 19:10 nadie subió a visitar a Stevens.",
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Subió alguien al departamento después de las 19:10?",
+        "q2": "¿Quedó registrada alguna entrada al edificio una vez entregado el diario?"
+      },
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos.",
+      "fact_id": "CL-POR-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-03-AT-04",
+      "retrieval_text": "La criada fue la última persona que vio viva a Stevens.",
+      "knowledge_holders": [
+        "portero",
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Quién fue la última persona que vio viva a Stevens?",
+        "q2": "¿Qué testimonio establecía quién tuvo el último contacto con Stevens?"
+      },
+      "source_excerpt": "El portero confirmó ese detalle. A las siete y diez había subido personalmente el periódico, pero, siguiendo el encargo de la criada, lo dejó bajo la puerta sin ver a la señora Stevens. Declaró además, de manera terminante, que después de ese momento nadie había subido a visitarla. La criada había sido, por lo tanto, la última persona que la vio con vida. Si había preparado un whisky envenenado, la víctima podía haber tardado en beberlo; pero si decía la verdad, entonces el veneno había llegado al vaso de un modo que todavía no comprendíamos.",
+      "fact_id": "CL-CRI-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-01",
+      "retrieval_text": "Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué delito relacionado con drogas había sido condenado Juan?",
+        "q2": "¿Por qué clase de delitos había cumplido condena Juan?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía.",
+      "fact_id": "CL-JUA-01",
+      "necessary_facts": [
+        "CL-JUA-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-02",
+      "retrieval_text": "Juan también había sido condenado por episodios de violencia y daños a la propiedad.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué otros delitos figuraban en los antecedentes de Juan?",
+        "q2": "¿Qué antecedentes violentos o materiales tenía Juan además de los delitos de drogas?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-03",
+      "retrieval_text": "Después de recuperar la libertad, Juan se vinculó con chantajes y extorsiones.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿A qué actividades se vinculó Juan después de salir en libertad?",
+        "q2": "¿A qué negocios ilegales se dedicó Juan al recuperar la libertad?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-04",
+      "retrieval_text": "Juan dijo que no quería a su hermana.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué sentía Juan por su hermana?",
+        "q2": "¿Qué vínculo afectivo decía tener Juan con su hermana?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-05",
+      "retrieval_text": "Juan dijo que la muerte de su hermana no le afectaba demasiado.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Cómo decía Juan que le afectaba la muerte de su hermana?",
+        "q2": "¿Cómo describió Juan su reacción ante la muerte de Stevens?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-06",
+      "retrieval_text": "Juan admitió que le alegraba la muerte de su hermana.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Juan llegó a admitir que se alegraba por la muerte de su hermana?",
+        "q2": "¿Juan reconoció sentir alivio o alegría por la muerte?"
+      },
+      "source_excerpt": "No fingió dolor por la muerte.\n\n—¿Quería a su hermana? —le pregunté.\n\n—No.\n\n—¿Le afecta que haya muerto?\n\n—No demasiado.\n\n—¿Le alegra?\n\nJuan sonrió.\n\n—Bastante.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-07",
+      "retrieval_text": "Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué creía Juan que Stevens había hecho descubrir sus negocios?",
+        "q2": "¿Qué responsabilidad atribuía Juan a Stevens por sus problemas con la policía?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
+      "fact_id": "CL-JUA-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-08",
+      "retrieval_text": "Juan no tenía pruebas de que Stevens lo hubiera denunciado.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Tenía Juan pruebas de que Stevens lo hubiera denunciado?",
+        "q2": "¿Qué pruebas tenía Juan para sostener su acusación contra Stevens?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-09",
+      "retrieval_text": "Juan hablaba de ese resentimiento con una seguridad casi obsesiva.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Cómo hablaba Juan del resentimiento que le tenía a Stevens?",
+        "q2": "¿Con qué intensidad expresaba Juan su rencor hacia Stevens?"
+      },
+      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-10",
+      "retrieval_text": "Juan sabía que la muerte de Stevens podía dejarle dinero.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué beneficio económico podía obtener Juan si Stevens moría?",
+        "q2": "¿Qué ganancia podía recibir Juan si su hermana moría?"
+      },
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable.",
+      "fact_id": "CL-JUA-04",
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-11",
+      "retrieval_text": "A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Le resultaba atractiva a Juan la posibilidad de cobrar por la muerte?",
+        "q2": "¿Cómo veía Juan la posibilidad de cobrar la herencia?"
+      },
+      "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-12",
+      "retrieval_text": "La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Dónde estuvo Juan entre las cinco de la tarde y la medianoche, según la policía?",
+        "q2": "¿Qué hizo Juan durante el período en que ocurrió el crimen?"
+      },
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
+      "fact_id": "CL-JUA-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-13",
+      "retrieval_text": "Juan no estuvo en el departamento durante las horas críticas.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Estuvo Juan en el departamento durante las horas críticas?",
+        "q2": "¿Tuvo Juan oportunidad de estar dentro del departamento?"
+      },
+      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-14",
+      "retrieval_text": "Juan aseguró que Esteban salió furioso del almuerzo.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué contó Juan sobre el estado de ánimo de Esteban al salir del almuerzo?",
+        "q2": "¿Cómo describió Juan la salida de Esteban del almuerzo?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
+      "fact_id": "CL-EST-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-15",
+      "retrieval_text": "Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Qué provocó, según Juan, la furia de Esteban contra el cambio en la herencia?",
+        "q2": "¿Qué noticia sobre la herencia hizo reaccionar mal a Esteban?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-16",
+      "retrieval_text": "Juan dijo que Esteban tomó el cambio en el dinero como una ofensa personal.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué interpretó Esteban como una ofensa personal el cambio de dinero?",
+        "q2": "¿Por qué interpretó Esteban el nuevo reparto como una afrenta?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-17",
+      "retrieval_text": "Juan no se preocupaba demasiado por recibir una cantidad menor porque también cobraría dinero.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Por qué decía Juan que no le preocupaba recibir una parte menor?",
+        "q2": "¿Por qué Juan decía poder aceptar una herencia más pequeña?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-01",
+      "retrieval_text": "Esteban era corredor de seguros.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿A qué se dedicaba Esteban profesionalmente?",
+        "q2": "¿Cuál era el trabajo de Esteban?"
+      },
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-02",
+      "retrieval_text": "Esteban había gestionado una póliza de vida para Stevens.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Qué trámite de seguro había gestionado Esteban para Stevens?",
+        "q2": "¿Qué seguro había tramitado Esteban para la señora Stevens?"
+      },
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": "CL-POL-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-03",
+      "retrieval_text": "Los tres hermanos figuraban como beneficiarios de la póliza.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Quiénes figuraban como beneficiarios de la póliza?",
+        "q2": "¿Quiénes cobraban la póliza cuando fue contratada?"
+      },
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-04",
+      "retrieval_text": "Esteban minimizó la discusión sobre dinero durante el almuerzo.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Cómo describió Esteban la discusión sobre dinero del almuerzo?",
+        "q2": "¿Cómo presentó Esteban la conversación sobre dinero que tuvo en el almuerzo?"
+      },
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": "CL-EST-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-05",
+      "retrieval_text": "La policía verificó que Esteban estaba en Lister desde las 18:00 hasta la mañana siguiente.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Esteban desde las seis de la tarde hasta la mañana?",
+        "q2": "¿En qué lugar se encontraba Esteban durante la noche del crimen?"
+      },
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
+      "fact_id": "CL-EST-05",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-06",
+      "retrieval_text": "La coartada de Esteban descartaba un regreso secreto al departamento.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Por qué la coartada de Esteban impedía que volviera secretamente al departamento?",
+        "q2": "¿Qué hacía imposible que Esteban volviera sin ser detectado?"
+      },
+      "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-01",
+      "retrieval_text": "Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué profesión ejercía Pablo antes de ser inhabilitado y por qué?",
+        "q2": "¿Qué profesión había perdido Pablo y cuál fue la causa?"
+      },
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-02",
+      "retrieval_text": "Pablo trabajaba en Erpa Cía., un laboratorio dedicado al análisis de leche.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿En qué empresa trabajaba Pablo y qué analizaba allí?",
+        "q2": "¿Qué tipo de laboratorio era Erpa y qué función cumplía allí Pablo?"
+      },
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-PAB-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-03",
+      "retrieval_text": "Pablo trabajaba en la sección de químicos de Erpa.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿En qué sección de Erpa trabajaba Pablo?",
+        "q2": "¿En qué área especializada de Erpa trabajaba Pablo?"
+      },
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-04",
+      "retrieval_text": "Pablo tenía acceso habitual a distintos reactivos.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿A qué sustancias tenía acceso habitual Pablo en Erpa?",
+        "q2": "¿Qué materiales de laboratorio podía manejar Pablo en su trabajo?"
+      },
+      "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
+      "fact_id": "CL-PAB-08",
+      "necessary_facts": [
+        "CL-PAB-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-05",
+      "retrieval_text": "Stevens ayudaba económicamente a Pablo.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿De qué manera ayudaba Stevens económicamente a Pablo?",
+        "q2": "¿De qué manera dependía Pablo del dinero de Stevens?"
+      },
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-06",
+      "retrieval_text": "Pablo había convencido a Stevens de dejarle una parte mayor de su dinero.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Cómo consiguió Pablo que Stevens le dejara una parte mayor?",
+        "q2": "¿Cómo logró Pablo mejorar la parte de la fortuna que recibiría?"
+      },
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": "CL-PAB-04",
+      "necessary_facts": [
+        "CL-EST-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-07",
+      "retrieval_text": "Pablo negó haber manipulado a Stevens para recibir más dinero.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué negó Pablo sobre haber manipulado a Stevens por dinero?",
+        "q2": "¿Qué negó Pablo haber hecho para obtener una herencia mayor?"
+      },
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-08",
+      "retrieval_text": "Pablo sostuvo que Stevens era libre de disponer de su fortuna.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué argumento usó Pablo sobre la libertad de Stevens para disponer de su fortuna?",
+        "q2": "¿Qué argumento dio Pablo sobre el derecho de Stevens a usar su dinero?"
+      },
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-09",
+      "retrieval_text": "Pablo señaló a Juan por sus antecedentes y su falta de escrúpulos.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Por qué señaló Pablo a Juan como posible responsable?",
+        "q2": "¿Qué razón utilizó Pablo para desviar las sospechas hacia Juan?"
+      },
+      "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
+      "fact_id": "CL-PAB-06",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-10",
+      "retrieval_text": "Pablo estaba en Erpa desde las 18:00 y su permanencia fue comprobada.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Pablo desde las seis y cómo se comprobó su permanencia?",
+        "q2": "¿Cómo se comprobó que Pablo permaneció en Erpa?"
+      },
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": "CL-PAB-05",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-11",
+      "retrieval_text": "Los tres hermanos tenían motivos para la muerte.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué motivo compartían los tres hermanos para querer muerta a Stevens?",
+        "q2": "¿Qué interés compartían los tres hermanos en la muerte de Stevens?"
+      },
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-06-AT-12",
+      "retrieval_text": "Los tres hermanos también tenían coartadas para el momento de la muerte.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué tenían en común las coartadas de los tres hermanos?",
+        "q2": "¿Qué elemento de sus relatos protegía a los tres hermanos durante la hora crítica?"
+      },
+      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-07-AT-01",
+      "retrieval_text": "La póliza actualizada fue encontrada en el cajón del escritorio de Stevens.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Dónde apareció guardada la póliza actualizada?",
+        "q2": "¿En qué mueble se encontró el documento de seguro modificado?"
+      },
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "fact_id": "CL-POL-02",
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-07-AT-02",
+      "retrieval_text": "La nueva póliza asignaba el 50% del beneficio a Pablo, el 25% a Juan y el 25% a Esteban.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Cómo se repartía el beneficio de la nueva póliza entre los tres hermanos?",
+        "q2": "¿Qué porcentaje recibirían Pablo, Juan y Esteban?"
+      },
+      "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
+      "fact_id": "CL-POL-03",
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-07-AT-05",
+      "retrieval_text": "Esteban admitió que la discusión sobre la póliza había sido fuerte.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Cómo reconoció Esteban que había sido la discusión sobre la póliza?",
+        "q2": "¿Cómo calificó Esteban el enfrentamiento por la póliza?"
+      },
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": "CL-EST-03",
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
+    },
+    {
+      "chunk_id": "SCN-07-AT-06",
+      "retrieval_text": "Esteban esperaba un reparto equitativo.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Qué reparto esperaba recibir Esteban en lugar del nuevo?",
+        "q2": "¿Qué distribución del seguro consideraba justa Esteban?"
+      },
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
+    },
+    {
+      "chunk_id": "SCN-07-AT-07",
+      "retrieval_text": "Esteban acusó a Pablo de manipular a Stevens para recibir el doble.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Qué acusación hizo Esteban contra Pablo por el reparto?",
+        "q2": "¿De qué acusó Esteban a Pablo en relación con la herencia?"
+      },
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
+    },
+    {
+      "chunk_id": "SCN-07-AT-08",
+      "retrieval_text": "Esteban salió enfurecido de la casa.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Cómo se fue Esteban de la casa después de la discusión?",
+        "q2": "¿En qué estado de ánimo abandonó Esteban la casa?"
+      },
+      "source_excerpt": "Cuando mostramos el documento a Esteban, desapareció su serenidad profesional.\n\n—¿Esto era lo que discutieron? —pregunté.\n\n—Sí.\n\n—Dijo que había sido una diferencia sin importancia.\n\n—No iba a presentarme ante ustedes diciendo que salí furioso de la casa de una mujer que apareció muerta unas horas después.\n\nTerminó admitiendo que la pelea había sido fuerte. Él había gestionado la póliza y esperaba una distribución equitativa. Al enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido. La declaración de la criada se volvía entonces más clara: la víctima había pedido el whisky después de aquella discusión para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-02",
+        "CL-EST-01"
+      ]
+    },
+    {
+      "chunk_id": "SCN-07-AT-09",
+      "retrieval_text": "La póliza daba a Esteban un motivo fuerte.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Por qué la póliza constituía un motivo especialmente fuerte para Esteban?",
+        "q2": "¿Qué interés económico convertía la póliza en un motivo para Esteban?"
+      },
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-07-AT-10",
+      "retrieval_text": "La póliza no explicaba el método del crimen.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Qué cuestión del crimen no explicaba la póliza?",
+        "q2": "¿Qué parte del asesinato quedaba sin resolver aun con la póliza?"
+      },
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-07-AT-11",
+      "retrieval_text": "La coartada de Esteban en Lister seguía confirmada.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Seguía confirmada la coartada de Esteban en Lister?",
+        "q2": "¿Qué evidencia seguía respaldando la ubicación de Esteban en Lister?"
+      },
+      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-01",
+      "retrieval_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué encontraron limpio al analizar las bebidas y el agua?",
+        "q2": "¿Qué líquidos resultaron libres de sustancias tóxicas?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": "CL-FOR-02",
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-02",
+      "retrieval_text": "La intoxicación de Stevens seguía confirmada.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué conclusión sobre la intoxicación seguía sosteniendo el perito?",
+        "q2": "¿Qué hecho médico seguía siendo indiscutible pese a los análisis negativos?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-03",
+      "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué descartaron los análisis sobre el origen del tóxico?",
+        "q2": "¿Dónde no apareció el veneno según las primeras muestras?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-04",
+      "retrieval_text": "En un plato junto al vaso había una pequeña mancha de humedad.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué señal apareció en el plato junto al vaso?",
+        "q2": "¿Qué rastro encontró el perito en el plato cercano al vaso?"
+      },
+      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso.",
+      "fact_id": "CL-FOR-03",
+      "necessary_facts": [
+        "CL-FOR-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-05",
+      "retrieval_text": "La humedad del plato hizo necesario revisar qué otra cosa entraba normalmente en el whisky.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué la humedad del plato llevó a investigar otro ingrediente del whisky?",
+        "q2": "¿Qué pregunta abrió la mancha de humedad sobre la preparación del trago?"
+      },
+      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-06",
+      "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué muestra faltaba todavía entre las pruebas del perito?",
+        "q2": "¿Qué material faltaba analizar todavía?"
+      },
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
+      "fact_id": "CL-ICE-01",
+      "necessary_facts": [
+        "CL-FOR-02",
+        "CL-FOR-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-07",
+      "retrieval_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué pidió el detective que se analizara al regresar el perito?",
+        "q2": "¿Qué parte de la heladera pidió revisar el detective?"
+      },
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-02",
+        "CL-FOR-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-09-AT-01",
+      "retrieval_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué contenía el hielo y en qué cantidad resultaba mortal?",
+        "q2": "¿Qué veneno había en los cubos de hielo y qué tan peligroso era?"
+      },
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
+      "fact_id": "CL-ICE-03",
+      "necessary_facts": [
+        "CL-ICE-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-09-AT-02",
+      "retrieval_text": "Las botellas estaban limpias porque el veneno no había estado en ellas.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Por qué las botellas no contenían veneno?",
+        "q2": "¿Por qué el análisis de las botellas no reveló el origen del tóxico?"
+      },
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ICE-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-09-AT-03",
+      "retrieval_text": "La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Cómo pudo la criada introducir el veneno sin saberlo al servir el whisky?",
+        "q2": "¿Cómo podía la criada haber agregado el veneno sin advertirlo?"
+      },
+      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ICE-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-01",
+      "retrieval_text": "Stevens siempre tomaba el whisky con hielo.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Cómo acostumbraba Stevens tomar su whisky?",
+        "q2": "¿De qué manera acostumbraba Stevens tomar su trago?"
+      },
+      "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
+      "fact_id": "CL-CRI-05",
+      "necessary_facts": [
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-02",
+      "retrieval_text": "Los cubos de hielo no se compraban: los producía la heladera.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿De dónde salían los cubos de hielo que usaba Stevens?",
+        "q2": "¿De dónde obtenía la casa el hielo para las bebidas?"
+      },
+      "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-03",
+      "retrieval_text": "La heladera había fallado unos días antes.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué problema había tenido la heladera unos días antes?",
+        "q2": "¿Qué le había ocurrido recientemente a la heladera?"
+      },
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
+      "fact_id": "CL-FRI-01",
+      "necessary_facts": [
+        "CL-ICE-03",
+        "CL-CRI-05"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-04",
+      "retrieval_text": "No llamaron a un técnico para reparar la heladera.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Llamaron a un técnico para reparar la heladera?",
+        "q2": "¿Qué decisión tomaron sobre llamar a un reparador?"
+      },
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ICE-03",
+        "CL-CRI-05"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-05",
+      "retrieval_text": "Pablo fue quien reparó la heladera.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Quién reparó finalmente la heladera?",
+        "q2": "¿Quién se encargó del arreglo de la heladera?"
+      },
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
+      "fact_id": "CL-FRI-02",
+      "necessary_facts": [
+        "CL-ICE-03",
+        "CL-CRI-05"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-10-AT-06",
+      "retrieval_text": "La reparación dio a Pablo acceso directo al congelador.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué acceso obtuvo Pablo al reparar la heladera?",
+        "q2": "¿Qué zona de la heladera pudo revisar Pablo gracias al arreglo?"
+      },
+      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ICE-03",
+        "CL-CRI-05"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-01",
+      "retrieval_text": "Pablo admitió haber reparado la heladera.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué admitió Pablo haber hecho con la heladera?",
+        "q2": "¿Qué intervención en la heladera reconoció Pablo?"
+      },
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": "CL-PAB-07",
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-02",
+      "retrieval_text": "Pablo dijo que el arreglo consistió en cambiar un fusible.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué pieza dijo Pablo que había cambiado?",
+        "q2": "¿Qué pieza afirmó Pablo haber reemplazado?"
+      },
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-03",
+      "retrieval_text": "Pablo negó haber tocado las cubeteras.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué negó Pablo haber tocado dentro de la heladera?",
+        "q2": "¿Qué parte donde se guardaba el hielo dijo Pablo no haber tocado?"
+      },
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-04",
+      "retrieval_text": "Pablo negó haber tocado el agua del congelador.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué negó Pablo haber tocado en relación con el agua del congelador?",
+        "q2": "¿Qué dijo Pablo sobre el agua que había en el congelador?"
+      },
+      "source_excerpt": "Interrogamos nuevamente a Pablo. No negó haber reparado la heladera.\n\n—Fue un arreglo sencillo —dijo.\n\n—¿Qué hizo?\n\n—Cambié un fusible.\n\n—¿Tocó las cubeteras?\n\n—No.\n\n—¿El agua del congelador?\n\n—Tampoco.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-05",
+      "retrieval_text": "Pablo hizo una pausa al saber que el veneno estaba en el hielo.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Cómo reaccionó Pablo al enterarse de que el veneno estaba en el hielo?",
+        "q2": "¿Qué reacción tuvo Pablo cuando relacionaron el veneno con el hielo?"
+      },
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-06",
+      "retrieval_text": "Pablo insistió en que solo había cambiado un fusible.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué insistió Pablo que había hecho, y solamente hecho, en la reparación?",
+        "q2": "¿Qué alcance le dio Pablo a su trabajo de reparación?"
+      },
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-07",
+      "retrieval_text": "Pablo negó haber puesto cianuro.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Negó Pablo haber puesto cianuro?",
+        "q2": "¿Qué participación en el envenenamiento rechazó Pablo explícitamente?"
+      },
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-08",
+      "retrieval_text": "Pablo propuso investigar a cualquiera con acceso a la cocina.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿A quién propuso Pablo investigar por tener acceso a la cocina?",
+        "q2": "¿A quiénes sugirió Pablo buscar entre los posibles responsables?"
+      },
+      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-09",
+      "retrieval_text": "Pablo dijo que muchos empleados de Erpa manipulaban reactivos.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué dijo Pablo sobre los empleados de Erpa y los reactivos?",
+        "q2": "¿Qué dijo Pablo sobre quiénes podían manejar sustancias en Erpa?"
+      },
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-10",
+      "retrieval_text": "Pablo atribuyó el reparto de la póliza a la voluntad de Stevens.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿A quién atribuyó Pablo la decisión sobre el reparto de la póliza?",
+        "q2": "¿A qué atribuyó Pablo la decisión de cambiar los beneficiarios?"
+      },
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-11",
+      "retrieval_text": "Pablo volvió a señalar a Juan por sus antecedentes y su relación con las drogas.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Por qué volvió Pablo a señalar a Juan?",
+        "q2": "¿Qué antecedentes de Juan volvió a usar Pablo para acusarlo?"
+      },
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-11-AT-12",
+      "retrieval_text": "Pablo admitió haber reparado la heladera, pero negó tocar el agua o las cubeteras.",
+      "knowledge_holders": [
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Qué parte de la reparación admitió Pablo y qué cosas siguió negando?",
+        "q2": "¿Qué parte del arreglo aceptó Pablo y qué contacto siguió rechazando?"
+      },
+      "source_excerpt": "Le recordé que trabajaba en un laboratorio y que tenía conocimientos suficientes para manipular sustancias químicas. Contestó que Erpa Cía. era un laboratorio de análisis de leche y que decenas de empleados estaban en contacto con reactivos. Cuando mencionamos el beneficio económico que esperaba recibir, respondió que la decisión pertenecía a su hermana y volvió a dirigir las sospechas hacia Juan, recordando sus antecedentes y su relación con las drogas.\n\nNo cometió el error de negar aquello que podíamos probar. Admitía haber reparado la heladera, pero insistía en que no había tocado las cubeteras ni el agua. Su defensa era mejor de lo que hubiera sido una mentira completa.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-01",
+      "retrieval_text": "El técnico comprobó que la única avería de la heladera era un fusible.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cuál era, según el técnico, la única avería de la heladera?",
+        "q2": "¿Qué componente era el único que realmente estaba roto?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
+      "fact_id": "CL-TEC-01",
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-02",
+      "retrieval_text": "El técnico comprobó que cambiar el fusible no exigía tocar el congelador.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Era necesario tocar el congelador para cambiar el fusible?",
+        "q2": "¿Era necesario abrir o manipular el congelador para ese arreglo?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
+      "fact_id": "CL-TEC-02",
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-03",
+      "retrieval_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
+      "knowledge_holders": [
+        "tecnico_heladera"
+      ],
+      "questions": {
+        "q1": "¿Cómo le permitió la reparación a Pablo acercarse a la heladera sin sospechas?",
+        "q2": "¿Qué apariencia legítima le daba la reparación a la presencia de Pablo junto a la heladera?"
+      },
+      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FRI-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-04",
+      "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué sustancia controlada encontraron entre los reactivos de Erpa?",
+        "q2": "¿Qué reactivo peligroso apareció durante la inspección de Erpa?"
+      },
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado.",
+      "fact_id": "CL-ERP-01",
+      "necessary_facts": [
+        "CL-PAB-03",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-05",
+      "retrieval_text": "El cianuro era una sustancia de uso controlado.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué carácter tenía el cianuro dentro del control de sustancias?",
+        "q2": "¿Por qué el cianuro no era un material de uso libre?"
+      },
+      "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-PAB-03",
+        "CL-ICE-03"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-06",
+      "retrieval_text": "Pablo conocía el hábito de Stevens de beber whisky con hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué costumbre de Stevens conocía Pablo sobre el whisky?",
+        "q2": "¿Qué hábito de la víctima conocía Pablo y podía aprovechar?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ERP-01",
+        "CL-TEC-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-07",
+      "retrieval_text": "Pablo había tenido acceso reciente a la heladera.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué acceso reciente había tenido Pablo a la heladera?",
+        "q2": "¿Qué oportunidad reciente vinculaba a Pablo con la heladera?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ERP-01",
+        "CL-TEC-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-08",
+      "retrieval_text": "Pablo poseía conocimientos para manipular sustancias químicas.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué conocimientos tenía Pablo que le permitían manipular químicos?",
+        "q2": "¿Qué preparación profesional tenía Pablo para manejar químicos?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ERP-01",
+        "CL-TEC-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-09",
+      "retrieval_text": "Pablo trabajaba en un lugar donde podía encontrar cianuro.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿En qué lugar de trabajo podía Pablo encontrar cianuro?",
+        "q2": "¿En qué entorno laboral podía Pablo conseguir cianuro?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ERP-01",
+        "CL-TEC-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-12-AT-10",
+      "retrieval_text": "Pablo era el principal beneficiario de la modificación de la póliza.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Quién quedó como principal beneficiario de la póliza modificada?",
+        "q2": "¿Quién resultaba favorecido por encima de los demás en el nuevo seguro?"
+      },
+      "source_excerpt": "Las piezas comenzaban a encajar. Pablo conocía los hábitos de su hermana, sabía que bebía whisky con hielo, había tenido acceso reciente a la heladera, poseía conocimientos para manipular el veneno y trabajaba en un lugar donde podía encontrar aquella sustancia. Además, era el principal beneficiario de la modificación de la póliza.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-ERP-01",
+        "CL-TEC-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-01",
+      "retrieval_text": "La discusión comenzó cuando Esteban descubrió que la póliza había sido modificada a favor de Pablo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué descubrió Esteban que desencadenó la discusión?",
+        "q2": "¿Qué hecho sobre el seguro puso en marcha la pelea?"
+      },
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": "CL-RES-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-02",
+      "retrieval_text": "La discusión dejó alterada a Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Cómo quedó Stevens después de la discusión?",
+        "q2": "¿Cómo afectó la discusión al estado de Stevens?"
+      },
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-03",
+      "retrieval_text": "Después de la discusión, Stevens pidió un whisky para tranquilizarse.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué pidió Stevens para tranquilizarse después de discutir?",
+        "q2": "¿Qué hizo Stevens para calmarse luego del enfrentamiento?"
+      },
+      "source_excerpt": "Quedaba, sin embargo, una dificultad. Si había dedicado tanto esfuerzo a ganarse el favor económico de su hermana, ¿por qué preparar una muerte que podía ocurrir antes de que lograra obtener todo cuanto esperaba de ella?\n\nLa respuesta estaba en la discusión con Esteban.\n\nReconstruimos entonces la tarde. Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños. Durante la reunión, Esteban descubrió que la distribución que él había preparado había sido modificada en favor de Pablo. La discusión fue violenta. La criada escuchó los gritos y la señora Stevens quedó profundamente alterada. Una vez que Esteban se marchó, pidió un whisky para tranquilizarse.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-04",
+      "retrieval_text": "La criada sirvió whisky limpio con hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué sirvió la criada y qué contenía el hielo?",
+        "q2": "¿Qué recibió Stevens en el vaso además del whisky?"
+      },
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-05",
+      "retrieval_text": "La criada salió a las 19:00 y fue la última persona que vio viva a Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿A qué hora se fue la criada y qué importancia tuvo su salida?",
+        "q2": "¿A qué hora se retiró la criada y qué observación dejó atrás?"
+      },
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-06",
+      "retrieval_text": "El portero dejó el diario a las 19:10 sin ver a Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué hizo el portero a las 19:10 y llegó a ver a Stevens?",
+        "q2": "¿Qué hizo el portero al entregar el diario y qué no pudo observar?"
+      },
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-07",
+      "retrieval_text": "Mientras Stevens leía, el hielo se derritió y pasó el cianuro a la bebida.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Cómo pasó el cianuro del hielo a la bebida mientras Stevens leía?",
+        "q2": "¿Cómo llegó el tóxico del hielo al whisky mientras Stevens leía?"
+      },
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": "CL-ICE-04",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-08",
+      "retrieval_text": "Cuando Stevens tomó el whisky recibió la dosis que la mató.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué ocurrió cuando Stevens finalmente tomó el whisky?",
+        "q2": "¿En qué momento recibió Stevens la cantidad mortal?"
+      },
+      "source_excerpt": "La criada tomó una botella limpia, sirvió la bebida y agregó hielo, como hacía siempre. Después dejó el vaso sobre la mesa y continuó con su trabajo. La señora Stevens no bebió inmediatamente. Más tarde ordenó que le enviaran el diario; a las siete la criada salió, siendo la última persona que la vio con vida, y a las siete y diez el portero dejó el periódico bajo la puerta sin verla. Después de aquella hora nadie entró en el departamento.\n\nNo era necesario que entrara nadie. Mientras la señora Stevens leía, el hielo continuó derritiéndose y el cianuro pasó a la bebida. Cuando finalmente tomó el whisky recibió la dosis que la mató.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-09",
+      "retrieval_text": "Pablo contaminó el agua del congelador con cianuro durante la reparación.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Cómo contaminó Pablo el agua del congelador?",
+        "q2": "¿En qué momento y lugar contaminó Pablo el agua que luego se congeló?"
+      },
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": "CL-RES-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-10",
+      "retrieval_text": "Pablo cambió efectivamente el fusible de la heladera.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué reparación realizó efectivamente Pablo?",
+        "q2": "¿Qué pieza reemplazó Pablo durante su visita a la heladera?"
+      },
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-11",
+      "retrieval_text": "Pablo no necesitaba estar presente cuando Stevens murió.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué Pablo no necesitaba estar presente al producirse la muerte?",
+        "q2": "¿Por qué el plan no requería que Pablo estuviera junto a Stevens al final?"
+      },
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-12",
+      "retrieval_text": "La coartada laboral de Pablo formaba parte del método.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Cómo formaba parte la coartada laboral de Pablo del método?",
+        "q2": "¿Cómo ayudaba la presencia de Pablo en Erpa a ocultar el método?"
+      },
+      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
+      "fact_id": "CL-RES-03",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-13",
+      "retrieval_text": "Pablo esperaba seguir obteniendo ayuda económica de Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué esperaba seguir recibiendo Pablo de Stevens?",
+        "q2": "¿Qué esperaba Pablo que continuara haciendo Stevens por él?"
+      },
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-14",
+      "retrieval_text": "Pablo no esperaba que Stevens muriera tan pronto.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué no esperaba Pablo respecto del momento de la muerte?",
+        "q2": "¿Qué momento de la muerte no había previsto Pablo?"
+      },
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-15",
+      "retrieval_text": "La pelea con Esteban hizo que Stevens pidiera el whisky antes de lo habitual.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Cómo hizo la pelea que Stevens pidiera el whisky antes de lo habitual?",
+        "q2": "¿Por qué la discusión hizo que el whisky se sirviera antes?"
+      },
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": "CL-RES-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-13-AT-16",
+      "retrieval_text": "La pelea adelantó involuntariamente la ejecución del mecanismo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué efecto tuvo la pelea sobre el momento en que se activó el mecanismo?",
+        "q2": "¿Qué consecuencia imprevista tuvo la pelea sobre el plan?"
+      },
+      "source_excerpt": "Pero había calculado mal una cosa. No esperaba que la muerte ocurriera tan pronto. Durante algún tiempo había estado engolosinando a su hermana y obteniendo ayuda económica de ella, y esperaba seguir haciéndolo. El hielo envenenado debía proporcionarle una muerte que pareciera desligada de él y que ocurriera cuando su propia ausencia estuviera asegurada; no podía determinar, sin embargo, el instante exacto en que su hermana decidiría beber.\n\nLa pelea con Esteban alteró ese cálculo. La señora Stevens, nerviosa después de la discusión, pidió un whisky antes de lo habitual. El mecanismo funcionó antes de lo que Pablo esperaba. Esteban no había provocado el asesinato, pero involuntariamente había adelantado su ejecución.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-01",
+      "retrieval_text": "El detective confrontó a Pablo con el cianuro hallado en el hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Con qué prueba del hielo confrontó el detective a Pablo?",
+        "q2": "¿Qué evidencia material del congelador mostró el detective a Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-02",
+      "retrieval_text": "El técnico había confirmado que la avería de la heladera era insignificante.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué había confirmado el técnico sobre la avería?",
+        "q2": "¿Qué importancia real tenía la falla que había reparado Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-03",
+      "retrieval_text": "En Erpa había cianuro.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué sustancia se comprobó que había en Erpa?",
+        "q2": "¿Qué sustancia peligrosa estaba disponible en el trabajo de Pablo?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-04",
+      "retrieval_text": "Pablo respondió que cada indicio aislado no probaba que fuera el asesino.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué decía Pablo que un indicio aislado no bastaba para probar su culpabilidad?",
+        "q2": "¿Cómo intentó Pablo relativizar la fuerza de las pruebas?"
+      },
+      "source_excerpt": "Fuimos a buscar a Pablo a Erpa Cía. Cuando nos vio entrar comprendió el motivo de nuestra visita, aunque no perdió la calma. Le informamos que habíamos encontrado cianuro en el hielo, que el técnico había confirmado la insignificancia de la avería de la heladera y que en su lugar de trabajo existía aquella sustancia. Pablo respondió a cada punto con la misma frialdad. La presencia de cianuro en un laboratorio no probaba nada; conocer las costumbres de su hermana tampoco; reparar un fusible no era un delito y ser beneficiario de una póliza no convertía a nadie en asesino.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-05",
+      "retrieval_text": "Juan había pasado las horas del crimen dentro de una comisaría.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde pasó Juan las horas del crimen?",
+        "q2": "¿Qué registro oficial respaldaba la coartada de Juan?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-06",
+      "retrieval_text": "Esteban estaba en Lister desde las seis.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Esteban desde las seis?",
+        "q2": "¿Desde qué hora constaba que Esteban estaba fuera del departamento?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-07",
+      "retrieval_text": "El whisky servido por la criada estaba limpio.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué se determinó sobre la limpieza del whisky servido por la criada?",
+        "q2": "¿Qué reveló el análisis sobre la bebida que había servido la criada?"
+      },
+      "source_excerpt": "Cuando volvió a mencionar a Juan, le recordé que éste había pasado las horas del crimen dentro de una comisaría. Cuando señaló la furia de Esteban, le respondí que a las seis ya estaba en Lister. Cuando intentó poner la atención sobre la criada, le recordé que el whisky de la botella estaba limpio.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-08",
+      "retrieval_text": "El detective acusó a Pablo por su acceso a la heladera.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué el detective acusó a Pablo en relación con la heladera?",
+        "q2": "¿Qué vínculo entre Pablo y la heladera usó el detective para acusarlo?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-09",
+      "retrieval_text": "Pablo negó haber tocado las cubeteras.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué siguió negando Pablo sobre las cubeteras?",
+        "q2": "¿Qué contacto con los recipientes de hielo continuó negando Pablo?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-10",
+      "retrieval_text": "Pablo nunca confesó.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Pablo llegó a confesar el crimen?",
+        "q2": "¿Pablo reconoció ser el autor del crimen?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-14-AT-11",
+      "retrieval_text": "El caso se sostenía en la relación entre el hielo envenenado, el acceso, los químicos, la costumbre y el beneficio económico.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué conjunto de indicios conectaba el hielo, el acceso, los químicos, la costumbre y el dinero?",
+        "q2": "¿Qué conjunto de circunstancias conectaba a Pablo con el método y el beneficio?"
+      },
+      "source_excerpt": "—El veneno estaba en el hielo —le dije—, y usted fue quien tuvo acceso a la heladera.\n\nPablo sostuvo que no había tocado las cubeteras.\n\nNo confesó. Tampoco esperábamos que lo hiciera.\n\nEl caso no dependía de una confesión, sino de la relación entre las pruebas: el veneno en el congelador, el acceso de Pablo a la heladera, la presencia de cianuro en su lugar de trabajo, sus conocimientos, la costumbre de la víctima y el beneficio económico que le proporcionaba la nueva póliza. Ninguno de aquellos elementos aislado bastaba para explicar el crimen; juntos formaban un mecanismo demasiado preciso.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-01",
+      "retrieval_text": "La investigación buscaba inicialmente a alguien que actuara en el momento de la muerte.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿A quién buscaba inicialmente la investigación como autor del crimen?",
+        "q2": "¿Qué clase de autor buscaban al principio los investigadores?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-02",
+      "retrieval_text": "Pablo no había envenenado una botella o un vaso determinados.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué tipo de recipiente no había envenenado Pablo?",
+        "q2": "¿Qué objetos concretos no había contaminado Pablo?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-03",
+      "retrieval_text": "Pablo había envenenado la costumbre de Stevens de beber whisky con hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué costumbre de Stevens había envenenado Pablo en lugar de una botella?",
+        "q2": "¿Qué hábito cotidiano convirtió Pablo en el vehículo del veneno?"
+      },
+      "source_excerpt": "Durante varios días pensé en el error que nos había retrasado. Desde el principio habíamos buscado a un asesino que actuara en el momento de la muerte. Nos preguntábamos quién había entrado en el departamento, quién había servido la bebida, quién podía haber agregado algo al vaso. Pablo había preparado su crimen precisamente para que ninguna de esas preguntas llevara hasta él.\n\nNo había envenenado una botella determinada ni un vaso determinado. Había envenenado una costumbre.\n\nPodía cambiar el whisky, podía cambiar el vaso, podía cambiar la hora y hasta podía cambiar la persona que preparara la bebida. Mientras la señora Stevens continuara tomando su whisky con hielo, la trampa funcionaría.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-04",
+      "retrieval_text": "La criada parecía sospechosa porque había servido el vaso.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué parecía sospechosa la criada?",
+        "q2": "¿Qué acción de la criada la colocaba inicialmente bajo sospecha?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-05",
+      "retrieval_text": "Esteban parecía sospechoso porque había discutido violentamente con Stevens.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué hacía sospechoso a Esteban?",
+        "q2": "¿Qué conducta de Esteban alimentaba las sospechas contra él?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-06",
+      "retrieval_text": "Juan parecía sospechoso porque odiaba a Stevens y se alegraba de su muerte.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué actitud de Juan lo hacía parecer sospechoso?",
+        "q2": "¿Qué sentimientos de Juan hacían que pareciera capaz del crimen?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-07",
+      "retrieval_text": "Pablo estaba lejos cuando Stevens murió y protegido por una coartada.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba Pablo cuando murió Stevens y qué lo protegía?",
+        "q2": "¿Qué protegía a Pablo de la sospecha basada sólo en su ubicación?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-08",
+      "retrieval_text": "La discusión, la póliza, el fusible y la humedad traicionaron el plan de Pablo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Qué elementos terminaron traicionando el plan de Pablo?",
+        "q2": "¿Qué pistas terminaron revelando el plan de Pablo?"
+      },
+      "source_excerpt": "La criada parecía sospechosa porque había servido el vaso. Esteban parecía sospechoso porque había discutido violentamente con la víctima. Juan parecía sospechoso porque la odiaba y se alegraba de su muerte. Cada uno aportaba un motivo visible y distraía la investigación.\n\nPablo, entretanto, se encontraba lejos cuando su hermana murió, protegido por la mejor de las coartadas: una coartada que él mismo había incorporado al procedimiento del crimen.\n\nLo traicionaron una discusión que adelantó sus planes, una póliza escondida en un cajón, un fusible y una pequeña mancha de humedad sobre un plato.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-09",
+      "retrieval_text": "El veneno no estaba en el whisky: estaba en el hielo.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Dónde estaba el veneno, si no estaba en el whisky?",
+        "q2": "¿En qué parte de la bebida estaba realmente la sustancia mortal?"
+      },
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-15-AT-10",
+      "retrieval_text": "La diferencia entre el whisky y el hielo convirtió el crimen perfecto en un crimen casi perfecto.",
+      "knowledge_holders": [
+        "detective"
+      ],
+      "questions": {
+        "q1": "¿Por qué el mecanismo del hielo convirtió el crimen perfecto en casi perfecto?",
+        "q2": "¿Qué detalle del modo de beber de Stevens hizo que el plan casi funcionara?"
+      },
+      "source_excerpt": "Habíamos buscado el veneno en el whisky.\n\nEstaba en el hielo.\n\nY esa diferencia convirtió un crimen que parecía perfecto en un crimen casi perfecto.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    }
+  ]
+}
