@@ -102,12 +102,15 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
         return []
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
-    focus = scored_chunks[0][1]
+    focus = next(
+        (chunk for _, chunk in scored_chunks[:3] if chunk.fact_id is not None),
+        scored_chunks[0][1],
+    )
     retrieved_chunks = [focus]
-    for _, candidate in scored_chunks[1:]:
+    for _, candidate in scored_chunks:
         if len(retrieved_chunks) >= settings.max_chunks:
             break
-        if is_support(focus, candidate, session_id):
+        if candidate is not focus and is_support(focus, candidate, session_id):
             retrieved_chunks.append(candidate)
     update_fact(session_id, focus.fact_id)
 
