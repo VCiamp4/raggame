@@ -1,8 +1,12 @@
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import requests
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
 
 from backend.config import settings
 
@@ -10,9 +14,15 @@ CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
 EMBEDDINGS_PATH = Path(__file__).resolve().parents[1] / "rag" / "embeddings.npz"
 
 
-def load_chunks():
+def load_chunks(chunks_path=CHUNKS_DIR):
+    chunks_path = Path(chunks_path)
+    files = (
+        [chunks_path]
+        if chunks_path.is_file()
+        else sorted(chunks_path.glob("*.json"))
+    )
     chunks = []
-    for path in sorted(CHUNKS_DIR.glob("*.json")):
+    for path in files:
         chunks.extend(json.loads(path.read_text(encoding="utf-8"))["chunks"])
     return chunks
 
@@ -37,23 +47,35 @@ def get_embeddings(chunks):
     return embeddings
 
 
-def save_embeddings(chunks, embeddings):
-    EMBEDDINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
+def save_embeddings(chunks, embeddings, embeddings_path, model):
+    embeddings_path.parent.mkdir(parents=True, exist_ok=True)
     chunk_ids = []
     for chunk in chunks:
         chunk_ids.append(chunk["chunk_id"])
 
     np.savez(
-        EMBEDDINGS_PATH,
+        embeddings_path,
         chunk_ids=np.array(chunk_ids),
         embeddings=np.array(embeddings, dtype=np.float32),
+        model=np.array(model),
     )
 
 
 def main() -> None:
-    chunks = load_chunks()
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--chunks", default=CHUNKS_DIR, type=Path)
+    parser.add_argument("--out", default=EMBEDDINGS_PATH, type=Path)
+    parser.add_argument("--model", default=None)
+    args = parser.parse_args()
+
+    if args.model:
+        settings.embedding_model = args.model
+    chunks = load_chunks(args.chunks)
     embeddings = get_embeddings(chunks)
-    save_embeddings(chunks, embeddings)
+    save_embeddings(chunks, embeddings, args.out, settings.embedding_model)
+    print(f"Modelo: {settings.embedding_model}")
 
 
 if __name__ == "__main__":
