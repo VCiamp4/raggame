@@ -28,6 +28,12 @@ def suggested_threshold(sweep):
     )
 
 
+def sub_cell(correct, stats, key):
+    if stats is None or stats.get(key) is None:
+        return f"{correct} · —"
+    return f"{correct} · {percent(stats[key])}"
+
+
 def comparison_table(runs):
     rows = []
     for run in runs:
@@ -42,6 +48,8 @@ def comparison_table(runs):
             f'<td>{current["threshold"]:.2f}</td>'
             f'<td>{suggested["threshold"]:.2f}</td>'
             f'<td>{current["positive_correct"]}</td>'
+            f'<td>{sub_cell(current.get("fact_correct", "—"), summary.get("fact"), "hit_at_1")}</td>'
+            f'<td>{sub_cell(current.get("support_correct", "—"), summary.get("support"), "hit_at_3")}</td>'
             f'<td>{current["positive_ranking_error"]}</td>'
             f'<td>{current["positive_abstention"]}</td>'
             f'<td>{current["negative_false_positive"]}</td>'
@@ -54,10 +62,10 @@ def comparison_table(runs):
     return f"""
     <h2>Comparacion de runs</h2>
     <table>
-      <thead><tr><th>Run</th><th>Focus</th><th>Modelo</th><th>Threshold</th><th>Thr. sugerido</th><th>Correctas</th><th>Equivocadas</th><th>Omisiones</th><th>Falsos positivos</th><th>Hit@1</th><th>Hit@3</th><th>MRR</th><th>ms/emb</th></tr></thead>
+      <thead><tr><th>Run</th><th>Focus</th><th>Modelo</th><th>Threshold</th><th>Thr. sugerido</th><th>Correctas</th><th>Fact (Hit@1)</th><th>Sup (Hit@3)</th><th>Equivocadas</th><th>Omisiones</th><th>Falsos positivos</th><th>Hit@1</th><th>Hit@3</th><th>MRR</th><th>ms/emb</th></tr></thead>
       <tbody>{''.join(rows)}</tbody>
     </table>
-    <p>Correctas: respondio con el chunk esperado. Equivocadas: respondio con otro chunk. Omisiones: se abstuvo debiendo responder. Falsos positivos: respondio debiendo abstenerse. Thr. sugerido: threshold con menos falsos positivos sin bajar las correctas del maximo.</p>
+    <p>Correctas: respondio con el chunk esperado. Fact: correctas con fact_id y su Hit@1 (mide progresion). Sup: correctas sin fact_id y su Hit@3 (mide recall en contexto). Equivocadas: respondio con otro chunk. Omisiones: se abstuvo debiendo responder. Falsos positivos: respondio debiendo abstenerse. Thr. sugerido: threshold con menos falsos positivos sin bajar las correctas del maximo.</p>
     """
 
 
@@ -71,10 +79,13 @@ def sweep_table(run):
     for row in run["threshold_sweep"]:
         if row["threshold"] not in shown:
             continue
+        correct = f'{row["positive_correct"]}'
+        if "fact_correct" in row:
+            correct += f' ({row["fact_correct"]}/{row["support_correct"]})'
         rows.append(
             "<tr>"
             f'<td>{row["threshold"]:.2f}</td>'
-            f'<td>{row["positive_correct"]}</td>'
+            f"<td>{correct}</td>"
             f'<td>{row["positive_ranking_error"]}</td>'
             f'<td>{row["positive_abstention"]}</td>'
             f'<td>{row["negative_false_positive"]}</td>'
@@ -92,9 +103,11 @@ def sweep_table(run):
 def case_table(title, cases):
     rows = []
     for case in cases:
+        subset = case.get("subset") or "—"
         rows.append(
             "<tr>"
             f'<td>{html.escape(case["id"])}</td>'
+            f'<td>{html.escape(subset)}</td>'
             f'<td>{html.escape(case["npc_id"])}</td>'
             f'<td>{html.escape(case["query"])}</td>'
             f'<td>{html.escape(str(case["expected_focus"]))}</td>'
@@ -105,11 +118,11 @@ def case_table(title, cases):
             "</tr>"
         )
     if not rows:
-        rows.append('<tr><td colspan="8">Ninguno</td></tr>')
+        rows.append('<tr><td colspan="9">Ninguno</td></tr>')
     return f"""
     <h3>{html.escape(title)}</h3>
     <table>
-      <thead><tr><th>Caso</th><th>NPC</th><th>Consulta</th><th>Gold</th><th>Top</th><th>Top score</th><th>Gold rank</th><th>Gold score</th></tr></thead>
+      <thead><tr><th>Caso</th><th>Subset</th><th>NPC</th><th>Consulta</th><th>Gold</th><th>Top</th><th>Top score</th><th>Gold rank</th><th>Gold score</th></tr></thead>
       <tbody>{''.join(rows)}</tbody>
     </table>
     """
@@ -129,6 +142,16 @@ def run_section(run, outer_index, inner_index):
     generated_at = html.escape(run["generated_at"])
     model = html.escape(run["settings"]["embedding_model"])
     suggested = suggested_threshold(run["threshold_sweep"])
+    fact = summary.get("fact") or {}
+    support = summary.get("support") or {}
+    fact_hit_at_1 = (
+        percent(fact["hit_at_1"]) if fact.get("hit_at_1") is not None else "—"
+    )
+    support_hit_at_3 = (
+        percent(support["hit_at_3"])
+        if support.get("hit_at_3") is not None
+        else "—"
+    )
     active = " active" if inner_index == 0 else ""
     return f"""
     <div class="tab-panel{active}" id="tab-{outer_index}-{inner_index}">
@@ -140,6 +163,8 @@ def run_section(run, outer_index, inner_index):
       <div class="card"><span class="value">{percent(summary["hit_at_1"])}</span>Hit@1</div>
       <div class="card"><span class="value">{percent(summary["hit_at_3"])}</span>Hit@3</div>
       <div class="card"><span class="value">{summary["mrr"]:.3f}</span>MRR</div>
+      <div class="card"><span class="value">{fact_hit_at_1}</span>Hit@1 fact</div>
+      <div class="card"><span class="value">{support_hit_at_3}</span>Hit@3 support</div>
       <div class="card"><span class="value">{summary["embedding_ms_mean"]:.0f} ms</span>por embedding</div>
     </div>
     {sweep_table(run)}

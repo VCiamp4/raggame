@@ -99,6 +99,8 @@ def validate_corpus(corpus, chunks):
     assert len(ids) == len(set(ids)), "Hay ids de casos repetidos"
 
     positives = 0
+    fact_positives = 0
+    support_positives = 0
     negatives = 0
     for case in corpus["cases"]:
         known_facts = set(case["known_facts"])
@@ -108,11 +110,21 @@ def validate_corpus(corpus, chunks):
             assert chunk_is_available(expected, case["npc_id"], known_facts), (
                 f'{case["id"]}: el focus esperado no esta disponible'
             )
+            if expected.fact_id is not None:
+                fact_positives += 1
+            else:
+                support_positives += 1
         else:
             negatives += 1
             assert case["expected_focus"] is None
 
-    return {"cases": len(ids), "positives": positives, "negatives": negatives}
+    return {
+        "cases": len(ids),
+        "positives": positives,
+        "fact_positives": fact_positives,
+        "support_positives": support_positives,
+        "negatives": negatives,
+    }
 
 
 def select_focus(ranking, focus):
@@ -154,6 +166,14 @@ def score_case(case, chunks, focus):
     ranking.sort(key=lambda item: item["score"], reverse=True)
 
     expected = case["expected_focus"]
+    expected_chunk = next(
+        (chunk for chunk in chunks if chunk.chunk_id == expected), None
+    )
+    subset = None
+    if expected_chunk is not None:
+        subset = (
+            "fact" if expected_chunk.fact_id is not None else "support"
+        )
     gold = None
     for item in ranking:
         if item["chunk_id"] == expected:
@@ -163,6 +183,7 @@ def score_case(case, chunks, focus):
     top = select_focus(ranking, focus)
     return {
         **case,
+        "subset": subset,
         "available_chunks": len(available_chunks),
         "embedding_ms": embedding_ms,
         "top_chunk_id": top["chunk_id"],
@@ -195,6 +216,8 @@ def focus_at_threshold(case, threshold, focus):
 
 def metrics_at_threshold(cases, threshold, focus):
     positive_correct = 0
+    fact_correct = 0
+    support_correct = 0
     positive_ranking_error = 0
     positive_abstention = 0
     negative_false_positive = 0
@@ -207,6 +230,10 @@ def metrics_at_threshold(cases, threshold, focus):
                 positive_abstention += 1
             elif answered["chunk_id"] == case["expected_focus"]:
                 positive_correct += 1
+                if case.get("subset") == "support":
+                    support_correct += 1
+                else:
+                    fact_correct += 1
             else:
                 positive_ranking_error += 1
         elif answered is not None:
@@ -219,6 +246,8 @@ def metrics_at_threshold(cases, threshold, focus):
     return {
         "threshold": threshold,
         "positive_correct": positive_correct,
+        "fact_correct": fact_correct,
+        "support_correct": support_correct,
         "positive_ranking_error": positive_ranking_error,
         "positive_abstention": positive_abstention,
         "positive_accuracy": positive_correct / positives,
@@ -236,24 +265,42 @@ def threshold_sweep(cases, focus):
 
 
 def ranking_summary(cases):
-    positives = 0
-    hit_at_1 = 0
-    hit_at_3 = 0
-    reciprocal_rank = 0.0
-    for case in cases:
-        if case["kind"] != "positive":
+    positives = [
+        case for case in cases if case["kind"] == "positive"
+    ]
+    hit_at_1 = sum(1 for case in positives if case["ranking_correct"])
+    hit_at_3 = sum(1 for case in positives if case["gold_rank"] <= 3)
+    reciprocal_rank = sum(1 / case["gold_rank"] for case in positives)
+    total = len(positives)
+    summary = {
+        "hit_at_1": hit_at_1 / total,
+        "hit_at_3": hit_at_3 / total,
+        "mrr": reciprocal_rank / total,
+    }
+    for subset in ("fact", "support"):
+        subset_cases = [
+            case for case in positives if case.get("subset") == subset
+        ]
+        if not subset_cases:
+            summary[subset] = None
             continue
-        positives += 1
-        if case["ranking_correct"]:
-            hit_at_1 += 1
-        if case["gold_rank"] <= 3:
-            hit_at_3 += 1
-        reciprocal_rank += 1 / case["gold_rank"]
-
-    hit_at_1 /= positives
-    hit_at_3 /= positives
-    mrr = reciprocal_rank / positives
-    return {"hit_at_1": hit_at_1, "hit_at_3": hit_at_3, "mrr": mrr}
+        subset_hit_at_1 = sum(
+            1 for case in subset_cases if case["ranking_correct"]
+        )
+        subset_hit_at_3 = sum(
+            1 for case in subset_cases if case["gold_rank"] <= 3
+        )
+        subset_reciprocal = sum(
+            1 / case["gold_rank"] for case in subset_cases
+        )
+        total_subset = len(subset_cases)
+        summary[subset] = {
+            "positives": total_subset,
+            "hit_at_1": subset_hit_at_1 / total_subset,
+            "hit_at_3": subset_hit_at_3 / total_subset,
+            "mrr": subset_reciprocal / total_subset,
+        }
+    return summary
 
 
 def worst_cases(cases):
@@ -369,7 +416,9 @@ def main():
     if args.validate_only:
         print(
             f'Corpus valido: {counts["cases"]} casos '
-            f'({counts["positives"]} positivos, {counts["negatives"]} negativos)'
+            f'({counts["positives"]} positivos '
+            f'[{counts["fact_positives"]} fact, {counts["support_positives"]} support], '
+            f'{counts["negatives"]} negativos)'
         )
         return
 
@@ -412,6 +461,8 @@ def main():
                 "summary": {
                     "cases": counts["cases"],
                     "positive_cases": counts["positives"],
+                    "positive_fact_cases": counts["fact_positives"],
+                    "positive_support_cases": counts["support_positives"],
                     "negative_cases": counts["negatives"],
                     **ranking,
                 },
