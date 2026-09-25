@@ -7,7 +7,7 @@ const JUMP_VELOCITY = 4.5
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
-const EXAMINE_DISTANCE = 3.0
+const EXAMINE_DISTANCE = 6.0
 var highlighted_object: Node = null
 
 var nearby_npc: Node = null
@@ -62,7 +62,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if highlighted_object != null and not in_dialogue:
 				if highlighted_object.is_in_group("pizarron"):
-					highlighted_object.interact()   # abre el lineup
+					highlighted_object.interact()
+				elif highlighted_object.is_in_group("ascensor"):
+					highlighted_object.interact()   
 				else:
 					_examine_object(highlighted_object)   # copa: muestra texto
 
@@ -150,12 +152,13 @@ func _check_examinable_under_mouse() -> void:
 	var found: Node = null
 	if result and result.has("collider"):
 		var collider = result["collider"]
-		# Detecta tanto examinables (copa) como el pizarrón
-		if collider.is_in_group("examinable") or collider.is_in_group("pizarron"):
+		if collider.is_in_group("examinable") or collider.is_in_group("pizarron") or collider.is_in_group("ascensor"):
 			var dist = global_position.distance_to(collider.global_position)
+			print(">> Distancia al objeto: ", dist, " | límite: ", EXAMINE_DISTANCE)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider
-	
+				print(">> PASÓ el chequeo de distancia")
+				
 	if found != highlighted_object:
 		_clear_highlight()
 		if found != null:
