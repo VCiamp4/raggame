@@ -465,21 +465,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "SCN-02-AT-09",
-      "retrieval_text": "El maltrato ofrecía un motivo posible contra Stevens, aunque todavía era general.",
-      "knowledge_holders": [
-        "criada"
-      ],
-      "questions": {
-        "q1": "¿Por qué el maltrato podía considerarse un motivo contra Stevens, aunque no concluyente?",
-        "q2": "¿Por qué el maltrato podía ser un motivo, pero no una prueba definitiva?"
-      },
-      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-02-AT-10",
       "retrieval_text": "La criada preparó el vaso de whisky hallado junto al cadáver.",
       "knowledge_holders": [
@@ -619,8 +604,7 @@
       "chunk_id": "SCN-03-AT-02",
       "retrieval_text": "El portero dejó el diario sin ver a Stevens.",
       "knowledge_holders": [
-        "portero",
-        "criada"
+        "portero"
       ],
       "questions": {
         "q1": "¿El portero llegó a ver a Stevens al dejar el diario?",
@@ -1194,21 +1178,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "SCN-06-AT-12",
-      "retrieval_text": "Los tres hermanos también tenían coartadas para el momento de la muerte.",
-      "knowledge_holders": [
-        "pablo"
-      ],
-      "questions": {
-        "q1": "¿Qué tenían en común las coartadas de los tres hermanos?",
-        "q2": "¿Qué elemento de sus relatos protegía a los tres hermanos durante la hora crítica?"
-      },
-      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-07-AT-01",
       "retrieval_text": "La póliza actualizada fue encontrada en el cajón del escritorio de Stevens.",
       "knowledge_holders": [
@@ -1315,40 +1284,6 @@
       ]
     },
     {
-      "chunk_id": "SCN-07-AT-09",
-      "retrieval_text": "La póliza daba a Esteban un motivo fuerte.",
-      "knowledge_holders": [
-        "esteban"
-      ],
-      "questions": {
-        "q1": "¿Por qué la póliza constituía un motivo especialmente fuerte para Esteban?",
-        "q2": "¿Qué interés económico convertía la póliza en un motivo para Esteban?"
-      },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-POL-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-07-AT-10",
-      "retrieval_text": "La póliza no explicaba el método del crimen.",
-      "knowledge_holders": [
-        "esteban"
-      ],
-      "questions": {
-        "q1": "¿Qué cuestión del crimen no explicaba la póliza?",
-        "q2": "¿Qué parte del asesinato quedaba sin resolver aun con la póliza?"
-      },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-POL-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-07-AT-11",
       "retrieval_text": "La coartada de Esteban en Lister seguía confirmada.",
       "knowledge_holders": [
@@ -1417,40 +1352,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "SCN-08-AT-04",
-      "retrieval_text": "En un plato junto al vaso había una pequeña mancha de humedad.",
-      "knowledge_holders": [
-        "quimico"
-      ],
-      "questions": {
-        "q1": "¿Qué señal apareció en el plato junto al vaso?",
-        "q2": "¿Qué rastro encontró el perito en el plato cercano al vaso?"
-      },
-      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso.",
-      "fact_id": "CL-FOR-03",
-      "necessary_facts": [
-        "CL-FOR-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-08-AT-05",
-      "retrieval_text": "La humedad del plato hizo necesario revisar qué otra cosa entraba normalmente en el whisky.",
-      "knowledge_holders": [
-        "quimico"
-      ],
-      "questions": {
-        "q1": "¿Por qué la humedad del plato llevó a investigar otro ingrediente del whisky?",
-        "q2": "¿Qué pregunta abrió la mancha de humedad sobre la preparación del trago?"
-      },
-      "source_excerpt": "Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.\n\nVolví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El agua corriente estaba limpia. La criada había preparado la bebida como siempre y había sido la última persona que vio viva a la víctima. Si el veneno no había salido de la botella, debía preguntarnos qué otra cosa entraba normalmente en aquel vaso.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-FOR-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-08-AT-06",
       "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
       "knowledge_holders": [
@@ -1463,8 +1364,7 @@
       "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
       "fact_id": "CL-ICE-01",
       "necessary_facts": [
-        "CL-FOR-02",
-        "CL-FOR-03"
+        "CL-FOR-02"
       ],
       "sufficient_facts": []
     },
@@ -1481,8 +1381,7 @@
       "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
       "fact_id": null,
       "necessary_facts": [
-        "CL-FOR-02",
-        "CL-FOR-03"
+        "CL-FOR-02"
       ],
       "sufficient_facts": []
     },
@@ -1512,23 +1411,6 @@
       "questions": {
         "q1": "¿Por qué las botellas no contenían veneno?",
         "q2": "¿Por qué el análisis de las botellas no reveló el origen del tóxico?"
-      },
-      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-01"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-09-AT-03",
-      "retrieval_text": "La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.",
-      "knowledge_holders": [
-        "quimico"
-      ],
-      "questions": {
-        "q1": "¿Cómo pudo la criada introducir el veneno sin saberlo al servir el whisky?",
-        "q2": "¿Cómo podía la criada haber agregado el veneno sin advertirlo?"
       },
       "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
       "fact_id": null,
@@ -1619,24 +1501,6 @@
       },
       "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
       "fact_id": "CL-FRI-02",
-      "necessary_facts": [
-        "CL-ICE-03",
-        "CL-CRI-05"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-10-AT-06",
-      "retrieval_text": "La reparación dio a Pablo acceso directo al congelador.",
-      "knowledge_holders": [
-        "criada"
-      ],
-      "questions": {
-        "q1": "¿Qué acceso obtuvo Pablo al reparar la heladera?",
-        "q2": "¿Qué zona de la heladera pudo revisar Pablo gracias al arreglo?"
-      },
-      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
-      "fact_id": null,
       "necessary_facts": [
         "CL-ICE-03",
         "CL-CRI-05"
@@ -1884,23 +1748,6 @@
       },
       "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
       "fact_id": "CL-TEC-02",
-      "necessary_facts": [
-        "CL-FRI-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-12-AT-03",
-      "retrieval_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Cómo le permitió la reparación a Pablo acercarse a la heladera sin sospechas?",
-        "q2": "¿Qué apariencia legítima le daba la reparación a la presencia de Pablo junto a la heladera?"
-      },
-      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
-      "fact_id": null,
       "necessary_facts": [
         "CL-FRI-02"
       ],

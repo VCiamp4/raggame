@@ -9,7 +9,7 @@
       ],
       "questions": {
         "q1": "¿Qué profesión ejercía Pablo antes de ser inhabilitado y por qué?",
-        "q2": "¿Qué profesión había perdido Pablo y cuál fue la causa?"
+        "q2": "¿A qué se dedicaba Pablo antes de trabajar en Erpa?"
       },
       "source_excerpt": "El tercero era Pablo, el menor. Había ejercido como veterinario hasta que la Justicia lo inhabilitó por dopar caballos de carrera. Orgulloso y acostumbrado a una vida mejor, soportaba mal su caída. Después de perder la licencia había conseguido un puesto en Erpa Cía., un laboratorio dedicado al análisis de leche, donde trabajaba en la sección de químicos y tenía acceso habitual a distintos reactivos. Hablaba de aquel empleo con un desprecio que revelaba hasta qué punto se consideraba por encima de él.",
       "fact_id": "CL-PAB-02",
@@ -166,21 +166,6 @@
       "questions": {
         "q1": "¿Qué motivo compartían los tres hermanos para querer muerta a Stevens?",
         "q2": "¿Qué interés compartían los tres hermanos en la muerte de Stevens?"
-      },
-      "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-06-AT-12",
-      "retrieval_text": "Los tres hermanos también tenían coartadas para el momento de la muerte.",
-      "knowledge_holders": [
-        "pablo"
-      ],
-      "questions": {
-        "q1": "¿Qué tenían en común las coartadas de los tres hermanos?",
-        "q2": "¿Qué elemento de sus relatos protegía a los tres hermanos durante la hora crítica?"
       },
       "source_excerpt": "Pablo tampoco podía haber estado presente en el departamento durante las horas críticas. Desde las seis de la tarde estaba en Erpa Cía. y su permanencia allí había sido comprobada.\n\nTeníamos, por lo tanto, tres hermanos con motivos y tres coartadas.",
       "fact_id": null,

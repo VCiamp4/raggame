@@ -108,40 +108,6 @@
       ]
     },
     {
-      "chunk_id": "SCN-07-AT-09",
-      "retrieval_text": "La póliza daba a Esteban un motivo fuerte.",
-      "knowledge_holders": [
-        "esteban"
-      ],
-      "questions": {
-        "q1": "¿Por qué la póliza constituía un motivo especialmente fuerte para Esteban?",
-        "q2": "¿Qué interés económico convertía la póliza en un motivo para Esteban?"
-      },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-POL-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-07-AT-10",
-      "retrieval_text": "La póliza no explicaba el método del crimen.",
-      "knowledge_holders": [
-        "esteban"
-      ],
-      "questions": {
-        "q1": "¿Qué cuestión del crimen no explicaba la póliza?",
-        "q2": "¿Qué parte del asesinato quedaba sin resolver aun con la póliza?"
-      },
-      "source_excerpt": "El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-POL-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-07-AT-11",
       "retrieval_text": "La coartada de Esteban en Lister seguía confirmada.",
       "knowledge_holders": [

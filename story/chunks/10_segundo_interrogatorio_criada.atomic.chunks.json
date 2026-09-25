@@ -88,24 +88,6 @@
         "CL-CRI-05"
       ],
       "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-10-AT-06",
-      "retrieval_text": "La reparación dio a Pablo acceso directo al congelador.",
-      "knowledge_holders": [
-        "criada"
-      ],
-      "questions": {
-        "q1": "¿Qué acceso obtuvo Pablo al reparar la heladera?",
-        "q2": "¿Qué zona de la heladera pudo revisar Pablo gracias al arreglo?"
-      },
-      "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-03",
-        "CL-CRI-05"
-      ],
-      "sufficient_facts": []
     }
   ]
 }

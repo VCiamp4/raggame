@@ -34,23 +34,6 @@
         "CL-ICE-01"
       ],
       "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-09-AT-03",
-      "retrieval_text": "La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.",
-      "knowledge_holders": [
-        "quimico"
-      ],
-      "questions": {
-        "q1": "¿Cómo pudo la criada introducir el veneno sin saberlo al servir el whisky?",
-        "q2": "¿Cómo podía la criada haber agregado el veneno sin advertirlo?"
-      },
-      "source_excerpt": "Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-01"
-      ],
-      "sufficient_facts": []
     }
   ]
 }

@@ -36,23 +36,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "SCN-12-AT-03",
-      "retrieval_text": "La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Cómo le permitió la reparación a Pablo acercarse a la heladera sin sospechas?",
-        "q2": "¿Qué apariencia legítima le daba la reparación a la presencia de Pablo junto a la heladera?"
-      },
-      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-FRI-02"
-      ],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-12-AT-04",
       "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
       "knowledge_holders": [

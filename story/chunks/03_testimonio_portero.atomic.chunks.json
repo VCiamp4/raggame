@@ -21,8 +21,7 @@
       "chunk_id": "SCN-03-AT-02",
       "retrieval_text": "El portero dejó el diario sin ver a Stevens.",
       "knowledge_holders": [
-        "portero",
-        "criada"
+        "portero"
       ],
       "questions": {
         "q1": "¿El portero llegó a ver a Stevens al dejar el diario?",

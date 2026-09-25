@@ -63,15 +63,15 @@
     },
     {
       "chunk_id": "SCN-02-AT-05",
-      "retrieval_text": "Vecinos y conocidos describían a Stevens como despótica y violenta con el servicio.",
+      "retrieval_text": "La criada soportaba los insultos, gritos y humillaciones de Stevens porque necesitaba el empleo.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
-        "q1": "¿Cómo describían los vecinos el trato de Stevens hacia el servicio?",
-        "q2": "¿Cómo era vista Stevens por los vecinos en su trato con el personal?"
+        "q1": "¿Cómo la trataba Stevens cuando usted trabajaba en la casa?",
+        "q2": "¿Qué soportaba de su patrona para conservar el empleo?"
       },
-      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
+      "source_excerpt": "La criada soportaba insultos, gritos y humillaciones de Stevens porque necesitaba el empleo.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
@@ -115,21 +115,6 @@
       "questions": {
         "q1": "¿Stevens compensaba de algún modo el maltrato que daba al servicio?",
         "q2": "¿Cómo eran los sueldos que pagaba Stevens?"
-      },
-      "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-02-AT-09",
-      "retrieval_text": "El maltrato ofrecía un motivo posible contra Stevens, aunque todavía era general.",
-      "knowledge_holders": [
-        "criada"
-      ],
-      "questions": {
-        "q1": "¿Por qué el maltrato podía considerarse un motivo contra Stevens, aunque no concluyente?",
-        "q2": "¿Por qué el maltrato podía ser un motivo, pero no una prueba definitiva?"
       },
       "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
       "fact_id": null,
