@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bypwqpjgyb8sb" path="res://assets/Cow by Poly by Google - 0OToIgkcVM7.glb" id="1_2odp0"]
 [ext_resource type="PackedScene" uid="uid://b22x3iu7yytqe" path="res://assets/Lab Assets/GLB/Furniture/Counters/counter_counter_side_outlet.glb" id="2_5a8uo"]
 [ext_resource type="PackedScene" uid="uid://vwoy3evwo7lg" path="res://assets/Lab Assets/GLB/Furniture/Counters/counter_counter.glb" id="3_4tgyg"]
+[ext_resource type="Material" uid="uid://cxjg1kegmi1aa" path="res://assets/Tiles139_2K-JPG/Tiles139_2K-JPG.tres" id="3_8huxt"]
 [ext_resource type="PackedScene" uid="uid://dlqnkfjka3wlb" path="res://assets/Lab Assets/GLB/Heating Equipment/heating_equipment_bunsen_burner.glb" id="4_p261k"]
 [ext_resource type="PackedScene" uid="uid://ceolqw7mii8iw" path="res://assets/Lab Assets/GLB/Machines/machine_electronic_scale.glb" id="5_poq00"]
 [ext_resource type="PackedScene" uid="uid://dpn50q80deecj" path="res://assets/Lab Assets/GLB/Machines/machine_hot_plate.glb" id="6_45drv"]
@@ -12,14 +13,38 @@
 [ext_resource type="PackedScene" uid="uid://dyi0kl06vva18" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/CrtMonitor.glb" id="10_liwng"]
 [ext_resource type="PackedScene" uid="uid://d2w70dmejepm4" path="res://assets/Lab Assets/GLB/Heating Equipment/heating_equipment_ring_stand.glb" id="11_lprxf"]
 [ext_resource type="PackedScene" uid="uid://0rl0jffoi5h8" path="res://assets/Lab Assets/GLB/Dishes/dish_evaporating_dish.glb" id="12_8huxt"]
+[ext_resource type="PackedScene" uid="uid://wrfm7k76jqmw" path="res://assets/Lab Assets/GLB/Machines/machine_desiccator.glb" id="13_liwng"]
+[ext_resource type="PackedScene" uid="uid://dlyrntjpphxd6" path="res://assets/Lab Assets/GLB/Misc/misc_wash_bottle.glb" id="14_lprxf"]
+[ext_resource type="PackedScene" uid="uid://cjliqo4ygxv37" path="res://assets/Lab Assets/GLB/Tubes and Flasks/Flasks/bottle_glassware_filtering_flask_medium.glb" id="15_8huxt"]
+[ext_resource type="PackedScene" uid="uid://i8pjssryufpx" path="res://assets/Lab Assets/GLB/Machines/machine_centrifuge.glb" id="16_gkvkn"]
+[ext_resource type="PackedScene" uid="uid://b57j1yeofyn6e" path="res://assets/Lab Assets/GLB/Machines/machine_centrifuge_tube.glb" id="17_jm27p"]
+[ext_resource type="PackedScene" uid="uid://bosoynv1tbhd1" path="res://assets/Lab Assets/GLB/Funnels/funnel_buret.glb" id="18_o37bk"]
+[ext_resource type="PackedScene" uid="uid://cnk54at8egy0r" path="res://assets/Lab Assets/GLB/Tubes and Flasks/Flasks/bottle_glassware_beaker_large.glb" id="19_vjpjs"]
+[ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="20_63p0i"]
+[ext_resource type="Material" uid="uid://drvxwrkhavqyb" path="res://assets/Plaster001_1K-JPG/Plaster001_1K-JPG.tres" id="21_gkvkn"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
+material = ExtResource("3_8huxt")
 size = Vector2(3, 6)
 
-[node name="Node3D" type="Node3D" unique_id=459800692]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
+size = Vector3(29.814728, 0.62023926, 59.490997)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1152430635]
-mesh = SubResource("PlaneMesh_arjtg")
+[sub_resource type="BoxShape3D" id="BoxShape3D_rv06a"]
+size = Vector3(411.65833, 62.908264, 42.781616)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
+material = ExtResource("21_gkvkn")
+size = Vector2(3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
+size = Vector3(6.0140533, 1.8218994, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ktimd"]
+material = ExtResource("21_gkvkn")
+size = Vector2(6, 2)
+
+[node name="Node3D" type="Node3D" unique_id=459800692]
 
 [node name="Cow by Poly by Google - 0OToIgkcVM7" parent="." unique_id=1252148571 instance=ExtResource("1_2odp0")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.0087638, 0, -2.0911295)
@@ -27,11 +52,29 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.0087638, 0, -2.09112
 [node name="Low Poly - Lab Assets" parent="." unique_id=438496709 instance=ExtResource("2_5a8uo")]
 transform = Transform3D(9.843771e-05, 0, -0.005999193, 0, 0.006, 0, 0.005999193, 0, 9.843771e-05, -1.315033, 0.21205702, -0.4455937)
 
+[node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=1612998776]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.0087638, 0, -2.0911295)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5" unique_id=1152430635]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 10.087638, 0.08447766, 20.911295)
+mesh = SubResource("PlaneMesh_arjtg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=225662625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.003556, -0.18988037, 20.465775)
+shape = SubResource("BoxShape3D_nbej8")
+
 [node name="Low Poly - Lab Assets2" parent="." unique_id=809770799 instance=ExtResource("3_4tgyg")]
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.3078527, 0.21152902, -0.07931559)
 
-[node name="Low Poly - Lab Assets3" parent="." unique_id=1490057907 instance=ExtResource("3_4tgyg")]
+[node name="StaticBody3D6" type="StaticBody3D" parent="." unique_id=1873270674]
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.3007054, 0.21152902, 0.27653414)
+
+[node name="Low Poly - Lab Assets3" parent="StaticBody3D6" unique_id=1490057907 instance=ExtResource("3_4tgyg")]
+transform = Transform3D(1.0000001, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1.0000001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=1617096601]
+transform = Transform3D(1.000001, 0, 1.1119992e-06, 0, 0.9999998, 0, -1.1119992e-06, 0, 1.000001, 56.67418, 2.027439, -20.8909)
+shape = SubResource("BoxShape3D_rv06a")
 
 [node name="Low Poly - Lab Assets4" parent="." unique_id=690075390 instance=ExtResource("3_4tgyg")]
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2929622, 0.21152902, 0.64674276)
@@ -74,3 +117,78 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.3079096, 0.2360953
 
 [node name="Low Poly - Lab Assets15" parent="." unique_id=1665491601 instance=ExtResource("12_8huxt")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 1.3072721, 0.27930582, -2.7527888)
+
+[node name="Low Poly - Lab Assets16" parent="." unique_id=859358942 instance=ExtResource("13_liwng")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, -1.3853989, 0.33380222, 1.1858567)
+
+[node name="Low Poly - Lab Assets17" parent="." unique_id=808083467 instance=ExtResource("14_lprxf")]
+transform = Transform3D(-0.029079745, 0, 0.0073734806, 0, 0.029999997, 0, -0.0073734806, 0, -0.029079745, -0.70686615, 0, -2.4803936)
+
+[node name="Low Poly - Lab Assets18" parent="." unique_id=845001074 instance=ExtResource("14_lprxf")]
+transform = Transform3D(-0.021976283, 0, -0.020421622, 0, 0.029999997, 0, 0.020421622, 0, -0.021976283, -0.70931023, 2.9802322e-08, -2.777798)
+
+[node name="Low Poly - Lab Assets19" parent="." unique_id=116653589 instance=ExtResource("15_8huxt")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -1.045464, 0.43790174, 2.5889874)
+
+[node name="Low Poly - Lab Assets20" parent="." unique_id=166341727 instance=ExtResource("16_gkvkn")]
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 1.2511069, 0.17233133, 2.808749)
+
+[node name="Low Poly - Lab Assets21" parent="." unique_id=1767395975 instance=ExtResource("17_jm27p")]
+transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0.88523215, 0.011798814, 2.5553956)
+
+[node name="Low Poly - Lab Assets22" parent="." unique_id=1745183995 instance=ExtResource("17_jm27p")]
+transform = Transform3D(0.0054317443, -0.008396199, 3.6700948e-10, 0, -4.3711387e-10, -0.01, 0.008396199, 0.0054317443, -2.374291e-10, 0.9783415, 0.011798814, 2.5553956)
+
+[node name="Low Poly - Lab Assets23" parent="." unique_id=1314276096 instance=ExtResource("18_o37bk")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, -0.7936722, 0.69882905, 2.5888216)
+
+[node name="Low Poly - Lab Assets24" parent="." unique_id=1215029176 instance=ExtResource("19_vjpjs")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.6924063, 0.19266772, 2.5526595)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1892896738]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=2085759678]
+transform = Transform3D(1.015572, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.80138713, 3.0046995)
+mesh = SubResource("PlaneMesh_nbej8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1643009987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004058838, 0.81934404, 3.4945438)
+shape = SubResource("BoxShape3D_arjtg")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=352918972]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4871728, 0, 0.0076003075)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1101104024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025862195, 0.81934404, 3.4945438)
+shape = SubResource("BoxShape3D_arjtg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1808300497]
+transform = Transform3D(1.0288482, 0, 0, 0, -4.371139e-08, 0.98502386, 0, -1, -4.305676e-08, -0.010301826, 0.808502, 3.0134754)
+mesh = SubResource("PlaneMesh_ktimd")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=2046709750]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.423535, 0, 0.0076003075)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=438905746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025862171, 0.81934404, 3.4420674)
+shape = SubResource("BoxShape3D_arjtg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=909487370]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.0065693855)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1608396049]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.80138713, 3.0046995)
+mesh = SubResource("PlaneMesh_nbej8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=2000482796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004058838, 0.81934404, 3.4945438)
+shape = SubResource("BoxShape3D_arjtg")
+
+[node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("20_63p0i")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.0046809, 0.22567451, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1328429225]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.507228, 1.6093713)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=953774481]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.507228, -1.293957)
