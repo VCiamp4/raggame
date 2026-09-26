@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bry7et88qyqvf"]
+
+[ext_resource type="PackedScene" uid="uid://qei1eshjmwas" path="res://assets/Characters_psx/Models/Male/Character_19_Police.fbx" id="1_canr6"]
+[ext_resource type="PackedScene" uid="uid://dq74f0jbvf7oj" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="1_p0ie1"]
+
+[node name="RetratoTemp" type="Node3D" unique_id=1333422413]
+
+[node name="Character_01" parent="." unique_id=1487785697 instance=ExtResource("1_p0ie1")]
+
+[node name="Character_19_Police" parent="." unique_id=1852015564 instance=ExtResource("1_canr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.230473, 0, -12.772087)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1634836305]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1431540037]
+transform = Transform3D(0.8552834, 0, 0.5181606, 0, 1, 0, -0.5181606, 0, 0.8552834, 1.2618172, 4.206637, 2.2357464)

@@ -7,6 +7,8 @@ const JUMP_VELOCITY = 4.5
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
+@export var retrato_jugador: Texture2D
+
 const EXAMINE_DISTANCE = 6.0
 var highlighted_object: Node = null
 
@@ -75,12 +77,14 @@ func _open_dialogue() -> void:
 	in_dialogue = true
 	dialogue_ui.hide_prompt()
 	dialogue_ui.show_dialogue(nearby_npc.npc_name)
-	dialogue_ui.set_input_enabled(true)   # input visible para escribirle al NPC
+	dialogue_ui.set_input_enabled(true)
+	dialogue_ui.mostrar_retratos(retrato_jugador, nearby_npc.get_retrato())  # input visible para escribirle al NPC
 
 
 func _close_dialogue() -> void:
 	in_dialogue = false
 	dialogue_ui.hide_dialogue()
+	dialogue_ui.ocultar_retratos()
 	if nearby_npc != null:
 		dialogue_ui.show_prompt(nearby_npc.npc_name)
 

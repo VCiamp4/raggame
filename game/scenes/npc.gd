@@ -3,6 +3,8 @@ extends Node3D
 @export var npc_id: String = "Aldric"
 @export var npc_name: String = "Aldric"
 
+@export var retrato: Texture2D
+
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
 signal response_chunk(text: String)       # nuevo: chunk parcial
@@ -38,6 +40,9 @@ func request_response(player_input: String) -> void:
 	if is_streaming:
 		return
 	_start_stream(player_input)
+
+func get_retrato() -> Texture2D:
+	return retrato
 
 
 func _start_stream(player_input: String) -> void:

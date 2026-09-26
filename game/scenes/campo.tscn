@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_mc018"]
 [ext_resource type="Texture2D" uid="uid://bld5r1fuqaxkx" path="res://assets/forest_floor_1k.blend/textures/forest_floor_diff_1k.jpg" id="1_mec61"]
 [ext_resource type="PackedScene" uid="uid://bjg53oi3ebelp" path="res://scenes/npc.tscn" id="3_hv3sm"]
+[ext_resource type="Texture2D" uid="uid://cek650ob0sivl" path="res://assets/fotos/npc_aldric.png" id="3_mulmf"]
 [ext_resource type="PackedScene" uid="uid://c58qcuagxrx7t" path="res://scenes/DialogueUI.tscn" id="4_2ou2y"]
 [ext_resource type="Texture2D" uid="uid://bvgh4smuqgd0n" path="res://assets/retro_nature_pack/textures/trees/tree01_fall.png" id="5_2glgm"]
+[ext_resource type="Texture2D" uid="uid://3pruqpaxcmjm" path="res://assets/fotos/jugador_ph.png" id="5_aj4hg"]
 [ext_resource type="ArrayMesh" uid="uid://t4pijv35ig3p" path="res://assets/retro_nature_pack/models/OBJ/trees/tree07.obj" id="6_aj4hg"]
 [ext_resource type="Texture2D" uid="uid://busowd6gplvg6" path="res://assets/retro_nature_pack/textures/trees/tree01_spring.png" id="7_mulmf"]
 [ext_resource type="ArrayMesh" uid="uid://81nxqh0v21c7" path="res://assets/retro_nature_pack/models/OBJ/trees/tree02.obj" id="8_6lglc"]
@@ -77,11 +79,13 @@ shape = SubResource("BoxShape3D_p0ph1")
 
 [node name="Node3D" parent="." unique_id=2084363322 instance=ExtResource("3_hv3sm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15302563, -0.0037901402, -7.8513794)
+retrato = ExtResource("3_mulmf")
 
 [node name="DialogueUI" parent="." unique_id=1192289772 instance=ExtResource("4_2ou2y")]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_mc018")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006284237, 1.0244284, 0.98958254)
+retrato_jugador = ExtResource("5_aj4hg")
 
 [node name="Tree07" type="MeshInstance3D" parent="." unique_id=618835158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.780411, 0.5964689, -7.0897913)
