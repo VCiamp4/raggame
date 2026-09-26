@@ -110,8 +110,9 @@ distance_fade_enabled = true
 omni_range = 6.547
 omni_attenuation = 0.04
 
-[node name="StaticBody3D" parent="OmniLight3D2" unique_id=425664347 instance=ExtResource("4_11e0f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64863, -1.4393005, -1.5020753)
+[node name="StaticBody3D6" parent="." unique_id=425664347 instance=ExtResource("4_11e0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4586592, 0.96131706, -1.5132362)
+script = null
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=662443838]
 transform = Transform3D(-0.06343055, 0, -1.1983224, 0, 1.2, 0, 1.1983224, 0, -0.06343055, 2.1976297, 0.66575575, -2.1315613)

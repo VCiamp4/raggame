@@ -6,6 +6,9 @@ var scroll_container: ScrollContainer
 var history_label: RichTextLabel
 var input_field: LineEdit
 var prompt_label: Label
+var fake_blur: ColorRect
+var retrato_jugador: TextureRect
+var retrato_npc: TextureRect
 
 signal text_submitted(text: String)
 
@@ -15,7 +18,7 @@ var current_npc_response: String = ""
 func _ready() -> void:
 	# Panel de fondo del diálogo
 	panel = ColorRect.new()
-	panel.color = Color(0, 0, 0, 0.85)
+	panel.color = Color(0, 0, 0, 0.6)
 	panel.anchor_left = 0
 	panel.anchor_right = 1
 	panel.anchor_top = 0.55
@@ -46,6 +49,7 @@ func _ready() -> void:
 	scroll_container.offset_top = 45
 	scroll_container.offset_bottom = -55
 	scroll_container.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll_container.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	panel.add_child(scroll_container)
 	
 	history_label = RichTextLabel.new()
@@ -55,6 +59,8 @@ func _ready() -> void:
 	history_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	history_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	history_label.add_theme_font_size_override("normal_font_size", 18)
+	history_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
+	history_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new()) 
 	scroll_container.add_child(history_label)
 	
 	# Campo de texto para escribir abajo
@@ -69,7 +75,48 @@ func _ready() -> void:
 	input_field.placeholder_text = "Escribí algo y presioná Enter..."
 	input_field.add_theme_font_size_override("font_size", 18)
 	input_field.text_submitted.connect(_on_text_submitted)
+	input_field.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
+	input_field.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	input_field.add_theme_stylebox_override("read_only", StyleBoxEmpty.new())   
 	panel.add_child(input_field)
+	
+	# Fake blur: panel oscuro semitransparente que atenúa el fondo
+	fake_blur = ColorRect.new()
+	fake_blur.color = Color(0, 0, 0, 0.5)
+	fake_blur.anchor_left = 0
+	fake_blur.anchor_right = 1
+	fake_blur.anchor_top = 0
+	fake_blur.anchor_bottom = 0.55
+	fake_blur.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fake_blur.visible = false
+	add_child(fake_blur)
+	
+	# Retrato del jugador (izquierda)
+	retrato_jugador = TextureRect.new()
+	retrato_jugador.anchor_left = 0
+	retrato_jugador.anchor_bottom = 1
+	retrato_jugador.offset_left = -80
+	retrato_jugador.offset_top = -215
+	retrato_jugador.offset_bottom = -180
+	retrato_jugador.offset_right = 320
+	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	retrato_jugador.visible = false
+	add_child(retrato_jugador)
+	
+	# Retrato del NPC (derecha)
+	retrato_npc = TextureRect.new()
+	retrato_npc.anchor_left = 1
+	retrato_npc.anchor_right = 1
+	retrato_npc.anchor_bottom = 1
+	retrato_npc.offset_left = -320
+	retrato_npc.offset_right = -20
+	retrato_npc.offset_top = -175
+	retrato_npc.offset_bottom = -180
+	retrato_npc.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	retrato_npc.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	retrato_npc.visible = false
+	add_child(retrato_npc)
 	
 	# Cartel "[E] Hablar"
 	prompt_label = Label.new()
@@ -142,6 +189,22 @@ func set_input_enabled(enabled: bool) -> void:
 	input_field.visible = enabled
 	if enabled:
 		input_field.grab_focus()
+		
+		
+func mostrar_retratos(tex_jugador: Texture2D, tex_npc: Texture2D) -> void:
+	#fake_blur.visible = true
+	if tex_jugador:
+		retrato_jugador.texture = tex_jugador
+		retrato_jugador.visible = true
+	if tex_npc:
+		retrato_npc.texture = tex_npc
+		retrato_npc.visible = true
+
+
+func ocultar_retratos() -> void:
+	fake_blur.visible = false
+	retrato_jugador.visible = false
+	retrato_npc.visible = false
 
 
 func show_prompt(npc_name: String) -> void:
