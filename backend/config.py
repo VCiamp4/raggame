@@ -1,9 +1,14 @@
+import os
 from dataclasses import dataclass
+from dotenv import load_dotenv
 
+load_dotenv()
 
 @dataclass
 class Settings:
-    chat_model: str = "gemma4:e4b"
+    chat_provider: str = os.getenv("CHAT_PROVIDER", "ollama")
+    chat_model: str = os.getenv("CHAT_MODEL", "gemma4:e4b")
+    openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
     embedding_model: str = "qwen3-embedding:4b"
     ollama_url: str = "http://localhost:11434"
     max_chunks: int = 3
