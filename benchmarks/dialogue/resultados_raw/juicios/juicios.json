@@ -1,0 +1,442 @@
+{
+  "dialogue_v1.attribution-20260925.gemma4-26b-a4b-it-qat": {
+    "conv-criada-cotidiana#1": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#1": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#2": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#1": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#2": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#4": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#5": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#1": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#2": {
+      "rating": "medio"
+    },
+    "conv-esteban-poliza#3": {
+      "rating": "mal",
+      "note": "hay que cambiar este chunk de mierda"
+    },
+    "conv-esteban-poliza#4": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#5": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#1": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#2": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#3": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#4": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#5": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#6": {
+      "rating": "bien"
+    }
+  },
+  "dialogue_v1.attribution-20260925.gemma4-e4b": {
+    "conv-criada-cotidiana#1": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#1": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#2": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#1": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#2": {
+      "rating": "medio"
+    },
+    "conv-juan-rencor#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#4": {
+      "rating": "mal",
+      "note": "como se va a self-referenciar"
+    },
+    "conv-juan-rencor#5": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#1": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#2": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#3": {
+      "rating": "mal",
+      "note": "No tiene que decirlo, tiene que hacerlo"
+    },
+    "conv-esteban-poliza#4": {
+      "rating": "medio"
+    },
+    "conv-esteban-poliza#5": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#1": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#2": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#3": {
+      "rating": "mal"
+    },
+    "conv-pablo-sospechoso#4": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#5": {
+      "rating": "medio"
+    },
+    "conv-pablo-sospechoso#6": {
+      "rating": "bien"
+    }
+  },
+  "dialogue_v1.openai.gpt-6-luna": {
+    "conv-esteban-poliza#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#1": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#1": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#2": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#1": {
+      "rating": "medio"
+    },
+    "conv-juan-rencor#2": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#4": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#5": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#1": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#2": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#4": {
+      "rating": "bien"
+    },
+    "conv-esteban-poliza#5": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#1": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#2": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#3": {
+      "rating": "medio"
+    },
+    "conv-pablo-sospechoso#4": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#5": {
+      "rating": "bien"
+    },
+    "conv-pablo-sospechoso#6": {
+      "rating": "medio"
+    }
+  },
+  "dialogue_v1.shared-rules-cumulative-20260925.gemma4-e4b": {
+    "conv-criada-cotidiana#1": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien",
+      "note": "hay que sacar las descripciones de acciones"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    }
+  },
+  "dialogue_v1.current-prompt-20260925.gemma4-e4b": {
+    "conv-criada-cotidiana#1": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "medio"
+    },
+    "conv-portero-diario#1": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#2": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#1": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#2": {
+      "rating": "medio"
+    },
+    "conv-juan-rencor#3": {
+      "rating": "bien"
+    },
+    "conv-juan-rencor#4": {
+      "rating": "medio"
+    }
+  },
+  "dialogue_v1.rerun-20260925.gemma4-26b-a4b-it-qat": {
+    "conv-criada-cotidiana#1": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    }
+  },
+  "dialogue_v1.rerun-20260925.gemma4-e4b": {
+    "conv-criada-cotidiana#1": {
+      "rating": "medio",
+      "note": "no debería hacer referencia al género del usuario"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "medio"
+    }
+  },
+  "dialogue_v1.fixed-20260925.luchador-latest": {
+    "conv-criada-cotidiana#1": {
+      "rating": "mal"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    }
+  },
+  "dialogue_v1.attribution-20260925.luchador-latest": {
+    "conv-criada-cotidiana#1": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#2": {
+      "rating": "bien"
+    },
+    "conv-criada-cotidiana#3": {
+      "rating": "medio"
+    },
+    "conv-criada-cotidiana#4": {
+      "rating": "medio"
+    },
+    "conv-quimico-hielo#1": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#2": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#3": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#4": {
+      "rating": "bien"
+    },
+    "conv-quimico-hielo#5": {
+      "rating": "medio"
+    },
+    "conv-portero-diario#1": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#2": {
+      "rating": "bien"
+    },
+    "conv-portero-diario#3": {
+      "rating": "medio"
+    }
+  }
+}

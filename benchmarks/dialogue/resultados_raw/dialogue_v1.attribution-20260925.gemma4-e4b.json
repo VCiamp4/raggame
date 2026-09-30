@@ -1,0 +1,524 @@
+{
+  "run": "dialogue_v1.attribution-20260925.gemma4-e4b",
+  "benchmark": "dialogue_v1",
+  "generated_at": "2026-09-25T02:23:01.146580-03:00",
+  "corpus": "benchmarks/dialogue/corpus/dialogue_v1.json",
+  "corpus_sha256": "27aac377627cbe61996595666fbaf1267e7d9f32418fcf96789fc87f12d620a6",
+  "settings": {
+    "chat_model": "gemma4:e4b",
+    "embedding_model": "qwen3-embedding:4b",
+    "ollama_url": "http://localhost:11434",
+    "max_chunks": 3,
+    "min_similarity": 0.43,
+    "max_history": 20,
+    "num_predict": 160,
+    "temperature": 0.8
+  },
+  "summary": {
+    "conversations": 6,
+    "turns": 28,
+    "ttft_ms_mean": 2416.4985393925754,
+    "retrieval_ms_mean": 268.390823892852,
+    "chat_requests": 28
+  },
+  "conversations": [
+    {
+      "id": "conv-criada-cotidiana",
+      "npc_id": "criada",
+      "turns": [
+        {
+          "player": "¿Cómo te trataba la señora Stevens?",
+          "expect": "Debe decir que la trataba mal, con el tono de empleada angustiada.",
+          "expect_focus": "SCN-02-AT-03",
+          "response": "Ay, señora, la señora Stevens solía tratarme muy mal, con insultos y gritos, y me humillaba bastante. Era muy dura conmigo.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La señora Stevens solía tratar mal a la criada.\n- La criada soportaba los insultos, gritos y humillaciones de Stevens porque necesitaba el empleo.\n- Stevens insultaba, gritaba y humillaba al servicio.",
+          "retrieved": [
+            "SCN-02-AT-03",
+            "SCN-02-AT-05",
+            "SCN-02-AT-06"
+          ],
+          "retrieval_ms": 262.3623960025725,
+          "ttft_ms": 6856.25372800132,
+          "total_ms": 10280.615259001934,
+          "new_facts": [
+            "CL-CRI-01"
+          ]
+        },
+        {
+          "player": "¿Fuiste la última en verla con vida?",
+          "expect": "Debe confirmar que fue la última en verla viva, sin agregar datos que no dijo antes.",
+          "expect_focus": "SCN-03-AT-04",
+          "response": "Me temo que sí, señor, yo fui la última persona que la vi con vida. Todo parecía indicar que estaba sola cuando pasó lo que pasó, y no había señales de que alguien hubiera entrado a la casa.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La criada fue la última persona que vio viva a Stevens.\n- Todo indicaba que Stevens estaba sola al morir.\n- No había señales de entrada forzada.",
+          "retrieved": [
+            "SCN-03-AT-04",
+            "SCN-01-AT-14",
+            "SCN-01-AT-09"
+          ],
+          "retrieval_ms": 268.37710899781086,
+          "ttft_ms": 2238.6835449979117,
+          "total_ms": 6909.795735999069,
+          "new_facts": [
+            "CL-CRI-02"
+          ]
+        },
+        {
+          "player": "¿Por qué pidió un whisky después de la pelea?",
+          "expect": "Debe decir que lo pidió para calmarse tras la discusión.",
+          "expect_focus": "SCN-02-AT-12",
+          "response": "Ay, yo... yo no sé por qué lo pidió, señor. Solo sé que la señora Stevens pidió el whisky para calmarse después de esa discusión que tuvo.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Stevens pidió el whisky para calmarse después de una discusión.\n- La criada preparó el vaso de whisky hallado junto al cadáver.",
+          "retrieved": [
+            "SCN-02-AT-12",
+            "SCN-02-AT-10"
+          ],
+          "retrieval_ms": 290.804111999023,
+          "ttft_ms": 2384.392582000146,
+          "total_ms": 5920.096524001565,
+          "new_facts": [
+            "CL-CRI-03"
+          ]
+        },
+        {
+          "player": "Gracias, no tengo más preguntas.",
+          "expect": "Despedida breve en personaje; no debe inventar datos del caso.",
+          "expect_focus": null,
+          "response": "No es nada, señor. Solo espero que... que todo se resuelva pronto, que no haya más problemas.",
+          "context": "",
+          "retrieved": [],
+          "retrieval_ms": 242.5390820026223,
+          "ttft_ms": 1358.0327819981903,
+          "total_ms": 3749.358790999395,
+          "new_facts": []
+        }
+      ]
+    },
+    {
+      "id": "conv-quimico-hielo",
+      "npc_id": "quimico",
+      "turns": [
+        {
+          "player": "¿Qué muestras analizaron hasta ahora?",
+          "expect": "Debe listar lo analizado (whisky, licores, agua) sin afirmar resultados que no tiene.",
+          "expect_focus": null,
+          "response": "Según mi procedimiento, debo analizar el whisky, las demás bebidas y el agua corriente, además de los recipientes relacionados con el fallecimiento. Le comento que este proceso de análisis requiere tiempo.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El perito analizaría el whisky, las demás bebidas y el agua corriente.\n- El perito también analizaría los recipientes relacionados con la muerte.\n- El proceso de análisis llevaría tiempo.",
+          "retrieved": [
+            "SCN-01-AT-17",
+            "SCN-01-AT-18",
+            "SCN-01-AT-19"
+          ],
+          "retrieval_ms": 219.606192997162,
+          "ttft_ms": 2348.662051001156,
+          "total_ms": 6448.251795998658,
+          "new_facts": []
+        },
+        {
+          "player": "¿Qué concluyó al examinar el cadáver: muerte natural o intoxicación?",
+          "expect": "Debe descartar la muerte natural y confirmar signos de intoxicación, sin identificar todavía el tóxico.",
+          "expect_focus": "SCN-01-AT-15",
+          "response": "Basándome en mis resultados preliminares, he descartado la hipótesis de una muerte natural y he confirmado la presencia de signos consistentes con una intoxicación. No obstante, debo recalcar que estas son observaciones de laboratorio y no una conclusión final.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El perito químico descartó una muerte natural y confirmó signos de intoxicación.\n- El perito también analizaría los recipientes relacionados con la muerte.\n- El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+          "retrieved": [
+            "SCN-01-AT-15",
+            "SCN-01-AT-18",
+            "SCN-01-AT-20"
+          ],
+          "retrieval_ms": 402.31495199986966,
+          "ttft_ms": 2493.311382000684,
+          "total_ms": 7807.152295001288,
+          "new_facts": [
+            "CL-FOR-01"
+          ]
+        },
+        {
+          "player": "¿Las bebidas estaban limpias?",
+          "expect": "Debe afirmar el resultado: botellas y agua limpios (CL-FOR-02).",
+          "expect_focus": "SCN-08-AT-01",
+          "response": "Los análisis efectuados sobre el whisky, los demás licores y el agua corriente indican que estas muestras se encuentran limpias. Sin embargo, debo recordarle que aún debo analizar los recipientes relacionados con el fallecimiento.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El whisky, los demás licores y el agua corriente estaban limpios.\n- El perito también analizaría los recipientes relacionados con la muerte.\n- El tóxico no estaba en los recipientes líquidos analizados.",
+          "retrieved": [
+            "SCN-08-AT-01",
+            "SCN-01-AT-18",
+            "SCN-08-AT-03"
+          ],
+          "retrieval_ms": 212.62026200201944,
+          "ttft_ms": 2729.9678990020766,
+          "total_ms": 7454.556769000192,
+          "new_facts": [
+            "CL-FOR-02"
+          ]
+        },
+        {
+          "player": "¿Falta analizar el hielo?",
+          "expect": "Debe reconocer que el hielo no fue analizado (CL-ICE-01).",
+          "expect_focus": "SCN-08-AT-06",
+          "response": "No he recibido ninguna muestra de hielo para analizar hasta el momento. Mi plan de análisis incluye el whisky, las demás bebidas y el agua corriente, y debo indicarle que el proceso de análisis lleva tiempo.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El perito no había recibido ninguna muestra de hielo.\n- El proceso de análisis llevaría tiempo.\n- El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+          "retrieved": [
+            "SCN-08-AT-06",
+            "SCN-01-AT-19",
+            "SCN-01-AT-17"
+          ],
+          "retrieval_ms": 227.35829199882573,
+          "ttft_ms": 2395.8611150010256,
+          "total_ms": 6682.024794998142,
+          "new_facts": [
+            "CL-ICE-01"
+          ]
+        },
+        {
+          "player": "Entonces, ¿dónde estaba el veneno?",
+          "expect": "Debe apuntar al hielo como pendiente, sin inventar el cianuro si aún no lo sabe.",
+          "expect_focus": null,
+          "response": "En este momento, todavía no puedo identificar la sustancia tóxica, por lo que no puedo determinar con precisión dónde se encontraba el veneno. Solo puedo confirmar que el tóxico no fue detectado en los recipientes líquidos que analizamos.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El tóxico no estaba en los recipientes líquidos analizados.\n- Las botellas estaban limpias porque el veneno no había estado en ellas.\n- El perito todavía no podía identificar la sustancia tóxica.",
+          "retrieved": [
+            "SCN-08-AT-03",
+            "SCN-09-AT-02",
+            "SCN-01-AT-16"
+          ],
+          "retrieval_ms": 269.63262899880647,
+          "ttft_ms": 2444.543880999845,
+          "total_ms": 7818.231369001296,
+          "new_facts": []
+        }
+      ]
+    },
+    {
+      "id": "conv-portero-diario",
+      "npc_id": "portero",
+      "turns": [
+        {
+          "player": "¿A qué hora dejó el diario?",
+          "expect": "Debe dar la hora exacta (19:10) y que lo dejó bajo la puerta.",
+          "expect_focus": "SCN-03-AT-01",
+          "response": "Dejé el diario bajo la puerta a las 19:10.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- El portero dejó el diario bajo la puerta a las 19:10.\n- El portero dejó el diario sin ver a Stevens.",
+          "retrieved": [
+            "SCN-03-AT-01",
+            "SCN-03-AT-02"
+          ],
+          "retrieval_ms": 217.5940349989105,
+          "ttft_ms": 2300.376294999296,
+          "total_ms": 3950.411976999021,
+          "new_facts": [
+            "CL-POR-01"
+          ]
+        },
+        {
+          "player": "¿Vio a la señora al dejarlo?",
+          "expect": "Debe decir que no la vio.",
+          "expect_focus": "SCN-03-AT-02",
+          "response": "No, yo dejé el diario sin ver a la señora Stevens.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La criada fue la última persona que vio viva a Stevens.\n- El portero dejó el diario sin ver a Stevens.\n- No había señales de entrada forzada.",
+          "retrieved": [
+            "SCN-03-AT-04",
+            "SCN-03-AT-02",
+            "SCN-01-AT-09"
+          ],
+          "retrieval_ms": 241.7512510000961,
+          "ttft_ms": 2018.6783139979525,
+          "total_ms": 3473.9276229993266,
+          "new_facts": [
+            "CL-CRI-02"
+          ]
+        },
+        {
+          "player": "¿Subió alguien después?",
+          "expect": "Debe decir que nadie subió después de las 19:10.",
+          "expect_focus": "SCN-03-AT-03",
+          "response": "No, después de las 19:10 nadie subió a visitar a la señora Stevens.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Después de las 19:10 nadie subió a visitar a Stevens.\n- Las ventanas estaban cerradas.\n- No había señales de entrada forzada.",
+          "retrieved": [
+            "SCN-03-AT-03",
+            "SCN-01-AT-13",
+            "SCN-01-AT-09"
+          ],
+          "retrieval_ms": 172.27776700019604,
+          "ttft_ms": 1903.8602660002653,
+          "total_ms": 4113.514034001128,
+          "new_facts": [
+            "CL-POR-02"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conv-juan-rencor",
+      "npc_id": "juan",
+      "turns": [
+        {
+          "player": "¿Por qué cree que la policía descubrió sus negocios?",
+          "expect": "Debe decir que cree que Stevens provocó que la policía descubriera sus negocios con drogas.",
+          "expect_focus": "SCN-04-AT-07",
+          "response": "Yo creo que Stevens fue quien provocó que la policía descubriera mis negocios. ¿Acaso no se le ocurre nada de nada más interesante que eso?",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.\n- Después de recuperar la libertad, Juan se vinculó con chantajes y extorsiones.",
+          "retrieved": [
+            "SCN-04-AT-07",
+            "SCN-04-AT-03"
+          ],
+          "retrieval_ms": 334.9650840027607,
+          "ttft_ms": 2596.7634829976305,
+          "total_ms": 5836.342173999583,
+          "new_facts": [
+            "CL-JUA-02"
+          ]
+        },
+        {
+          "player": "¿Dónde estuvo entre la tarde y la medianoche del crimen?",
+          "expect": "Debe dar su coartada: demorado en una comisaría desde las 17 hasta la medianoche.",
+          "expect_focus": "SCN-04-AT-12",
+          "response": "La policía verificó que estuve demorado en una comisaría desde las 17:00 hasta medianoche. ¿Hay algo más que quieran saber sobre mi paradero, o van a seguir con su lista de preguntas?",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.\n- Juan no estuvo en el departamento durante las horas críticas.",
+          "retrieved": [
+            "SCN-04-AT-12",
+            "SCN-04-AT-13"
+          ],
+          "retrieval_ms": 322.0996539967018,
+          "ttft_ms": 2325.505652999709,
+          "total_ms": 7232.399583001097,
+          "new_facts": [
+            "CL-JUA-03"
+          ]
+        },
+        {
+          "player": "¿Es verdad que estuvo preso por drogas?",
+          "expect": "Debe admitir la condena de hace siete años por estupefacientes (dato desbloqueado en el turno 1).",
+          "expect_focus": "SCN-04-AT-01",
+          "response": "Sí, es cierto que fui condenado hace siete años por delitos vinculados con estupefacientes. ¿Qué más les gustaría saber sobre mis... *antiguos* problemas?",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.\n- Juan también había sido condenado por episodios de violencia y daños a la propiedad.",
+          "retrieved": [
+            "SCN-04-AT-01",
+            "SCN-04-AT-02"
+          ],
+          "retrieval_ms": 261.80152500091936,
+          "ttft_ms": 2515.028658999654,
+          "total_ms": 6391.252053999779,
+          "new_facts": [
+            "CL-JUA-01"
+          ]
+        },
+        {
+          "player": "¿Cómo salió Esteban del almuerzo familiar?",
+          "expect": "Debe decir que Esteban salió furioso.",
+          "expect_focus": "SCN-04-AT-14",
+          "response": "Según lo que sé, Juan aseguró que Esteban salió del almuerzo furioso. ¿Acaso eso les resulta tan sorprendente o es que no saben cómo llevarse bien con nadie?",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Juan aseguró que Esteban salió furioso del almuerzo.",
+          "retrieved": [
+            "SCN-04-AT-14"
+          ],
+          "retrieval_ms": 272.1696160006104,
+          "ttft_ms": 2042.8328400012106,
+          "total_ms": 5838.522098001704,
+          "new_facts": [
+            "CL-EST-01"
+          ]
+        },
+        {
+          "player": "¿Le convenía económicamente la muerte de su hermana?",
+          "expect": "No tiene ese dato (requiere la póliza); puede hablar de su actitud pero no debe afirmar cifras ni beneficios.",
+          "expect_focus": null,
+          "response": "No, yo no he dicho que la muerte de mi hermana me fuera beneficiosa económicamente. Lo que sí he dicho es que su muerte no me afecta demasiado, y que, francamente, no la quería.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Juan admitió que le alegraba la muerte de su hermana.\n- Juan dijo que la muerte de su hermana no le afectaba demasiado.\n- Juan dijo que no quería a su hermana.",
+          "retrieved": [
+            "SCN-04-AT-06",
+            "SCN-04-AT-05",
+            "SCN-04-AT-04"
+          ],
+          "retrieval_ms": 305.3171130013652,
+          "ttft_ms": 2439.2017499994836,
+          "total_ms": 7286.978840002121,
+          "new_facts": []
+        }
+      ]
+    },
+    {
+      "id": "conv-esteban-poliza",
+      "npc_id": "esteban",
+      "turns": [
+        {
+          "player": "¿Qué póliza gestionó para Stevens?",
+          "expect": "Debe decir que gestionó una póliza de vida para Stevens.",
+          "expect_focus": "SCN-05-AT-02",
+          "response": "Yo gestioné una póliza de vida para la señora Stevens. Es importante que comprendan que todo lo que hice fue en un marco totalmente normal y profesional.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Esteban había gestionado una póliza de vida para Stevens.\n- La señora Stevens poseía una fortuna considerable.\n- Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
+          "retrieved": [
+            "SCN-05-AT-02",
+            "SCN-01-AT-03",
+            "SCN-01-AT-06"
+          ],
+          "retrieval_ms": 232.82950399880065,
+          "ttft_ms": 2379.1217090001737,
+          "total_ms": 5694.074977000128,
+          "new_facts": [
+            "CL-POL-01"
+          ]
+        },
+        {
+          "player": "¿Quiénes eran los beneficiarios?",
+          "expect": "Debe decir que los tres hermanos eran beneficiarios.",
+          "expect_focus": "SCN-05-AT-03",
+          "response": "Los tres hermanos figurábamos como beneficiarios de la póliza. Espero que no haya malinterpretaciones sobre este aspecto tan sencillo.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Los tres hermanos figuraban como beneficiarios de la póliza.",
+          "retrieved": [
+            "SCN-05-AT-03"
+          ],
+          "retrieval_ms": 281.14558199740713,
+          "ttft_ms": 1994.1843939996033,
+          "total_ms": 4741.6166920011165,
+          "new_facts": []
+        },
+        {
+          "player": "¿Cómo fue la discusión del almuerzo?",
+          "expect": "Debe minimizarla: presentarla como diferencia menor, no como pelea.",
+          "expect_focus": "SCN-05-AT-04",
+          "response": "Yo minimicé la discusión sobre dinero durante el almuerzo. Simplemente traté de mantener la conversación en un tono más ligero y evitar que se tornara tensa.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Esteban minimizó la discusión sobre dinero durante el almuerzo.",
+          "retrieved": [
+            "SCN-05-AT-04"
+          ],
+          "retrieval_ms": 283.116966002126,
+          "ttft_ms": 1940.3318189979473,
+          "total_ms": 5647.813840998424,
+          "new_facts": [
+            "CL-EST-02"
+          ]
+        },
+        {
+          "player": "¿Dónde estuvo la noche del crimen?",
+          "expect": "Debe dar su coartada: en Lister desde las 18 hasta la mañana.",
+          "expect_focus": "SCN-05-AT-05",
+          "response": "Estuve en Lister desde las 18:00 hasta la mañana siguiente, según verificó la policía. Es un hecho que deben considerar para entender mi ubicación en ese momento.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La policía verificó que Esteban estaba en Lister desde las 18:00 hasta la mañana siguiente.",
+          "retrieved": [
+            "SCN-05-AT-05"
+          ],
+          "retrieval_ms": 259.0341140021337,
+          "ttft_ms": 2114.396666001994,
+          "total_ms": 5988.43954500262,
+          "new_facts": [
+            "CL-EST-05"
+          ]
+        },
+        {
+          "player": "Frente a lo de la póliza, ¿admite que la pelea fue seria?",
+          "expect": "Aún no puede admitirlo (le faltan datos); debe mantener su versión sin inventar ni contradecirse.",
+          "expect_focus": null,
+          "response": "No hay razón para exagerar cualquier altercado; yo siempre mantengo la compostura en situaciones como esa. Mi intención nunca fue crear un conflicto serio, solo desear resolver asuntos pendientes de manera civilizada.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Los tres hermanos figuraban como beneficiarios de la póliza.",
+          "retrieved": [
+            "SCN-05-AT-03"
+          ],
+          "retrieval_ms": 382.9953790009313,
+          "ttft_ms": 2168.9468790027604,
+          "total_ms": 6587.246009003138,
+          "new_facts": []
+        }
+      ]
+    },
+    {
+      "id": "conv-pablo-sospechoso",
+      "npc_id": "pablo",
+      "turns": [
+        {
+          "player": "¿A qué se dedicaba antes de Erpa?",
+          "expect": "Debe admitir que era veterinario inhabilitado por dopar caballos.",
+          "expect_focus": "SCN-06-AT-01",
+          "response": "Yo me dedicaba a ser veterinario. Es una pena que me hayan inhabilitado por dopar caballos de carrera, pero no es un tema que deba ser recordado ahora.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.",
+          "retrieved": [
+            "SCN-06-AT-01"
+          ],
+          "retrieval_ms": 262.73231099912664,
+          "ttft_ms": 2412.50922999825,
+          "total_ms": 6418.025455997849,
+          "new_facts": [
+            "CL-PAB-02"
+          ]
+        },
+        {
+          "player": "¿En qué sección de Erpa trabaja?",
+          "expect": "Debe decir la sección de químicos.",
+          "expect_focus": "SCN-06-AT-03",
+          "response": "Yo trabajaba en la sección de químicos de Erpa. No me parece relevante que se me pregunte eso, prefiero que nos concentremos en lo que realmente importa.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Pablo trabajaba en la sección de químicos de Erpa.\n- Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.",
+          "retrieved": [
+            "SCN-06-AT-03",
+            "SCN-06-AT-01"
+          ],
+          "retrieval_ms": 251.0007870005211,
+          "ttft_ms": 2208.187801999884,
+          "total_ms": 5964.430574000289,
+          "new_facts": [
+            "CL-PAB-03"
+          ]
+        },
+        {
+          "player": "¿Cómo consiguió que Stevens le dejara más dinero?",
+          "expect": "Debe negarlo; no puede dar el dato de la parte mayor (no lo sabe aún).",
+          "expect_focus": null,
+          "response": "No tengo idea de cómo lo conseguí; simplemente la señora Stevens era libre de disponer de su fortuna, y yo lo aproveché. Deberían centrarse en encontrar a quien realmente tuvo el motivo de querer verme fuera.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La señora Stevens poseía una fortuna considerable.\n- Stevens ayudaba económicamente a Pablo.\n- Pablo sostuvo que Stevens era libre de disponer de su fortuna.",
+          "retrieved": [
+            "SCN-01-AT-03",
+            "SCN-06-AT-05",
+            "SCN-06-AT-08"
+          ],
+          "retrieval_ms": 293.21913899912033,
+          "ttft_ms": 2312.569416997576,
+          "total_ms": 7034.377563999442,
+          "new_facts": []
+        },
+        {
+          "player": "¿Dónde estaba a partir de las 18?",
+          "expect": "Debe dar su coartada: en Erpa desde las 18, comprobada.",
+          "expect_focus": "SCN-06-AT-10",
+          "response": "Yo estaba en Erpa a partir de las 18:00, y mi permanencia en el lugar fue comprobada. No veo por qué es tan crucial saberlo; simplemente yo estaba donde debía estar.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Pablo estaba en Erpa desde las 18:00 y su permanencia fue comprobada.",
+          "retrieved": [
+            "SCN-06-AT-10"
+          ],
+          "retrieval_ms": 272.0772809989285,
+          "ttft_ms": 2239.1479819998494,
+          "total_ms": 6856.408895000641,
+          "new_facts": [
+            "CL-PAB-05"
+          ]
+        },
+        {
+          "player": "¿Usted reparó la heladera de Stevens?",
+          "expect": "No puede afirmarlo (requiere un dato que no tiene); debe no inventar la reparación.",
+          "expect_focus": null,
+          "response": "No, no reparé la heladera de la señora Stevens. Yo era veterinario y, más tarde, trabajé en el departamento de químicos de Erpa.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- La señora Stevens tenía sesenta y ocho años.\n- Nada indicaba que la señora Stevens estuviera preparando un suicidio.\n- La señora Stevens poseía una fortuna considerable.",
+          "retrieved": [
+            "SCN-01-AT-01",
+            "SCN-01-AT-06",
+            "SCN-01-AT-03"
+          ],
+          "retrieval_ms": 246.68629799998598,
+          "ttft_ms": 2497.2874769991904,
+          "total_ms": 6079.09976999872,
+          "new_facts": []
+        },
+        {
+          "player": "¿Qué opina de Juan?",
+          "expect": "Debe señalar a Juan por sus antecedentes y falta de escrúpulos.",
+          "expect_focus": "SCN-06-AT-09",
+          "response": "Opino que Juan es un personaje peligroso debido a sus antecedentes y su evidente falta de escrúpulos. No creo que sus palabras deban tomarse como la verdad absoluta.",
+          "context": "El primer dato es el hecho principal; usalo si responde la pregunta. Los demás son apoyos opcionales.\n\n- Pablo señaló a Juan por sus antecedentes y su falta de escrúpulos.",
+          "retrieved": [
+            "SCN-06-AT-09"
+          ],
+          "retrieval_ms": 226.51463600050192,
+          "ttft_ms": 2003.3195029973285,
+          "total_ms": 5944.058082997799,
+          "new_facts": [
+            "CL-PAB-06"
+          ]
+        }
+      ]
+    }
+  ]
+}

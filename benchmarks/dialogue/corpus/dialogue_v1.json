@@ -1,0 +1,175 @@
+{
+  "name": "dialogue_v1",
+  "description": "Conversaciones guionadas de 3 a 6 turnos por NPC. Turnos fijos del jugador, sesion fresca por conversacion. Cada turno trae su rubrica (expect) para juicio humano y el chunk esperado (expect_focus) cuando apunta a un dato.",
+  "cases": [
+    {
+      "id": "conv-criada-cotidiana",
+      "npc_id": "criada",
+      "turns": [
+        {
+          "player": "¿Cómo te trataba la señora Stevens?",
+          "expect": "Debe decir que la trataba mal, con el tono de empleada angustiada.",
+          "expect_focus": "SCN-02-AT-03"
+        },
+        {
+          "player": "¿Fuiste la última en verla con vida?",
+          "expect": "Debe confirmar que fue la última en verla viva, sin agregar datos que no dijo antes.",
+          "expect_focus": "SCN-03-AT-04"
+        },
+        {
+          "player": "¿Por qué pidió un whisky después de la pelea?",
+          "expect": "Debe decir que lo pidió para calmarse tras la discusión.",
+          "expect_focus": "SCN-02-AT-12"
+        },
+        {
+          "player": "Gracias, no tengo más preguntas.",
+          "expect": "Despedida breve en personaje; no debe inventar datos del caso."
+        }
+      ]
+    },
+    {
+      "id": "conv-quimico-hielo",
+      "npc_id": "quimico",
+      "turns": [
+        {
+          "player": "¿Qué muestras analizaron hasta ahora?",
+          "expect": "Debe listar lo analizado (whisky, licores, agua) sin afirmar resultados que no tiene."
+        },
+        {
+          "player": "¿Qué concluyó al examinar el cadáver: muerte natural o intoxicación?",
+          "expect": "Debe descartar la muerte natural y confirmar signos de intoxicación, sin identificar todavía el tóxico.",
+          "expect_focus": "SCN-01-AT-15"
+        },
+        {
+          "player": "¿Las bebidas estaban limpias?",
+          "expect": "Debe afirmar el resultado: botellas y agua limpios (CL-FOR-02).",
+          "expect_focus": "SCN-08-AT-01"
+        },
+        {
+          "player": "¿Falta analizar el hielo?",
+          "expect": "Debe reconocer que el hielo no fue analizado (CL-ICE-01).",
+          "expect_focus": "SCN-08-AT-06"
+        },
+        {
+          "player": "Entonces, ¿dónde estaba el veneno?",
+          "expect": "Debe apuntar al hielo como pendiente, sin inventar el cianuro si aún no lo sabe."
+        }
+      ]
+    },
+    {
+      "id": "conv-portero-diario",
+      "npc_id": "portero",
+      "turns": [
+        {
+          "player": "¿A qué hora dejó el diario?",
+          "expect": "Debe dar la hora exacta (19:10) y que lo dejó bajo la puerta.",
+          "expect_focus": "SCN-03-AT-01"
+        },
+        {
+          "player": "¿Vio a la señora al dejarlo?",
+          "expect": "Debe decir que no la vio.",
+          "expect_focus": "SCN-03-AT-02"
+        },
+        {
+          "player": "¿Subió alguien después?",
+          "expect": "Debe decir que nadie subió después de las 19:10.",
+          "expect_focus": "SCN-03-AT-03"
+        }
+      ]
+    },
+    {
+      "id": "conv-juan-rencor",
+      "npc_id": "juan",
+      "turns": [
+        {
+          "player": "¿Por qué cree que la policía descubrió sus negocios?",
+          "expect": "Debe decir que cree que Stevens provocó que la policía descubriera sus negocios con drogas.",
+          "expect_focus": "SCN-04-AT-07"
+        },
+        {
+          "player": "¿Dónde estuvo entre la tarde y la medianoche del crimen?",
+          "expect": "Debe dar su coartada: demorado en una comisaría desde las 17 hasta la medianoche.",
+          "expect_focus": "SCN-04-AT-12"
+        },
+        {
+          "player": "¿Es verdad que estuvo preso por drogas?",
+          "expect": "Debe admitir la condena de hace siete años por estupefacientes (dato desbloqueado en el turno 1).",
+          "expect_focus": "SCN-04-AT-01"
+        },
+        {
+          "player": "¿Cómo salió Esteban del almuerzo familiar?",
+          "expect": "Debe decir que Esteban salió furioso.",
+          "expect_focus": "SCN-04-AT-14"
+        },
+        {
+          "player": "¿Le convenía económicamente la muerte de su hermana?",
+          "expect": "No tiene ese dato (requiere la póliza); puede hablar de su actitud pero no debe afirmar cifras ni beneficios."
+        }
+      ]
+    },
+    {
+      "id": "conv-esteban-poliza",
+      "npc_id": "esteban",
+      "turns": [
+        {
+          "player": "¿Qué póliza gestionó para Stevens?",
+          "expect": "Debe decir que gestionó una póliza de vida para Stevens.",
+          "expect_focus": "SCN-05-AT-02"
+        },
+        {
+          "player": "¿Quiénes eran los beneficiarios?",
+          "expect": "Debe decir que los tres hermanos eran beneficiarios.",
+          "expect_focus": "SCN-05-AT-03"
+        },
+        {
+          "player": "¿Cómo fue la discusión del almuerzo?",
+          "expect": "Debe minimizarla: presentarla como diferencia menor, no como pelea.",
+          "expect_focus": "SCN-05-AT-04"
+        },
+        {
+          "player": "¿Dónde estuvo la noche del crimen?",
+          "expect": "Debe dar su coartada: en Lister desde las 18 hasta la mañana.",
+          "expect_focus": "SCN-05-AT-05"
+        },
+        {
+          "player": "Frente a lo de la póliza, ¿admite que la pelea fue seria?",
+          "expect": "Aún no puede admitirlo (le faltan datos); debe mantener su versión sin inventar ni contradecirse."
+        }
+      ]
+    },
+    {
+      "id": "conv-pablo-sospechoso",
+      "npc_id": "pablo",
+      "turns": [
+        {
+          "player": "¿A qué se dedicaba antes de Erpa?",
+          "expect": "Debe admitir que era veterinario inhabilitado por dopar caballos.",
+          "expect_focus": "SCN-06-AT-01"
+        },
+        {
+          "player": "¿En qué sección de Erpa trabaja?",
+          "expect": "Debe decir la sección de químicos.",
+          "expect_focus": "SCN-06-AT-03"
+        },
+        {
+          "player": "¿Cómo consiguió que Stevens le dejara más dinero?",
+          "expect": "Debe negarlo; no puede dar el dato de la parte mayor (no lo sabe aún)."
+        },
+        {
+          "player": "¿Dónde estaba a partir de las 18?",
+          "expect": "Debe dar su coartada: en Erpa desde las 18, comprobada.",
+          "expect_focus": "SCN-06-AT-10"
+        },
+        {
+          "player": "¿Usted reparó la heladera de Stevens?",
+          "expect": "No puede afirmarlo (requiere un dato que no tiene); debe no inventar la reparación."
+        },
+        {
+          "player": "¿Qué opina de Juan?",
+          "expect": "Debe señalar a Juan por sus antecedentes y falta de escrúpulos.",
+          "expect_focus": "SCN-06-AT-09"
+        }
+      ]
+    }
+  ]
+}
