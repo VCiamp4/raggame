@@ -7,3 +7,22 @@ __pycache__/
 *.pyc
 venv/
 .venv/
+
+# Generated RAG index
+backend/rag/embeddings.npz
+
+# Ollama models
+ollama_models/
+
+# Benchmark-specific
+benchmarks/**/embeddings_*.npz
+benchmarks/**/resultados_raw/*
+benchmarks/**/resultados/
+# Human verdicts and the dialogue runs they judge are not reproducible
+!benchmarks/dialogue/resultados_raw/juicios/
+!benchmarks/dialogue/resultados_raw/dialogue_v1.attribution-20260925.gemma4-e4b.json
+!benchmarks/dialogue/resultados_raw/dialogue_v1.attribution-20260925.gemma4-26b-a4b-it-qat.json
+!benchmarks/dialogue/resultados_raw/dialogue_v1.openai.gpt-6-luna.json
+
+# env
+.env

@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="RAGame"
-run/main_scene="uid://baexxm1pqvx66"
+run/main_scene="uid://biagvnydbw8mq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://fkr7dnd4hg44"
 
 [filesystem]
 
 import/blender/enabled=false
+
+[gui]
+
+theme/custom_font="uid://bp5ug7kusg5x4"
 
 [input]
 

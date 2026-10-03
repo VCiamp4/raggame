@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://wii2q34ky75e"]
+
+[ext_resource type="PackedScene" uid="uid://cx6ue410plk10" path="res://assets/Characters_psx/Models/Male/Character_31.fbx" id="1_h3srh"]
+[ext_resource type="Script" uid="uid://cvt4pcijvmvg5" path="res://scenes/reconocimiento.gd" id="1_thfp8"]
+[ext_resource type="Script" uid="uid://sm2mnd1rfmgu" path="res://scenes/hermano_abogado.gd" id="2_0wtbs"]
+[ext_resource type="PackedScene" uid="uid://c2on5owmq6ktm" path="res://assets/Characters_psx/Models/Male/Character_26_Doctor.fbx" id="3_j8gfl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_arjtg"]
+height = 4.58667
+
+[node name="Node3D" type="Node3D" unique_id=769137837]
+script = ExtResource("1_thfp8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2136534299]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_arjtg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1632947048]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, -0.9977019)
+mesh = SubResource("PlaneMesh_nbej8")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=878903399]
+transform = Transform3D(1, 0, 0, 0, 0.3344661, 0.9424078, 0, -0.9424078, 0.3344661, 0, 1.8891227, -0.35137028)
+light_color = Color(1, 1, 0.7921569, 1)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=306373151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34280464, -0.04241407)
+
+[node name="hermano_abogado" type="StaticBody3D" parent="." unique_id=31693707]
+script = ExtResource("2_0wtbs")
+
+[node name="Character_31" parent="hermano_abogado" unique_id=175993406 instance=ExtResource("1_h3srh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00017499924, 0.0071172714, -0.7712672)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hermano_abogado" unique_id=816946927]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.20691526, -0.7712444)
+shape = SubResource("CapsuleShape3D_arjtg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=207202687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31683856, 0, -0.0053755045)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=241342149]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.20691526, -0.77356565)
+shape = SubResource("CapsuleShape3D_arjtg")
+
+[node name="Character_26_Doctor" parent="StaticBody3D2" unique_id=974126706 instance=ExtResource("3_j8gfl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.77419406)

@@ -1,0 +1,90 @@
+{
+  "scene_id": "SCN-08",
+  "chunks": [
+    {
+      "chunk_id": "SCN-08-AT-01",
+      "retrieval_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué encontraron limpio al analizar las bebidas y el agua?",
+        "q2": "¿Qué líquidos resultaron libres de sustancias tóxicas?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": "CL-FOR-02",
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-02",
+      "retrieval_text": "La intoxicación de Stevens seguía confirmada.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué conclusión sobre la intoxicación seguía sosteniendo el perito?",
+        "q2": "¿Qué hecho médico seguía siendo indiscutible pese a los análisis negativos?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-03",
+      "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué descartaron los análisis sobre el origen del tóxico?",
+        "q2": "¿Dónde no apareció el veneno según las primeras muestras?"
+      },
+      "source_excerpt": "Fue en ese momento cuando regresó el perito químico.\n\nTraía los resultados del laboratorio y no parecía satisfecho.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-06",
+      "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué muestra faltaba todavía entre las pruebas del perito?",
+        "q2": "¿Qué material faltaba analizar todavía?"
+      },
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
+      "fact_id": "CL-ICE-01",
+      "necessary_facts": [
+        "CL-FOR-02"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-08-AT-07",
+      "retrieval_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
+      "knowledge_holders": [
+        "quimico"
+      ],
+      "questions": {
+        "q1": "¿Qué pidió el detective que se analizara al regresar el perito?",
+        "q2": "¿Qué parte de la heladera pidió revisar el detective?"
+      },
+      "source_excerpt": "Llamé al laboratorio.\n\n—Analizó el whisky —le dije al químico.\n\n—Sí.\n\n—También el agua.\n\n—Sí.\n\n—¿Y el hielo?\n\nHubo un silencio.\n\n—No me entregaron hielo.\n\nLe pedí que regresara inmediatamente.",
+      "fact_id": null,
+      "necessary_facts": [
+        "CL-FOR-02"
+      ],
+      "sufficient_facts": []
+    }
+  ]
+}

@@ -1,0 +1,1095 @@
+<div id="chunk-connections-graph" class="chunk-graph" aria-labelledby="chunk-graph-title">
+  <style>
+    #chunk-connections-graph {
+      --background: light-dark(#f7f7f4, #111312);
+      --foreground: light-dark(#1f2421, #ecf1ec);
+      --card: light-dark(#ffffff, #191d1b);
+      --border: light-dark(#cbd2cd, #3a4540);
+      --muted-foreground: light-dark(#5b665f, #aab6ae);
+      --necessary: light-dark(#2166c1, #72a9f0);
+      --sufficient: light-dark(#c56a14, #f0a55d);
+      --revealed: light-dark(#157347, #75d6a5);
+      --primary: light-dark(#355f4b, #b7e3c7);
+      --character-criada: light-dark(#c631b1, #f285dc);
+      --character-portero: light-dark(#258b74, #62cdb5);
+      --character-juan: light-dark(#e66d0f, #ffad63);
+      --character-esteban: light-dark(#3b82d0, #8bbdf4);
+      --character-pablo: light-dark(#b87959, #dda88e);
+      --character-quimico: light-dark(#0d686c, #76d9dc);
+      --character-tecnico_heladera: light-dark(#9a7b13, #dfc76b);
+      --character-detective: light-dark(#596c62, #a9beb2);
+      --font-size-base: 14px;
+      display: block;
+      color-scheme: light dark;
+      color: var(--foreground);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: var(--font-size-base);
+      line-height: 1.35;
+      background: transparent;
+    }
+
+    #chunk-connections-graph .graph-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-block-end: 8px;
+    }
+
+    #chunk-connections-graph h2 {
+      margin: 0;
+      color: var(--foreground);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    #chunk-connections-graph .graph-meta,
+    #chunk-connections-graph .selection {
+      color: var(--muted-foreground);
+      font-size: 12px;
+    }
+
+    #chunk-connections-graph .graph-legend {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-block: 10px 16px;
+      color: var(--muted-foreground);
+      font-size: 12px;
+    }
+
+    #chunk-connections-graph .legend-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    #chunk-connections-graph .legend-label {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+
+    #chunk-connections-graph .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    #chunk-connections-graph .legend-swatch {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--legend-color);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground) 22%, transparent);
+    }
+
+    #chunk-connections-graph .edge-swatch {
+      display: inline-block;
+      width: 22px;
+      height: 0;
+      border-top: 2px solid var(--edge-color);
+    }
+
+    #chunk-connections-graph .edge-swatch.sufficient {
+      border-top-style: dashed;
+    }
+
+    #chunk-connections-graph .selection {
+      min-height: 18px;
+      margin-block-end: 8px;
+    }
+
+    #chunk-connections-graph .graph-tabs {
+      display: inline-flex;
+      gap: 2px;
+      margin-block-end: 10px;
+      padding: 3px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+
+    #chunk-connections-graph .graph-tabs button {
+      padding: 5px 14px;
+      color: var(--muted-foreground);
+      font: inherit;
+      font-size: 13px;
+      background: transparent;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    #chunk-connections-graph .graph-tabs button.is-active {
+      color: var(--foreground);
+      font-weight: 600;
+      background: color-mix(in srgb, var(--primary) 30%, transparent);
+    }
+
+    #chunk-connections-graph .graph-viewport[hidden],
+    #chunk-connections-graph .accuse-panel[hidden] {
+      display: none;
+    }
+
+    #chunk-connections-graph .accuse-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    #chunk-connections-graph .accuse-rule {
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--muted-foreground);
+      font-size: 13px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    #chunk-connections-graph .suspect {
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    #chunk-connections-graph .suspect-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-block-end: 10px;
+    }
+
+    #chunk-connections-graph .suspect-name {
+      color: var(--foreground);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    #chunk-connections-graph .suspect-count {
+      color: var(--muted-foreground);
+      font-size: 12px;
+    }
+
+    #chunk-connections-graph .clue-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #chunk-connections-graph .clue {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    #chunk-connections-graph .cat {
+      flex: none;
+      margin-top: 1px;
+      padding: 1px 9px;
+      color: var(--foreground);
+      font-size: 11px;
+      font-weight: 600;
+      background: color-mix(in srgb, var(--primary) 25%, transparent);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    #chunk-connections-graph .clue-fact {
+      display: block;
+      color: var(--revealed);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+    }
+
+    #chunk-connections-graph .clue-text {
+      display: block;
+      color: var(--foreground);
+      font-size: 13px;
+    }
+
+    #chunk-connections-graph .clue-meta {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted-foreground);
+      font-size: 11px;
+    }
+
+    #chunk-connections-graph .alibi {
+      margin: 8px 0 0;
+      padding: 8px 10px;
+      color: var(--muted-foreground);
+      font-size: 12px;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+
+    #chunk-connections-graph .alibi strong {
+      color: var(--foreground);
+      font-weight: 600;
+    }
+
+    #chunk-connections-graph .graph-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-block-end: 8px;
+    }
+
+    #chunk-connections-graph .graph-hint {
+      color: var(--muted-foreground);
+      font-size: 12px;
+    }
+
+    #chunk-connections-graph .graph-viewport {
+      position: relative;
+      width: 100%;
+      height: clamp(420px, 68vh, 640px);
+      overflow: hidden;
+      background-color: color-mix(in srgb, var(--card) 60%, transparent);
+      background-image: radial-gradient(circle, var(--border) 1px, transparent 1.2px);
+      background-size: 22px 22px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+    }
+
+    #chunk-connections-graph .graph-viewport.is-panning {
+      cursor: grabbing;
+    }
+
+    #chunk-connections-graph .graph-world {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    #chunk-connections-graph .edge-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    #chunk-connections-graph .edge {
+      fill: none;
+      stroke-width: 2;
+      opacity: 0.6;
+    }
+
+    #chunk-connections-graph .edge.necessary {
+      color: var(--necessary);
+      stroke: var(--necessary);
+      marker-end: url(#chunk-arrow-necessary);
+    }
+
+    #chunk-connections-graph .edge.sufficient {
+      color: var(--sufficient);
+      stroke: var(--sufficient);
+      stroke-dasharray: 6 5;
+      marker-end: url(#chunk-arrow-sufficient);
+    }
+
+    #chunk-connections-graph .edge.is-dimmed {
+      opacity: 0.08;
+    }
+
+    #chunk-connections-graph .edge.is-focus {
+      opacity: 1;
+      stroke-width: 3;
+    }
+
+    #chunk-connections-graph .stages {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 120px;
+      padding: 28px 32px 32px;
+    }
+
+    #chunk-connections-graph .stage-section {
+      flex: 0 0 260px;
+      min-width: 260px;
+    }
+
+    #chunk-connections-graph .stage-header {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-block-end: 14px;
+      padding: 8px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-align: center;
+    }
+
+    #chunk-connections-graph .stage-title {
+      color: var(--foreground);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    #chunk-connections-graph .stage-count {
+      color: var(--muted-foreground);
+      font-size: 11px;
+    }
+
+    #chunk-connections-graph .stage-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    #chunk-connections-graph .graph-controls {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+    }
+
+    #chunk-connections-graph .graph-controls button {
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--foreground);
+      font: inherit;
+      font-size: 15px;
+      background: transparent;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    #chunk-connections-graph .graph-controls button:hover {
+      background: color-mix(in srgb, var(--primary) 22%, transparent);
+    }
+
+    #chunk-connections-graph .zoom-label {
+      min-width: 48px;
+      color: var(--muted-foreground);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+
+    #chunk-connections-graph .chunk-node {
+      --node-color: var(--character-detective);
+      --node-accent: var(--node-color);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 120px;
+      padding: 10px 12px 10px 14px;
+      color: var(--foreground);
+      font: inherit;
+      text-align: left;
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--node-color) 15%, var(--card)), var(--card));
+      border: 1px solid color-mix(in srgb, var(--node-color) 50%, var(--border));
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+      cursor: pointer;
+      transition: opacity 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+    }
+
+    #chunk-connections-graph .chunk-node::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      border-radius: 10px 0 0 10px;
+      background: var(--node-accent);
+    }
+
+    #chunk-connections-graph .chunk-node:hover {
+      filter: brightness(1.04);
+      box-shadow: 0 4px 18px rgb(0 0 0 / 0.18);
+    }
+
+    #chunk-connections-graph .chunk-node.is-dimmed {
+      opacity: 0.15;
+    }
+
+    #chunk-connections-graph .chunk-node.is-selected {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+      opacity: 1;
+      box-shadow: 0 6px 24px rgb(0 0 0 / 0.25);
+    }
+
+    #chunk-connections-graph .chunk-node.is-related {
+      outline: 2px dashed var(--primary);
+      outline-offset: 2px;
+      opacity: 1;
+    }
+
+    #chunk-connections-graph .port {
+      position: absolute;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      background: var(--card);
+      border: 2px solid var(--node-color);
+      border-radius: 50%;
+      translate: 0 -50%;
+      pointer-events: none;
+    }
+
+    #chunk-connections-graph .port-in {
+      left: -7px;
+    }
+
+    #chunk-connections-graph .port-out {
+      right: -7px;
+    }
+
+    #chunk-connections-graph .node-id {
+      display: block;
+      margin-block-end: 6px;
+      color: var(--node-color);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      overflow-wrap: anywhere;
+    }
+
+    #chunk-connections-graph .node-text {
+      display: block;
+      color: var(--foreground);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    #chunk-connections-graph .node-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    #chunk-connections-graph .fact-line {
+      color: var(--muted-foreground);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+
+    #chunk-connections-graph .fact-line.revealed {
+      color: var(--revealed);
+    }
+
+    #chunk-connections-graph .fact-line.necessary {
+      color: var(--necessary);
+    }
+
+    #chunk-connections-graph .fact-line.sufficient {
+      color: var(--sufficient);
+    }
+
+    #chunk-connections-graph .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 570px) {
+      #chunk-connections-graph .graph-viewport {
+        height: 70vh;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #chunk-connections-graph .chunk-node {
+        transition: none;
+      }
+    }
+  </style>
+
+  <div class="graph-heading">
+    <h2 id="chunk-graph-title">Mapa de conexiones de pistas</h2>
+    <div class="graph-meta" id="chunk-graph-meta"></div>
+  </div>
+
+  <div class="graph-legend" aria-label="Leyendas del gráfico">
+    <div class="legend-group" aria-label="Personajes">
+      <span class="legend-label">Personajes</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-criada)"></span>Criada</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-portero)"></span>Portero</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-juan)"></span>Juan</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-esteban)"></span>Esteban</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-pablo)"></span>Pablo</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-quimico)"></span>Perito químico</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-tecnico_heladera)"></span>Técnico</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--character-detective)"></span>Detective</span>
+    </div>
+    <div class="legend-group" aria-label="Tipo de relación">
+      <span class="legend-label">Relaciones</span>
+      <span class="legend-item"><span class="edge-swatch" style="--edge-color: var(--necessary)"></span>Necesaria</span>
+      <span class="legend-item"><span class="edge-swatch sufficient" style="--edge-color: var(--sufficient)"></span>Suficiente (OR)</span>
+      <span class="legend-item"><span class="legend-swatch" style="--legend-color: var(--revealed)"></span>Fact revelado</span>
+    </div>
+  </div>
+
+  <div class="graph-tabs" role="tablist" aria-label="Tipo de visualización">
+    <button type="button" role="tab" id="chunk-tab-levels" class="is-active" aria-selected="true">Por conexiones</button>
+    <button type="button" role="tab" id="chunk-tab-accuse" aria-selected="false">Acusación</button>
+  </div>
+
+  <div class="graph-toolbar">
+    <div class="selection" id="chunk-graph-selection" aria-live="polite">Seleccioná un nodo para resaltar sus conexiones.</div>
+    <div class="graph-hint">Arrastrá para mover · rueda para zoom · clic en un nodo para resaltar</div>
+  </div>
+
+  <div class="graph-viewport" id="chunk-graph-viewport" tabindex="0" aria-label="Grafo de conexiones de pistas. Usá las flechas para mover y más o menos para zoom.">
+    <div class="graph-world" id="chunk-graph-world">
+      <svg class="edge-layer" id="chunk-edge-layer" aria-hidden="true">
+        <defs>
+          <marker id="chunk-arrow-necessary" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--necessary)"></path>
+          </marker>
+          <marker id="chunk-arrow-sufficient" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--sufficient)"></path>
+          </marker>
+        </defs>
+        <g id="chunk-edge-group"></g>
+      </svg>
+      <div class="stages" id="chunk-stages"></div>
+    </div>
+    <div class="graph-controls" role="toolbar" aria-label="Controles de zoom">
+      <button type="button" id="chunk-zoom-out" aria-label="Reducir zoom">−</button>
+      <span class="zoom-label" id="chunk-zoom-label">100%</span>
+      <button type="button" id="chunk-zoom-in" aria-label="Aumentar zoom">+</button>
+      <button type="button" id="chunk-zoom-fit" aria-label="Ajustar a la vista">⤢</button>
+      <button type="button" id="chunk-zoom-reset" aria-label="Restablecer vista">⟲</button>
+    </div>
+  </div>
+
+  <div class="accuse-panel" id="chunk-accuse-panel" hidden></div>
+
+  <p class="sr-only" id="chunk-graph-description"></p>
+
+  <script>
+    (() => {
+      const dataset = {"total_chunks":160,"chunks":[{"scene_id":"SCN-01","chunk_id":"SCN-01-AT-08","retrieval_text":"La puerta estaba asegurada desde dentro con una cadena de acero.","knowledge_holders":["criada","portero"],"fact_id":"CL-CASE-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-01","chunk_id":"SCN-01-AT-11","retrieval_text":"Cerca del cadáver había un vaso de whisky.","knowledge_holders":["criada","portero"],"fact_id":"CL-CASE-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-01","chunk_id":"SCN-01-AT-15","retrieval_text":"El perito químico descartó una muerte natural y confirmó signos de intoxicación.","knowledge_holders":["quimico"],"fact_id":"CL-FOR-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-02","chunk_id":"SCN-02-AT-03","retrieval_text":"La señora Stevens solía tratar mal a la criada.","knowledge_holders":["criada"],"fact_id":"CL-CRI-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-02","chunk_id":"SCN-02-AT-12","retrieval_text":"Stevens pidió el whisky para calmarse después de una discusión.","knowledge_holders":["criada"],"fact_id":"CL-CRI-03","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-02","chunk_id":"SCN-02-AT-17","retrieval_text":"Al marcharse, la criada pidió al portero que subiera el diario.","knowledge_holders":["criada"],"fact_id":"CL-CRI-04","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-03","chunk_id":"SCN-03-AT-01","retrieval_text":"El portero dejó el diario bajo la puerta a las 19:10.","knowledge_holders":["portero","criada"],"fact_id":"CL-POR-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-03","chunk_id":"SCN-03-AT-03","retrieval_text":"Después de las 19:10 nadie subió a visitar a Stevens.","knowledge_holders":["portero","criada"],"fact_id":"CL-POR-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-03","chunk_id":"SCN-03-AT-04","retrieval_text":"La criada fue la última persona que vio viva a Stevens.","knowledge_holders":["portero","criada"],"fact_id":"CL-CRI-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-01","retrieval_text":"Juan había sido condenado siete años antes por delitos vinculados con estupefacientes.","knowledge_holders":["juan"],"fact_id":"CL-JUA-01","necessary_facts":["CL-JUA-02"],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-07","retrieval_text":"Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.","knowledge_holders":["juan"],"fact_id":"CL-JUA-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-10","retrieval_text":"Juan sabía que la muerte de Stevens podía dejarle dinero.","knowledge_holders":["juan"],"fact_id":"CL-JUA-04","necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-11","retrieval_text":"A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.","knowledge_holders":["juan"],"fact_id":null,"necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-12","retrieval_text":"La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.","knowledge_holders":["juan"],"fact_id":"CL-JUA-03","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-14","retrieval_text":"Juan aseguró que Esteban salió furioso del almuerzo.","knowledge_holders":["juan"],"fact_id":"CL-EST-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-15","retrieval_text":"Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.","knowledge_holders":["juan"],"fact_id":null,"necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-16","retrieval_text":"Juan dijo que Esteban tomó el cambio en el dinero como una ofensa personal.","knowledge_holders":["juan"],"fact_id":null,"necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-04","chunk_id":"SCN-04-AT-17","retrieval_text":"Juan no se preocupaba demasiado por recibir una cantidad menor porque también cobraría dinero.","knowledge_holders":["juan"],"fact_id":null,"necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-05","chunk_id":"SCN-05-AT-02","retrieval_text":"Esteban había gestionado una póliza de vida para Stevens.","knowledge_holders":["esteban"],"fact_id":"CL-POL-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-05","chunk_id":"SCN-05-AT-03","retrieval_text":"Los tres hermanos figuraban como beneficiarios de la póliza.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-05","chunk_id":"SCN-05-AT-04","retrieval_text":"Esteban minimizó la discusión sobre dinero durante el almuerzo.","knowledge_holders":["esteban"],"fact_id":"CL-EST-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-05","chunk_id":"SCN-05-AT-05","retrieval_text":"La policía verificó que Esteban estaba en Lister desde las 18:00 hasta la mañana siguiente.","knowledge_holders":["esteban"],"fact_id":"CL-EST-05","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-01","retrieval_text":"Pablo había ejercido como veterinario hasta que lo inhabilitaron por dopar caballos de carrera.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-02","retrieval_text":"Pablo trabajaba en Erpa Cía., un laboratorio dedicado al análisis de leche.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-PAB-03"],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-03","retrieval_text":"Pablo trabajaba en la sección de químicos de Erpa.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-03","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-04","retrieval_text":"Pablo tenía acceso habitual a distintos reactivos.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-08","necessary_facts":["CL-PAB-03"],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-06","retrieval_text":"Pablo había convencido a Stevens de dejarle una parte mayor de su dinero.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-04","necessary_facts":["CL-EST-01"],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-09","retrieval_text":"Pablo señaló a Juan por sus antecedentes y su falta de escrúpulos.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-06","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-06","chunk_id":"SCN-06-AT-10","retrieval_text":"Pablo estaba en Erpa desde las 18:00 y su permanencia fue comprobada.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-05","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-01","retrieval_text":"La póliza actualizada fue encontrada en el cajón del escritorio de Stevens.","knowledge_holders":["esteban"],"fact_id":"CL-POL-02","necessary_facts":["CL-POL-01"],"sufficient_facts":[]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-02","retrieval_text":"La nueva póliza asignaba el 50% del beneficio a Pablo, el 25% a Juan y el 25% a Esteban.","knowledge_holders":["esteban"],"fact_id":"CL-POL-03","necessary_facts":["CL-POL-02"],"sufficient_facts":[]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-05","retrieval_text":"Esteban admitió que la discusión sobre la póliza había sido fuerte.","knowledge_holders":["esteban"],"fact_id":"CL-EST-03","necessary_facts":[],"sufficient_facts":["CL-POL-02","CL-EST-01"]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-06","retrieval_text":"Esteban esperaba un reparto equitativo.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":[],"sufficient_facts":["CL-POL-02","CL-EST-01"]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-07","retrieval_text":"Esteban acusó a Pablo de manipular a Stevens para recibir el doble.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":[],"sufficient_facts":["CL-POL-02","CL-EST-01"]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-08","retrieval_text":"Esteban salió enfurecido de la casa.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":[],"sufficient_facts":["CL-POL-02","CL-EST-01"]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-09","retrieval_text":"La póliza daba a Esteban un motivo fuerte.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":["CL-POL-02"],"sufficient_facts":[]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-10","retrieval_text":"La póliza no explicaba el método del crimen.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":["CL-POL-02"],"sufficient_facts":[]},{"scene_id":"SCN-07","chunk_id":"SCN-07-AT-11","retrieval_text":"La coartada de Esteban en Lister seguía confirmada.","knowledge_holders":["esteban"],"fact_id":null,"necessary_facts":["CL-POL-02"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-01","retrieval_text":"El whisky, los demás licores y el agua corriente estaban limpios.","knowledge_holders":["quimico"],"fact_id":"CL-FOR-02","necessary_facts":["CL-FOR-01"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-02","retrieval_text":"La intoxicación de Stevens seguía confirmada.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-FOR-01"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-03","retrieval_text":"El tóxico no estaba en los recipientes líquidos analizados.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-FOR-01"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-04","retrieval_text":"En un plato junto al vaso había una pequeña mancha de humedad.","knowledge_holders":["quimico"],"fact_id":"CL-FOR-03","necessary_facts":["CL-FOR-02"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-05","retrieval_text":"La humedad del plato hizo necesario revisar qué otra cosa entraba normalmente en el whisky.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-FOR-02"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-06","retrieval_text":"El perito no había recibido ninguna muestra de hielo.","knowledge_holders":["quimico"],"fact_id":"CL-ICE-01","necessary_facts":["CL-FOR-02","CL-FOR-03"],"sufficient_facts":[]},{"scene_id":"SCN-08","chunk_id":"SCN-08-AT-07","retrieval_text":"El detective pidió al perito que regresara para analizar el congelador y las cubeteras.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-FOR-02","CL-FOR-03"],"sufficient_facts":[]},{"scene_id":"SCN-09","chunk_id":"SCN-09-AT-01","retrieval_text":"El hielo contenía cianuro de potasio en una concentración suficiente para matar.","knowledge_holders":["quimico"],"fact_id":"CL-ICE-03","necessary_facts":["CL-ICE-01"],"sufficient_facts":[]},{"scene_id":"SCN-09","chunk_id":"SCN-09-AT-02","retrieval_text":"Las botellas estaban limpias porque el veneno no había estado en ellas.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-ICE-01"],"sufficient_facts":[]},{"scene_id":"SCN-09","chunk_id":"SCN-09-AT-03","retrieval_text":"La criada podía haber servido whisky puro y haber introducido el veneno sin saberlo al agregar los cubos.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-ICE-01"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-01","retrieval_text":"Stevens siempre tomaba el whisky con hielo.","knowledge_holders":["criada"],"fact_id":"CL-CRI-05","necessary_facts":["CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-02","retrieval_text":"Los cubos de hielo no se compraban: los producía la heladera.","knowledge_holders":["criada"],"fact_id":null,"necessary_facts":["CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-03","retrieval_text":"La heladera había fallado unos días antes.","knowledge_holders":["criada"],"fact_id":"CL-FRI-01","necessary_facts":["CL-ICE-03","CL-CRI-05"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-04","retrieval_text":"No llamaron a un técnico para reparar la heladera.","knowledge_holders":["criada"],"fact_id":null,"necessary_facts":["CL-ICE-03","CL-CRI-05"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-05","retrieval_text":"Pablo fue quien reparó la heladera.","knowledge_holders":["criada"],"fact_id":"CL-FRI-02","necessary_facts":["CL-ICE-03","CL-CRI-05"],"sufficient_facts":[]},{"scene_id":"SCN-10","chunk_id":"SCN-10-AT-06","retrieval_text":"La reparación dio a Pablo acceso directo al congelador.","knowledge_holders":["criada"],"fact_id":null,"necessary_facts":["CL-ICE-03","CL-CRI-05"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-01","retrieval_text":"Pablo admitió haber reparado la heladera.","knowledge_holders":["pablo"],"fact_id":"CL-PAB-07","necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-02","retrieval_text":"Pablo dijo que el arreglo consistió en cambiar un fusible.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-03","retrieval_text":"Pablo negó haber tocado las cubeteras.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-04","retrieval_text":"Pablo negó haber tocado el agua del congelador.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-05","retrieval_text":"Pablo hizo una pausa al saber que el veneno estaba en el hielo.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-06","retrieval_text":"Pablo insistió en que solo había cambiado un fusible.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-07","retrieval_text":"Pablo negó haber puesto cianuro.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-08","retrieval_text":"Pablo propuso investigar a cualquiera con acceso a la cocina.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-09","retrieval_text":"Pablo dijo que muchos empleados de Erpa manipulaban reactivos.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-10","retrieval_text":"Pablo atribuyó el reparto de la póliza a la voluntad de Stevens.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-11","retrieval_text":"Pablo volvió a señalar a Juan por sus antecedentes y su relación con las drogas.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-11","chunk_id":"SCN-11-AT-12","retrieval_text":"Pablo admitió haber reparado la heladera, pero negó tocar el agua o las cubeteras.","knowledge_holders":["pablo"],"fact_id":null,"necessary_facts":["CL-FRI-02","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-01","retrieval_text":"El técnico comprobó que la única avería de la heladera era un fusible.","knowledge_holders":["tecnico_heladera"],"fact_id":"CL-TEC-01","necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-02","retrieval_text":"El técnico comprobó que cambiar el fusible no exigía tocar el congelador.","knowledge_holders":["tecnico_heladera"],"fact_id":"CL-TEC-02","necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-03","retrieval_text":"La reparación dio a Pablo una excusa para acercarse a la heladera sin despertar sospechas.","knowledge_holders":["tecnico_heladera"],"fact_id":null,"necessary_facts":["CL-FRI-02"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-04","retrieval_text":"Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.","knowledge_holders":["quimico"],"fact_id":"CL-ERP-01","necessary_facts":["CL-PAB-03","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-05","retrieval_text":"El cianuro era una sustancia de uso controlado.","knowledge_holders":["quimico"],"fact_id":null,"necessary_facts":["CL-PAB-03","CL-ICE-03"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-06","retrieval_text":"Pablo conocía el hábito de Stevens de beber whisky con hielo.","knowledge_holders":["detective"],"fact_id":null,"necessary_facts":["CL-ERP-01","CL-TEC-01"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-07","retrieval_text":"Pablo había tenido acceso reciente a la heladera.","knowledge_holders":["detective"],"fact_id":null,"necessary_facts":["CL-ERP-01","CL-TEC-01"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-08","retrieval_text":"Pablo poseía conocimientos para manipular sustancias químicas.","knowledge_holders":["detective"],"fact_id":null,"necessary_facts":["CL-ERP-01","CL-TEC-01"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-09","retrieval_text":"Pablo trabajaba en un lugar donde podía encontrar cianuro.","knowledge_holders":["detective"],"fact_id":null,"necessary_facts":["CL-ERP-01","CL-TEC-01"],"sufficient_facts":[]},{"scene_id":"SCN-12","chunk_id":"SCN-12-AT-10","retrieval_text":"Pablo era el principal beneficiario de la modificación de la póliza.","knowledge_holders":["detective"],"fact_id":null,"necessary_facts":["CL-ERP-01","CL-TEC-01"],"sufficient_facts":[]},{"scene_id":"SCN-13","chunk_id":"SCN-13-AT-01","retrieval_text":"La discusión comenzó cuando Esteban descubrió que la póliza había sido modificada a favor de Pablo.","knowledge_holders":["detective"],"fact_id":"CL-RES-02","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-13","chunk_id":"SCN-13-AT-07","retrieval_text":"Mientras Stevens leía, el hielo se derritió y pasó el cianuro a la bebida.","knowledge_holders":["detective"],"fact_id":"CL-ICE-04","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-13","chunk_id":"SCN-13-AT-09","retrieval_text":"Pablo contaminó el agua del congelador con cianuro durante la reparación.","knowledge_holders":["detective"],"fact_id":"CL-RES-01","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-13","chunk_id":"SCN-13-AT-12","retrieval_text":"La coartada laboral de Pablo formaba parte del método.","knowledge_holders":["detective"],"fact_id":"CL-RES-03","necessary_facts":[],"sufficient_facts":[]},{"scene_id":"SCN-13","chunk_id":"SCN-13-AT-15","retrieval_text":"La pelea con Esteban hizo que Stevens pidiera el whisky antes de lo habitual.","knowledge_holders":["detective"],"fact_id":"CL-RES-02","necessary_facts":[],"sufficient_facts":[]}]};
+      const chunks = dataset.chunks;
+      const viewport = document.getElementById("chunk-graph-viewport");
+      const world = document.getElementById("chunk-graph-world");
+      const stages = document.getElementById("chunk-stages");
+      const edgeSvg = document.getElementById("chunk-edge-layer");
+      const edgeGroup = document.getElementById("chunk-edge-group");
+      const meta = document.getElementById("chunk-graph-meta");
+      const selection = document.getElementById("chunk-graph-selection");
+      const description = document.getElementById("chunk-graph-description");
+      const zoomLabel = document.getElementById("chunk-zoom-label");
+
+      const characterNames = {
+        criada: "Criada",
+        portero: "Portero",
+        juan: "Juan",
+        esteban: "Esteban",
+        pablo: "Pablo",
+        quimico: "Perito químico",
+        tecnico_heladera: "Técnico de heladera",
+        detective: "Detective"
+      };
+
+      const characterColors = {
+        criada: "var(--character-criada)",
+        portero: "var(--character-portero)",
+        juan: "var(--character-juan)",
+        esteban: "var(--character-esteban)",
+        pablo: "var(--character-pablo)",
+        quimico: "var(--character-quimico)",
+        tecnico_heladera: "var(--character-tecnico_heladera)",
+        detective: "var(--character-detective)"
+      };
+
+      const chunkById = new Map(chunks.map(chunk => [chunk.chunk_id, chunk]));
+      const cardById = new Map();
+      const factSources = new Map();
+
+      for (const chunk of chunks) {
+        if (!chunk.fact_id) continue;
+        if (!factSources.has(chunk.fact_id)) factSources.set(chunk.fact_id, []);
+        factSources.get(chunk.fact_id).push(chunk.chunk_id);
+      }
+
+      const edges = [];
+      const edgeKeys = new Set();
+
+      for (const chunk of chunks) {
+        for (const fact of chunk.necessary_facts) {
+          for (const sourceId of factSources.get(fact) || []) {
+            const key = sourceId + "|" + chunk.chunk_id + "|necessary|" + fact;
+            if (!edgeKeys.has(key)) {
+              edgeKeys.add(key);
+              edges.push({ source: sourceId, target: chunk.chunk_id, kind: "necessary", fact });
+            }
+          }
+        }
+        for (const fact of chunk.sufficient_facts) {
+          for (const sourceId of factSources.get(fact) || []) {
+            const key = sourceId + "|" + chunk.chunk_id + "|sufficient|" + fact;
+            if (!edgeKeys.has(key)) {
+              edgeKeys.add(key);
+              edges.push({ source: sourceId, target: chunk.chunk_id, kind: "sufficient", fact });
+            }
+          }
+        }
+      }
+
+      // Solo importan los chunks con al menos una conexión.
+      const connectedIds = new Set();
+      for (const edge of edges) {
+        connectedIds.add(edge.source);
+        connectedIds.add(edge.target);
+      }
+      const visibleChunks = chunks.filter(chunk => connectedIds.has(chunk.chunk_id));
+
+      const escapeHtml = value => String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+      const factLine = (label, values, className) => {
+        if (!values || values.length === 0) return "";
+        return '<span class="fact-line ' + className + '">' + label + ': ' + escapeHtml(values.join(" · ")) + "</span>";
+      };
+
+      const renderCard = chunk => {
+        const holders = chunk.knowledge_holders;
+        const colors = holders.map(holder => characterColors[holder] || "var(--character-detective)");
+        const accent = colors.length > 1
+          ? "linear-gradient(90deg, " + colors.map(color => color + " 0 " + (100 / colors.length) + "%").join(", ") + ")"
+          : colors[0];
+
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "chunk-node";
+        card.dataset.chunkId = chunk.chunk_id;
+        card.style.setProperty("--node-color", colors[0]);
+        card.style.setProperty("--node-accent", accent);
+        card.setAttribute(
+          "aria-label",
+          chunk.chunk_id + ". " + chunk.retrieval_text +
+          (chunk.fact_id ? ". Revela " + chunk.fact_id + "." : "") +
+          (chunk.necessary_facts.length ? " Necesita " + chunk.necessary_facts.join(", ") + "." : "") +
+          (chunk.sufficient_facts.length ? " Tiene como suficiente " + chunk.sufficient_facts.join(", ") + "." : "")
+        );
+
+        const facts = [
+          chunk.fact_id ? '<span class="fact-line revealed">revela: ' + escapeHtml(chunk.fact_id) + "</span>" : "",
+          factLine("necesita", chunk.necessary_facts, "necessary"),
+          factLine("suficiente (OR)", chunk.sufficient_facts, "sufficient")
+        ].join("");
+
+        card.innerHTML =
+          '<span class="port port-in" aria-hidden="true"></span>' +
+          '<span class="port port-out" aria-hidden="true"></span>' +
+          '<span class="node-id">' + escapeHtml(chunk.chunk_id) + "</span>" +
+          '<span class="node-text">' + escapeHtml(chunk.retrieval_text) + "</span>" +
+          '<span class="node-facts">' + facts + "</span>" +
+          '<span class="sr-only">Conocido por: ' + escapeHtml(holders.map(holder => characterNames[holder] || holder).join(", ")) + "</span>";
+
+        cardById.set(chunk.chunk_id, card);
+        return card;
+      };
+
+      // Capas por profundidad: un chunk va una columna a la derecha de sus dependencias.
+      const groupsForLevels = () => {
+        const sourcesByTarget = new Map(visibleChunks.map(chunk => [chunk.chunk_id, []]));
+        for (const edge of edges) {
+          if (sourcesByTarget.has(edge.target)) sourcesByTarget.get(edge.target).push(edge.source);
+        }
+        const depths = new Map();
+        const depthOf = id => {
+          if (depths.has(id)) return depths.get(id);
+          depths.set(id, 0);
+          const depth = Math.max(-1, ...(sourcesByTarget.get(id) || []).map(depthOf)) + 1;
+          depths.set(id, depth);
+          return depth;
+        };
+        visibleChunks.forEach(chunk => depthOf(chunk.chunk_id));
+        const groups = [];
+        for (let depth = 0; depth <= Math.max(0, ...depths.values()); depth++) {
+          const levelChunks = visibleChunks
+            .filter(chunk => depths.get(chunk.chunk_id) === depth)
+            .sort((a, b) => (a.scene_id < b.scene_id ? -1 : a.scene_id > b.scene_id ? 1 : 0) ||
+              (a.chunk_id < b.chunk_id ? -1 : 1));
+          if (levelChunks.length > 0) groups.push({ title: "Nivel " + depth, chunks: levelChunks });
+        }
+        return groups;
+      };
+
+      const renderGroups = groups => {
+        stages.replaceChildren();
+        cardById.clear();
+        for (const group of groups) {
+          const section = document.createElement("section");
+          section.className = "stage-section";
+          section.innerHTML =
+            '<div class="stage-header"><span class="stage-title">' + escapeHtml(group.title) +
+            '</span><span class="stage-count">' + group.chunks.length + " chunks con pistas</span></div>";
+          const flow = document.createElement("div");
+          flow.className = "stage-flow";
+          for (const chunk of group.chunks) flow.appendChild(renderCard(chunk));
+          section.appendChild(flow);
+          stages.appendChild(section);
+        }
+      };
+
+      const necessaryCount = visibleChunks.reduce((sum, chunk) => sum + chunk.necessary_facts.length, 0);
+      const sufficientCount = visibleChunks.reduce((sum, chunk) => sum + chunk.sufficient_facts.length, 0);
+      meta.textContent =
+        visibleChunks.length + " de " + dataset.total_chunks + " chunks · " +
+        (chunks.length - visibleChunks.length) + " sin conexiones ocultos · " +
+        factSources.size + " facts revelados · " +
+        necessaryCount + " relaciones necesarias · " +
+        sufficientCount + " relaciones suficientes";
+
+      description.textContent =
+        "Grafo de " + visibleChunks.length + " chunks con estructura de pistas. " +
+        "Las tarjetas están coloreadas por personaje que conoce el chunk. " +
+        "Las flechas sólidas representan facts necesarios; las discontinuas, facts suficientes en lógica OR.";
+
+      // World coordinates of a node port, undoing the viewport pan/zoom transform.
+      const portPoint = (card, side) => {
+        const rect = card.getBoundingClientRect();
+        const worldRect = world.getBoundingClientRect();
+        const x = side === "right" ? rect.right : rect.left;
+        const y = rect.top + rect.height / 2;
+        return {
+          x: (x - worldRect.left) / view.zoom,
+          y: (y - worldRect.top) / view.zoom
+        };
+      };
+
+      // Classic left-to-right n8n curve: out the right port, into the left port.
+      const pathForEdge = (sourceCard, targetCard) => {
+        const start = portPoint(sourceCard, "right");
+        const end = portPoint(targetCard, "left");
+        const dx = Math.max(40, Math.abs(end.x - start.x) * 0.5);
+        return "M " + start.x + " " + start.y +
+          " C " + (start.x + dx) + " " + start.y +
+          ", " + (end.x - dx) + " " + end.y +
+          ", " + end.x + " " + end.y;
+      };
+
+      const drawEdges = () => {
+        const width = Math.max(1, stages.offsetWidth);
+        const height = Math.max(1, stages.offsetHeight);
+        edgeSvg.setAttribute("width", width);
+        edgeSvg.setAttribute("height", height);
+        edgeSvg.setAttribute("viewBox", "0 0 " + width + " " + height);
+        edgeGroup.replaceChildren();
+
+        for (const edge of edges) {
+          const sourceCard = cardById.get(edge.source);
+          const targetCard = cardById.get(edge.target);
+          if (!sourceCard || !targetCard) continue;
+
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.classList.add("edge", edge.kind);
+          path.dataset.source = edge.source;
+          path.dataset.target = edge.target;
+          path.dataset.fact = edge.fact;
+          path.setAttribute("d", pathForEdge(sourceCard, targetCard));
+          edgeGroup.appendChild(path);
+        }
+        applySelectionStyles();
+      };
+
+      let selectedId = null;
+      const applySelectionStyles = () => {
+        for (const [chunkId, card] of cardById) {
+          card.classList.toggle("is-selected", chunkId === selectedId);
+          card.classList.toggle("is-related", Boolean(selectedId) && chunkId !== selectedId && relatedIds.has(chunkId));
+          card.classList.toggle("is-dimmed", Boolean(selectedId) && !relatedIds.has(chunkId));
+        }
+
+        for (const path of edgeGroup.querySelectorAll(".edge")) {
+          const focused = selectedId && (path.dataset.source === selectedId || path.dataset.target === selectedId);
+          path.classList.toggle("is-focus", Boolean(focused));
+          path.classList.toggle("is-dimmed", Boolean(selectedId) && !focused);
+        }
+      };
+      const relatedIds = new Set();
+      const selectCard = id => {
+        selectedId = selectedId === id ? null : id;
+        relatedIds.clear();
+        if (selectedId) {
+          relatedIds.add(selectedId);
+          for (const edge of edges) {
+            if (edge.source === selectedId) relatedIds.add(edge.target);
+            if (edge.target === selectedId) relatedIds.add(edge.source);
+          }
+        }
+
+        applySelectionStyles();
+
+        if (!selectedId) {
+          selection.textContent = "Seleccioná un nodo para resaltar sus conexiones.";
+          return;
+        }
+
+        const chunk = chunkById.get(selectedId);
+        const relationCount = edges.filter(edge => edge.source === selectedId || edge.target === selectedId).length;
+        selection.textContent = selectedId + " · " + relationCount + " conexiones · " + chunk.retrieval_text;
+      };
+
+      const MIN_ZOOM = 0.25;
+      const MAX_ZOOM = 1.75;
+      const view = { x: 24, y: 16, zoom: 1 };
+      let panMoved = 0;
+
+      const applyView = () => {
+        world.style.transform = "translate(" + view.x + "px," + view.y + "px) scale(" + view.zoom + ")";
+        zoomLabel.textContent = Math.round(view.zoom * 100) + "%";
+      };
+
+      const zoomAt = (clientX, clientY, nextZoom) => {
+        const rect = viewport.getBoundingClientRect();
+        const cx = clientX - rect.left;
+        const cy = clientY - rect.top;
+        const zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, nextZoom));
+        const scale = zoom / view.zoom;
+        view.x = cx - (cx - view.x) * scale;
+        view.y = cy - (cy - view.y) * scale;
+        view.zoom = zoom;
+        applyView();
+      };
+
+      const zoomStep = factor => {
+        const rect = viewport.getBoundingClientRect();
+        zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, view.zoom * factor);
+      };
+
+      const fitView = () => {
+        const vw = viewport.clientWidth;
+        const vh = viewport.clientHeight;
+        const ww = Math.max(1, stages.offsetWidth + 64);
+        const wh = Math.max(1, stages.offsetHeight + 64);
+        view.zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, Math.min(vw / ww, vh / wh)));
+        view.x = Math.max(16, (vw - stages.offsetWidth * view.zoom) / 2);
+        view.y = Math.max(16, (vh - stages.offsetHeight * view.zoom) / 2);
+        applyView();
+      };
+
+      viewport.addEventListener("pointerdown", event => {
+        if (event.button !== 0 && event.pointerType === "mouse") return;
+        viewport.classList.add("is-panning");
+        panMoved = 0;
+        let lastX = event.clientX;
+        let lastY = event.clientY;
+        const startX = event.clientX - view.x;
+        const startY = event.clientY - view.y;
+        const onMove = moveEvent => {
+          panMoved += Math.abs(moveEvent.clientX - lastX) + Math.abs(moveEvent.clientY - lastY);
+          lastX = moveEvent.clientX;
+          lastY = moveEvent.clientY;
+          view.x = moveEvent.clientX - startX;
+          view.y = moveEvent.clientY - startY;
+          applyView();
+        };
+        const onUp = () => {
+          viewport.classList.remove("is-panning");
+          window.removeEventListener("pointermove", onMove);
+          window.removeEventListener("pointerup", onUp);
+          window.removeEventListener("pointercancel", onUp);
+        };
+        window.addEventListener("pointermove", onMove);
+        window.addEventListener("pointerup", onUp);
+        window.addEventListener("pointercancel", onUp);
+      });
+
+      viewport.addEventListener("click", event => {
+        if (panMoved > 6) { panMoved = 0; return; }
+        const card = event.target.closest(".chunk-node");
+        if (card) selectCard(card.dataset.chunkId);
+        else if (event.target === viewport || event.target === world || event.target === stages) selectCard(selectedId);
+      }, true);
+
+      viewport.addEventListener("wheel", event => {
+        event.preventDefault();
+        zoomAt(event.clientX, event.clientY, view.zoom * Math.exp(-event.deltaY * 0.0016));
+      }, { passive: false });
+
+      viewport.addEventListener("keydown", event => {
+        const step = 48;
+        if (event.key === "+" || event.key === "=") zoomStep(1.15);
+        else if (event.key === "-" || event.key === "_") zoomStep(1 / 1.15);
+        else if (event.key === "ArrowLeft") { view.x += step; applyView(); }
+        else if (event.key === "ArrowRight") { view.x -= step; applyView(); }
+        else if (event.key === "ArrowUp") { view.y += step; applyView(); }
+        else if (event.key === "ArrowDown") { view.y -= step; applyView(); }
+        else if (event.key === "0") fitView();
+        else return;
+        event.preventDefault();
+      });
+
+      document.getElementById("chunk-zoom-in").addEventListener("click", () => zoomStep(1.25));
+      document.getElementById("chunk-zoom-out").addEventListener("click", () => zoomStep(1 / 1.25));
+      document.getElementById("chunk-zoom-fit").addEventListener("click", fitView);
+      document.getElementById("chunk-zoom-reset").addEventListener("click", () => {
+        view.x = 24; view.y = 16; view.zoom = 1; applyView();
+      });
+
+      // Pistas incriminatorias por sospechoso para habilitar la acusación (umbral: 2).
+      // Las coartadas verificadas no suman: descartan. Solo hermanos y criada son acusables.
+      const SUSPECTS = [
+        {
+          name: "Juan · hermano",
+          clues: [
+            { fact: "CL-JUA-04", cat: "motivo" },
+            { fact: "CL-JUA-02", cat: "motivo" }
+          ],
+          alibi: "CL-JUA-03 · Demorado en comisaría de 17:00 a medianoche: lo descarta."
+        },
+        {
+          name: "Esteban · hermano",
+          clues: [
+            { fact: "CL-EST-03", cat: "motivo" },
+            { fact: "CL-POL-03", cat: "motivo" },
+            { fact: "CL-POL-01", cat: "medios" }
+          ],
+          alibi: "CL-EST-05 · En Lister desde las 18:00 hasta la mañana: lo descarta."
+        },
+        {
+          name: "Pablo · hermano",
+          clues: [
+            { fact: "CL-POL-03", cat: "motivo" },
+            { fact: "CL-PAB-04", cat: "motivo" },
+            { fact: "CL-PAB-08", cat: "medios" },
+            { fact: "CL-FRI-02", cat: "oportunidad" }
+          ],
+          alibi: "CL-PAB-05 · Su coartada en Erpa forma parte del método (veneno temporizado): no lo descarta ni suma."
+        },
+        {
+          name: "Criada",
+          clues: [
+            { fact: "CL-CRI-01", cat: "motivo" },
+            { text: "Le sirvió el vaso de whisky hallado junto al cadáver", where: "SCN-02-AT-10", via: ["criada"], cat: "oportunidad" },
+            { fact: "CL-CRI-02", cat: "oportunidad" }
+          ],
+          alibi: "Sin coartada verificada. Ojo: lo que la criada sabe de la heladera (CL-FRI-01/02) y del whisky con hielo (CL-CRI-05) apunta a Pablo, no a ella."
+        }
+      ];
+
+      const buildAccusePanel = () => {
+        const panel = document.getElementById("chunk-accuse-panel");
+        const factChunks = new Map();
+        for (const chunk of chunks) {
+          if (!chunk.fact_id) continue;
+          if (!factChunks.has(chunk.fact_id)) factChunks.set(chunk.fact_id, []);
+          factChunks.get(chunk.fact_id).push(chunk);
+        }
+        const viaNames = holders => [...new Set(holders)]
+          .map(holder => characterNames[holder] || holder).join(" · ");
+
+        let html = '<p class="accuse-rule">Para acusar a un sospechoso hay que descubrir al menos ' +
+          "<strong>2 pistas incriminatorias</strong> sobre él. Las coartadas verificadas no suman: descartan. " +
+          "Los hechos de escena neutros y la reconstrucción final tampoco cuentan.</p>";
+
+        for (const suspect of SUSPECTS) {
+          const rows = suspect.clues.map(clue => {
+            const sources = clue.fact ? (factChunks.get(clue.fact) || []) : [];
+            const text = clue.text || (sources.length ? sources[0].retrieval_text : "");
+            const where = clue.where || sources.map(chunk => chunk.chunk_id).join(" · ");
+            const holders = clue.via || [...new Set(sources.flatMap(chunk => chunk.knowledge_holders))];
+            return '<li class="clue"><span class="cat">' + escapeHtml(clue.cat) + "</span><div>" +
+              '<span class="clue-fact">' + escapeHtml(clue.fact || where) + "</span>" +
+              '<span class="clue-text">' + escapeHtml(text) + "</span>" +
+              '<span class="clue-meta">Revelada en ' + escapeHtml(where) +
+              " · Vía: " + escapeHtml(viaNames(holders)) + "</span></div></li>";
+          }).join("");
+          html += '<section class="suspect"><div class="suspect-header">' +
+            '<span class="suspect-name">' + escapeHtml(suspect.name) + "</span>" +
+            '<span class="suspect-count">' + suspect.clues.length + " pistas · umbral 2</span></div>" +
+            '<ul class="clue-list">' + rows + "</ul>" +
+            '<p class="alibi"><strong>Coartada:</strong> ' + escapeHtml(suspect.alibi) + "</p></section>";
+        }
+        panel.innerHTML = html;
+      };
+
+      const tabLevels = document.getElementById("chunk-tab-levels");
+      const tabAccuse = document.getElementById("chunk-tab-accuse");
+      const accusePanel = document.getElementById("chunk-accuse-panel");
+      const tabs = [[tabLevels, "levels"], [tabAccuse, "accuse"]];
+
+      const setView = mode => {
+        for (const [tab, tabMode] of tabs) {
+          const active = mode === tabMode;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", String(active));
+        }
+        const isAccuse = mode === "accuse";
+        viewport.hidden = isAccuse;
+        accusePanel.hidden = !isAccuse;
+        if (isAccuse) return;
+        renderGroups(groupsForLevels());
+        redraw();
+        requestAnimationFrame(fitView);
+      };
+
+      tabLevels.addEventListener("click", () => setView("levels"));
+      tabAccuse.addEventListener("click", () => setView("accuse"));
+
+      const redraw = () => requestAnimationFrame(drawEdges);
+      new ResizeObserver(redraw).observe(viewport);
+      window.addEventListener("resize", redraw);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(redraw);
+      applyView();
+      buildAccusePanel();
+      setView("levels");
+    })();
+  </script>
+</div>

@@ -3,6 +3,8 @@ extends Node3D
 @export var npc_id: String = "Aldric"
 @export var npc_name: String = "Aldric"
 
+@export var retrato: Texture2D
+
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
 signal response_chunk(text: String)       # nuevo: chunk parcial
@@ -39,6 +41,9 @@ func request_response(player_input: String) -> void:
 		return
 	_start_stream(player_input)
 
+func get_retrato() -> Texture2D:
+	return retrato
+
 
 func _start_stream(player_input: String) -> void:
 	http_client = HTTPClient.new()
@@ -63,7 +68,7 @@ func _start_stream(player_input: String) -> void:
 	var body = JSON.stringify({
 		"npc_id": npc_id,
 		"player_input": player_input,
-		"session_id": "default"
+		"session_id": Global.session_id
 	})
 	var headers = [
 		"Content-Type: application/json",
