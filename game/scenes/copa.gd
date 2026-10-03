@@ -1,20 +1,17 @@
 extends StaticBody3D
 
-@export var location_name: String = "oficina"
-@export_file("*.tscn") var scene_path: String = "res://scenes/oficina.tscn"
-@export var rotation_speed: float = 0.5
+@export_multiline var description: String = "Una copa de whisky a medio terminar. El líquido ámbar todavía despide un aroma intenso. Hay una marca de labios en el borde."
+@export var object_name: String = "Copa de whisky"
 
 var is_highlighted: bool = false
+var original_materials: Array = []
 var mesh_instance: MeshInstance3D
 
 
 func _ready() -> void:
-	add_to_group("nodo_mapa")
+	add_to_group("examinable") 
 	mesh_instance = _find_mesh(self)
-
-
-func _process(delta: float) -> void:
-	rotate_y(rotation_speed * delta)
+	print(">> Script de copa cargado. Grupos: ", get_groups())
 
 
 func _find_mesh(node: Node) -> MeshInstance3D:
@@ -31,11 +28,12 @@ func highlight() -> void:
 	if is_highlighted or mesh_instance == null:
 		return
 	is_highlighted = true
+	# Aplicar un material de resaltado (emisión)
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = Color(1, 1, 0.6)
 	mat.emission_enabled = true
 	mat.emission = Color(1, 0.9, 0.3)
-	mat.emission_energy_multiplier = 0.5
+	mat.emission_energy_multiplier = 0.4
 	mesh_instance.material_overlay = mat
 
 
@@ -46,9 +44,5 @@ func unhighlight() -> void:
 	mesh_instance.material_overlay = null
 
 
-func get_location_name() -> String:
-	return location_name
-
-
-func get_scene_path() -> String:
-	return scene_path
+func get_description() -> String:
+	return description

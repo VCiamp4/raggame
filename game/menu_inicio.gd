@@ -9,6 +9,11 @@ const COLOR_TEXTO = Color("c8c4b8")
 const COLOR_ACENTO = Color("8b2b2b")
 const COLOR_HOVER = Color("a8823c")
 
+const DIFICULTADES := ["Fácil", "Normal", "Difícil"]
+
+var difficulty_panel: Control
+var difficulty_label: Label
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -55,6 +60,9 @@ func _ready() -> void:
 	var btn_salir = _crear_boton("Salir", 110)
 	btn_salir.pressed.connect(_on_salir)
 	canvas.add_child(btn_salir)
+	
+	# Menú de dificultad (oculto, se abre al empezar una partida nueva)
+	_crear_menu_dificultad(canvas)
 	
 		# Audio de ambiente
 	var ambiente = AudioStreamPlayer.new()
@@ -137,8 +145,71 @@ void fragment() {
 	canvas.add_child(overlay)
 
 
-func _on_jugar() -> void:
+func _crear_menu_dificultad(canvas: CanvasLayer) -> void:
+	difficulty_panel = Control.new()
+	difficulty_panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	difficulty_panel.visible = false
+	canvas.add_child(difficulty_panel)
+	
+	var bg = ColorRect.new()
+	bg.color = COLOR_FONDO
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	difficulty_panel.add_child(bg)
+	
+	var titulo = Label.new()
+	titulo.text = "DIFICULTAD"
+	titulo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	titulo.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	titulo.offset_top = -180
+	titulo.offset_bottom = -180
+	titulo.add_theme_font_size_override("font_size", 40)
+	titulo.add_theme_color_override("font_color", COLOR_TEXTO)
+	difficulty_panel.add_child(titulo)
+	
+	difficulty_label = Label.new()
+	difficulty_label.text = "Elegí una dificultad"
+	difficulty_label.set_anchors_preset(Control.PRESET_FULL_RECT)
+	difficulty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	difficulty_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	difficulty_label.offset_top = -120
+	difficulty_label.offset_bottom = -120
+	difficulty_label.add_theme_font_size_override("font_size", 18)
+	difficulty_label.add_theme_color_override("font_color", COLOR_ACENTO)
+	difficulty_panel.add_child(difficulty_label)
+	
+	var offset_y := -40
+	for dificultad in DIFICULTADES:
+		var btn = _crear_boton(dificultad, offset_y)
+		btn.pressed.connect(_on_dificultad_elegida.bind(dificultad))
+		difficulty_panel.add_child(btn)
+		offset_y += 60
+	
+	var btn_volver = _crear_boton("Volver", offset_y + 10)
+	btn_volver.pressed.connect(_ocultar_dificultad)
+	difficulty_panel.add_child(btn_volver)
+
+
+func _mostrar_dificultad() -> void:
+	difficulty_panel.show()
+
+
+func _ocultar_dificultad() -> void:
+	difficulty_panel.hide()
+
+
+func _on_dificultad_elegida(dificultad: String) -> void:
+	Global.difficulty = dificultad
 	get_tree().change_scene_to_file(ESCENA_INICIAL)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and difficulty_panel != null and difficulty_panel.visible:
+		_ocultar_dificultad()
+
+
+func _on_jugar() -> void:
+	_mostrar_dificultad()
 
 
 func _on_salir() -> void:

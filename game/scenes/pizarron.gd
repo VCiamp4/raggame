@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+@export var object_name: String = "Pizarrón"
+
 var is_highlighted: bool = false
 var mesh_instance: MeshInstance3D
 

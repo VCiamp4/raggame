@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 @export_file("*.tscn") var destino: String = "res://scenes/departamento.tscn"
+@export var object_name: String = "Ascensor"
 
 var is_highlighted: bool = false
 var mesh_instance: MeshInstance3D
