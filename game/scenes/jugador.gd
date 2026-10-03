@@ -2,8 +2,10 @@ extends CharacterBody3D
 
 const SPEED = 3.0
 const JUMP_VELOCITY = 4.5
+const TURN_SPEED = 10.0
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
+@onready var model: Node3D = $Walking
 @onready var dialogue_ui: CanvasLayer = $DialogueUI
 @onready var camera: Camera3D = $Camera3D
 
@@ -12,10 +14,12 @@ var highlighted_object: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
+var model_base_yaw: float = 0.0
 
 
 func _ready() -> void:
 	add_to_group("player")
+	model_base_yaw = model.rotation.y
 	for npc in get_tree().get_nodes_in_group("npc"):
 		if npc.has_signal("player_entered_range"):
 			npc.player_entered_range.connect(_on_npc_entered_range)
@@ -35,11 +39,15 @@ func _physics_process(delta: float) -> void:
 	
 	# Movimiento
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var local_dir := Vector3(input_dir.x, 0, input_dir.y)
+	var direction := (transform.basis * local_dir).normalized()
 	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		# El personaje gira para mirar hacia donde se mueve.
+		var target_yaw := model_base_yaw + atan2(-local_dir.x, -local_dir.z)
+		model.rotation.y = lerp_angle(model.rotation.y, target_yaw, TURN_SPEED * delta)
 		if anim_player and not anim_player.is_playing():
 			anim_player.play("mixamo_com")
 	else:
