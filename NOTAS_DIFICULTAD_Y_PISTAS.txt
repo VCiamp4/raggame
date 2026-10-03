@@ -1,0 +1,641 @@
+========================================================================
+NOTAS DE IMPLEMENTACION - RAGGAME
+1) Menu de dificultad al iniciar partida
+2) Boton "Pistas" (esquina superior derecha)
+========================================================================
+Documentado a partir del codigo real en la rama actual (que sera podada).
+Todos los paths son relativos a la raiz del repo.
+
+------------------------------------------------------------------------
+RESUMEN DE ARCHIVOS INVOLUCRADOS
+------------------------------------------------------------------------
+DIFICULTAD
+  game/project.godot                  -> escena principal = menu_inicio.tscn
+  game/scenes/menu_inicio.tscn        -> escena vacia (solo un Node)
+  game/menu_inicio.gd                 -> TODA la UI/el menu, incluido el overlay
+  game/scenes/global.gd               -> Autoload "Global": guarda la dificultad
+  game/scenes/jugador.gd              -> unico consumidor de la dificultad
+
+PISTAS
+  game/scenes/jugador.gd              -> crea el boton, reglas, muestra el hint
+  game/data/hints/hints.gd            -> HintCatalog (texto de pista por ID)
+  game/data/events/events.gd          -> EventCatalog (definicion de pistas)
+  game/scripts/systems/event_manager.gd -> Autoload "EventManager" (estado)
+  game/ui/notification_manager.gd     -> Autoload "NotificationManager" (toasts)
+  game/scenes/dialogue_ui.gd          -> muestra keywords por NPC (relacionado)
+
+Autoloads (game/project.godot):
+  Global="*uid://fkr7dnd4hg44"          -> game/scenes/global.gd
+  EventManager="*res://scripts/systems/event_manager.gd"
+  InputManager="*res://scripts/systems/input_manager.gd"
+  NotificationManager="*res://ui/notification_manager.gd"
+
+
+========================================================================
+1) MENU DE DIFICULTAD
+========================================================================
+
+1.1 FLUJO GENERAL
+------------------------------------------------------------------------
+- El juego arranca en menu_inicio.tscn (game/project.godot).
+- menu_inicio.tscn es una escena vacia (un solo Node); menu_inicio.gd
+  construye por codigo absolutamente toda la interfaz.
+- En _ready() se crea el overlay de dificultad OCULTO
+  (_crear_difficulty_overlay()).
+- Al pulsar "Jugar" -> _on_jugar() -> _show_difficulty_menu().
+  Esto llama Global.reset_difficulty() y hace visible el overlay.
+- El overlay lista 3 perfiles (Facil / Medio / Dificil). Al elegir uno:
+    _on_difficulty_selected(profile)
+      -> Global.set_difficulty(profile)   (guarda el diccionario completo)
+      -> _hide_difficulty_menu()
+      -> _start_game() -> change_scene_to_file("res://scenes/mapa_menu.tscn")
+- Boton "Volver" -> _hide_difficulty_menu() (no cambia de escena).
+
+1.2 PERFILES (menu_inicio.gd, lineas 12-46)
+------------------------------------------------------------------------
+const DIFFICULTY_PROFILES = [
+    {
+        "id": "story",
+        "name": "Informe guiado",
+        "label": "Facil",
+        "tagline": "Mas margen para experimentar y pistas tempranas",
+        "planned_effects": {
+            "clue_window": 1.5,
+            "npc_patience": 1.3,
+            "llm_temperature_bias": -0.1
+        }
+    },
+    {
+        "id": "standard",
+        "name": "Procedimiento",
+        "label": "Medio",
+        "tagline": "Equilibrio entre presion y descubrimiento",
+        "planned_effects": {
+            "clue_window": 1.0,
+            "npc_patience": 1.0,
+            "llm_temperature_bias": 0.0
+        }
+    },
+    {
+        "id": "hardcore",
+        "name": "Contra reloj",
+        "label": "Dificil",
+        "tagline": "Claves estrictas, sospechosos menos tolerantes",
+        "planned_effects": {
+            "clue_window": 0.6,
+            "npc_patience": 0.7,
+            "llm_temperature_bias": 0.15
+        }
+    }
+]
+
+IMPORTANTE: "planned_effects" esta declarado pero NUNCA se lee en ningun
+lado. Solo se usa "id". El subtitulo del overlay lo dice explicitamente:
+"Los modos ajustaran pistas, paciencia y presion temporal cuando esas
+mecanicas esten listas."
+
+1.3 CREACION DEL OVERLAY (menu_inicio.gd, lineas 138-212)
+------------------------------------------------------------------------
+func _crear_difficulty_overlay() -> void:
+    _difficulty_overlay = ColorRect.new()
+    _difficulty_overlay.color = Color(0, 0, 0, 0.88)
+    _difficulty_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+    _difficulty_overlay.visible = false
+    _difficulty_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+    _canvas.add_child(_difficulty_overlay)
+
+    var panel := PanelContainer.new()
+    panel.set_anchors_preset(Control.PRESET_CENTER)
+    panel.offset_left = -280
+    panel.offset_right = 280
+    panel.offset_top = -230
+    panel.offset_bottom = 230
+    panel.add_theme_constant_override("margin_left", 32)
+    panel.add_theme_constant_override("margin_right", 32)
+    panel.add_theme_constant_override("margin_top", 28)
+    panel.add_theme_constant_override("margin_bottom", 28)
+    _difficulty_overlay.add_child(panel)
+
+    var vbox := VBoxContainer.new()
+    vbox.add_theme_constant_override("separation", 14)
+    panel.add_child(vbox)
+
+    var title := Label.new()
+    title.text = "Selecciona la dificultad"
+    title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    title.add_theme_font_size_override("font_size", 32)
+    title.add_theme_color_override("font_color", COLOR_TEXTO)
+    vbox.add_child(title)
+
+    var subtitle := Label.new()
+    subtitle.text = "Los modos ajustaran pistas, paciencia y presion temporal cuando esas mecanicas esten listas."
+    subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD
+    subtitle.add_theme_font_size_override("font_size", 16)
+    subtitle.add_theme_color_override("font_color", COLOR_HOVER)
+    vbox.add_child(subtitle)
+
+    var options := VBoxContainer.new()
+    options.add_theme_constant_override("separation", 10)
+    vbox.add_child(options)
+    _difficulty_buttons.clear()
+
+    for profile in DIFFICULTY_PROFILES:
+        var btn := Button.new()
+        btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        var level_label: String = str(profile.get("label", ""))
+        var display_name: String = str(profile.get("name", ""))
+        var tagline: String = str(profile.get("tagline", ""))
+        if level_label != "":
+            btn.text = "%s  -  %s\n%s" % [display_name, level_label, tagline]
+        else:
+            btn.text = "%s\n%s" % [display_name, tagline]
+        btn.add_theme_font_size_override("font_size", 20)
+        btn.add_theme_color_override("font_color", COLOR_TEXTO)
+        btn.add_theme_color_override("font_hover_color", COLOR_HOVER)
+        btn.pressed.connect(func(): _on_difficulty_selected(profile))
+        options.add_child(btn)
+        _difficulty_buttons.append(btn)
+
+    var cancel := Button.new()
+    cancel.text = "Volver"
+    cancel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    cancel.add_theme_font_size_override("font_size", 18)
+    cancel.add_theme_color_override("font_color", COLOR_ACENTO)
+    cancel.pressed.connect(_hide_difficulty_menu)
+    vbox.add_child(cancel)
+
+    var note := Label.new()
+    note.text = "Tip: podes cambiar la dificultad reiniciando la partida desde este menu."
+    note.autowrap_mode = TextServer.AUTOWRAP_WORD
+    note.add_theme_font_size_override("font_size", 14)
+    note.add_theme_color_override("font_color", COLOR_TEXTO.darkened(0.4))
+    vbox.add_child(note)
+
+1.4 MOSTRAR / OCULTAR / ELEGIR (menu_inicio.gd, lineas 250-283)
+------------------------------------------------------------------------
+func _on_jugar() -> void:
+    _show_difficulty_menu()
+
+func _on_salir() -> void:
+    get_tree().quit()
+
+func _show_difficulty_menu() -> void:
+    if _difficulty_overlay == null:
+        return
+    Global.reset_difficulty()
+    _difficulty_overlay.visible = true
+    if _difficulty_buttons.size() > 0:
+        var first_button: Button = _difficulty_buttons[0]
+        if is_instance_valid(first_button):
+            first_button.grab_focus()
+
+func _hide_difficulty_menu() -> void:
+    if _difficulty_overlay == null:
+        return
+    _difficulty_overlay.visible = false
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _on_difficulty_selected(profile: Dictionary) -> void:
+    Global.set_difficulty(profile)
+    _hide_difficulty_menu()
+    _start_game()
+
+func _start_game() -> void:
+    get_tree().change_scene_to_file(ESCENA_INICIAL)
+    # ESCENA_INICIAL = "res://scenes/mapa_menu.tscn"
+
+1.5 DONDE SE GUARDA LA DIFICULTAD (game/scenes/global.gd, completo)
+------------------------------------------------------------------------
+extends Node
+
+const DEFAULT_DIFFICULTY := {
+    "id": "standard",
+    "name": "Estandar",
+    "tagline": "Equilibrio entre pistas y presion",
+    "planned_effects": {
+        "clue_window": 1.0,
+        "llm_temperature_bias": 0.0,
+        "npc_tolerance": 1.0
+    }
+}
+
+var accused_id: String = ""
+var accused_name: String = ""
+var difficulty_profile: Dictionary = DEFAULT_DIFFICULTY.duplicate(true)
+var hint_uses_spent: int = 0
+var hint_cooldown_ready_time: float = 0.0
+
+func set_difficulty(profile: Dictionary) -> void:
+    if profile.is_empty():
+        difficulty_profile = DEFAULT_DIFFICULTY.duplicate(true)
+        reset_hint_state()
+        return
+    difficulty_profile = profile.duplicate(true)
+    reset_hint_state()
+
+func current_difficulty() -> Dictionary:
+    return difficulty_profile.duplicate(true)
+
+func reset_difficulty() -> void:
+    difficulty_profile = DEFAULT_DIFFICULTY.duplicate(true)
+    reset_hint_state()
+
+func reset_hint_state() -> void:
+    hint_uses_spent = 0
+    hint_cooldown_ready_time = 0.0
+
+var session_id: String = str(Time.get_unix_time_from_system()) + "-" + str(randi())
+
+Notas:
+- set_difficulty hace duplicate(true) => se guarda una copia del dict.
+- Elegir dificultad resetea el estado de pistas (hint_uses_spent y cooldown).
+- hint_uses_spent / hint_cooldown_ready_time viven en Global para SOBREVIVIR
+  a los cambios de escena (el nodo jugador se reinstancia en cada ubicacion).
+- El DEFAULT_DIFFICULTY usa la key "npc_tolerance" mientras los perfiles del
+  menu usan "npc_patience": inconsistencia, pero ninguna se usa igual.
+- session_id se declara despues de las funciones (legal en GDScript).
+
+1.6 COMO SE LEE LA DIFICULTAD EN EL JUEGO
+------------------------------------------------------------------------
+Unico consumidor: game/scenes/jugador.gd -> _configure_hint_rules()
+(lineas 487-505). Ver seccion 2.4.
+
+
+========================================================================
+2) BOTON "PISTAS"
+========================================================================
+
+2.1 FLUJO GENERAL
+------------------------------------------------------------------------
+- El jugador (jugador.gd) crea en _ready():
+    _create_hint_button()     -> boton "Pistas"  (CanvasLayer layer 90)
+    _create_notebook_button() -> boton "Cuaderno"
+    _create_notebook_modal()  -> modal cuaderno (CanvasLayer layer 95)
+    _configure_hint_rules()   -> lee dificultad y configura limites/cooldown
+    EventManager.event_activated.connect(_on_event_activated)
+- Al pulsar "Pistas":
+    _on_hint_button_pressed()
+      -> _hint_action_allowed()          (chequea limite/cooldown)
+      -> _current_hint_text()            (elige el texto de la pista)
+      -> NotificationManager.show_message(hint_text)  (toast arriba a la derecha)
+      -> _register_hint_consumption()    (consume uso / arranca cooldown)
+- La pista mostrada es la del ULTIMO evento descubierto que tenga entrada en
+  HintCatalog; si no hay ninguna, muestra el hint por defecto.
+
+2.2 CREACION DEL BOTON (jugador.gd, lineas 329-350)
+------------------------------------------------------------------------
+func _create_hint_button() -> void:
+    if hint_layer != null and is_instance_valid(hint_layer):
+        return
+    hint_layer = CanvasLayer.new()
+    hint_layer.layer = 90
+    add_child(hint_layer)
+
+    hint_button = Button.new()
+    hint_button.text = "Pistas"
+    hint_button.anchor_left = 1
+    hint_button.anchor_right = 1
+    hint_button.anchor_top = 0.15
+    hint_button.anchor_bottom = 0.15
+    hint_button.offset_left = -180
+    hint_button.offset_right = -40
+    hint_button.offset_top = -30
+    hint_button.offset_bottom = 30
+    hint_button.focus_mode = Control.FOCUS_NONE
+    hint_button.tooltip_text = HINT_TOOLTIP_DEFAULT
+    hint_button.theme = null
+    hint_button.pressed.connect(_on_hint_button_pressed)
+    hint_layer.add_child(hint_button)
+
+POSICION: anclado al borde derecho (anchor_left/right = 1), al 15% desde
+arriba; ocupa x de -180 a -40 y de -30 a +30 respecto al ancla. Layer 90
+(debajo de notificaciones layer 100 y cuaderno layer 95).
+
+2.3 SELECCION DEL TEXTO DE PISTA (jugador.gd, lineas 460-484)
+------------------------------------------------------------------------
+func _on_hint_button_pressed() -> void:
+    if not _hint_action_allowed():
+        return
+    var hint_text := _current_hint_text()
+    NotificationManager.show_message(hint_text)
+    _register_hint_consumption()
+
+func _current_hint_text() -> String:
+    var history := EventManager.get_event_history()
+    for i in range(history.size() - 1, -1, -1):   # recorre desde el mas nuevo
+        var event_id: String = str(history[i])
+        var hint_text := HintCatalogRes.hint_for_event(event_id)
+        if hint_text != "":
+            return hint_text
+    return HintCatalogRes.default_hint()
+
+2.4 REGLAS SEGUN DIFICULTAD (jugador.gd, lineas 487-505)
+------------------------------------------------------------------------
+func _configure_hint_rules() -> void:
+    hint_cooldown_seconds = 0.0
+    hint_uses_limit = -1
+    hint_remaining_uses = -1
+    var difficulty := Global.current_difficulty()
+    var difficulty_id := str(difficulty.get("id", "standard"))
+    match difficulty_id:
+        "standard":
+            hint_cooldown_seconds = 15.0
+        "hardcore":
+            hint_uses_limit = 3
+        _:
+            pass
+    if hint_uses_limit > 0:
+        var spent := int(clamp(Global.hint_uses_spent, 0, hint_uses_limit))
+        hint_remaining_uses = max(hint_uses_limit - spent, 0)
+    _ensure_hint_timer()
+    _apply_existing_hint_state()
+    _refresh_hint_button_state()
+
+TABLA DE COMPORTAMIENTO:
+  id          label    Regla de pistas
+  story       Facil    sin cooldown, sin limite (cae en el caso "_")
+  standard    Medio    cooldown de 15 segundos
+  hardcore    Dificil  maximo 3 usos (sin cooldown)
+
+2.5 ESTADO DEL BOTON / COOLDOWN / CONSUMO (jugador.gd)
+------------------------------------------------------------------------
+func _refresh_hint_button_state() -> void:               # lineas 540-562
+    if hint_button == null:
+        return
+    var button_text := "Pistas"
+    var tooltip := HINT_TOOLTIP_DEFAULT
+    var disabled := false
+    if hint_uses_limit > 0:
+        var remaining: int = max(hint_remaining_uses, 0)
+        button_text = "Pistas (%d)" % remaining
+        tooltip = "Pistas limitadas en esta dificultad."
+        if remaining <= 0:
+            disabled = true
+            tooltip = "Ya usaste todas las pistas disponibles en esta dificultad."
+    if hint_cooldown_timer != null and not hint_cooldown_timer.is_stopped():
+        disabled = true
+        var seconds_left := int(ceil(hint_cooldown_timer.time_left))
+        if seconds_left < 1:
+            seconds_left = 1
+        button_text = "Pistas (%ds)" % seconds_left
+        tooltip = "Podes volver a pedir una pista en %d s." % seconds_left
+    hint_button.text = button_text
+    hint_button.disabled = disabled
+    hint_button.tooltip_text = tooltip
+
+func _hint_action_allowed() -> bool:                     # lineas 565-570
+    if hint_uses_limit > 0 and hint_remaining_uses <= 0:
+        return false
+    if hint_cooldown_timer != null and not hint_cooldown_timer.is_stopped():
+        return false
+    return true
+
+func _register_hint_consumption() -> void:               # lineas 573-581
+    if hint_uses_limit > 0:
+        Global.hint_uses_spent = min(Global.hint_uses_spent + 1, hint_uses_limit)
+        hint_remaining_uses = max(hint_uses_limit - Global.hint_uses_spent, 0)
+    if hint_cooldown_seconds > 0.0:
+        var now := Time.get_unix_time_from_system()
+        Global.hint_cooldown_ready_time = now + hint_cooldown_seconds
+        _begin_hint_cooldown()
+    _refresh_hint_button_state()
+
+func _begin_hint_cooldown(duration: float = -1.0) -> void:  # lineas 663-672
+    if hint_cooldown_timer == null:
+        return
+    var wait_time := hint_cooldown_seconds
+    if duration > 0.0:
+        wait_time = duration
+    if wait_time <= 0.0:
+        return
+    hint_cooldown_timer.start(wait_time)
+    _refresh_hint_button_state()
+
+func _on_hint_cooldown_finished() -> void:               # lineas 675-676
+    _refresh_hint_button_state()
+
+PERSISTENCIA: Global.hint_uses_spent y Global.hint_cooldown_ready_time
+sobreviven a los cambios de escena. _apply_existing_hint_state() rearma el
+cooldown usando reloj de pared (Time.get_unix_time_from_system()), asi que
+cerrar y reabrir una escena conserva el tiempo restante.
+
+En _process() se llama _update_hint_cooldown_display() cada frame para
+actualizar la cuenta regresiva en el texto del boton.
+
+2.6 CATALOGO DE PISTAS (game/data/hints/hints.gd, completo)
+------------------------------------------------------------------------
+extends Resource
+class_name HintCatalog
+
+const DEFAULT_HINT := "Todavia no registraste pistas clave. Habla con los sospechosos y examina la escena para desbloquear indicios."
+
+const HINTS: Dictionary = {
+    "PI-CRI-01": "La criada se quiebra cuando recordas las humillaciones. Preguntale por episodios concretos y como la trataba Stevens en publico.",
+    "PI-CRI-02": "El whisky y el servicio nocturno esconden detalles. Repasa exactamente quien sirvio el vaso y que paso con los cubitos.",
+    "PI-JUA-01": "Juan sigue rumiando su condena. Si mencionas a la policia y viejos favores, terminara admitiendo por que odia a Stevens.",
+    "PI-JUA-02": "No le hables de justicia: habla de dinero. Cuando se sienta cerca del premio, cuenta cuanto esperaba cobrar de la poliza.",
+    "PI-EST-01": "Esteban conoce cada clausula. Mostrale los papeles del seguro o cuestiona quien lo gestiono para que admita su rol.",
+    "PI-EST-02": "Recorda el almuerzo familiar. Menciona la discusion y quien salio gritando para que revele el favor hacia Pablo.",
+    "PI-EST-03": "No olvides que Esteban tambien cobraba. Preguntale por porcentajes y beneficiarios para que admita su motivacion financiera.",
+    "PI-PAB-01": "En Erpa manejan quimicos delicados. Hacelo hablar de protocolos y reactivos para saber que tenia a mano.",
+    "PI-PAB-02": "La herencia fue desigual. Si mencionas la mitad que consiguio, explicara como convencio a Stevens.",
+    "PI-PAB-03": "El arreglo de la heladera es clave. Preguntale por el fusible, el congelador y quien manipulo el hielo dias antes.",
+    "PI-PAB-04": "El cianuro estaba a su alcance. Vincula sus labores en Erpa con sustancias controladas para que admita el acceso.",
+    "PI-GLO-01": "El forense juro que las botellas estaban limpias. Busca otro vector: tal vez lo que se derrite dentro del vaso.",
+    "PI-GLO-02": "Todo apunta al hielo. Averigua quien toco la cubetera y por que alguien necesitaba apagar y encender la heladera.",
+    "PI-GLO-03": "La averia era minima. Pregunta al tecnico que pieza cambio para saber quien tuvo excusa para abrir la heladera.",
+    "PI-GLO-04": "El portero lleva un registro obsesivo. Insisti con horarios y visitas: despues de las 19:10 nadie entro sin su permiso."
+}
+
+static func hint_for_event(event_id: String) -> String:
+    var text: String = str(HINTS.get(event_id, ""))
+    return text.strip_edges()
+
+static func default_hint() -> String:
+    return DEFAULT_HINT
+
+Cada key de HINTS mapea 1:1 con un ID de pista en events.gd (15 en total).
+
+2.7 CATALOGO DE EVENTOS/PISTAS (game/data/events/events.gd)
+------------------------------------------------------------------------
+Define las pistas agrupadas por personaje + pistas globales. Cada pista:
+  id, summary, keywords (array), facts (array)
+Estructura:
+  CHARACTER_CLUES := {
+     "Criada":  [ {id PI-CRI-01 ...}, {id PI-CRI-02 ...} ],
+     "Juan":    [ PI-JUA-01, PI-JUA-02 ],
+     "Esteban": [ PI-EST-01, PI-EST-02, PI-EST-03 ],
+     "Pablo":   [ PI-PAB-01 ... PI-PAB-04 ],
+  }
+  GLOBAL_CLUES := { PI-GLO-01 ... PI-GLO-04 }
+
+  Total: 15 pistas (11 de personaje + 4 globales).
+
+Funciones estaticas:
+  _build_index()             -> arma CLUE_INDEX (id -> data + character)
+  get_clue(clue_id)          -> dict de la pista
+  clues_for_character(name)  -> array de pistas de un personaje
+  character_for_clue(id)     -> nombre del personaje o ""
+  get_clue_index()           -> CLUE_INDEX completo
+
+2.8 EVENT MANAGER (game/scripts/systems/event_manager.gd)
+------------------------------------------------------------------------
+Autoload que mantiene el estado global de pistas descubiertas.
+
+  signal event_activated(event_id)
+
+  var activated_events: Dictionary = {}   # id -> true
+  var event_history: Array = []           # ids en orden de descubrimiento
+  var keyword_events: Dictionary = _build_keyword_map()  # keyword -> id
+
+  func activate_event(event_id):
+      if has_event(event_id): return      # solo registra una vez
+      activated_events[event_id] = true
+      event_history.append(event_id)
+      event_activated.emit(event_id)
+
+  func has_event(event_id) -> bool:
+      return activated_events.has(event_id)
+
+  func reset_events() -> void:
+      activated_events.clear()
+      event_history.clear()
+
+  func clue_info(event_id) -> Dictionary:
+      return EventCatalogResource.get_clue(event_id)
+
+  func get_event_history() -> Array:
+      return event_history.duplicate(true)
+
+  func check_input(input_text: String) -> bool:
+      var normalized: String = input_text.strip_edges().to_lower()
+      if normalized == "":
+          return false
+      if not keyword_events.has(normalized):
+          return false
+      var event_id: String = keyword_events[normalized]
+      if not has_event(event_id):
+          activate_event(event_id)
+          NotificationManager.show_clue_notification(event_id)
+      return true
+
+  static func _build_keyword_map() -> Dictionary:
+      # recorre CLUE_INDEX y mapea cada keyword (lower) -> clue_id
+      ...
+
+CADENA DE DESCUBRIMIENTO:
+  jugador.gd:_on_text_submitted(text) [linea 150]
+    -> EventManager.check_input(text)
+         match EXACTO de keyword -> activate_event(id)
+              -> activated_events / event_history
+              -> event_activated.emit(id)  (refresca cuaderno)
+              -> NotificationManager.show_clue_notification(id)
+
+OJO / BUG CONOCIDO: aunque el comentario dice "contiene alguna keyword",
+check_input usa keyword_events.has(normalized), o sea que exige que el
+mensaje COMPLETO del jugador sea EXACTAMENTE igual a una keyword. No hay
+coincidencia por substring.
+
+2.9 NOTIFICACIONES / TOASTS (game/ui/notification_manager.gd)
+------------------------------------------------------------------------
+Autoload CanvasLayer (layer 100). Apila toasts arriba a la derecha.
+
+  func show_message(text):                 # usado por el boton Pistas
+      # crea PanelContainer + Label, fade in, espera DISPLAY_TIME (3s), fade out
+
+  func show_clue_notification(event_id):   # usado por EventManager
+      var clue_info = EventManager.clue_info(event_id)
+      var summary = clue_info.get("summary", event_id)
+      var character = clue_info.get("character", "")
+      var text = summary
+      if character != null and str(character) != "":
+          text = "%s (%s)" % [summary, character]
+      show_message("Pista encontrada: %s" % text)
+
+  Diferencia: el boton Pistas muestra el texto crudo del hint (sin prefijo);
+  el descubrimiento de pista antepone "Pista encontrada: " + personaje.
+
+2.10 BOTON "CUADERNO" (relacionado, jugador.gd lineas 353-457 y 584-660)
+------------------------------------------------------------------------
+- _create_notebook_button(): boton "Cuaderno" a la izquierda de "Pistas"
+  (mismo layer 90, anchors 1, offsets x -330..-190).
+- _create_notebook_modal(): modal estilo cuaderno (layer 95), fondo crema,
+  borde marron, titulo "Cuaderno de pistas", boton X para cerrar.
+- _refresh_notebook_content(): itera EventCatalogRes.CHARACTER_CLUES y,
+  usando EventManager.get_event_history(), arma una seccion por personaje
+  con las pistas ya descubiertas (marca "[x]" + summary).
+- Se refresca en vivo via _on_event_activated() si el modal esta abierto.
+- OJO: solo itera CHARACTER_CLUES, por lo que las pistas GLOBALES
+  (PI-GLO-*) NO aparecen en el cuaderno aunque tengan hint.
+
+2.11 KEYWORDS POR NPC (game/scenes/dialogue_ui.gd, lineas 264-280)
+------------------------------------------------------------------------
+El HUD de dialogo muestra las keywords del personaje actual tomadas del
+mismo EventCatalog:
+  var lookup_id := npc_id.capitalize()
+  var clues := EventCatalogRes.clues_for_character(lookup_id)
+  # por cada pista arma un Label "Keywords: k1, k2, ..."
+Esto es la ayuda visual para que el jugador sepa que escribir (recordar que
+el match es exacto).
+
+
+========================================================================
+3) CICLO COMPLETO
+========================================================================
+
+DIFICULTAD
+  menu_inicio.tscn (escena principal)
+    -> menu_inicio.gd:_ready() construye UI + overlay oculto
+    "Jugar" -> _on_jugar() -> _show_difficulty_menu()
+                 -> Global.reset_difficulty()
+                 -> overlay.visible = true
+    perfil  -> _on_difficulty_selected(profile)
+                 -> Global.set_difficulty(profile) -> reset_hint_state()
+                 -> _hide_difficulty_menu()
+                 -> _start_game() -> mapa_menu.tscn
+
+PISTAS
+  jugador.tscn (instanciado en Hall, comisaria, dpto, oficina, campo)
+    -> _ready(): _create_hint_button / _create_notebook_button /
+                 _create_notebook_modal / _configure_hint_rules /
+                 connect(event_activated)
+    Texto enviado en dialogo:
+      _on_text_submitted -> EventManager.check_input -> activate_event
+        -> toast "Pista encontrada: ..."
+    "Pistas" pulsado:
+      _on_hint_button_pressed
+        -> _hint_action_allowed
+        -> _current_hint_text (ultima pista con hint, o default)
+        -> NotificationManager.show_message
+        -> _register_hint_consumption
+        -> _refresh_hint_button_state
+    "Cuaderno" pulsado:
+      _on_notebook_button_pressed -> _refresh_notebook_content
+
+
+========================================================================
+4) OBSERVACIONES / GAPS A TENER EN CUENTA
+========================================================================
+1. Solo se consume "id" de la dificultad. planned_effects
+   (clue_window, npc_patience/npc_tolerance, llm_temperature_bias) no se
+   leen en ningun lado (ni gameplay ni backend). Son placeholders.
+2. Perfil default inconsistente: Global.DEFAULT_DIFFICULTY tiene
+   name "Estandar" y key "npc_tolerance"; el perfil standard del menu tiene
+   name "Procedimiento" y key "npc_patience".
+3. check_input exige coincidencia EXACTA del mensaje completo con una
+   keyword (no substring).
+4. Las pistas globales PI-GLO-* no aparecen en el Cuaderno.
+5. El cooldown usa reloj de pared (unix time), no tiempo de juego.
+6. Global sobrevive cambios de escena; una partida nueva desde el menu
+   resetea hint state. EventManager.reset_events() existe pero NUNCA se
+   llama, asi que las pistas persisten hasta reiniciar el proceso.
+7. Existe un script legacy sin uso: game/scenes/DialogueUI.gd (mayusculas);
+   el vivo es game/scenes/dialogue_ui.gd (minusculas).
+8. "Facil" es la rama implicita (match "_") en _configure_hint_rules: si el
+   id falta o es desconocido, quedan pistas ilimitadas sin cooldown.
+9. session_id (global.gd) se envia al backend desde npc.gd.
+
+========================================================================
+FIN DEL ARCHIVO
+========================================================================

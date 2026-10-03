@@ -1,7 +1,11 @@
 extends CanvasLayer
 
+const EventCatalogRes = preload("res://data/events/events.gd")
+
 var panel: ColorRect
 var name_label: Label
+var keyword_panel: VBoxContainer
+var keyword_labels: Array = []
 var scroll_container: ScrollContainer
 var history_label: RichTextLabel
 var input_field: LineEdit
@@ -13,6 +17,7 @@ var retrato_npc: TextureRect
 signal text_submitted(text: String)
 
 var current_npc_response: String = ""
+var _current_npc_id: String = ""
 
 
 func _ready() -> void:
@@ -37,6 +42,17 @@ func _ready() -> void:
 	name_label.add_theme_font_size_override("font_size", 22)
 	name_label.add_theme_color_override("font_color", Color(1, 0.9, 0.5))
 	panel.add_child(name_label)
+
+	# Palabras clave del NPC actual (ayuda para el input exacto)
+	keyword_panel = VBoxContainer.new()
+	keyword_panel.anchor_left = 0
+	keyword_panel.anchor_right = 1
+	keyword_panel.offset_left = 20
+	keyword_panel.offset_right = -20
+	keyword_panel.offset_top = 44
+	keyword_panel.offset_bottom = 44
+	keyword_panel.add_theme_constant_override("separation", 2)
+	panel.add_child(keyword_panel)
 	
 	# Historial scrolleable
 	scroll_container = ScrollContainer.new()
@@ -138,17 +154,20 @@ func _ready() -> void:
 	prompt_label.hide()
 
 
-func show_dialogue(npc_name: String) -> void:
+func show_dialogue(npc_name: String, npc_id: String = "") -> void:
 	name_label.text = npc_name
+	_current_npc_id = npc_id
 	panel.show()
 	input_field.text = ""
 	input_field.editable = true
 	input_field.grab_focus()
+	_update_keywords()
 
 
 func hide_dialogue() -> void:
 	panel.hide()
 	input_field.release_focus()
+	_clear_keywords()
 
 
 func is_open() -> bool:
@@ -224,6 +243,39 @@ func show_map_prompt() -> void:
 
 func hide_prompt() -> void:
 	prompt_label.hide()
+
+
+func _update_keywords() -> void:
+	_clear_keywords()
+	if _current_npc_id == "":
+		return
+	var lookup_id := _current_npc_id.capitalize()
+	var clues: Array = EventCatalogRes.clues_for_character(lookup_id)
+	for clue in clues:
+		var keywords: Array = clue.get("keywords", [])
+		if keywords.is_empty():
+			continue
+		var label := Label.new()
+		label.text = "Keywords: %s" % ", ".join(keywords)
+		label.add_theme_font_size_override("font_size", 14)
+		label.add_theme_color_override("font_color", Color(1, 1, 1, 0.65))
+		keyword_panel.add_child(label)
+		keyword_labels.append(label)
+	if keyword_panel != null:
+		keyword_panel.offset_bottom = keyword_panel.offset_top + keyword_panel.get_combined_minimum_size().y
+	if scroll_container != null:
+		scroll_container.offset_top = keyword_panel.offset_bottom + 6
+
+
+func _clear_keywords() -> void:
+	for label in keyword_labels:
+		if is_instance_valid(label):
+			label.queue_free()
+	keyword_labels.clear()
+	if keyword_panel != null:
+		keyword_panel.offset_bottom = keyword_panel.offset_top
+	if scroll_container != null:
+		scroll_container.offset_top = 45
 
 
 func _on_text_submitted(text: String) -> void:
