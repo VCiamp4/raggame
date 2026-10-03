@@ -154,6 +154,11 @@ func show_interact_prompt(object_name: String) -> void:
 	prompt_label.show()
 
 
+func show_map_prompt() -> void:
+	prompt_label.text = "Aprieta [ESC] para volver al mapa"
+	prompt_label.show()
+
+
 func hide_prompt() -> void:
 	prompt_label.hide()
 

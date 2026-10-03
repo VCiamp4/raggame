@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if confirm_panel.visible:
 			_hide_confirm()  # cerrar cartel
 		else:
-			get_tree().change_scene_to_file("res://scenes/hall.tscn")  # salir
+			get_tree().change_scene_to_file("res://scenes/Hall.tscn")  # salir
 		return
 	
 	if event is InputEventMouseButton:

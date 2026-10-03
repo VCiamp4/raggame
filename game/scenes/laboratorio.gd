@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 @export var location_name: String = "Laboratorio"
-@export_file("*.tscn") var scene_path: String = "res://scenes/laboratorio.gd"
+@export_file("*.tscn") var scene_path: String = "res://scenes/laboratorio.tscn"
 @export var rotation_speed: float = 0.5
 
 var is_highlighted: bool = false

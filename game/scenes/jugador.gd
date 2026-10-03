@@ -6,6 +6,7 @@ const TURN_SPEED = 10.0
 const FALL_DISTANCE = 1.0
 const CAMERA_OFFSET = Vector3(0.0, 1.8, 3.2)
 const CAMERA_LOOK_HEIGHT = 0.9
+const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -14,9 +15,12 @@ const CAMERA_LOOK_HEIGHT = 0.9
 
 const EXAMINE_DISTANCE = 6.0
 const INTERACT_DISTANCE = 5.0
+const TOTEM_DISTANCE = 3.0
 const CLICKABLE_GROUPS := ["examinable", "pizarron", "ascensor"]
+@export var totem_offset: Vector3 = Vector3(1.2, 0.0, 0.0)
 var highlighted_object: Node = null
 var nearby_clickable: Node = null
+var nearby_totem: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
@@ -34,9 +38,27 @@ func _ready() -> void:
 			npc.player_entered_range.connect(_on_npc_entered_range)
 			npc.player_exited_range.connect(_on_npc_exited_range)
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
+	_spawn_totem.call_deferred()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
+
+
+func _spawn_totem() -> void:
+	var parent := get_parent()
+	if parent == null:
+		return
+	var target := spawn_position + totem_offset
+	var query := PhysicsRayQueryParameters3D.create(
+		target + Vector3.UP, target + Vector3.DOWN * 10.0)
+	query.exclude = [get_rid()]
+	var result := get_world_3d().direct_space_state.intersect_ray(query)
+	if result.has("position"):
+		target.y = result["position"].y
+	var totem := StaticBody3D.new()
+	totem.set_script(load("res://scenes/totem.gd"))
+	parent.add_child(totem)
+	totem.global_position = target
 
 
 func _physics_process(delta: float) -> void:
@@ -86,8 +108,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			_open_dialogue()
 		elif nearby_clickable != null:
 			_trigger_clickable(nearby_clickable)
-	elif event.is_action_pressed("ui_cancel") and in_dialogue:
-		_close_dialogue()
+	elif event.is_action_pressed("ui_cancel"):
+		if in_dialogue:
+			_close_dialogue()
+		elif nearby_totem != null:
+			get_tree().change_scene_to_file(MAPA_SCENE)
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -167,6 +192,7 @@ func _process(_delta: float) -> void:
 		return
 	_check_examinable_under_mouse()
 	_update_nearby_clickable()
+	_update_nearby_totem()
 	_update_prompt()
 
 
@@ -182,11 +208,24 @@ func _update_nearby_clickable() -> void:
 	nearby_clickable = closest
 
 
+func _update_nearby_totem() -> void:
+	var closest: Node = null
+	var closest_dist := TOTEM_DISTANCE
+	for totem in get_tree().get_nodes_in_group("totem"):
+		var dist := global_position.distance_to(_clickable_anchor(totem))
+		if dist <= closest_dist:
+			closest_dist = dist
+			closest = totem
+	nearby_totem = closest
+
+
 func _update_prompt() -> void:
 	if nearby_npc != null:
 		dialogue_ui.show_prompt(nearby_npc.npc_name)
 	elif nearby_clickable != null:
 		dialogue_ui.show_interact_prompt(_clickable_display_name(nearby_clickable))
+	elif nearby_totem != null:
+		dialogue_ui.show_map_prompt()
 	else:
 		dialogue_ui.hide_prompt()
 
@@ -282,13 +321,17 @@ func _debug_list_clickables() -> void:
 	print(">> ==== Detección de objetos clicables ====")
 	var bodies := _collect_layer2_bodies(get_tree().current_scene)
 	var clickables := 0
+	var scanned := 0
 	for body in bodies:
+		if body.is_in_group("totem"):
+			continue
+		scanned += 1
 		if _is_clickable(body):
 			clickables += 1
 			print(">> [CLICABLE] ", body.get_path(), " -> ", _describe_click_event(body))
 		else:
 			print(">> [no] ", body.get_path(), " (capa 2, sin evento de clic)")
-	print(">> Total en capa 2: ", bodies.size(), " | clicables: ", clickables)
+	print(">> Total en capa 2: ", scanned, " | clicables: ", clickables)
 	print(">> ======================================")
 
 
