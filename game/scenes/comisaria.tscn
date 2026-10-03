@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8witqi1l7qlp"]
 
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="1_2u34w"]
-[ext_resource type="Material" path="res://assets/Tiles139_2K-JPG/Tiles139_2K-JPG.tres" id="1_gxr2u"]
+[ext_resource type="Material" uid="uid://cxjg1kegmi1aa" path="res://assets/Tiles139_2K-JPG/Tiles139_2K-JPG.tres" id="1_gxr2u"]
 [ext_resource type="PackedScene" uid="uid://dlpvlrxa5wmy7" path="res://assets/PSX Computer asset pack/PSX Computer asset pack/glb/desk.glb" id="2_eecqw"]
 [ext_resource type="PackedScene" uid="uid://ceki26yhucnhm" path="res://assets/PSX modular house interior pack/props/table3.glb" id="2_odxpy"]
 [ext_resource type="PackedScene" uid="uid://bllfpffilhspf" path="res://assets/OFFICE/OFFICE/extras/water_cooler.glb" id="3_4a1fd"]
@@ -269,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016334534, 2.7712708, -8.0
 shape = SubResource("BoxShape3D_nbej8")
 
 [node name="Message board by Poly by Google - fDpegPgEB0j" parent="pared" unique_id=2058705880 instance=ExtResource("10_hncaa")]
-transform = Transform3D(-8.7422775e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.7422775e-10, 1.9276264, 1.8888059, -7.9315157)
+transform = Transform3D(-8.7422775e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.7422775e-10, 1.9276264, 1.3987567, -7.9315157)
 
 [node name="coffee_machine2" parent="pared" unique_id=414515430 instance=ExtResource("15_abive")]
 transform = Transform3D(-0.017285006, 0, 0.99985063, 0, 1, 0, -0.99985063, 0, -0.017285006, -7.4857264, 0.014526129, -3.5694144)
@@ -283,6 +283,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pared2" unique_id=1745896482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0284991, -8.03809)
+material_override = ExtResource("8_wheks")
+mesh = SubResource("QuadMesh_arjtg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pared2/MeshInstance3D" unique_id=507069832]
+transform = Transform3D(-0.99979895, 0.005157773, 0.019378638, 0.0051568043, 0.9999867, -9.9951714e-05, -0.019378895, 2.2545342e-10, -0.99981225, 1.0018181, -0.30478573, 16.111984)
 material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
@@ -382,6 +387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026367188, -0.10662842, 0.
 shape = SubResource("BoxShape3D_hncaa")
 
 [node name="Cork Board by Jarlan Perez - 5Ql0Sdq6fmy" parent="pizarron" unique_id=661720195 instance=ExtResource("16_owl32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07939005, 0)
 
 [node name="square_desklamp_alt2" parent="." unique_id=28964830 instance=ExtResource("20_k2khg")]
 transform = Transform3D(-0.52749836, 0, -0.849556, 0, 1, 0, 0.849556, 0, -0.52749836, 0.58492553, 0.93310535, -2.1891704)

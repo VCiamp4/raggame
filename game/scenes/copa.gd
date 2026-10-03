@@ -1,15 +1,17 @@
 extends StaticBody3D
 
-@export_file("*.tscn") var destino: String = "res://scenes/departamento.tscn"
-@export var object_name: String = "Ascensor"
+@export_multiline var description: String = "Una copa de whisky a medio terminar. El líquido ámbar todavía despide un aroma intenso. Hay una marca de labios en el borde."
+@export var object_name: String = "Copa de whisky"
 
 var is_highlighted: bool = false
+var original_materials: Array = []
 var mesh_instance: MeshInstance3D
 
 
 func _ready() -> void:
-	add_to_group("ascensor")
+	add_to_group("examinable") 
 	mesh_instance = _find_mesh(self)
+	print(">> Script de copa cargado. Grupos: ", get_groups())
 
 
 func _find_mesh(node: Node) -> MeshInstance3D:
@@ -26,6 +28,7 @@ func highlight() -> void:
 	if is_highlighted or mesh_instance == null:
 		return
 	is_highlighted = true
+	# Aplicar un material de resaltado (emisión)
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = Color(1, 1, 0.6)
 	mat.emission_enabled = true
@@ -41,8 +44,5 @@ func unhighlight() -> void:
 	mesh_instance.material_overlay = null
 
 
-func interact() -> void:
-	if destino != "":
-		get_tree().change_scene_to_file(destino)
-	else:
-		print(">> El ascensor no tiene destino asignado")
+func get_description() -> String:
+	return description
