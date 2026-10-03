@@ -5,6 +5,8 @@ import json
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
+from backend.rag.game_state import get_discovered_facts
+from backend.rag.retrieval import CHUNKS
 
 app = FastAPI()
 dialogue_service = DialogueService()
@@ -19,6 +21,15 @@ class DialogueRequest(BaseModel):
 @app.get("/")
 def root():
     return {"status": "ok", "message": "Servidor RAG-NPC andando"}
+
+
+@app.get("/notebook/{session_id}")
+def notebook(session_id: str):
+    discovered = get_discovered_facts(session_id)
+    return {"clues": [
+        {"fact_id": chunk.fact_id, "text": chunk.retrieval_text}
+        for chunk in CHUNKS if chunk.fact_id in discovered
+    ]}
 
 
 @app.post("/dialogue_stream")
