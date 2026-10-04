@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://wii2q34ky75e"]
 
-[ext_resource type="PackedScene" uid="uid://cx6ue410plk10" path="res://assets/Characters_psx/Models/Male/Character_31.fbx" id="1_h3srh"]
 [ext_resource type="Script" uid="uid://cvt4pcijvmvg5" path="res://scenes/reconocimiento.gd" id="1_thfp8"]
 [ext_resource type="Script" uid="uid://sm2mnd1rfmgu" path="res://scenes/hermano_abogado.gd" id="2_0wtbs"]
-[ext_resource type="PackedScene" uid="uid://c2on5owmq6ktm" path="res://assets/Characters_psx/Models/Male/Character_26_Doctor.fbx" id="3_j8gfl"]
+[ext_resource type="PackedScene" uid="uid://qcu3g70nufp3" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="1_pablo"]
+[ext_resource type="PackedScene" uid="uid://bxowr0k1ve4md" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="2_esteban"]
+[ext_resource type="PackedScene" uid="uid://dowd21f5t0o5d" path="res://assets/Characters_psx/Models/Male/Character_04.fbx" id="3_juan"]
+[ext_resource type="PackedScene" uid="uid://1il2ftotcat6" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="4_criada"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -32,22 +34,82 @@ distance_fade_enabled = true
 [node name="Camera3D" type="Camera3D" parent="." unique_id=306373151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34280464, -0.04241407)
 
-[node name="hermano_abogado" type="StaticBody3D" parent="." unique_id=31693707]
+[node name="Pablo" type="StaticBody3D" parent="." unique_id=1877500001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -0.85)
 script = ExtResource("2_0wtbs")
+suspect_name = "Pablo"
+suspect_id = "pablo"
 
-[node name="Character_31" parent="hermano_abogado" unique_id=175993406 instance=ExtResource("1_h3srh")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00017499924, 0.0071172714, -0.7712672)
+[node name="Character_03" parent="Pablo" unique_id=1877500002 instance=ExtResource("1_pablo")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.007, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hermano_abogado" unique_id=816946927]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.20691526, -0.7712444)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo" unique_id=1877500003]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.207, 0)
 shape = SubResource("CapsuleShape3D_arjtg")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=207202687]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31683856, 0, -0.0053755045)
+[node name="Label3D" type="Label3D" parent="Pablo" unique_id=1877500004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+pixel_size = 0.001
+billboard = 1
+text = "Pablo"
+font_size = 24
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=241342149]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.20691526, -0.77356565)
+[node name="Esteban" type="StaticBody3D" parent="." unique_id=1877600001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -0.85)
+script = ExtResource("2_0wtbs")
+suspect_name = "Esteban"
+suspect_id = "esteban"
+
+[node name="Character_05" parent="Esteban" unique_id=1877600002 instance=ExtResource("2_esteban")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.007, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban" unique_id=1877600003]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.207, 0)
 shape = SubResource("CapsuleShape3D_arjtg")
 
-[node name="Character_26_Doctor" parent="StaticBody3D2" unique_id=974126706 instance=ExtResource("3_j8gfl")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.77419406)
+[node name="Label3D" type="Label3D" parent="Esteban" unique_id=1877600004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+pixel_size = 0.001
+billboard = 1
+text = "Esteban"
+font_size = 24
+
+[node name="Juan" type="StaticBody3D" parent="." unique_id=1877700001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, -0.85)
+script = ExtResource("2_0wtbs")
+suspect_name = "Juan"
+suspect_id = "juan"
+
+[node name="Character_04" parent="Juan" unique_id=1877700002 instance=ExtResource("3_juan")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.007, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Juan" unique_id=1877700003]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.207, 0)
+shape = SubResource("CapsuleShape3D_arjtg")
+
+[node name="Label3D" type="Label3D" parent="Juan" unique_id=1877700004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+pixel_size = 0.001
+billboard = 1
+text = "Juan"
+font_size = 24
+
+[node name="Criada" type="StaticBody3D" parent="." unique_id=1877800001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -0.85)
+script = ExtResource("2_0wtbs")
+suspect_name = "Criada"
+suspect_id = "criada"
+
+[node name="Character_Female_06" parent="Criada" unique_id=1877800002 instance=ExtResource("4_criada")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.007, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada" unique_id=1877800003]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.207, 0)
+shape = SubResource("CapsuleShape3D_arjtg")
+
+[node name="Label3D" type="Label3D" parent="Criada" unique_id=1877800004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+pixel_size = 0.001
+billboard = 1
+text = "Criada"
+font_size = 24
