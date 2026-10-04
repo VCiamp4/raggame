@@ -5,7 +5,7 @@
       "chunk_id": "SCN-09-AT-01",
       "retrieval_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué contenía el hielo y en qué cantidad resultaba mortal?",
@@ -22,7 +22,7 @@
       "chunk_id": "SCN-09-AT-02",
       "retrieval_text": "Las botellas estaban limpias porque el veneno no había estado en ellas.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué las botellas no contenían veneno?",

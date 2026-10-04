@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daos0tfv2taxp"
-path="res://.godot/imported/quimico.png-c32d15a93c21b223040a33e12a5636d0.ctex"
+uid="uid://c3wodoi58i544"
+path="res://.godot/imported/quimica.png-a019b491983dcffb57e6daf2bddd295c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/retratos/quimico.png"
-dest_files=["res://.godot/imported/quimico.png-c32d15a93c21b223040a33e12a5636d0.ctex"]
+source_file="res://assets/ui/retratos/quimica.png"
+dest_files=["res://.godot/imported/quimica.png-a019b491983dcffb57e6daf2bddd295c.ctex"]
 
 [params]
 

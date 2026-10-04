@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b2o676mhnhl77" path="res://assets/OFFICE/OFFICE/extras/desk_phone.glb" id="16_oyqwp"]
 [ext_resource type="PackedScene" uid="uid://dpt1ew2s4lnok" path="res://assets/OFFICE/OFFICE/extras/circular_desklamp.glb" id="17_10wag"]
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="18_wsqm2"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="19_totem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(2.013626, 0.2909546, 1.9919434)
@@ -160,6 +161,9 @@ transform = Transform3D(0.6376286, 0, -0.7703439, 0, 1, 0, 0.7703439, 0, 0.63762
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("18_wsqm2")]
 transform = Transform3D(-0.59970987, 0, 0.018657207, 0, 0.59999996, 0, -0.018657207, 0, -0.59970987, -2.0199428, 0.74576664, -3.304942)
+
+[node name="Totem" parent="." unique_id=1869845904 instance=ExtResource("19_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82, 0.746, -3.304942)
 
 [node name="paper_stack_large2" parent="." unique_id=954741178 instance=ExtResource("9_l6hvc")]
 transform = Transform3D(0.25605136, 0, 0.9666632, 0, 1, 0, -0.9666632, 0, 0.25605136, 0.14169496, 0.8817971, 1.5056)

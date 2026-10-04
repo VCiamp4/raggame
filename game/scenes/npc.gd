@@ -5,6 +5,13 @@ extends Node3D
 
 @export var retrato: Texture2D
 
+# Pose: rota huesos del esqueleto Mixamo para evitar la pose rígida (T/A-pose).
+# Los valores son grados; 0 deja el hueso como está.
+@export var pose_arms_down: float = 0.0
+@export var pose_spine_turn: float = 0.0
+@export var pose_head_turn: float = 0.0
+@export var pose_hips_turn: float = 0.0
+
 signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
 signal response_chunk(text: String)       # nuevo: chunk parcial
@@ -24,6 +31,45 @@ func _ready() -> void:
 	add_to_group("npc")
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
+	_apply_pose()
+
+
+func _apply_pose() -> void:
+	var skeleton := _find_skeleton(self)
+	if skeleton == null:
+		return
+	# Ejes locales típicos de un rig Mixamo: bajar los brazos se logra
+	# rotando alrededor de Z, con signos opuestos en cada brazo.
+	if not is_zero_approx(pose_arms_down):
+		_rotate_bone(skeleton, "mixamorig_LeftArm", Vector3.BACK, pose_arms_down)
+		_rotate_bone(skeleton, "mixamorig_RightArm", Vector3.BACK, -pose_arms_down)
+		_rotate_bone(skeleton, "mixamorig_LeftForeArm", Vector3.BACK, pose_arms_down * 0.35)
+		_rotate_bone(skeleton, "mixamorig_RightForeArm", Vector3.BACK, -pose_arms_down * 0.35)
+	if not is_zero_approx(pose_spine_turn):
+		_rotate_bone(skeleton, "mixamorig_Spine1", Vector3.RIGHT, pose_spine_turn)
+	if not is_zero_approx(pose_head_turn):
+		_rotate_bone(skeleton, "mixamorig_Head", Vector3.UP, pose_head_turn)
+	if not is_zero_approx(pose_hips_turn):
+		_rotate_bone(skeleton, "mixamorig_Hips", Vector3.UP, pose_hips_turn)
+
+
+func _rotate_bone(skeleton: Skeleton3D, bone_name: String, axis: Vector3, degrees: float) -> void:
+	var idx := skeleton.find_bone(bone_name)
+	if idx < 0:
+		return
+	var pose := skeleton.get_bone_pose_rotation(idx)
+	pose = pose * Quaternion(axis, deg_to_rad(degrees))
+	skeleton.set_bone_pose_rotation(idx, pose)
+
+
+func _find_skeleton(node: Node) -> Skeleton3D:
+	if node is Skeleton3D:
+		return node
+	for child in node.get_children():
+		var result := _find_skeleton(child)
+		if result:
+			return result
+	return null
 
 
 func _on_body_entered(body: Node3D) -> void:

@@ -3,7 +3,7 @@ scene_id: SCN-01
 title: Hallazgo del cuerpo y peritaje inicial
 canonical_lines: [3, 11]
 locations: [departamento]
-present_entities: [detective, criada, portero, perito_quimico]
+present_entities: [detective, criada, portero, perito_quimica]
 mentioned_entities: [senora_stevens]
 availability: M00_CASE_OPEN
 index_policy: investigation

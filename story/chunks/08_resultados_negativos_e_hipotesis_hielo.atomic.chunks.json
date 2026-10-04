@@ -5,7 +5,7 @@
       "chunk_id": "SCN-08-AT-01",
       "retrieval_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué encontraron limpio al analizar las bebidas y el agua?",
@@ -22,7 +22,7 @@
       "chunk_id": "SCN-08-AT-02",
       "retrieval_text": "La intoxicación de Stevens seguía confirmada.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué conclusión sobre la intoxicación seguía sosteniendo el perito?",
@@ -39,7 +39,7 @@
       "chunk_id": "SCN-08-AT-03",
       "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué descartaron los análisis sobre el origen del tóxico?",
@@ -56,7 +56,7 @@
       "chunk_id": "SCN-08-AT-06",
       "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué muestra faltaba todavía entre las pruebas del perito?",
@@ -73,7 +73,7 @@
       "chunk_id": "SCN-08-AT-07",
       "retrieval_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué pidió el detective que se analizara al regresar el perito?",

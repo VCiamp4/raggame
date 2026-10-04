@@ -10,7 +10,7 @@ PERSONAJES_FILES = {
     "juan": "juan.md",
     "pablo": "pablo.md",
     "portero": "portero.md",
-    "quimico": "quimico.md",
+    "quimica": "quimica.md",
     "tecnico_heladera": "tecnico_heladera.md",
 }
 PERSONAJES_DIR = Path(__file__).resolve().parents[2] / "story" / "personajes"

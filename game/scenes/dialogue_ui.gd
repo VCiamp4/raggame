@@ -1,7 +1,11 @@
 extends CanvasLayer
 
+const EventCatalogRes = preload("res://data/events/events.gd")
+
 var panel: ColorRect
 var name_label: Label
+var keyword_panel: VBoxContainer
+var keyword_labels: Array = []
 var scroll_container: ScrollContainer
 var history_label: RichTextLabel
 var input_field: LineEdit
@@ -9,10 +13,13 @@ var prompt_label: Label
 var fake_blur: ColorRect
 var retrato_jugador: TextureRect
 var retrato_npc: TextureRect
+var close_button: Button
 
 signal text_submitted(text: String)
+signal close_requested
 
 var current_npc_response: String = ""
+var _current_npc_id: String = ""
 
 
 func _ready() -> void:
@@ -32,11 +39,37 @@ func _ready() -> void:
 	name_label.anchor_right = 1
 	name_label.offset_left = 20
 	name_label.offset_top = 10
-	name_label.offset_right = -20
+	name_label.offset_right = -60
 	name_label.offset_bottom = 40
-	name_label.add_theme_font_size_override("font_size", 22)
+	name_label.add_theme_font_size_override("font_size", 28)
 	name_label.add_theme_color_override("font_color", Color(1, 0.9, 0.5))
 	panel.add_child(name_label)
+
+	# Botón de cierre "X" (cierra inspección o diálogo)
+	close_button = Button.new()
+	close_button.text = "X"
+	close_button.anchor_left = 1
+	close_button.anchor_right = 1
+	close_button.offset_left = -45
+	close_button.offset_right = -12
+	close_button.offset_top = 8
+	close_button.offset_bottom = 40
+	close_button.focus_mode = Control.FOCUS_NONE
+	close_button.tooltip_text = "Cerrar"
+	close_button.add_theme_font_size_override("font_size", 20)
+	close_button.pressed.connect(_on_close_pressed)
+	panel.add_child(close_button)
+
+	# Palabras clave del NPC actual (ayuda para el input exacto)
+	keyword_panel = VBoxContainer.new()
+	keyword_panel.anchor_left = 0
+	keyword_panel.anchor_right = 1
+	keyword_panel.offset_left = 20
+	keyword_panel.offset_right = -20
+	keyword_panel.offset_top = 44
+	keyword_panel.offset_bottom = 44
+	keyword_panel.add_theme_constant_override("separation", 2)
+	panel.add_child(keyword_panel)
 	
 	# Historial scrolleable
 	scroll_container = ScrollContainer.new()
@@ -58,27 +91,39 @@ func _ready() -> void:
 	history_label.scroll_active = false
 	history_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	history_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	history_label.add_theme_font_size_override("normal_font_size", 18)
+	history_label.add_theme_font_size_override("normal_font_size", 24)
 	history_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
 	history_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new()) 
 	scroll_container.add_child(history_label)
 	
-	# Campo de texto para escribir abajo
+	# Campo de texto para escribir abajo (barra fija al pie del panel)
 	input_field = LineEdit.new()
 	input_field.anchor_left = 0
 	input_field.anchor_right = 1
+	input_field.anchor_top = 1
 	input_field.anchor_bottom = 1
 	input_field.offset_left = 20
 	input_field.offset_right = -20
-	input_field.offset_top = -45
-	input_field.offset_bottom = -15
+	input_field.offset_top = -46
+	input_field.offset_bottom = -14
 	input_field.placeholder_text = "Escribí algo y presioná Enter..."
-	input_field.add_theme_font_size_override("font_size", 18)
+	input_field.add_theme_font_size_override("font_size", 24)
 	input_field.text_submitted.connect(_on_text_submitted)
-	input_field.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
-	input_field.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
-	input_field.add_theme_stylebox_override("read_only", StyleBoxEmpty.new())   
+	var input_style := StyleBoxFlat.new()
+	input_style.bg_color = Color(0, 0, 0, 0.35)
+	input_style.content_margin_left = 10
+	input_style.content_margin_right = 10
+	input_style.corner_radius_top_left = 6
+	input_style.corner_radius_top_right = 6
+	input_style.corner_radius_bottom_left = 6
+	input_style.corner_radius_bottom_right = 6
+	input_field.add_theme_stylebox_override("normal", input_style)
+	input_field.add_theme_stylebox_override("focus", input_style)
+	input_field.add_theme_stylebox_override("read_only", input_style)
 	panel.add_child(input_field)
+	# El botón de cierre se mueve al frente para asegurar que reciba el clic
+	# por encima de cualquier otro control del panel.
+	close_button.move_to_front()
 	
 	# Fake blur: panel oscuro semitransparente que atenúa el fondo
 	fake_blur = ColorRect.new()
@@ -91,32 +136,33 @@ func _ready() -> void:
 	fake_blur.visible = false
 	add_child(fake_blur)
 	
-	# Retrato del jugador (izquierda)
-	retrato_jugador = TextureRect.new()
-	retrato_jugador.anchor_left = 0
-	retrato_jugador.anchor_bottom = 1
-	retrato_jugador.offset_left = -80
-	retrato_jugador.offset_top = -215
-	retrato_jugador.offset_bottom = -180
-	retrato_jugador.offset_right = 320
-	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	retrato_jugador.visible = false
-	add_child(retrato_jugador)
-	
-	# Retrato del NPC (derecha)
+	# Retrato del NPC (izquierda, más chico)
 	retrato_npc = TextureRect.new()
-	retrato_npc.anchor_left = 1
-	retrato_npc.anchor_right = 1
+	retrato_npc.anchor_left = 0
+	retrato_npc.anchor_right = 0
 	retrato_npc.anchor_bottom = 1
-	retrato_npc.offset_left = -320
-	retrato_npc.offset_right = -20
-	retrato_npc.offset_top = -175
-	retrato_npc.offset_bottom = -180
+	retrato_npc.offset_left = 20
+	retrato_npc.offset_right = 220
+	retrato_npc.offset_top = -200
+	retrato_npc.offset_bottom = 15
 	retrato_npc.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	retrato_npc.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	retrato_npc.visible = false
 	add_child(retrato_npc)
+
+	# Retrato del jugador (derecha, más chico)
+	retrato_jugador = TextureRect.new()
+	retrato_jugador.anchor_left = 1
+	retrato_jugador.anchor_right = 1
+	retrato_jugador.anchor_bottom = 1
+	retrato_jugador.offset_left = -220
+	retrato_jugador.offset_right = -20
+	retrato_jugador.offset_top = -200
+	retrato_jugador.offset_bottom = 0
+	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	retrato_jugador.visible = false
+	add_child(retrato_jugador)
 	
 	# Cartel "[E] Hablar"
 	prompt_label = Label.new()
@@ -138,17 +184,25 @@ func _ready() -> void:
 	prompt_label.hide()
 
 
-func show_dialogue(npc_name: String) -> void:
+func show_dialogue(npc_name: String, npc_id: String = "") -> void:
 	name_label.text = npc_name
+	_current_npc_id = npc_id
 	panel.show()
 	input_field.text = ""
 	input_field.editable = true
 	input_field.grab_focus()
+	_update_keywords()
 
 
 func hide_dialogue() -> void:
 	panel.hide()
 	input_field.release_focus()
+	_clear_keywords()
+
+
+func clear_history() -> void:
+	history_label.text = ""
+	current_npc_response = ""
 
 
 func is_open() -> bool:
@@ -224,6 +278,43 @@ func show_map_prompt() -> void:
 
 func hide_prompt() -> void:
 	prompt_label.hide()
+
+
+func _update_keywords() -> void:
+	_clear_keywords()
+	if _current_npc_id == "":
+		return
+	var lookup_id := _current_npc_id.capitalize()
+	var clues: Array = EventCatalogRes.clues_for_character(lookup_id)
+	for clue in clues:
+		var keywords: Array = clue.get("keywords", [])
+		if keywords.is_empty():
+			continue
+		var label := Label.new()
+		label.text = "Keywords: %s" % ", ".join(keywords)
+		label.add_theme_font_size_override("font_size", 14)
+		label.add_theme_color_override("font_color", Color(1, 1, 1, 0.65))
+		keyword_panel.add_child(label)
+		keyword_labels.append(label)
+	if keyword_panel != null:
+		keyword_panel.offset_bottom = keyword_panel.offset_top + keyword_panel.get_combined_minimum_size().y
+	if scroll_container != null:
+		scroll_container.offset_top = keyword_panel.offset_bottom + 6
+
+
+func _clear_keywords() -> void:
+	for label in keyword_labels:
+		if is_instance_valid(label):
+			label.queue_free()
+	keyword_labels.clear()
+	if keyword_panel != null:
+		keyword_panel.offset_bottom = keyword_panel.offset_top
+	if scroll_container != null:
+		scroll_container.offset_top = 45
+
+
+func _on_close_pressed() -> void:
+	close_requested.emit()
 
 
 func _on_text_submitted(text: String) -> void:

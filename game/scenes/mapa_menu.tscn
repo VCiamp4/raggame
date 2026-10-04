@@ -19,9 +19,16 @@ albedo_texture = ExtResource("2_xy4vm")
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1pmob"]
+size = Vector3(2.0, 2.3, 0.4)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
-size = Vector3(2.1171265, 1.7490234, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_espacio"]
+size = Vector3(1.2, 2.0, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oficina"]
+size = Vector3(0.6, 1.3, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_departamento"]
+size = Vector3(2.1, 1.8, 1.4)
 
 [node name="MapaMenu" type="Node3D" unique_id=1688714710]
 script = ExtResource("1_yd01t")
@@ -45,6 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2158699, 1.1537161, 0.55292
 script = ExtResource("2_s17ix")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="comisaria" unique_id=1293506861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.052359)
 shape = SubResource("BoxShape3D_1pmob")
 
 [node name="Sheriff star" parent="comisaria" unique_id=1224854189 instance=ExtResource("3_1pmob")]
@@ -55,8 +63,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3743653, 0.7609401, 5.8156
 script = ExtResource("2_0q7od")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="laboratorio" unique_id=334377214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.053919315, 0.11784053, 0.13285685)
-shape = SubResource("BoxShape3D_nbej8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.146323, 0)
+shape = SubResource("BoxShape3D_espacio")
 
 [node name="Erlenmeyer flask" parent="laboratorio" unique_id=1105169747 instance=ExtResource("5_kwqod")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.81325316, 0)
@@ -66,7 +74,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.423482, 0.7643118, -3.2801
 script = ExtResource("3_uvvj8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="oficina" unique_id=623836390]
-shape = SubResource("BoxShape3D_nbej8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000743, 0.119306, 0)
+shape = SubResource("BoxShape3D_oficina")
 
 [node name="Briefcase" parent="oficina" unique_id=1827345938 instance=ExtResource("7_s17ix")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.46869266, 0)
@@ -76,8 +85,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5541806, 0.5203934, 2.55641
 script = ExtResource("4_5s2bk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="departamento" unique_id=320404879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00063180923, 0.38528913, -0.14636326)
-shape = SubResource("BoxShape3D_nbej8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41037, 0)
+shape = SubResource("BoxShape3D_departamento")
 
 [node name="Large Building" parent="departamento" unique_id=1053295068 instance=ExtResource("8_s17ix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42963016, 0)

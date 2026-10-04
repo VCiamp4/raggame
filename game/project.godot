@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="RAGame"
-run/main_scene="uid://biagvnydbw8mq"
+run/main_scene="res://scenes/menu_inicio.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://fkr7dnd4hg44"
+Global="*res://scenes/global.gd"
+EventManager="*res://scripts/systems/event_manager.gd"
+InputManager="*res://scripts/systems/input_manager.gd"
+NotificationManager="*res://ui/notification_manager.gd"
 
 [filesystem]
 

@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://2qe05hrajfdj" path="res://assets/OFFICE/OFFICE/file_cabinets/file_cabinet_larger.glb" id="23_u7j6c"]
 [ext_resource type="PackedScene" uid="uid://bvlmrxexui4mf" path="res://assets/OFFICE/OFFICE/file_cabinets/file_cabinet_small.glb" id="24_1svsn"]
 [ext_resource type="PackedScene" uid="uid://bpux1web1nfhp" path="res://assets/OFFICE/OFFICE/stationary/pen3.glb" id="27_57dsn"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="28_totem"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -37,11 +38,17 @@ size = Vector3(16.023167, 0.014099121, 15.989886)
 height = 1.7270508
 radius = 0.6152344
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_water_cooler"]
+size = Vector3(0.5, 1, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_oquuv"]
 size = Vector3(0.71777344, 1.4578857, 0.70843506)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cveqa"]
 size = Vector3(0.6582031, 1.5186768, 0.72631836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_water_bottle"]
+size = Vector3(0.35, 0.6, 0.35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
 size = Vector3(1.8901367, 1.4331055, 0.8729248)
@@ -52,8 +59,8 @@ size = Vector2(16, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(16.036636, 6.5425415, 0.13690186)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_trmy2"]
-size = Vector3(3.8443909, 2.6151123, 1.0883789)
+[sub_resource type="BoxShape3D" id="BoxShape3D_coffee"]
+size = Vector3(0.6, 0.5, 0.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5ya8"]
 size = Vector3(1.2333374, 1.4770508, 1.15094)
@@ -66,6 +73,12 @@ size = Vector3(0.091796875, 1.0709229, 1.7998505)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaq5p"]
 size = Vector3(4.1819763, 1.5692139, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet"]
+size = Vector3(0.8, 1.9, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet_small"]
+size = Vector3(0.8, 1, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yk5ng"]
 size = Vector3(1.8217773, 1.9016724, 0.7558594)
@@ -95,6 +108,12 @@ shape = SubResource("CylinderShape3D_nbej8")
 [node name="water_cooler2" parent="." unique_id=1011033670 instance=ExtResource("3_4a1fd")]
 transform = Transform3D(-0.068180606, 0, 0.99767303, 0, 1, 0, -0.99767303, 0, -0.068180606, -7.7117424, 0.026231766, -1.0191892)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="water_cooler2" unique_id=1808941682]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="water_cooler2/StaticBody3D" unique_id=1808941681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_water_cooler")
+
 [node name="StaticBody3D16" type="StaticBody3D" parent="." unique_id=1832453682]
 transform = Transform3D(-0.29834747, 0, 0.95445734, 0, 1, 0, -0.95445734, 0, -0.29834747, -3.2574544, 0.014526367, 1.3403494)
 
@@ -110,12 +129,20 @@ transform = Transform3D(0.42409614, 0, 0.90561724, 0, 1, 0, -0.90561724, 0, 0.42
 [node name="conference_chair3" parent="StaticBody3D17" unique_id=2132326343 instance=ExtResource("4_k2khg")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D17/conference_chair3" unique_id=446512780]
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D17" unique_id=284273177]
 transform = Transform3D(0.99999994, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 0.99999994, 0.02734232, 0.25933838, 0.01428318)
 shape = SubResource("BoxShape3D_cveqa")
 
 [node name="water_cooler_bottle_attached2" parent="." unique_id=61615575 instance=ExtResource("4_j62md")]
 transform = Transform3D(-0.15063432, 0, 0.9885895, 0, 1, 0, -0.9885895, 0, -0.15063432, -7.6904254, 0.014526606, -0.36784077)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="water_cooler_bottle_attached2" unique_id=61615576]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="water_cooler_bottle_attached2/StaticBody3D" unique_id=61615577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_water_bottle")
 
 [node name="water_cooler_bottle2" parent="." unique_id=2136445489 instance=ExtResource("5_fv1jq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5392704, 0.040975533, -1.5967271)
@@ -125,6 +152,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6610785, 0.040975653, -1.8
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.78520787, 7.040468)
+
+[node name="Totem" parent="." unique_id=1869845900 instance=ExtResource("28_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.817026, -0.0015806556, 7.040468)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1084285559]
 
@@ -274,9 +304,11 @@ transform = Transform3D(-8.7422775e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.742277
 [node name="coffee_machine2" parent="pared" unique_id=414515430 instance=ExtResource("15_abive")]
 transform = Transform3D(-0.017285006, 0, 0.99985063, 0, 1, 0, -0.99985063, 0, -0.017285006, -7.4857264, 0.014526129, -3.5694144)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pared/coffee_machine2" unique_id=245431515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3961027, 0.80755615, 0.044189453)
-shape = SubResource("BoxShape3D_trmy2")
+[node name="StaticBody3D" type="StaticBody3D" parent="pared/coffee_machine2" unique_id=716251657]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared/coffee_machine2/StaticBody3D" unique_id=2103906527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("BoxShape3D_coffee")
 
 [node name="pared2" type="StaticBody3D" parent="." unique_id=1206737389]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.15718651)
@@ -287,7 +319,7 @@ material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pared2/MeshInstance3D" unique_id=507069832]
-transform = Transform3D(-0.99979895, 0.005157773, 0.019378638, 0.0051568043, 0.9999867, -9.9951714e-05, -0.019378895, 2.2545342e-10, -0.99981225, 1.0018181, -0.30478573, 16.111984)
+transform = Transform3D(-0.99979895, 0.005157773, 0.019378638, 0.0051568043, 0.9999867, -9.9951714e-05, -0.019378895, 2.2545342e-10, -0.99981225, 0.1307472, -0.30478573, 15.904798)
 material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
@@ -400,30 +432,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8606105, 0.014526367, -7.72
 
 [node name="file_cabinet_large2" parent="Area3D" unique_id=1877805838 instance=ExtResource("22_57dsn")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=903303264]
+[node name="StaticBody3D" type="StaticBody3D" parent="Area3D" unique_id=903303265]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D/StaticBody3D" unique_id=903303264]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004990101, 0.28460693, 0)
 shape = SubResource("BoxShape3D_xaq5p")
 
 [node name="file_cabinet_larger2" parent="." unique_id=1484126596 instance=ExtResource("23_u7j6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5201955, 0.014526248, -7.487504)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="file_cabinet_larger2" unique_id=1484126597]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="file_cabinet_larger2/StaticBody3D" unique_id=1484126598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("BoxShape3D_file_cabinet")
+
 [node name="file_cabinet_larger3" parent="." unique_id=430347653 instance=ExtResource("23_u7j6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2729416, 0.014526367, -7.5235515)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="file_cabinet_larger3" unique_id=430347654]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="file_cabinet_larger3/StaticBody3D" unique_id=430347655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("BoxShape3D_file_cabinet")
+
 [node name="file_cabinet_small2" parent="." unique_id=1821342451 instance=ExtResource("24_1svsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6769867, 0.014526844, -7.6751575)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="file_cabinet_small2" unique_id=1821342452]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="file_cabinet_small2/StaticBody3D" unique_id=1821342453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_file_cabinet_small")
 
 [node name="Area3D2" type="Area3D" parent="." unique_id=756179141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12243, 0.014526844, -7.6751575)
 
 [node name="file_cabinet_small3" parent="Area3D2" unique_id=581950287 instance=ExtResource("24_1svsn")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=1462095615]
+[node name="StaticBody3D" type="StaticBody3D" parent="Area3D2" unique_id=1462095616]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2/StaticBody3D" unique_id=1462095615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028564453, 0.45083618, -0.12207031)
 shape = SubResource("BoxShape3D_yk5ng")
 
 [node name="file_cabinet_small4" parent="." unique_id=1530009217 instance=ExtResource("24_1svsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.521347, 0.014526844, -7.6751575)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="file_cabinet_small4" unique_id=1530009218]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="file_cabinet_small4/StaticBody3D" unique_id=1530009219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_file_cabinet_small")
 
 [node name="pen32" parent="." unique_id=518122697 instance=ExtResource("27_57dsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9760041, 1.1233397, 3.4297528)

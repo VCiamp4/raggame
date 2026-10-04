@@ -15,6 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://3pwhenewwx7r" path="res://assets/PSX modular house interior pack/props/painting2.glb" id="11_snk82"]
 [ext_resource type="Script" uid="uid://bor3mk6vwp3os" path="res://scenes/ascensor.gd" id="15_wg2fg"]
 [ext_resource type="PackedScene" uid="uid://cs7fcennlafvo" path="res://assets/elevator (2)/elevator.fbx" id="16_qtroi"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="17_totem"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="18_npc"]
+[ext_resource type="PackedScene" uid="uid://qcu3g70nufp3" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="19_pablo"]
+[ext_resource type="PackedScene" uid="uid://bxowr0k1ve4md" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="20_esteban"]
+[ext_resource type="PackedScene" uid="uid://dowd21f5t0o5d" path="res://assets/Characters_psx/Models/Male/Character_04.fbx" id="21_juan"]
+[ext_resource type="Texture2D" uid="uid://cwpln7os65rxg" path="res://assets/ui/retratos/pablo.png" id="22_pablo_r"]
+[ext_resource type="Texture2D" uid="uid://dqpj8m0ggr3es" path="res://assets/ui/retratos/esteban.png" id="23_esteban_r"]
+[ext_resource type="Texture2D" uid="uid://dxnftg7vdo3ar" path="res://assets/ui/retratos/juan.png" id="24_juan_r"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -39,10 +47,16 @@ size = Vector3(2.435791, 2.9463196, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(3.3404922, 3.4956055, 2.8099937)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_hermanos"]
+radius = 1.0
+
 [node name="Node3D" type="Node3D" unique_id=113430558]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
+
+[node name="Totem" parent="." unique_id=1869845901 instance=ExtResource("17_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.702, 7.2900715)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1938173594]
 
@@ -194,3 +208,76 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.960707, -0.24851894, -0.01
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=1007095543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5198793, 1.2478027, -0.1784153)
 shape = SubResource("BoxShape3D_nbej8")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="." unique_id=783616704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.754819, 0, 0)
+
+[node name="pared_derecha" type="MeshInstance3D" parent="StaticBody3D7" unique_id=1706179309]
+transform = Transform3D(6.993822e-07, 0, -1, 0, 7, 0, 16, 0, 4.371139e-08, -5.9743557, 0.533324, 0)
+material_override = ExtResource("3_1a26t")
+mesh = SubResource("QuadMesh_nbej8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D7" unique_id=1385559835]
+transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, -5.9894414, 2.0593655, 0)
+shape = SubResource("BoxShape3D_arjtg")
+debug_color = Color(0, 1, 0.23529412, 0.41960785)
+
+[node name="tableSmall2" parent="StaticBody3D7" unique_id=1206343625 instance=ExtResource("4_snk82")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.8169317, 0.016133308, 0.5286925)
+
+[node name="tableLamp2" parent="StaticBody3D7" unique_id=1759289382 instance=ExtResource("5_u7psa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7933483, 0.6542646, 0.5623956)
+
+[node name="Pablo" type="Node3D" parent="." unique_id=1877100001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2)
+script = ExtResource("18_npc")
+npc_id = "pablo"
+npc_name = "Pablo"
+retrato = ExtResource("22_pablo_r")
+pose_arms_down = 70.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pablo" unique_id=1877100002]
+
+[node name="Character_03" parent="Pablo/MeshInstance3D" unique_id=1877100003 instance=ExtResource("19_pablo")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Pablo" unique_id=1877100004]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea" unique_id=1877100005]
+shape = SubResource("SphereShape3D_hermanos")
+
+[node name="Esteban" type="Node3D" parent="." unique_id=1877200001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("18_npc")
+npc_id = "esteban"
+npc_name = "Esteban"
+retrato = ExtResource("23_esteban_r")
+pose_arms_down = 70.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Esteban" unique_id=1877200002]
+
+[node name="Character_05" parent="Esteban/MeshInstance3D" unique_id=1877200003 instance=ExtResource("20_esteban")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Esteban" unique_id=1877200004]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea" unique_id=1877200005]
+shape = SubResource("SphereShape3D_hermanos")
+
+[node name="Juan" type="Node3D" parent="." unique_id=1877300001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2)
+script = ExtResource("18_npc")
+npc_id = "juan"
+npc_name = "Juan"
+retrato = ExtResource("24_juan_r")
+pose_arms_down = 70.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Juan" unique_id=1877300002]
+
+[node name="Character_04" parent="Juan/MeshInstance3D" unique_id=1877300003 instance=ExtResource("21_juan")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Juan" unique_id=1877300004]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Juan/InteractionArea" unique_id=1877300005]
+shape = SubResource("SphereShape3D_hermanos")
