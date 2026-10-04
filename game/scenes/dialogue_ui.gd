@@ -136,32 +136,33 @@ func _ready() -> void:
 	fake_blur.visible = false
 	add_child(fake_blur)
 	
-	# Retrato del jugador (izquierda)
-	retrato_jugador = TextureRect.new()
-	retrato_jugador.anchor_left = 0
-	retrato_jugador.anchor_bottom = 1
-	retrato_jugador.offset_left = -80
-	retrato_jugador.offset_top = -215
-	retrato_jugador.offset_bottom = -180
-	retrato_jugador.offset_right = 320
-	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	retrato_jugador.visible = false
-	add_child(retrato_jugador)
-	
-	# Retrato del NPC (derecha)
+	# Retrato del NPC (izquierda, más chico)
 	retrato_npc = TextureRect.new()
-	retrato_npc.anchor_left = 1
-	retrato_npc.anchor_right = 1
+	retrato_npc.anchor_left = 0
+	retrato_npc.anchor_right = 0
 	retrato_npc.anchor_bottom = 1
-	retrato_npc.offset_left = -320
-	retrato_npc.offset_right = -20
-	retrato_npc.offset_top = -175
-	retrato_npc.offset_bottom = -180
+	retrato_npc.offset_left = 20
+	retrato_npc.offset_right = 220
+	retrato_npc.offset_top = -200
+	retrato_npc.offset_bottom = 15
 	retrato_npc.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	retrato_npc.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	retrato_npc.visible = false
 	add_child(retrato_npc)
+
+	# Retrato del jugador (derecha, más chico)
+	retrato_jugador = TextureRect.new()
+	retrato_jugador.anchor_left = 1
+	retrato_jugador.anchor_right = 1
+	retrato_jugador.anchor_bottom = 1
+	retrato_jugador.offset_left = -220
+	retrato_jugador.offset_right = -20
+	retrato_jugador.offset_top = -200
+	retrato_jugador.offset_bottom = 0
+	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	retrato_jugador.visible = false
+	add_child(retrato_jugador)
 	
 	# Cartel "[E] Hablar"
 	prompt_label = Label.new()
