@@ -28,8 +28,12 @@ func _check_node_under_mouse() -> void:
 	var found: Node = null
 	if result and result.has("collider"):
 		var collider = result["collider"]
-		if collider.is_in_group("nodo_mapa"):
-			found = collider
+		# Puede golpear un collider hijo: subimos hasta el nodo_mapa.
+		var node: Node = collider
+		while node != null and not node.is_in_group("nodo_mapa"):
+			node = node.get_parent()
+		if node != null and node.is_in_group("nodo_mapa"):
+			found = node
 	
 	if found != highlighted_node:
 		if highlighted_node != null:

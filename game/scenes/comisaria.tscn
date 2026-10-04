@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://2qe05hrajfdj" path="res://assets/OFFICE/OFFICE/file_cabinets/file_cabinet_larger.glb" id="23_u7j6c"]
 [ext_resource type="PackedScene" uid="uid://bvlmrxexui4mf" path="res://assets/OFFICE/OFFICE/file_cabinets/file_cabinet_small.glb" id="24_1svsn"]
 [ext_resource type="PackedScene" uid="uid://bpux1web1nfhp" path="res://assets/OFFICE/OFFICE/stationary/pen3.glb" id="27_57dsn"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="28_totem"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -37,11 +38,17 @@ size = Vector3(16.023167, 0.014099121, 15.989886)
 height = 1.7270508
 radius = 0.6152344
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_water_cooler"]
+size = Vector3(0.5, 1, 0.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_oquuv"]
 size = Vector3(0.71777344, 1.4578857, 0.70843506)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cveqa"]
 size = Vector3(0.6582031, 1.5186768, 0.72631836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_water_bottle"]
+size = Vector3(0.35, 0.6, 0.35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
 size = Vector3(1.8901367, 1.4331055, 0.8729248)
@@ -55,18 +62,6 @@ size = Vector3(16.036636, 6.5425415, 0.13690186)
 [sub_resource type="BoxShape3D" id="BoxShape3D_coffee"]
 size = Vector3(0.6, 0.5, 0.6)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_water_cooler"]
-size = Vector3(0.5, 1.0, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_water_bottle"]
-size = Vector3(0.35, 0.6, 0.35)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet"]
-size = Vector3(0.8, 1.9, 0.7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet_small"]
-size = Vector3(0.8, 1.0, 0.7)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5ya8"]
 size = Vector3(1.2333374, 1.4770508, 1.15094)
 
@@ -78,6 +73,12 @@ size = Vector3(0.091796875, 1.0709229, 1.7998505)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xaq5p"]
 size = Vector3(4.1819763, 1.5692139, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet"]
+size = Vector3(0.8, 1.9, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_file_cabinet_small"]
+size = Vector3(0.8, 1, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yk5ng"]
 size = Vector3(1.8217773, 1.9016724, 0.7558594)
@@ -151,6 +152,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6610785, 0.040975653, -1.8
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.78520787, 7.040468)
+
+[node name="Totem" parent="." unique_id=1869845900 instance=ExtResource("28_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.817026, -0.0015806556, 7.040468)
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1084285559]
 
@@ -315,7 +319,7 @@ material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pared2/MeshInstance3D" unique_id=507069832]
-transform = Transform3D(-0.99979895, 0.005157773, 0.019378638, 0.0051568043, 0.9999867, -9.9951714e-05, -0.019378895, 2.2545342e-10, -0.99981225, 1.0018181, -0.30478573, 16.111984)
+transform = Transform3D(-0.99979895, 0.005157773, 0.019378638, 0.0051568043, 0.9999867, -9.9951714e-05, -0.019378895, 2.2545342e-10, -0.99981225, 0.1307472, -0.30478573, 15.904798)
 material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 

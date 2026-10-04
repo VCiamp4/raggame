@@ -19,16 +19,18 @@ const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 @export var retrato_jugador: Texture2D
 
 const EXAMINE_DISTANCE = 6.0
-const INTERACT_DISTANCE = 5.0
+const INTERACT_DISTANCE = 2.0
 const TOTEM_DISTANCE = 3.0
 const CLICKABLE_GROUPS := ["examinable", "pizarron", "ascensor"]
-@export var totem_offset: Vector3 = Vector3(1.2, 0.0, 0.0)
+const INSPECT_DISTANCE = 4.0
 var highlighted_object: Node = null
 var nearby_clickable: Node = null
 var nearby_totem: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
+var inspecting: bool = false
+var inspecting_object: Node = null
 var model_base_yaw: float = 0.0
 var spawn_position: Vector3 = Vector3.ZERO
 
@@ -50,29 +52,12 @@ func _ready() -> void:
 			npc.player_entered_range.connect(_on_npc_entered_range)
 			npc.player_exited_range.connect(_on_npc_exited_range)
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
+	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
 	_create_hint_button()
 	_configure_hint_rules()
-	_spawn_totem.call_deferred()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
-
-
-func _spawn_totem() -> void:
-	var parent := get_parent()
-	if parent == null:
-		return
-	var target := spawn_position + totem_offset
-	var query := PhysicsRayQueryParameters3D.create(
-		target + Vector3.UP, target + Vector3.DOWN * 10.0)
-	query.exclude = [get_rid()]
-	var result := get_world_3d().direct_space_state.intersect_ray(query)
-	if result.has("position"):
-		target.y = result["position"].y
-	var totem := StaticBody3D.new()
-	totem.set_script(load("res://scenes/totem.gd"))
-	parent.add_child(totem)
-	totem.global_position = target
 
 
 func _physics_process(delta: float) -> void:
@@ -117,20 +102,31 @@ func _respawn() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and not in_dialogue:
-		if nearby_npc != null:
-			_open_dialogue()
-		elif nearby_clickable != null:
-			_trigger_clickable(nearby_clickable)
+	if event.is_action_pressed("interact"):
+		# Cerrar inspección abierta con [E].
+		if inspecting:
+			_close_inspection()
+			return
+		if not in_dialogue:
+			if nearby_npc != null:
+				_open_dialogue()
+			elif nearby_clickable != null:
+				_trigger_clickable(nearby_clickable)
+			elif nearby_totem != null:
+				_use_totem()
 	elif event.is_action_pressed("ui_cancel"):
-		if in_dialogue:
+		if inspecting:
+			_close_inspection()
+		elif in_dialogue:
 			_close_dialogue()
 		elif nearby_totem != null:
-			get_tree().change_scene_to_file(MAPA_SCENE)
+			_use_totem()
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if highlighted_object != null and not in_dialogue:
+			if inspecting:
+				_close_inspection()
+			elif highlighted_object != null and not in_dialogue:
 				if highlighted_object.is_in_group("pizarron"):
 					highlighted_object.interact()
 				elif highlighted_object.is_in_group("ascensor"):
@@ -207,7 +203,7 @@ func _on_npc_exited_range(npc: Node) -> void:
 func _process(_delta: float) -> void:
 	_update_hint_cooldown_display()
 	_update_camera()
-	if in_dialogue:
+	if in_dialogue or inspecting:
 		_clear_highlight()
 		return
 	_check_examinable_under_mouse()
@@ -230,13 +226,20 @@ func _update_nearby_clickable() -> void:
 
 func _update_nearby_totem() -> void:
 	var closest: Node = null
-	var closest_dist := TOTEM_DISTANCE
+	var closest_dist := INF
 	for totem in get_tree().get_nodes_in_group("totem"):
+		var reach := TOTEM_DISTANCE
+		if totem.has_method("get_interact_distance"):
+			reach = totem.get_interact_distance()
 		var dist := global_position.distance_to(_clickable_anchor(totem))
-		if dist <= closest_dist:
+		if dist <= reach and dist < closest_dist:
 			closest_dist = dist
 			closest = totem
 	nearby_totem = closest
+
+
+func _use_totem() -> void:
+	get_tree().change_scene_to_file(MAPA_SCENE)
 
 
 func _update_prompt() -> void:
@@ -268,6 +271,10 @@ func _find_collision_shape(node: Node) -> CollisionShape3D:
 
 
 func _clickable_display_name(obj: Node) -> String:
+	if obj.has_method("get_object_name"):
+		var custom = obj.get_object_name()
+		if custom != null and str(custom) != "":
+			return str(custom)
 	var display = obj.get("object_name")
 	if display != null and str(display) != "":
 		return str(display)
@@ -324,15 +331,66 @@ func _clear_highlight() -> void:
 
 
 func _examine_object(obj: Node) -> void:
-	in_dialogue = true
+	if obj == null:
+		return
+	inspecting = true
+	inspecting_object = obj
 	_clear_highlight()
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(obj.object_name)
+
+	var title := _inspect_display_name(obj)
+	var description := _inspect_description(obj)
+
+	dialogue_ui.clear_history()
+	dialogue_ui.show_dialogue(title)
 	# Mostramos solo la descripción (sin "Vos:" ni input, no hay LLM acá)
-	dialogue_ui.start_npc_response(obj.object_name)
-	dialogue_ui.append_npc_chunk(obj.get_description())
+	dialogue_ui.start_npc_response(title)
+	dialogue_ui.append_npc_chunk(description)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(false)
+
+	# Disparar la pista asociada (opcional, una sola vez).
+	# Un inspectable sin clue_id simplemente no dispara nada.
+	var clue_id := _inspect_clue_id(obj)
+	if clue_id != "":
+		EventManager.activate_event(clue_id)
+		NotificationManager.show_clue_notification(clue_id)
+
+
+func _close_inspection() -> void:
+	inspecting = false
+	inspecting_object = null
+	dialogue_ui.hide_dialogue()
+
+
+func _on_dialogue_close_requested() -> void:
+	if inspecting:
+		_close_inspection()
+	elif in_dialogue:
+		_close_dialogue()
+
+
+func _inspect_display_name(obj: Node) -> String:
+	if obj.has_method("get_object_name"):
+		return obj.get_object_name()
+	var display = obj.get("object_name")
+	if display != null and str(display) != "":
+		return str(display)
+	return obj.name
+
+
+func _inspect_description(obj: Node) -> String:
+	if obj.has_method("get_description"):
+		return obj.get_description()
+	return ""
+
+
+func _inspect_clue_id(obj: Node) -> String:
+	if obj.has_method("get_clue_id"):
+		var clue = obj.get_clue_id()
+		if clue != null:
+			return str(clue)
+	return ""
 
 
 # ---------- Debug: detección de objetos clicables ----------

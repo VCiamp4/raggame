@@ -5,30 +5,29 @@ extends StaticBody3D
 @export var rotation_speed: float = 0.5
 
 var is_highlighted: bool = false
-var mesh_instance: MeshInstance3D
+var meshes: Array = []
 
 
 func _ready() -> void:
 	add_to_group("nodo_mapa")
-	mesh_instance = _find_mesh(self)
+	meshes = _find_meshes(self)
 
 
 func _process(delta: float) -> void:
 	rotate_y(rotation_speed * delta)
 
 
-func _find_mesh(node: Node) -> MeshInstance3D:
+func _find_meshes(node: Node) -> Array:
+	var found: Array = []
 	if node is MeshInstance3D:
-		return node
+		found.append(node)
 	for child in node.get_children():
-		var result = _find_mesh(child)
-		if result:
-			return result
-	return null
+		found.append_array(_find_meshes(child))
+	return found
 
 
 func highlight() -> void:
-	if is_highlighted or mesh_instance == null:
+	if is_highlighted:
 		return
 	is_highlighted = true
 	var mat = StandardMaterial3D.new()
@@ -36,14 +35,18 @@ func highlight() -> void:
 	mat.emission_enabled = true
 	mat.emission = Color(1, 0.9, 0.3)
 	mat.emission_energy_multiplier = 0.5
-	mesh_instance.material_overlay = mat
+	for mesh in meshes:
+		if is_instance_valid(mesh):
+			mesh.material_overlay = mat
 
 
 func unhighlight() -> void:
-	if not is_highlighted or mesh_instance == null:
+	if not is_highlighted:
 		return
 	is_highlighted = false
-	mesh_instance.material_overlay = null
+	for mesh in meshes:
+		if is_instance_valid(mesh):
+			mesh.material_overlay = null
 
 
 func get_location_name() -> String:

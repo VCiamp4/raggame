@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk54at8egy0r" path="res://assets/Lab Assets/GLB/Tubes and Flasks/Flasks/bottle_glassware_beaker_large.glb" id="19_vjpjs"]
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="20_63p0i"]
 [ext_resource type="Material" uid="uid://drvxwrkhavqyb" path="res://assets/Plaster001_1K-JPG/Plaster001_1K-JPG.tres" id="21_gkvkn"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="22_totem"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 material = ExtResource("3_8huxt")
@@ -186,6 +187,9 @@ shape = SubResource("BoxShape3D_arjtg")
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("20_63p0i")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.0046809, 0.22567451, 0)
+
+[node name="Totem" parent="." unique_id=1869845903 instance=ExtResource("22_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.226, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1328429225]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.507228, 1.6093713)

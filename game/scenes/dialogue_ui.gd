@@ -13,8 +13,10 @@ var prompt_label: Label
 var fake_blur: ColorRect
 var retrato_jugador: TextureRect
 var retrato_npc: TextureRect
+var close_button: Button
 
 signal text_submitted(text: String)
+signal close_requested
 
 var current_npc_response: String = ""
 var _current_npc_id: String = ""
@@ -37,11 +39,26 @@ func _ready() -> void:
 	name_label.anchor_right = 1
 	name_label.offset_left = 20
 	name_label.offset_top = 10
-	name_label.offset_right = -20
+	name_label.offset_right = -60
 	name_label.offset_bottom = 40
-	name_label.add_theme_font_size_override("font_size", 22)
+	name_label.add_theme_font_size_override("font_size", 28)
 	name_label.add_theme_color_override("font_color", Color(1, 0.9, 0.5))
 	panel.add_child(name_label)
+
+	# Botón de cierre "X" (cierra inspección o diálogo)
+	close_button = Button.new()
+	close_button.text = "X"
+	close_button.anchor_left = 1
+	close_button.anchor_right = 1
+	close_button.offset_left = -45
+	close_button.offset_right = -12
+	close_button.offset_top = 8
+	close_button.offset_bottom = 40
+	close_button.focus_mode = Control.FOCUS_NONE
+	close_button.tooltip_text = "Cerrar"
+	close_button.add_theme_font_size_override("font_size", 20)
+	close_button.pressed.connect(_on_close_pressed)
+	panel.add_child(close_button)
 
 	# Palabras clave del NPC actual (ayuda para el input exacto)
 	keyword_panel = VBoxContainer.new()
@@ -74,7 +91,7 @@ func _ready() -> void:
 	history_label.scroll_active = false
 	history_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	history_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	history_label.add_theme_font_size_override("normal_font_size", 18)
+	history_label.add_theme_font_size_override("normal_font_size", 24)
 	history_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
 	history_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new()) 
 	scroll_container.add_child(history_label)
@@ -89,7 +106,7 @@ func _ready() -> void:
 	input_field.offset_top = -45
 	input_field.offset_bottom = -15
 	input_field.placeholder_text = "Escribí algo y presioná Enter..."
-	input_field.add_theme_font_size_override("font_size", 18)
+	input_field.add_theme_font_size_override("font_size", 24)
 	input_field.text_submitted.connect(_on_text_submitted)
 	input_field.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
 	input_field.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
@@ -168,6 +185,11 @@ func hide_dialogue() -> void:
 	panel.hide()
 	input_field.release_focus()
 	_clear_keywords()
+
+
+func clear_history() -> void:
+	history_label.text = ""
+	current_npc_response = ""
 
 
 func is_open() -> bool:
@@ -276,6 +298,10 @@ func _clear_keywords() -> void:
 		keyword_panel.offset_bottom = keyword_panel.offset_top
 	if scroll_container != null:
 		scroll_container.offset_top = 45
+
+
+func _on_close_pressed() -> void:
+	close_requested.emit()
 
 
 func _on_text_submitted(text: String) -> void:
