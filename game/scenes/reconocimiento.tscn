@@ -7,9 +7,78 @@
 [ext_resource type="PackedScene" uid="uid://dowd21f5t0o5d" path="res://assets/Characters_psx/Models/Male/Character_04.fbx" id="3_juan"]
 [ext_resource type="PackedScene" uid="uid://1il2ftotcat6" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="4_criada"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
+[sub_resource type="Environment" id="Environment_room"]
+background_mode = 1
+background_color = Color(0.015, 0.015, 0.02, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.28, 0.3, 0.36, 1)
+ambient_light_energy = 0.45
+tonemap_mode = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
+[sub_resource type="StandardMaterial3D" id="Mat_floor"]
+albedo_color = Color(0.12, 0.12, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_wall"]
+albedo_color = Color(0.3, 0.31, 0.34, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Mat_board"]
+albedo_color = Color(0.78, 0.76, 0.7, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Mat_tick"]
+albedo_color = Color(0.05, 0.05, 0.05, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_bar"]
+albedo_color = Color(0.45, 0.47, 0.5, 1)
+metallic = 0.7
+roughness = 0.35
+
+[sub_resource type="StandardMaterial3D" id="Mat_mirror"]
+transparency = 1
+albedo_color = Color(0.45, 0.55, 0.65, 0.12)
+metallic = 0.3
+roughness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="Mat_placard"]
+albedo_color = Color(0.85, 0.85, 0.82, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="Mat_stage"]
+albedo_color = Color(0.18, 0.18, 0.2, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(3.0, 0.1, 2.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_back"]
+size = Vector3(3.0, 1.2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall_side"]
+size = Vector3(0.1, 1.2, 2.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ceiling"]
+size = Vector3(3.0, 0.1, 2.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_board"]
+size = Vector3(2.4, 1.05, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tick"]
+size = Vector3(2.0, 0.008, 0.014)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bar"]
+size = Vector3(2.2, 0.06, 0.12)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mirror"]
+size = Vector3(2.98, 1.18, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_stage"]
+size = Vector3(2.0, 0.02, 0.45)
+
+[sub_resource type="BoxMesh" id="BoxMesh_placard"]
+size = Vector3(0.16, 0.04, 0.1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_arjtg"]
 height = 4.58667
@@ -17,25 +86,206 @@ height = 4.58667
 [node name="Node3D" type="Node3D" unique_id=769137837]
 script = ExtResource("1_thfp8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2136534299]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-mesh = SubResource("PlaneMesh_arjtg")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1880000001]
+environment = SubResource("Environment_room")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1632947048]
-transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, -0.9977019)
-mesh = SubResource("PlaneMesh_nbej8")
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1880000002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.4)
+mesh = SubResource("BoxMesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=878903399]
-transform = Transform3D(1, 0, 0, 0, 0.3344661, 0.9424078, 0, -0.9424078, 0.3344661, 0, 1.8891227, -0.35137028)
-light_color = Color(1, 1, 0.7921569, 1)
-shadow_enabled = true
-distance_fade_enabled = true
+[node name="BackWall" type="MeshInstance3D" parent="." unique_id=1880000003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1.15)
+mesh = SubResource("BoxMesh_wall_back")
+surface_material_override/0 = SubResource("Mat_wall")
+
+[node name="LeftWall" type="MeshInstance3D" parent="." unique_id=1880000004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.6, -0.4)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("Mat_wall")
+
+[node name="RightWall" type="MeshInstance3D" parent="." unique_id=1880000005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.6, -0.4)
+mesh = SubResource("BoxMesh_wall_side")
+surface_material_override/0 = SubResource("Mat_wall")
+
+[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1880000006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -0.4)
+mesh = SubResource("BoxMesh_ceiling")
+surface_material_override/0 = SubResource("Mat_wall")
+
+[node name="HeightBoard" type="MeshInstance3D" parent="." unique_id=1880000007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -1.085)
+mesh = SubResource("BoxMesh_board")
+surface_material_override/0 = SubResource("Mat_board")
+
+[node name="Tick01" type="MeshInstance3D" parent="." unique_id=1880000010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick02" type="MeshInstance3D" parent="." unique_id=1880000011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick03" type="MeshInstance3D" parent="." unique_id=1880000012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick04" type="MeshInstance3D" parent="." unique_id=1880000013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick05" type="MeshInstance3D" parent="." unique_id=1880000014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick06" type="MeshInstance3D" parent="." unique_id=1880000015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick07" type="MeshInstance3D" parent="." unique_id=1880000016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick08" type="MeshInstance3D" parent="." unique_id=1880000017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Tick09" type="MeshInstance3D" parent="." unique_id=1880000018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -1.06)
+mesh = SubResource("BoxMesh_tick")
+surface_material_override/0 = SubResource("Mat_tick")
+
+[node name="Mark160" type="Label3D" parent="." unique_id=1880000019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08, 0.3, -1.045)
+pixel_size = 0.001
+text = "160"
+font_size = 20
+
+[node name="Mark170" type="Label3D" parent="." unique_id=1880000020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08, 0.5, -1.045)
+pixel_size = 0.001
+text = "170"
+font_size = 20
+
+[node name="Mark180" type="Label3D" parent="." unique_id=1880000021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08, 0.7, -1.045)
+pixel_size = 0.001
+text = "180"
+font_size = 20
+
+[node name="Mark190" type="Label3D" parent="." unique_id=1880000022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08, 0.9, -1.045)
+pixel_size = 0.001
+text = "190"
+font_size = 20
+
+[node name="LightBar" type="MeshInstance3D" parent="." unique_id=1880000023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, -0.85)
+mesh = SubResource("BoxMesh_bar")
+surface_material_override/0 = SubResource("Mat_bar")
+
+[node name="LineupLight1" type="OmniLight3D" parent="." unique_id=1880000024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.0, -0.85)
+light_color = Color(1, 0.98, 0.92, 1)
+light_energy = 2.5
+omni_range = 1.1
+
+[node name="LineupLight2" type="OmniLight3D" parent="." unique_id=1880000025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.0, -0.85)
+light_color = Color(1, 0.98, 0.92, 1)
+light_energy = 2.5
+omni_range = 1.1
+
+[node name="LineupLight3" type="OmniLight3D" parent="." unique_id=1880000026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.0, -0.85)
+light_color = Color(1, 0.98, 0.92, 1)
+light_energy = 2.5
+omni_range = 1.1
+
+[node name="LineupLight4" type="OmniLight3D" parent="." unique_id=1880000027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.0, -0.85)
+light_color = Color(1, 0.98, 0.92, 1)
+light_energy = 2.5
+omni_range = 1.1
+
+[node name="FillLight" type="OmniLight3D" parent="." unique_id=1880000028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.3)
+light_color = Color(0.7, 0.78, 1, 1)
+light_energy = 0.5
+omni_range = 3.0
+
+[node name="Mirror" type="MeshInstance3D" parent="." unique_id=1880000029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.5)
+mesh = SubResource("BoxMesh_mirror")
+surface_material_override/0 = SubResource("Mat_mirror")
+
+[node name="Stage" type="MeshInstance3D" parent="." unique_id=1880000030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011, -0.825)
+mesh = SubResource("BoxMesh_stage")
+surface_material_override/0 = SubResource("Mat_stage")
+
+[node name="Placard1" type="MeshInstance3D" parent="." unique_id=1880000031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.041, -0.68)
+mesh = SubResource("BoxMesh_placard")
+surface_material_override/0 = SubResource("Mat_placard")
+
+[node name="PlacardNumber1" type="Label3D" parent="Placard1" unique_id=1880000032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+pixel_size = 0.001
+billboard = 1
+text = "1"
+font_size = 28
+
+[node name="Placard2" type="MeshInstance3D" parent="." unique_id=1880000033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.041, -0.68)
+mesh = SubResource("BoxMesh_placard")
+surface_material_override/0 = SubResource("Mat_placard")
+
+[node name="PlacardNumber2" type="Label3D" parent="Placard2" unique_id=1880000034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+pixel_size = 0.001
+billboard = 1
+text = "2"
+font_size = 28
+
+[node name="Placard3" type="MeshInstance3D" parent="." unique_id=1880000035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.041, -0.68)
+mesh = SubResource("BoxMesh_placard")
+surface_material_override/0 = SubResource("Mat_placard")
+
+[node name="PlacardNumber3" type="Label3D" parent="Placard3" unique_id=1880000036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+pixel_size = 0.001
+billboard = 1
+text = "3"
+font_size = 28
+
+[node name="Placard4" type="MeshInstance3D" parent="." unique_id=1880000037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.041, -0.68)
+mesh = SubResource("BoxMesh_placard")
+surface_material_override/0 = SubResource("Mat_placard")
+
+[node name="PlacardNumber4" type="Label3D" parent="Placard4" unique_id=1880000038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.045, 0)
+pixel_size = 0.001
+billboard = 1
+text = "4"
+font_size = 28
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=306373151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34280464, -0.04241407)
 
 [node name="Pablo" type="StaticBody3D" parent="." unique_id=1877500001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, -0.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0.02, -0.85)
 script = ExtResource("2_0wtbs")
 suspect_name = "Pablo"
 suspect_id = "pablo"
@@ -55,7 +305,7 @@ text = "Pablo"
 font_size = 24
 
 [node name="Esteban" type="StaticBody3D" parent="." unique_id=1877600001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -0.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.02, -0.85)
 script = ExtResource("2_0wtbs")
 suspect_name = "Esteban"
 suspect_id = "esteban"
@@ -75,7 +325,7 @@ text = "Esteban"
 font_size = 24
 
 [node name="Juan" type="StaticBody3D" parent="." unique_id=1877700001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, -0.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.02, -0.85)
 script = ExtResource("2_0wtbs")
 suspect_name = "Juan"
 suspect_id = "juan"
@@ -95,7 +345,7 @@ text = "Juan"
 font_size = 24
 
 [node name="Criada" type="StaticBody3D" parent="." unique_id=1877800001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -0.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0.02, -0.85)
 script = ExtResource("2_0wtbs")
 suspect_name = "Criada"
 suspect_id = "criada"
