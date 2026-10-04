@@ -48,6 +48,7 @@ const DIFFICULTY_PROFILES = [
 var _canvas: CanvasLayer
 var _difficulty_overlay: Control
 var _difficulty_buttons: Array = []
+var _about_overlay: Control
 
 
 func _ready() -> void:
@@ -64,7 +65,7 @@ func _ready() -> void:
 
 	# Título del juego
 	var titulo = Label.new()
-	titulo.text = "EL DEPARTAMENTO"  # provisorio, cambialo cuando tengas nombre
+	titulo.text = "EL CRIMEN CASI PERFECTO"  # provisorio, cambialo cuando tengas nombre
 	titulo.set_anchors_preset(Control.PRESET_FULL_RECT)
 	titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	titulo.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -76,7 +77,7 @@ func _ready() -> void:
 
 	# Subtítulo tenue
 	var subtitulo = Label.new()
-	subtitulo.text = "un caso sin resolver"
+	subtitulo.text = "Inspirado en el cuento homónimo de Roberto Arlt"
 	subtitulo.set_anchors_preset(Control.PRESET_FULL_RECT)
 	subtitulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subtitulo.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -91,23 +92,29 @@ func _ready() -> void:
 	btn_jugar.pressed.connect(_on_jugar)
 	_canvas.add_child(btn_jugar)
 
+	# Botón Sobre nosotros
+	var btn_about = _crear_boton("Sobre nosotros", 110)
+	btn_about.pressed.connect(_on_about)
+	_canvas.add_child(btn_about)
+
 	# Botón Salir
-	var btn_salir = _crear_boton("Salir", 110)
+	var btn_salir = _crear_boton("Salir", 180)
 	btn_salir.pressed.connect(_on_salir)
 	_canvas.add_child(btn_salir)
 
-	# Audio de ambiente
-	var ambiente = AudioStreamPlayer.new()
-	var stream = load("res://audio/438135__craigsmith__g16-11-police-teletype-and-ambience.wav")
-	if stream is AudioStreamWAV:
-		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
-	ambiente.stream = stream
-	ambiente.autoplay = true
-	ambiente.volume_db = -8
-	add_child(ambiente)
+	# Audio de ambiente (desactivado)
+	#var ambiente = AudioStreamPlayer.new()
+	#var stream = load("res://audio/438135__craigsmith__g16-11-police-teletype-and-ambience.wav")
+	#if stream is AudioStreamWAV:
+	#	stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	#ambiente.stream = stream
+	#ambiente.autoplay = true
+	#ambiente.volume_db = -8
+	#add_child(ambiente)
 
 	# Overlay de dificultad (oculto hasta pulsar "Jugar") + viñeta encima
 	_crear_difficulty_overlay()
+	_crear_about_overlay()
 	_crear_vineta(_canvas)
 
 
@@ -211,6 +218,62 @@ func _crear_difficulty_overlay() -> void:
 	vbox.add_child(note)
 
 
+func _crear_about_overlay() -> void:
+	_about_overlay = ColorRect.new()
+	_about_overlay.color = Color(0, 0, 0, 0.88)
+	_about_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_about_overlay.visible = false
+	_about_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	_canvas.add_child(_about_overlay)
+
+	var panel := PanelContainer.new()
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.offset_left = -320
+	panel.offset_right = 320
+	panel.offset_top = -230
+	panel.offset_bottom = 230
+	panel.add_theme_constant_override("margin_left", 32)
+	panel.add_theme_constant_override("margin_right", 32)
+	panel.add_theme_constant_override("margin_top", 28)
+	panel.add_theme_constant_override("margin_bottom", 28)
+	_about_overlay.add_child(panel)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 14)
+	panel.add_child(vbox)
+
+	var title := Label.new()
+	title.text = "Sobre nosotros"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 32)
+	title.add_theme_color_override("font_color", COLOR_TEXTO)
+	vbox.add_child(title)
+
+	var description := Label.new()
+	description.text = "EL CRIMEN CASI PERFECTO es un juego de detectives en primera persona con NPCs potenciados por un backend RAG + LLM.\n\nProyecto IDI — Construcción de Sistemas RAG."
+	description.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	description.autowrap_mode = TextServer.AUTOWRAP_WORD
+	description.add_theme_font_size_override("font_size", 16)
+	description.add_theme_color_override("font_color", COLOR_HOVER)
+	vbox.add_child(description)
+
+	var authors := Label.new()
+	authors.text = "Autores:\nDamián Bicocchi, Valentin Ciamparella,\nLucas Corbalan Saez, Juan Tarrio"
+	authors.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	authors.autowrap_mode = TextServer.AUTOWRAP_WORD
+	authors.add_theme_font_size_override("font_size", 18)
+	authors.add_theme_color_override("font_color", COLOR_TEXTO)
+	vbox.add_child(authors)
+
+	var back := Button.new()
+	back.text = "Volver"
+	back.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	back.add_theme_font_size_override("font_size", 18)
+	back.add_theme_color_override("font_color", COLOR_ACENTO)
+	back.pressed.connect(_hide_about_menu)
+	vbox.add_child(back)
+
+
 func _crear_vineta(canvas: CanvasLayer) -> void:
 	var overlay = ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -252,6 +315,19 @@ func _on_jugar() -> void:
 
 func _on_salir() -> void:
 	get_tree().quit()
+
+
+func _on_about() -> void:
+	if _about_overlay == null:
+		return
+	_about_overlay.visible = true
+
+
+func _hide_about_menu() -> void:
+	if _about_overlay == null:
+		return
+	_about_overlay.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _show_difficulty_menu() -> void:
