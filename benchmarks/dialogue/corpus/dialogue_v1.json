@@ -28,8 +28,8 @@
       ]
     },
     {
-      "id": "conv-quimico-hielo",
-      "npc_id": "quimico",
+      "id": "conv-quimica-hielo",
+      "npc_id": "quimica",
       "turns": [
         {
           "player": "¿Qué muestras analizaron hasta ahora?",

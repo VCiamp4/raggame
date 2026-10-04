@@ -47,10 +47,9 @@ func _ready() -> void:
 	spawn_position = global_position
 	camera.top_level = true
 	model_base_yaw = model.rotation.y
-	for npc in get_tree().get_nodes_in_group("npc"):
-		if npc.has_signal("player_entered_range"):
-			npc.player_entered_range.connect(_on_npc_entered_range)
-			npc.player_exited_range.connect(_on_npc_exited_range)
+	# Los NPC pueden declararse después del jugador en la escena, por lo que
+	# sus _ready (y su entrada al grupo "npc") pueden correr más tarde.
+	_connect_npcs.call_deferred()
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
 	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
 	_create_hint_button()
@@ -136,6 +135,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 # ---------- NPCs (con LLM) ----------
+
+func _connect_npcs() -> void:
+	for npc in get_tree().get_nodes_in_group("npc"):
+		if npc.has_signal("player_entered_range"):
+			if not npc.player_entered_range.is_connected(_on_npc_entered_range):
+				npc.player_entered_range.connect(_on_npc_entered_range)
+			if not npc.player_exited_range.is_connected(_on_npc_exited_range):
+				npc.player_exited_range.connect(_on_npc_exited_range)
+
 
 func _open_dialogue() -> void:
 	in_dialogue = true

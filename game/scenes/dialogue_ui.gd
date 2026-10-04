@@ -96,22 +96,34 @@ func _ready() -> void:
 	history_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new()) 
 	scroll_container.add_child(history_label)
 	
-	# Campo de texto para escribir abajo
+	# Campo de texto para escribir abajo (barra fija al pie del panel)
 	input_field = LineEdit.new()
 	input_field.anchor_left = 0
 	input_field.anchor_right = 1
+	input_field.anchor_top = 1
 	input_field.anchor_bottom = 1
 	input_field.offset_left = 20
 	input_field.offset_right = -20
-	input_field.offset_top = -45
-	input_field.offset_bottom = -15
+	input_field.offset_top = -46
+	input_field.offset_bottom = -14
 	input_field.placeholder_text = "Escribí algo y presioná Enter..."
 	input_field.add_theme_font_size_override("font_size", 24)
 	input_field.text_submitted.connect(_on_text_submitted)
-	input_field.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
-	input_field.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
-	input_field.add_theme_stylebox_override("read_only", StyleBoxEmpty.new())   
+	var input_style := StyleBoxFlat.new()
+	input_style.bg_color = Color(0, 0, 0, 0.35)
+	input_style.content_margin_left = 10
+	input_style.content_margin_right = 10
+	input_style.corner_radius_top_left = 6
+	input_style.corner_radius_top_right = 6
+	input_style.corner_radius_bottom_left = 6
+	input_style.corner_radius_bottom_right = 6
+	input_field.add_theme_stylebox_override("normal", input_style)
+	input_field.add_theme_stylebox_override("focus", input_style)
+	input_field.add_theme_stylebox_override("read_only", input_style)
 	panel.add_child(input_field)
+	# El botón de cierre se mueve al frente para asegurar que reciba el clic
+	# por encima de cualquier otro control del panel.
+	close_button.move_to_front()
 	
 	# Fake blur: panel oscuro semitransparente que atenúa el fondo
 	fake_blur = ColorRect.new()

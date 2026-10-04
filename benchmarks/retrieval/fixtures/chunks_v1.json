@@ -9,7 +9,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -30,7 +30,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -51,7 +51,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -72,7 +72,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -93,7 +93,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -114,7 +114,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -258,7 +258,7 @@
       "chunk_id": "SCN-01-AT-15",
       "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué determinó el perito sobre una muerte natural o una intoxicación?",
@@ -273,7 +273,7 @@
       "chunk_id": "SCN-01-AT-16",
       "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Pudo el perito identificar ya la sustancia tóxica?",
@@ -288,7 +288,7 @@
       "chunk_id": "SCN-01-AT-17",
       "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué líquidos pensaba analizar el perito?",
@@ -303,7 +303,7 @@
       "chunk_id": "SCN-01-AT-18",
       "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué recipientes relacionados con la muerte iba a examinar el perito?",
@@ -318,7 +318,7 @@
       "chunk_id": "SCN-01-AT-19",
       "retrieval_text": "El proceso de análisis llevaría tiempo.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué no podían conocerse enseguida los resultados del análisis?",
@@ -333,7 +333,7 @@
       "chunk_id": "SCN-01-AT-20",
       "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué el perito se negó a adelantar una conclusión?",
@@ -1304,7 +1304,7 @@
       "chunk_id": "SCN-08-AT-01",
       "retrieval_text": "El whisky, los demás licores y el agua corriente estaban limpios.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué encontraron limpio al analizar las bebidas y el agua?",
@@ -1321,7 +1321,7 @@
       "chunk_id": "SCN-08-AT-02",
       "retrieval_text": "La intoxicación de Stevens seguía confirmada.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué conclusión sobre la intoxicación seguía sosteniendo el perito?",
@@ -1338,7 +1338,7 @@
       "chunk_id": "SCN-08-AT-03",
       "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué descartaron los análisis sobre el origen del tóxico?",
@@ -1355,7 +1355,7 @@
       "chunk_id": "SCN-08-AT-06",
       "retrieval_text": "El perito no había recibido ninguna muestra de hielo.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué muestra faltaba todavía entre las pruebas del perito?",
@@ -1372,7 +1372,7 @@
       "chunk_id": "SCN-08-AT-07",
       "retrieval_text": "El detective pidió al perito que regresara para analizar el congelador y las cubeteras.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué pidió el detective que se analizara al regresar el perito?",
@@ -1389,7 +1389,7 @@
       "chunk_id": "SCN-09-AT-01",
       "retrieval_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué contenía el hielo y en qué cantidad resultaba mortal?",
@@ -1406,7 +1406,7 @@
       "chunk_id": "SCN-09-AT-02",
       "retrieval_text": "Las botellas estaban limpias porque el veneno no había estado en ellas.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué las botellas no contenían veneno?",
@@ -1757,7 +1757,7 @@
       "chunk_id": "SCN-12-AT-04",
       "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué sustancia controlada encontraron entre los reactivos de Erpa?",
@@ -1775,7 +1775,7 @@
       "chunk_id": "SCN-12-AT-05",
       "retrieval_text": "El cianuro era una sustancia de uso controlado.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué carácter tenía el cianuro dentro del control de sustancias?",

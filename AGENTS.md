@@ -181,7 +181,7 @@ One file per scene; 151 chunks total. Each chunk:
 ### Personas (`story/personajes/*.md`)
 
 Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
-`pablo`, `portero`, `quimico`, `tecnico_heladera`. `dialogue.PERSONAJES_FILES`
+`pablo`, `portero`, `quimica`, `tecnico_heladera`. `dialogue.PERSONAJES_FILES`
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
@@ -248,7 +248,7 @@ These are the highest-value things to know before making changes.
    persona map. The detective scenes (`comisaria`, `laboratorio`, `dpto`,
    `Hall`) contain no LLM NPCs. To make the game playable end-to-end, NPC
    instances must be added with `npc_id` matching `PERSONAJES_FILES`
-   (`criada`, `esteban`, `juan`, `pablo`, `portero`, `quimico`,
+   (`criada`, `esteban`, `juan`, `pablo`, `portero`, `quimica`,
    `tecnico_heladera`).
 2. **The ending contradicts the story.** `veredicto.gd` defines
    `CULPABLE_REAL = "mira"` and `finales` for `aldric`/`mira`/`herve`, and

@@ -3,7 +3,7 @@ scene_id: SCN-08
 title: Resultados negativos e hipótesis del hielo
 canonical_lines: [103, 135]
 locations: [oficina_forense]
-present_entities: [detective, perito_quimico]
+present_entities: [detective, perito_quimica]
 mentioned_entities: [criada, senora_stevens]
 availability: M10_POISONING_CONFIRMED
 index_policy: investigation

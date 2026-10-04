@@ -10,7 +10,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -31,7 +31,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -52,7 +52,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -73,7 +73,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -94,7 +94,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -115,7 +115,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimico",
+        "quimica",
         "tecnico_heladera"
       ],
       "questions": {
@@ -259,7 +259,7 @@
       "chunk_id": "SCN-01-AT-15",
       "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué determinó el perito sobre una muerte natural o una intoxicación?",
@@ -274,7 +274,7 @@
       "chunk_id": "SCN-01-AT-16",
       "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Pudo el perito identificar ya la sustancia tóxica?",
@@ -289,7 +289,7 @@
       "chunk_id": "SCN-01-AT-17",
       "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué líquidos pensaba analizar el perito?",
@@ -304,7 +304,7 @@
       "chunk_id": "SCN-01-AT-18",
       "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Qué recipientes relacionados con la muerte iba a examinar el perito?",
@@ -319,7 +319,7 @@
       "chunk_id": "SCN-01-AT-19",
       "retrieval_text": "El proceso de análisis llevaría tiempo.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué no podían conocerse enseguida los resultados del análisis?",
@@ -334,7 +334,7 @@
       "chunk_id": "SCN-01-AT-20",
       "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
       "knowledge_holders": [
-        "quimico"
+        "quimica"
       ],
       "questions": {
         "q1": "¿Por qué el perito se negó a adelantar una conclusión?",

@@ -3,7 +3,7 @@ scene_id: SCN-09
 title: Cianuro en el hielo
 canonical_lines: [137, 137]
 locations: [departamento]
-present_entities: [detective, perito_quimico]
+present_entities: [detective, perito_quimica]
 mentioned_entities: [criada, senora_stevens]
 availability: M30_ICE_HYPOTHESIS
 index_policy: investigation

@@ -28,6 +28,8 @@
 [ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="26_inspect"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="27_totem"]
 [ext_resource type="PackedScene" uid="uid://cxxv0rmym6rnq" path="res://assets/OFFICE/OFFICE/extras/glass.glb" id="28_glass"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="29_npc"]
+[ext_resource type="PackedScene" uid="uid://ihx2aifm8qky" path="res://assets/Characters_psx/Models/Female/Character_27_Female_HM.fbx" id="30_quimica"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -81,6 +83,9 @@ size = Vector3(2.38, 1.11, 1.16)
 [sub_resource type="BoxShape3D" id="BoxShape3D_table"]
 size = Vector3(2, 0.65, 0.64)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_quimica"]
+radius = 2.5
+
 [node name="Node3D" type="Node3D" unique_id=1814186727]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("2_dohex")]
@@ -96,7 +101,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.1214198, 0, -1.760742
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=819832676]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1826589230]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.009958744, 2.3841858e-07, 0.002465725)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.0267649, -2.3841858e-07, 0.0004441738)
 material_override = SubResource("StandardMaterial3D_g4c4f")
 mesh = SubResource("PlaneMesh_a24x0")
 
@@ -186,7 +191,7 @@ shape = SubResource("BoxShape3D_conos")
 transform = Transform3D(20, 0, 0, 0, -2, -3.019916e-07, 0, 3.019916e-07, -2, 0, -8.639034, 3.1013908)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=936172047]
-transform = Transform3D(1, 0, 0, 0, 3, 5.684342e-14, 0, 0, 1, 0, -5.2154284, -1.2124351)
+transform = Transform3D(1, 0, 0, 0, 3, 5.684342e-14, 0, 0, 1, 0, -5.2154274, -0.6928443)
 shape = SubResource("BoxShape3D_g4c4f")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=485823392]
@@ -236,7 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9693584, 4.19608, -1.65326
 [node name="StaticBody3D_col" type="StaticBody3D" parent="StaticBody3D3/cabinetHigh2" unique_id=1238624100]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3/cabinetHigh2/StaticBody3D_col" unique_id=1238624101]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5949726, -1.3123636, 0)
 shape = SubResource("BoxShape3D_cabinetHigh")
 
 [node name="cabinetHigh3" parent="StaticBody3D3" unique_id=1358655191 instance=ExtResource("13_jiikd")]
@@ -245,7 +250,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9693584, 4.1979394, -2.633
 [node name="StaticBody3D_col" type="StaticBody3D" parent="StaticBody3D3/cabinetHigh3" unique_id=1358655200]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3/cabinetHigh3/StaticBody3D_col" unique_id=1358655201]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6275706, 0)
 shape = SubResource("BoxShape3D_cabinetHigh")
 
 [node name="cabinetLow2" parent="StaticBody3D3" unique_id=605171307 instance=ExtResource("14_yb7k8")]
@@ -330,6 +335,22 @@ material_override = SubResource("StandardMaterial3D_11e0f")
 mesh = SubResource("PlaneMesh_kjuag")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="pared_derecha" unique_id=1017309478]
-transform = Transform3D(-2.1855695e-07, -3, -1.3113416e-07, 0, 1.3113416e-07, -3, -5, -1.3113416e-07, 5.7320566e-15, -5.0177884, 2.997944, -0.033450603)
+transform = Transform3D(-2.1855695e-07, -3, -1.3113416e-07, -1.249933e-14, 1.3113416e-07, -3, -5, -1.3113416e-07, 1.4210855e-14, -5.0177884, 2.997944, 6.7562757)
 material_override = SubResource("StandardMaterial3D_11e0f")
 mesh = SubResource("PlaneMesh_kjuag")
+
+[node name="Quimica" type="Node3D" parent="." unique_id=1877000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+script = ExtResource("29_npc")
+npc_id = "quimica"
+npc_name = "La química"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quimica" unique_id=1877000002]
+
+[node name="Character_27_Female_HM" parent="Quimica/MeshInstance3D" unique_id=1877000003 instance=ExtResource("30_quimica")]
+transform = Transform3D(-0.13951245, 0, 0.37488168, 0, 0.4, 0, -0.37488168, 0, -0.13951245, -1.9251616, 0, 0.25470734)
+
+[node name="InteractionArea" type="Area3D" parent="Quimica" unique_id=1877000004]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quimica/InteractionArea" unique_id=1877000005]
+shape = SubResource("SphereShape3D_quimica")
