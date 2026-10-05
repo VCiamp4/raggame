@@ -26,17 +26,17 @@ const INSPECTABLES: Dictionary = {
 	},
 	"archivero_grande": {
 		"display_name": "Archivero grande",
-		"description": "Un archivero alto repleto de expedientes. La mayoría son casos cerrados, pero el cajón de abajo está forzado.",
+		"description": "Solo papeles de cosas raras.",
 		"clue_id": "",
 	},
 	"archivero_mediano": {
 		"display_name": "Archivero",
-		"description": "Un archivero más bajo. Los legajos están ordenados por año; falta un expediente en la letra S.",
-		"clue_id": "",
+		"description": "Entre los legajos aparece la póliza de vida original. Pablo, Esteban y Juan figuraban como beneficiarios en partes iguales.",
+		"clue_id": "PI-GLO-05",
 	},
 	"pila_papeles": {
 		"display_name": "Pila de papeles",
-		"description": "Una pila de papeles sueltos sobre el escritorio. Algunos tienen anotaciones al margen con tinta roja.",
+		"description": "No hay nada acá, solo hablan de nuevas políticas de seguros.",
 		"clue_id": "",
 	},
 }

@@ -19,6 +19,7 @@ const HINTS: Dictionary = {
 	"PI-GLO-02": "La mayoría de los homicidios ocurren por dinero, amor o amor al dinero. Debería indagar sobre si la muerte de la señora Stevens beneficia a alguien",
 	"PI-GLO-03": "Todo apunta al hielo. Averiguá quién tocó la cubetera y por qué alguien necesitaba apagar y encender la heladera.",
 	"PI-GLO-04": "La avería era mínima. Preguntá al técnico qué pieza cambió para saber quién tuvo excusa para abrir la heladera.",
+	"PI-GLO-05": "La póliza original beneficiaba a Pablo, Esteban y Juan por igual. Alguien la modificó para favorecer a uno solo.",
 }
 
 
