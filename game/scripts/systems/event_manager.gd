@@ -217,7 +217,7 @@ func check_input(input_text: String) -> bool:
 
 static func _build_keyword_map() -> Dictionary:
 	var map: Dictionary = {}
-	var catalog: Dictionary = EventCatalog.get_clue_index()
+	var catalog: Dictionary = EventCatalogResource.get_clue_index()
 	for clue_id in catalog.keys():
 		var clue_data: Dictionary = catalog[clue_id]
 		var keywords: Array = clue_data.get("keywords", [])
