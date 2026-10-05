@@ -24,6 +24,21 @@ const INSPECTABLES: Dictionary = {
 		"description": "Sí, este es un vaso de whisky, pero el olor claramente indica que tiene algo malo.",
 		"clue_id": "",
 	},
+	"archivero_grande": {
+		"display_name": "Archivero grande",
+		"description": "Un archivero alto repleto de expedientes. La mayoría son casos cerrados, pero el cajón de abajo está forzado.",
+		"clue_id": "",
+	},
+	"archivero_mediano": {
+		"display_name": "Archivero",
+		"description": "Un archivero más bajo. Los legajos están ordenados por año; falta un expediente en la letra S.",
+		"clue_id": "",
+	},
+	"pila_papeles": {
+		"display_name": "Pila de papeles",
+		"description": "Una pila de papeles sueltos sobre el escritorio. Algunos tienen anotaciones al margen con tinta roja.",
+		"clue_id": "",
+	},
 }
 
 

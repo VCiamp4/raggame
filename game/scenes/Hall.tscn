@@ -162,10 +162,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1169405, 1.0996166, 7.5288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3547046, 1.0340098, 7.4714894)
 
 [node name="Character_18_Police" parent="." unique_id=488128720 instance=ExtResource("6_2bhqk")]
-transform = Transform3D(-0.24957676, 0, 0.3125883, 0, 0.4, 0, -0.3125883, 0, -0.24957676, -4.5523148, 0.013166666, 6.029258)
+transform = Transform3D(0.3951379, 0, -0.062177137, 0, 0.39999998, 0, 0.062177137, 0, 0.3951379, -1.3874915, 0.013166666, -6.7880564)
 
 [node name="Character_17_Police" parent="." unique_id=1485438424 instance=ExtResource("7_tqeft")]
-transform = Transform3D(0.3366357, 0, 0.2160472, 0, 0.4, 0, -0.2160472, 0, 0.3366357, -4.5428677, 0.019154698, 5.0831685)
+transform = Transform3D(0.3366357, 0, 0.2160472, 0, 0.4, 0, -0.2160472, 0, 0.3366357, -4.5428677, 0.019154698, -6.3727775)
 
 [node name="Chandelier" parent="." unique_id=877205664 instance=ExtResource("9_2bhqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43909287, 3.5422986, 2.7667928)

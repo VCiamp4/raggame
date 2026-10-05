@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dpt1ew2s4lnok" path="res://assets/OFFICE/OFFICE/extras/circular_desklamp.glb" id="17_10wag"]
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="18_wsqm2"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="19_totem"]
+[ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="20_inspect"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(2.013626, 0.2909546, 1.9919434)
@@ -45,6 +46,18 @@ size = Vector2(8, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rv06a"]
 size = Vector3(1.4837646, 1.6971436, 1.34906)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_archivero_grande"]
+size = Vector3(1.440518, 1.408583, 0.699398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_archivero_mediano"]
+size = Vector3(1.440519, 1.049284, 0.699398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pila_papeles"]
+size = Vector3(0.4, 0.15, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_desk_corner"]
+size = Vector3(2.205191, 0.89111, 2.21054)
 
 [node name="Node3D" type="Node3D" unique_id=1174869333]
 physics_interpolation_mode = 2
@@ -72,11 +85,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5880516, 0.83300173, 0.6233
 [node name="computer_mouse2" parent="StaticBody3D" unique_id=2103629005 instance=ExtResource("3_5ky3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.229899, 0.8986567, 1.032492)
 
-[node name="file_cabinet_larger2" parent="StaticBody3D" unique_id=1484126596 instance=ExtResource("4_crx2h")]
+[node name="file_cabinet_larger2" type="StaticBody3D" parent="StaticBody3D" unique_id=1484126596]
 transform = Transform3D(-0.042593226, 0, 0.99909246, 0, 1, 0, -0.99909246, 0, -0.042593226, -3.4771333, 0.042140007, 3.210963)
+collision_layer = 2
+script = ExtResource("20_inspect")
+inspectable_id = "archivero_mediano"
 
-[node name="file_cabinet_largest2" parent="StaticBody3D" unique_id=1204544349 instance=ExtResource("5_t6dtt")]
+[node name="Model" parent="StaticBody3D/file_cabinet_larger2" unique_id=1484126600 instance=ExtResource("4_crx2h")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/file_cabinet_larger2" unique_id=1484126601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008167, 0.524642, -0.087382)
+shape = SubResource("BoxShape3D_archivero_mediano")
+
+[node name="file_cabinet_largest2" type="StaticBody3D" parent="StaticBody3D" unique_id=1204544349]
 transform = Transform3D(-0.028567372, 0, 0.999592, 0, 1, 0, -0.999592, 0, -0.028567372, -3.5482364, 0.042140007, 1.7845383)
+collision_layer = 2
+script = ExtResource("20_inspect")
+inspectable_id = "archivero_grande"
+
+[node name="Model" parent="StaticBody3D/file_cabinet_largest2" unique_id=1204544350 instance=ExtResource("5_t6dtt")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/file_cabinet_largest2" unique_id=1204544351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008167, 0.704291, -0.087382)
+shape = SubResource("BoxShape3D_archivero_grande")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=35230467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5785317, 0.68998945, 2.500898)
@@ -90,6 +121,12 @@ transform = Transform3D(0.9999617, 0.008465725, -0.0022352494, -0.008454858, 0.9
 
 [node name="desk2_corner2" parent="StaticBody3D5" unique_id=1824656177 instance=ExtResource("2_x0lxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28723907, 0.2921641)
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="StaticBody3D5/desk2_corner2" unique_id=1824656200]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5/desk2_corner2/StaticBody3D_col" unique_id=1824656201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445555, 0)
+shape = SubResource("BoxShape3D_desk_corner")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1183101882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0059509, 0.103271484, -0.25280762)
@@ -168,8 +205,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82, 0.746, -3.304942)
 [node name="paper_stack_large2" parent="." unique_id=954741178 instance=ExtResource("9_l6hvc")]
 transform = Transform3D(0.25605136, 0, 0.9666632, 0, 1, 0, -0.9666632, 0, 0.25605136, 0.14169496, 0.8817971, 1.5056)
 
-[node name="paper_stack_large" parent="." unique_id=97969547 instance=ExtResource("8_nm4h4")]
+[node name="paper_stack_large" type="StaticBody3D" parent="." unique_id=97969547]
 transform = Transform3D(0.42979798, 0, -0.9029251, 0, 1, 0, 0.9029251, 0, 0.42979798, 0.13737078, 0.8906431, 2.0028028)
+collision_layer = 2
+script = ExtResource("20_inspect")
+inspectable_id = "pila_papeles"
+
+[node name="Model" parent="paper_stack_large" unique_id=97969550 instance=ExtResource("8_nm4h4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="paper_stack_large" unique_id=97969551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+shape = SubResource("BoxShape3D_pila_papeles")
 
 [node name="mug2" parent="." unique_id=737977867 instance=ExtResource("10_l3rad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8303468, 0.8973805, 0.9628805)

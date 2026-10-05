@@ -150,7 +150,7 @@ func _open_dialogue() -> void:
 	dialogue_ui.hide_prompt()
 	dialogue_ui.show_dialogue(nearby_npc.npc_name, nearby_npc.npc_id)
 	dialogue_ui.set_input_enabled(true)
-	dialogue_ui.mostrar_retratos(retrato_jugador, nearby_npc.get_retrato())  # input visible para escribirle al NPC
+	dialogue_ui.mostrar_modelos($Walking.scene_file_path, nearby_npc.get_model_scene_path())  # input visible para escribirle al NPC
 
 
 func _close_dialogue() -> void:
