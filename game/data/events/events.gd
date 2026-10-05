@@ -47,7 +47,7 @@ const CHARACTER_CLUES := {
 			"id": "PI-EST-03",
 			"summary": "Esteban también se beneficiaba económicamente de la póliza.",
 			"keywords": ["beneficio", "25%", "cobrar", "participación", "seguro"],
-			"facts": ["CL-EST-04"],
+			"facts": ["CL-POL-03"],
 		},
 	],
 	"Pablo": [

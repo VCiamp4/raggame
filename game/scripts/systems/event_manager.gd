@@ -71,10 +71,10 @@ signal event_activated(event_id)
 var activated_events: Dictionary = {}
 var event_history: Array = []
 
-# Diccionario de keywords → event_id
-# Si el input del jugador contiene alguna keyword (case-insensitive),
-# se activa el evento asociado.
-var keyword_events: Dictionary = _build_keyword_map()
+# Índice fact_id → [clue_id, ...] construido desde los "facts" de cada pista
+# en data/events/events.gd. Se usa para activar pistas cuando el RAG recupera
+# el chunk/fact correspondiente (en vez de matchear keywords del texto).
+var fact_clues: Dictionary = _build_fact_index()
 
 
 # ============================================================
@@ -185,43 +185,38 @@ func get_event_history() -> Array:
 
 
 # ============================================================
-# CHEQUEAR INPUT DEL JUGADOR
+# ACTIVAR PISTAS A PARTIR DE UN FACT DESCUBIERTO POR EL RAG
 # ============================================================
-# Recibe el texto que escribió el jugador en el diálogo.
-# Busca si alguna keyword aparece en el texto (case-insensitive).
-# Si encuentra coincidencia, activa el evento asociado.
+# El backend devuelve en el header "X-Focus-Fact" el fact_id del chunk foco
+# del turno. Acá lo traducimos a las pistas que declaran ese fact en
+# data/events/events.gd y las activamos (una sola vez cada una).
 #
 # Ejemplo:
 #
-#     EventManager.check_input("¿Sabés algo de la póliza de seguro?")
-#     -> activa "poliza_de_seguro"
-#
-# Devuelve true si la entrada coincide exactamente con una keyword
-# registrada, aunque la pista ya hubiese sido descubierta antes.
+#     EventManager.activate_fact_clues("CL-POL-01")
+#     -> activa "PI-EST-01" y muestra la notificación.
 #
 # ============================================================
 
-func check_input(input_text: String) -> bool:
-	var normalized: String = input_text.strip_edges().to_lower()
-	if normalized == "":
-		return false
-	if not keyword_events.has(normalized):
-		return false
-
-	var event_id: String = keyword_events[normalized]
-	if not has_event(event_id):
-		activate_event(event_id)
-		NotificationManager.show_clue_notification(event_id)
-	return true
+func activate_fact_clues(fact_id: String) -> void:
+	if fact_id == "":
+		return
+	var clue_ids: Array = fact_clues.get(fact_id, [])
+	for clue_id in clue_ids:
+		if not has_event(clue_id):
+			activate_event(clue_id)
+			NotificationManager.show_clue_notification(clue_id)
 
 
-static func _build_keyword_map() -> Dictionary:
+static func _build_fact_index() -> Dictionary:
 	var map: Dictionary = {}
 	var catalog: Dictionary = EventCatalog.get_clue_index()
 	for clue_id in catalog.keys():
 		var clue_data: Dictionary = catalog[clue_id]
-		var keywords: Array = clue_data.get("keywords", [])
-		for raw_keyword in keywords:
-			var normalized: String = str(raw_keyword).to_lower()
-			map[normalized] = clue_id
+		var facts: Array = clue_data.get("facts", [])
+		for raw_fact in facts:
+			var fact_id: String = str(raw_fact)
+			if not map.has(fact_id):
+				map[fact_id] = []
+			map[fact_id].append(clue_id)
 	return map

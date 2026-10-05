@@ -35,7 +35,7 @@ def notebook(session_id: str):
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
     try:
-        message = dialogue_service.get_message(
+        message, focus_fact = dialogue_service.get_turn(
                 session_id=req.session_id,
                 npc_id=req.npc_id,
                 player_input=req.player_input,
@@ -121,4 +121,12 @@ def dialogue_stream(req: DialogueRequest):
             response=reply,
         )
 
-    return StreamingResponse(generate(), media_type="text/plain")
+    response_headers = {}
+    if focus_fact:
+        response_headers["X-Focus-Fact"] = focus_fact
+
+    return StreamingResponse(
+        generate(),
+        media_type="text/plain",
+        headers=response_headers,
+    )

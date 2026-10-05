@@ -77,14 +77,22 @@ def cosine_similarity(left: list[float], right: list[float]) -> float:
 CHUNKS = load_chunks()
 
 
-def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str]:
+@dataclass
+class RetrievalResult:
+    texts: list[str]
+    chunk_ids: list[str]
+    focus_fact_id: str | None
+    focus_chunk_id: str | None
+
+
+def retrieve(npc_id: str, player_input: str, session_id: str) -> RetrievalResult:
     chunks = []
     for chunk in CHUNKS:
         if is_available(chunk, npc_id, session_id):
             chunks.append(chunk)
 
     if not chunks:
-        return []
+        return RetrievalResult(texts=[], chunk_ids=[], focus_fact_id=None, focus_chunk_id=None)
 
     query_embedding = get_embedding(player_input)
     scored_chunks = []
@@ -99,7 +107,7 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
             scored_chunks.append((score, chunk))
 
     if not scored_chunks:
-        return []
+        return RetrievalResult(texts=[], chunk_ids=[], focus_fact_id=None, focus_chunk_id=None)
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
     focus = next(
@@ -114,7 +122,14 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
             retrieved_chunks.append(candidate)
     update_fact(session_id, focus.fact_id)
 
-    retrieved_texts = []
-    for chunk in retrieved_chunks:
-        retrieved_texts.append(chunk.retrieval_text)
-    return retrieved_texts
+    return RetrievalResult(
+        texts=[chunk.retrieval_text for chunk in retrieved_chunks],
+        chunk_ids=[chunk.chunk_id for chunk in retrieved_chunks],
+        focus_fact_id=focus.fact_id,
+        focus_chunk_id=focus.chunk_id,
+    )
+
+
+def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str]:
+    """Compatibilidad: devuelve solo los textos recuperados."""
+    return retrieve(npc_id, player_input, session_id).texts

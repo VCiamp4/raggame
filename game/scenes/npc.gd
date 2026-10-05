@@ -25,6 +25,7 @@ const BACKEND_PATH = "/dialogue_stream"
 
 var http_client: HTTPClient
 var is_streaming: bool = false
+var last_focus_fact: String = ""
 
 
 func _ready() -> void:
@@ -109,6 +110,7 @@ func _find_instanced_model(node: Node) -> Node3D:
 
 
 func _start_stream(player_input: String) -> void:
+	last_focus_fact = ""
 	http_client = HTTPClient.new()
 	var err = http_client.connect_to_host(BACKEND_HOST, BACKEND_PORT)
 	if err != OK:
@@ -148,7 +150,14 @@ func _start_stream(player_input: String) -> void:
 		response_chunk.emit("[Error en respuesta]")
 		response_completed.emit()
 		return
-	
+
+	# El backend informa el fact_id del chunk foco del turno en este header.
+	var response_headers := http_client.get_response_headers_as_dictionary()
+	for header_name in response_headers:
+		if str(header_name).to_lower() == "x-focus-fact":
+			last_focus_fact = str(response_headers[header_name])
+			break
+
 	# Leer chunks
 	is_streaming = true
 	while http_client.get_status() == HTTPClient.STATUS_BODY:

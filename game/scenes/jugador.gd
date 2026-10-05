@@ -165,9 +165,6 @@ func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
 
-	# Chequear si el input activa algún evento/pista
-	EventManager.check_input(text)
-
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
@@ -191,6 +188,9 @@ func _on_response_completed() -> void:
 		nearby_npc.response_chunk.disconnect(_on_response_chunk)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(true)
+	# La pista se activa según el chunk/fact que recuperó el RAG en este turno.
+	if nearby_npc != null:
+		EventManager.activate_fact_clues(nearby_npc.last_focus_fact)
 
 
 func _on_npc_entered_range(npc: Node) -> void:

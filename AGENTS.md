@@ -16,7 +16,7 @@ the **ice cubes** (from a tampered freezer), not in the whisky. The real culprit
 is **Pablo**, the youngest brother (he is a lab worker with access to cyanide and
 to the freezer).
 
-Game title currently shown: "EL DEPARTAMENTO" (provisional). Repo remote:
+Game title currently shown: "EL CRIMEN CASI PERFECTO" (provisional). Repo remote:
 `git@github.com:VCiamp4/raggame.git`.
 
 The repository is a monorepo (there is a remote branch `monorepo-restructure`)
@@ -34,18 +34,23 @@ they belong to an older layout where the Godot project lived at the repo root.
 The live Godot project is `game/project.godot`. Do not assume the root is a
 Godot project.
 
-## 2. Current status (as of the latest commit `90990a9`, branch `rag-integration-v2`)
+## 2. Current status (branch `chunks-for-keywords`)
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
 - The story corpus is complete (15 scenes, 151 atomic chunks, 41 `fact_id`s,
   ~195 benchmark cases).
 - The Godot game is **partially integrated**: movement, map navigation,
-  examine-object UI, a code-built dialogue UI, and a streaming HTTP client to the
-  backend all exist, but the detective scenes are **not yet wired to the real
-  NPCs** (see gaps in section 8).
+  examine-object UI, a code-built dialogue UI, a streaming HTTP client to the
+  backend, and LLM NPCs wired in `Hall.tscn` (Pablo, Esteban, Juan, Criada).
+  Other location scenes still lack NPCs (see gaps in section 8).
+- **Clues/pistas are fact-driven, not keyword-driven.** Each dialogue turn, the
+  backend returns the `fact_id` of the retrieved "focus" chunk in the
+  `X-Focus-Fact` response header; the game maps that fact to the clue(s) declared
+  in `game/data/events/events.gd` and activates them. The old keyword matcher
+  (`EventManager.check_input` / `keyword_events`) was removed.
 - No automated tests, no CI, no Dockerfile for the backend or the game.
-- Many feature branches exist; the working branch is `rag-integration-v2`.
+- Many feature branches exist; the working branch is `chunks-for-keywords`.
 
 ## 3. Repository layout
 
@@ -89,9 +94,13 @@ raggame/
 ### Request flow
 
 1. `POST /dialogue_stream` with `{npc_id, player_input, session_id}`.
-2. `DialogueService.get_message()` builds the LLM message list:
-   `[system(persona + shared rules), ...history, user(<retrieved_context> + <user_message>)]`.
-3. `retrieve_chunks()`:
+2. `DialogueService.get_turn()` builds the LLM message list
+   `[system(persona + shared rules), ...history, user(<retrieved_context> + <user_message>)]`
+   and returns it together with the focus `fact_id` of the turn. `get_message()`
+   is kept as a thin wrapper that returns only the messages (used by the dialogue
+   benchmark).
+3. `retrieve()` (returns a `RetrievalResult` with `texts`, `chunk_ids`,
+   `focus_fact_id`, `focus_chunk_id`; `retrieve_chunks()` is a compat wrapper):
    - filters chunks by `is_available(chunk, npc_id, session_id)`
      (`npc_id` must be in `knowledge_holders`; all `necessary_facts` must already
      be discovered; if `sufficient_facts` is non-empty, at least one must be
@@ -102,8 +111,9 @@ raggame/
    - picks a "focus" chunk (first of the top 3 with a `fact_id`, else rank 1),
      then appends support chunks while `is_support()`;
    - marks the focus `fact_id` as discovered for the session.
-4. The provider stream is forwarded to the client as plain text. On success the
-   turn is appended to in-RAM history.
+4. The provider stream is forwarded to the client as plain text, and the response
+   carries the header `X-Focus-Fact` with the focus `fact_id` (omitted when
+   nothing was retrieved). On success the turn is appended to in-RAM history.
 5. Providers: `CHAT_PROVIDER=ollama` (default, `POST /api/chat`) or `openai`
    (`POST /v1/chat/completions`, uses `max_completion_tokens` and
    `reasoning_effort`).
@@ -185,6 +195,21 @@ Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
+### Clues / pistas (`game/data/`)
+
+- `events.gd` (`EventCatalog`) defines the clues. Each clue has an `id`
+  (`PI-CRI-01`…), a `summary` (shown in the notification), `keywords` (**legacy,
+  no longer used at runtime**) and `facts` (list of `CL-*` fact ids). The `facts`
+  array is the bridge that maps a retrieved chunk fact to the clue(s) it
+  activates.
+- `hints.gd` (`HintCatalog`) maps `clue_id -> hint text` for the in-game
+  "Pistas" button.
+- `inspectables.gd` (`InspectableCatalog`) defines examine-object descriptions;
+  an inspectable can also declare a `clue_id` to fire a clue when examined.
+- The `facts` of every clue must exist as a chunk `fact_id`, otherwise that clue
+  can never be activated. After editing clues or chunks, cross-check both sides
+  (a small Python audit script is the easiest way; see §10).
+
 ### Graph
 
 `story/chunk-connections.html` is a self-contained visualization of the
@@ -210,9 +235,10 @@ aid, not used at runtime.
 
 ## 7. Godot game
 
-- Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoload: `Global`
-  (`game/scenes/global.gd`) holding `accused_id`, `accused_name`, and a random
-  `session_id` generated once per launch.
+- Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoloads: `Global`
+  (`game/scenes/global.gd`, holds `accused_id`, `accused_name` and a random
+  `session_id`), `EventManager` (`scripts/systems/event_manager.gd`),
+  `InputManager`, and `NotificationManager` (`ui/notification_manager.gd`).
 - Input action `interact` = physical key `E` (physical_keycode 69).
 - Scene flow: `menu_inicio` -> `mapa_menu` (4 spinning `nodo_mapa` nodes:
   comisaria, laboratorio, oficina, departamento) -> location scenes. In
@@ -220,10 +246,19 @@ aid, not used at runtime.
   selection) -> `veredicto` (typewriter ending).
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
-  `response_completed`.
+  `response_completed`, and stores the turn's focus fact (read from the
+  `X-Focus-Fact` response header) in `last_focus_fact`.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to talk, raycast to
   highlight/examine objects (`copa` shows a description, no LLM), elevator and
-  pizarron interaction.
+  pizarron interaction. On `response_completed` it calls
+  `EventManager.activate_fact_clues(npc.last_focus_fact)` to fire the clue(s)
+  associated with the retrieved chunk.
+- `event_manager.gd` (autoload `EventManager`): records discovered clues and
+  builds the inverse index `fact_id -> [clue_id]` from the `facts` arrays in
+  `data/events/events.gd`. `activate_fact_clues(fact_id)` activates the matching
+  clue(s) once and shows the notification. **There is no keyword matching.**
+- `notification_manager.gd` (autoload `NotificationManager`) renders the
+  "Pista encontrada: …" toasts.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
   appends streamed chunks, disables input while streaming.
 - `veredicto.gd`: typewriter ending keyed by `Global.accused_id`.
@@ -242,33 +277,23 @@ These are the highest-value things to know before making changes.
 
 ### Integration / wiring
 
-1. **The game is not wired to the real NPCs.** The only scene instancing
-   `npc.tscn` is `campo.tscn`, and it does **not** override `npc_id`/`npc_name`,
-   so it uses the default `"Aldric"` — which does not exist in the backend
-   persona map. The detective scenes (`comisaria`, `laboratorio`, `dpto`,
-   `Hall`) contain no LLM NPCs. To make the game playable end-to-end, NPC
-   instances must be added with `npc_id` matching `PERSONAJES_FILES`
-   (`criada`, `esteban`, `juan`, `pablo`, `portero`, `quimica`,
-   `tecnico_heladera`).
+1. **NPC coverage is partial.** `Hall.tscn` has four LLM NPCs (Pablo, Esteban,
+   Juan, Criada) whose `npc_id` matches `PERSONAJES_FILES`. The other location
+   scenes (`comisaria`, `laboratorio`, `dpto`) still have no LLM NPCs, and
+   `campo.tscn` (the only scene instancing `npc.tscn`) does not override
+   `npc_id`/`npc_name`, so it falls back to the default `"Aldric"` — which is not
+   in the backend persona map. Add NPCs with ids `criada`, `esteban`, `juan`,
+   `pablo`, `portero`, `quimica`, `tecnico_heladera`.
 2. **The ending contradicts the story.** `veredicto.gd` defines
    `CULPABLE_REAL = "mira"` and `finales` for `aldric`/`mira`/`herve`, and
    `hermano_abogado.gd` defaults to `suspect_id = "aldric"`. The current story's
    culprit is **Pablo**. `reconocimiento`/`veredicto` are from an older draft and
    must be rewritten to match `story/`.
-3. **Broken resource reference:** `game/scenes/copa.tscn` references
-   `res://copa.gd`, but the file under `game/` does not exist (only the stale
-   root `copa.gd`). Fix the path or move the script into `game/`.
-4. **Broken map navigation paths:**
-   - `laboratorio.gd` -> `res://scenes/laboratorio.gd` (wrong extension, should
-     be `.tscn`).
-   - `oficina.gd` -> `res://scenes/oficina.gd` (wrong extension).
-   - `departamento.gd` -> `"scenes/Hall.tscn"` (missing `res://` prefix).
-   - `reconocimiento.gd` exit -> `res://scenes/hall.tscn` (lowercase `h`);
-     the file is `Hall.tscn` — this fails on case-sensitive filesystems.
-5. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
-   `game/scenes/DialogueUI.gd` exist with identical content. Confirm which one
-   `DialogueUI.tscn` uses and delete the other.
-6. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
+3. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
+   `game/scenes/DialogueUI.gd` exist (they have diverged). `jugador.tscn` uses
+   `dialogue_ui.gd`; `DialogueUI.tscn` is not referenced anywhere. Confirm and
+   delete the unused one.
+4. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
    `game/scenes/elevador.tscn` vs `ascensor`, and `.godot/` caches should not be
    edited by hand.
 
@@ -347,5 +372,21 @@ document it here.
   or changing facts, update the scene frontmatter, the chunk JSON (including
   `knowledge_holders`, `necessary_facts`, `sufficient_facts`, and `fact_id`),
   rebuild embeddings, and re-run the benchmark.
+- Clue activation is fact-driven: every `facts` entry in
+  `game/data/events/events.gd` must exist as a chunk `fact_id`, or the clue can
+  never fire. Quick audit from the repo root:
+
+  ```bash
+  python3 - <<'PY'
+  import json, glob, re
+  chunk_facts = {c["fact_id"] for f in glob.glob("story/chunks/*.json")
+                 for c in json.load(open(f, encoding="utf-8"))["chunks"]
+                 if c.get("fact_id")}
+  txt = open("game/data/events/events.gd", encoding="utf-8").read()
+  ref = set(re.findall(r'"(CL-[A-Z]+-\d+)"', txt))
+  print("referenced but missing:", sorted(ref - chunk_facts))
+  print("chunk facts with no clue:", sorted(chunk_facts - ref))
+  PY
+  ```
 - Prefer editing existing files; keep changes scoped. Do not "fix" the stale
   root `copa.gd`/`.godot` unless the task is explicitly about that cleanup.

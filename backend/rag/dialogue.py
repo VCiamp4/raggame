@@ -2,7 +2,7 @@ from pathlib import Path
 from collections import defaultdict
 
 from backend.config import settings
-from backend.rag.retrieval import retrieve_chunks
+from backend.rag.retrieval import retrieve
 
 PERSONAJES_FILES = {
     "criada": "criada.md",
@@ -56,7 +56,10 @@ class DialogueService:
         }
 
     def get_chunks(self, npc_id: str, player_input: str, session_id: str) -> str:
-        chunks = retrieve_chunks(npc_id, player_input, session_id)
+        result = retrieve(npc_id, player_input, session_id)
+        return self._format_context(result.texts)
+
+    def _format_context(self, chunks: list[str]) -> str:
         if not chunks:
             return ""
 
@@ -71,13 +74,16 @@ class DialogueService:
             "</retrieved_context>"
         )
 
-    def get_message(self, session_id: str, npc_id: str, player_input: str) -> list[dict[str, str]]:
+    def get_turn(
+        self, session_id: str, npc_id: str, player_input: str
+    ) -> tuple[list[dict[str, str]], str | None]:
         """
-        Devuelve el mensaje final que recibe el modelo.
+        Devuelve (mensajes para el modelo, fact_id del chunk foco del turno).
         """
         system_prompt = self.get_system_prompt(npc_id)
         history = self.HISTORIES[(session_id, npc_id)]
-        context_chunks = self.get_chunks(npc_id, player_input, session_id)
+        result = retrieve(npc_id, player_input, session_id)
+        context_chunks = self._format_context(result.texts)
         content = f"<user_message>\n{player_input}\n</user_message>"
         if context_chunks:
             content = f"{context_chunks}\n\n{content}"
@@ -87,11 +93,19 @@ class DialogueService:
             "content": content,
         }
 
-        return [
+        messages = [
             system_prompt,
             *(history[-settings.max_history:] if settings.max_history else []),
             user_msg,
         ]
+        return messages, result.focus_fact_id
+
+    def get_message(self, session_id: str, npc_id: str, player_input: str) -> list[dict[str, str]]:
+        """
+        Devuelve el mensaje final que recibe el modelo.
+        """
+        messages, _ = self.get_turn(session_id, npc_id, player_input)
+        return messages
 
     def save_response(self, session_id: str, npc_id: str, player_input: str, response: str):
         """
