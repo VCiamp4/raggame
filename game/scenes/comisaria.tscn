@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://bvlmrxexui4mf" path="res://assets/OFFICE/OFFICE/file_cabinets/file_cabinet_small.glb" id="24_1svsn"]
 [ext_resource type="PackedScene" uid="uid://bpux1web1nfhp" path="res://assets/OFFICE/OFFICE/stationary/pen3.glb" id="27_57dsn"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="28_totem"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_04.fbx" id="npc_juan_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/juan.png" id="npc_juan_portrait"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
@@ -82,6 +85,9 @@ size = Vector3(0.8, 1, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yk5ng"]
 size = Vector3(1.8217773, 1.9016724, 0.7558594)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 1.2
 
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
@@ -487,3 +493,22 @@ shape = SubResource("BoxShape3D_file_cabinet_small")
 
 [node name="pen32" parent="." unique_id=518122697 instance=ExtResource("27_57dsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9760041, 1.1233397, 3.4297528)
+
+[node name="Juan" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.02, -0.8)
+script = ExtResource("npc_script")
+npc_id = "juan"
+npc_name = "Juan"
+retrato = ExtResource("npc_juan_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Juan" instance=ExtResource("npc_juan_model")]
+transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Juan"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Juan/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")

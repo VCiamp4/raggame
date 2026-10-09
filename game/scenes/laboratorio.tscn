@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="20_63p0i"]
 [ext_resource type="Material" uid="uid://drvxwrkhavqyb" path="res://assets/Plaster001_1K-JPG/Plaster001_1K-JPG.tres" id="21_gkvkn"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="22_totem"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="npc_pablo_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/pablo.png" id="npc_pablo_portrait"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 material = ExtResource("3_8huxt")
@@ -44,6 +47,9 @@ size = Vector3(6.0140533, 1.8218994, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_ktimd"]
 material = ExtResource("21_gkvkn")
 size = Vector2(6, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 0.7
 
 [node name="Node3D" type="Node3D" unique_id=459800692]
 
@@ -196,3 +202,22 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=953774481]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.507228, -1.293957)
+
+[node name="Pablo" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.02, -1.8)
+script = ExtResource("npc_script")
+npc_id = "pablo"
+npc_name = "Pablo"
+retrato = ExtResource("npc_pablo_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Pablo" instance=ExtResource("npc_pablo_model")]
+transform = Transform3D(0.18, 0, -0.0, 0, 0.18, 0, 0.0, 0, 0.18, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Pablo"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.405, 0)
+shape = SubResource("SphereShape3D_npc")

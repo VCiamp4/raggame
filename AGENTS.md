@@ -40,8 +40,8 @@ Godot project.
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
   examine-object UI, 3D dialogue portraits, a streaming HTTP client, a notebook,
-  hints and difficulty selection exist. `Hall.tscn` has Pablo, Esteban, Juan and
-  Criada; `dpto.tscn` has Química. Portero and Técnico are still missing.
+  hints and difficulty selection exist. All seven backend NPCs have dialogue
+  instances in the investigation locations (see §7).
 - The accusation lineup has Pablo, Esteban, Juan and Criada. Each has an ending;
   Pablo is the correct accusation.
 - Backend-discovered `CL-*` facts are the only clue state; the notebook reads
@@ -269,8 +269,15 @@ aid, not used at runtime.
   The board in `comisaria.tscn` opens `reconocimiento` -> `veredicto`.
 - The map supports mouse selection, arrow-key focus and `ui_accept` to enter a
   location. Location totems return to the map with `E` or `Esc` when nearby.
-- NPCs: Pablo, Esteban, Juan and Criada in Hall; Química in `dpto`. Their IDs
-  match the backend persona map.
+- NPC locations and IDs:
+  - Comisaría: Juan (`juan`), for his police-station interrogation.
+  - Oficina: Esteban (`esteban`), the insurance broker.
+  - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
+  - Hall: Portero (`portero`), near the building entrance.
+  - Departamento (`dpto`): Criada (`criada`), Química (`quimica`) and Técnico
+    (`tecnico_heladera`), with the technician beside the refrigerator.
+  Química examines the crime scene and ice in the apartment. The four lineup
+  models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
   `response_completed`.
@@ -303,9 +310,8 @@ These are the highest-value things to know before making changes.
 
 ### Integration / wiring
 
-1. **Missing NPC coverage.** Portero and Técnico (`portero`,
-   `tecnico_heladera`) have personas/knowledge but no scene NPCs. `campo.tscn`
-   instances `npc.tscn` without overriding its invalid default ID `"Aldric"`.
+1. **Demo NPC ID.** `campo.tscn` instances `npc.tscn` without overriding its
+   default ID `"Aldric"`, which is absent from the backend persona map.
 2. **Hints are not wired.** The "Pistas" button has no hint catalog. It should
    pick a hint from the `CL-*` facts the session has not discovered yet, but
    Godot has no way to learn newly discovered facts besides `/notebook`.

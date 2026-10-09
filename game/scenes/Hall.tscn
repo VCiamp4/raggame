@@ -16,15 +16,9 @@
 [ext_resource type="Script" uid="uid://bor3mk6vwp3os" path="res://scenes/ascensor.gd" id="15_wg2fg"]
 [ext_resource type="PackedScene" uid="uid://cs7fcennlafvo" path="res://assets/elevator (2)/elevator.fbx" id="16_qtroi"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="17_totem"]
-[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="18_npc"]
-[ext_resource type="PackedScene" uid="uid://qcu3g70nufp3" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="19_pablo"]
-[ext_resource type="PackedScene" uid="uid://bxowr0k1ve4md" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="20_esteban"]
-[ext_resource type="PackedScene" uid="uid://dowd21f5t0o5d" path="res://assets/Characters_psx/Models/Male/Character_04.fbx" id="21_juan"]
-[ext_resource type="Texture2D" uid="uid://cwpln7os65rxg" path="res://assets/ui/retratos/pablo.png" id="22_pablo_r"]
-[ext_resource type="Texture2D" uid="uid://dqpj8m0ggr3es" path="res://assets/ui/retratos/esteban.png" id="23_esteban_r"]
-[ext_resource type="Texture2D" uid="uid://dxnftg7vdo3ar" path="res://assets/ui/retratos/juan.png" id="24_juan_r"]
-[ext_resource type="PackedScene" uid="uid://1il2ftotcat6" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="25_criada"]
-[ext_resource type="Texture2D" uid="uid://b00eoofxj7att" path="res://assets/ui/retratos/criada.png" id="26_criada_r"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="npc_portero_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/portero.png" id="npc_portero_portrait"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -49,8 +43,8 @@ size = Vector3(2.435791, 2.9463196, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(3.3404922, 3.4956055, 2.8099937)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_hermanos"]
-radius = 1.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 1.2
 
 [node name="Node3D" type="Node3D" unique_id=113430558]
 
@@ -224,77 +218,21 @@ transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, -5.9894414, 2.0593655, 0)
 shape = SubResource("BoxShape3D_arjtg")
 debug_color = Color(0, 1, 0.23529412, 0.41960785)
 
-[node name="Pablo" type="Node3D" parent="." unique_id=1877100001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2)
-script = ExtResource("18_npc")
-npc_id = "pablo"
-npc_name = "Pablo"
-retrato = ExtResource("22_pablo_r")
+[node name="Portero" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 0.02, 5.0)
+script = ExtResource("npc_script")
+npc_id = "portero"
+npc_name = "El portero"
+retrato = ExtResource("npc_portero_portrait")
 pose_arms_down = 70.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pablo" unique_id=1877100002]
+[node name="Model" parent="Portero" instance=ExtResource("npc_portero_model")]
+transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
 
-[node name="Character_03" parent="Pablo/MeshInstance3D" unique_id=1877100003 instance=ExtResource("19_pablo")]
-transform = Transform3D(0.13006255, 0, 0.37826413, 0, 0.4, 0, -0.37826413, 0, 0.13006255, -1.5679259, 0, 0)
+[node name="InteractionArea" type="Area3D" parent="Portero"]
+collision_layer = 0
+collision_mask = 1
 
-[node name="InteractionArea" type="Area3D" parent="Pablo" unique_id=1877100004]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea" unique_id=1877100005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6200962, 0, 0)
-shape = SubResource("SphereShape3D_hermanos")
-
-[node name="Esteban" type="Node3D" parent="." unique_id=1877200001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-script = ExtResource("18_npc")
-npc_id = "esteban"
-npc_name = "Esteban"
-retrato = ExtResource("23_esteban_r")
-pose_arms_down = 70.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Esteban" unique_id=1877200002]
-
-[node name="Character_05" parent="Esteban/MeshInstance3D" unique_id=1877200003 instance=ExtResource("20_esteban")]
-transform = Transform3D(0.28261682, 0, -0.28306845, 0, 0.4, 0, 0.28306845, 0, 0.28261682, 2.3069277, 0, -2.7619505)
-
-[node name="InteractionArea" type="Area3D" parent="Esteban" unique_id=1877200004]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea" unique_id=1877200005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2204518, 0, -2.7906199)
-shape = SubResource("SphereShape3D_hermanos")
-
-[node name="Juan" type="Node3D" parent="." unique_id=1877300001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2)
-script = ExtResource("18_npc")
-npc_id = "juan"
-npc_name = "Juan"
-retrato = ExtResource("24_juan_r")
-pose_arms_down = 70.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Juan" unique_id=1877300002]
-
-[node name="Character_04" parent="Juan/MeshInstance3D" unique_id=1877300003 instance=ExtResource("21_juan")]
-transform = Transform3D(-0.37511915, 0, -0.13887267, 0, 0.4, 0, 0.13887267, 0, -0.37511915, 0.19838405, 0.1294322, 1.3044987)
-
-[node name="InteractionArea" type="Area3D" parent="Juan" unique_id=1877300004]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Juan/InteractionArea" unique_id=1877300005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5264187, 0, 1.4281111)
-shape = SubResource("SphereShape3D_hermanos")
-
-[node name="Criada" type="Node3D" parent="." unique_id=1877400001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5)
-script = ExtResource("18_npc")
-npc_id = "criada"
-npc_name = "Criada"
-retrato = ExtResource("26_criada_r")
-pose_arms_down = 70.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Criada" unique_id=1877400002]
-
-[node name="Character_Female_06" parent="Criada/MeshInstance3D" unique_id=1877400003 instance=ExtResource("25_criada")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-
-[node name="InteractionArea" type="Area3D" parent="Criada" unique_id=1877400004]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada/InteractionArea" unique_id=1877400005]
-shape = SubResource("SphereShape3D_hermanos")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portero/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")

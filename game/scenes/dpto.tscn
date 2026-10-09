@@ -28,8 +28,12 @@
 [ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="26_inspect"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="27_totem"]
 [ext_resource type="PackedScene" uid="uid://cxxv0rmym6rnq" path="res://assets/OFFICE/OFFICE/extras/glass.glb" id="28_glass"]
-[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="29_npc"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="npc_script"]
 [ext_resource type="PackedScene" uid="uid://ihx2aifm8qky" path="res://assets/Characters_psx/Models/Female/Character_27_Female_HM.fbx" id="30_quimica"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="npc_criada_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/criada.png" id="npc_criada_portrait"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_02.fbx" id="npc_tecnico_heladera_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/tecnico.png" id="npc_tecnico_heladera_portrait"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -84,7 +88,10 @@ size = Vector3(2.38, 1.11, 1.16)
 size = Vector3(2, 0.65, 0.64)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_quimica"]
-radius = 2.5
+radius = 1.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 1.2
 
 [node name="Node3D" type="Node3D" unique_id=1814186727]
 
@@ -340,17 +347,58 @@ material_override = SubResource("StandardMaterial3D_11e0f")
 mesh = SubResource("PlaneMesh_kjuag")
 
 [node name="Quimica" type="Node3D" parent="." unique_id=1877000001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
-script = ExtResource("29_npc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9251616, 0, 1.25470734)
+script = ExtResource("npc_script")
 npc_id = "quimica"
 npc_name = "La química"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quimica" unique_id=1877000002]
 
 [node name="Character_27_Female_HM" parent="Quimica/MeshInstance3D" unique_id=1877000003 instance=ExtResource("30_quimica")]
-transform = Transform3D(-0.13951245, 0, 0.37488168, 0, 0.4, 0, -0.37488168, 0, -0.13951245, -1.9251616, 0, 0.25470734)
+transform = Transform3D(-0.13951245, 0, 0.37488168, 0, 0.4, 0, -0.37488168, 0, -0.13951245, 0, 0, 0)
 
 [node name="InteractionArea" type="Area3D" parent="Quimica" unique_id=1877000004]
+collision_layer = 0
+collision_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quimica/InteractionArea" unique_id=1877000005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_quimica")
+
+[node name="Criada" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 0.02, 1.3)
+script = ExtResource("npc_script")
+npc_id = "criada"
+npc_name = "La criada"
+retrato = ExtResource("npc_criada_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Criada" instance=ExtResource("npc_criada_model")]
+transform = Transform3D(-0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, -0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Criada"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")
+
+[node name="TecnicoHeladera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0, 0.02, -3.8)
+script = ExtResource("npc_script")
+npc_id = "tecnico_heladera"
+npc_name = "El técnico de heladeras"
+retrato = ExtResource("npc_tecnico_heladera_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="TecnicoHeladera" instance=ExtResource("npc_tecnico_heladera_model")]
+transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="TecnicoHeladera"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TecnicoHeladera/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")

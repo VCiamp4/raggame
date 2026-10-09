@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="18_wsqm2"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="19_totem"]
 [ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="20_inspect"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="npc_esteban_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/esteban.png" id="npc_esteban_portrait"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(3, 0.2909546, 3)
@@ -64,6 +67,9 @@ size = Vector3(1.4837646, 1.6971436, 1.34906)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pila_papeles"]
 size = Vector3(0.4, 0.15, 0.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 1.2
 
 [node name="Node3D" type="Node3D" unique_id=1174869333]
 physics_interpolation_mode = 2
@@ -261,3 +267,22 @@ transform = Transform3D(0.7191043, -0.5575863, 0.41471258, -0.3515445, 0.2228901
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.137107, 0)
 light_energy = 4.0
 omni_range = 7.274021
+
+[node name="Esteban" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.02, 2.8)
+script = ExtResource("npc_script")
+npc_id = "esteban"
+npc_name = "Esteban"
+retrato = ExtResource("npc_esteban_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Esteban" instance=ExtResource("npc_esteban_model")]
+transform = Transform3D(-0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, -0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Esteban"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")
