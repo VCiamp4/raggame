@@ -247,44 +247,39 @@ These are the highest-value things to know before making changes.
    instances must be added with `npc_id` matching `PERSONAJES_FILES`
    (`criada`, `esteban`, `juan`, `pablo`, `portero`, `quimica`,
    `tecnico_heladera`).
-2. **The ending contradicts the story.** `veredicto.gd` defines
-   `CULPABLE_REAL = "mira"` and `finales` for `aldric`/`mira`/`herve`, and
-   `hermano_abogado.gd` defaults to `suspect_id = "aldric"`. The current story's
-   culprit is **Pablo**. `reconocimiento`/`veredicto` are from an older draft and
-   must be rewritten to match `story/`.
-3. **Broken map navigation paths:**
+2. **Broken map navigation paths:**
    - `laboratorio.gd` -> `res://scenes/laboratorio.gd` (wrong extension, should
      be `.tscn`).
    - `oficina.gd` -> `res://scenes/oficina.gd` (wrong extension).
    - `departamento.gd` -> `"scenes/Hall.tscn"` (missing `res://` prefix).
    - `reconocimiento.gd` exit -> `res://scenes/hall.tscn` (lowercase `h`);
      the file is `Hall.tscn` — this fails on case-sensitive filesystems.
-4. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
+3. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
    `game/scenes/DialogueUI.gd` exist with identical content. Confirm which one
    `DialogueUI.tscn` uses and delete the other.
-5. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
+4. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
    `game/scenes/elevador.tscn` vs `ascensor`, and `.godot/` caches should not be
    edited by hand.
 
 ### Backend / infra
 
-6. **`embeddings.npz` is required but gitignored.** Backend import fails until
+5. **`embeddings.npz` is required but gitignored.** Backend import fails until
    `python backend/scripts/build_embeddings.py` is run against a running Ollama
    with the embedding model pulled.
-7. **In-memory state only** (history + discovered facts). No DB, no persistence,
+6. **In-memory state only** (history + discovered facts). No DB, no persistence,
    not multi-worker safe.
-8. **No automated tests and no CI.** The only test-like tooling is the retrieval
+7. **No automated tests and no CI.** The only test-like tooling is the retrieval
    benchmark.
-9. **Docker is incomplete.** `compose.yaml` starts only Ollama. There is no
+8. **Docker is incomplete.** `compose.yaml` starts only Ollama. There is no
     Dockerfile for the backend or the game, and no service wiring the backend.
     `docker/ollama-entrypoint.sh` is an **empty directory** (a mistake; the
     intent was a script). `LLAMA_ARG_SWA_FULL=1` is set on the Ollama container
     but is not a documented Ollama environment variable, so it is likely
     ignored.
-10. **No chunk build pipeline.** Chunks and their gating are hand-authored; the
+9. **No chunk build pipeline.** Chunks and their gating are hand-authored; the
     benchmark fixtures are a separate frozen copy with gating stripped, so the
     two can drift.
-11. **No embedding cache**; every request re-embeds the player input.
+10. **No embedding cache**; every request re-embeds the player input.
 
 ## 9. How to run
 
