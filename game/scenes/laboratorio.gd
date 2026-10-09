@@ -37,7 +37,7 @@ func highlight() -> void:
 	mat.emission_energy_multiplier = 0.5
 	for mesh in meshes:
 		if is_instance_valid(mesh):
-			mesh.material_overlay = mat
+			mesh.material_override = mat
 
 
 func unhighlight() -> void:
@@ -46,7 +46,7 @@ func unhighlight() -> void:
 	is_highlighted = false
 	for mesh in meshes:
 		if is_instance_valid(mesh):
-			mesh.material_overlay = null
+			mesh.material_override = null
 
 
 func get_location_name() -> String:
