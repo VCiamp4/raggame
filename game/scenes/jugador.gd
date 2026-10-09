@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	# Movimiento
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var local_dir := Vector3(input_dir.x, 0, input_dir.y)
 	var direction := (transform.basis * local_dir).normalized()
 	
