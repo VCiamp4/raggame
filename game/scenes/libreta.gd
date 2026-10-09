@@ -7,6 +7,7 @@ const HAND_SIZE = 22
 const LINE = 30  # alto del renglón de la ficha
 const RED = Color("b8433c")
 const INK = Color("222222")
+const NOTEBOOK_MAX_HEIGHT = 630.0  # proporción 2:3 para los 420 px de ancho
 
 # Una hoja por personaje. Cada pista va a la hoja de quien trata, según el
 # prefijo de su fact_id (CL-PAB-02 -> "PAB").
@@ -54,10 +55,10 @@ func _ready() -> void:
 	folder = Control.new()
 	folder.offset_left = 20
 	folder.offset_right = 440
-	folder.anchor_bottom = 1
 	folder.offset_top = 112
-	folder.offset_bottom = -20
 	add_child(folder)
+	_resize_folder()
+	get_viewport().size_changed.connect(_resize_folder)
 	folder.hide()
 	folder.add_child(_panel(Color("c9a263"), true))
 
@@ -169,6 +170,11 @@ func _ready() -> void:
 	http = HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(_on_clues_received)
+
+
+func _resize_folder() -> void:
+	var available_height := maxf(0.0, get_viewport().get_visible_rect().size.y - folder.offset_top - 20.0)
+	folder.size.y = minf(NOTEBOOK_MAX_HEIGHT, available_height)
 
 
 func _panel(color: Color, shadow: bool) -> Panel:
