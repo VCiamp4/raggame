@@ -10,7 +10,6 @@ extends StaticBody3D
 #   - Se puede resaltar (highlight/unhighlight) al apuntarlo o acercarse.
 #   - Al inspeccionar, el jugador muestra display_name + description en el
 #     diálogo de examinación (que se cierra con [E]/[Esc]).
-#   - La primera vez que se inspecciona, dispara la pista clue_id (si tiene).
 
 const InspectableCatalogRes = preload("res://data/inspectables.gd")
 
@@ -56,10 +55,6 @@ func get_description() -> String:
 	if description_override != "":
 		return description_override
 	return InspectableCatalogRes.description(inspectable_id)
-
-
-func get_clue_id() -> String:
-	return InspectableCatalogRes.clue_id(inspectable_id)
 
 
 # Compatibilidad con código que lee la propiedad "object_name".

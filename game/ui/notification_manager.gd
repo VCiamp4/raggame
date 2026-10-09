@@ -55,15 +55,3 @@ func show_message(text: String) -> void:
 		if is_instance_valid(panel):
 			panel.queue_free()
 	)
-
-
-func show_clue_notification(event_id: String) -> void:
-	var clue_info: Dictionary = EventManager.clue_info(event_id)
-	if clue_info.is_empty():
-		return
-	var summary: String = clue_info.get("summary", event_id)
-	var character: String = clue_info.get("character", "")
-	var text: String = summary
-	if character != null and str(character) != "":
-		text = "%s (%s)" % [summary, character]
-	show_message("Pista encontrada: %s" % text)

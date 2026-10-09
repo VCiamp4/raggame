@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scenes/global.gd"
-EventManager="*res://scripts/systems/event_manager.gd"
 InputManager="*res://scripts/systems/input_manager.gd"
 NotificationManager="*res://ui/notification_manager.gd"
 

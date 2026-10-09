@@ -44,8 +44,9 @@ Godot project.
   Criada; `dpto.tscn` has Química. Portero and Técnico are still missing.
 - The accusation lineup has Pablo, Esteban, Juan and Criada. Each has an ending;
   Pablo is the correct accusation.
-- Local clue notifications/hints use exact keywords and object interactions.
-  The notebook uses backend-discovered facts. These states are not synchronized.
+- Backend-discovered `CL-*` facts are the only clue state; the notebook reads
+  them. The "Pistas" button has no hint content yet, and examined objects do not
+  register facts.
 - No automated tests, no CI, no Dockerfile for the backend or the game.
 
 ## 3. Repository layout
@@ -86,8 +87,8 @@ raggame/
     ├── menu_inicio.gd               # title, difficulty, about, vignette, audio
     ├── audio/, fonts/               # VCR OSD Mono theme, ambience wav
     ├── assets/                      # PSX/props packs (many .glb/.fbx)
-    ├── data/                        # event, hint and inspectable catalogs
-    ├── scripts/systems/             # EventManager and InputManager
+    ├── data/                        # inspectable catalog
+    ├── scripts/systems/             # InputManager
     ├── ui/                          # NotificationManager
     └── scenes/                      # gameplay scenes/scripts, including libreta.gd
 ```
@@ -204,15 +205,11 @@ Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
-### Game clue catalogs (`game/data/`)
+### Game inspectable catalog (`game/data/`)
 
-- `events/events.gd` defines `PI-*` clue IDs, summaries, keywords and `CL-*` fact
-  references. `EventManager` builds an exact-keyword lookup from this catalog.
-  It does not activate clues from retrieved fact IDs.
-- `hints/hints.gd` maps clue IDs to hints for the "Pistas" button.
-- `inspectables.gd` defines object names, descriptions and optional clue IDs.
-  Examining an object can activate its local clue without contacting the backend.
-- Keep catalog text and fact references consistent with the story chunks.
+- `inspectables.gd` defines object names and descriptions shown when examining.
+  Examining an object does not contact the backend or register any fact.
+- Keep inspectable text consistent with the story chunks.
 
 ### Graph
 
@@ -261,11 +258,10 @@ aid, not used at runtime.
 
 - Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoloads:
   - `Global` (`scenes/global.gd`): accusation, launch session ID, difficulty
-    profile, hint usage and cooldown state.
-  - `EventManager` (`scripts/systems/event_manager.gd`): local clue state/history.
+    profile and hint usage.
   - `InputManager` (`scripts/systems/input_manager.gd`): last input device and
     input glyph helpers.
-  - `NotificationManager` (`ui/notification_manager.gd`): clue/message toasts.
+  - `NotificationManager` (`ui/notification_manager.gd`): message toasts.
 - Input action `interact` = physical key `E` (physical_keycode 69).
 - Scene flow: title -> difficulty selection -> `mapa_menu` (4 spinning
   `nodo_mapa` nodes: comisaria, laboratorio, oficina, departamento) -> locations.
@@ -279,16 +275,16 @@ aid, not used at runtime.
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
   `response_completed`.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
-  inspection, elevators, board and totem interactions. Submitted dialogue input
-  is checked against exact keywords before requesting the NPC response.
+  inspection, elevators, board and totem interactions, and the "Pistas" button.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
-  appends streamed chunks, disables input while streaming, shows keyword help
-  and renders player/NPC models in portrait SubViewports.
+  appends streamed chunks, disables input while streaming and renders
+  player/NPC models in portrait SubViewports.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
   discovered fact text into character pages. It uses backend state exclusively.
-- Difficulty currently affects hints: Fácil has no cooldown/use limit; Medio
-  has a 15-second cooldown; Difícil allows 3 uses. Usage/cooldown survives scene
-  changes via `Global`. Other profile `planned_effects` are not applied.
+- Difficulty only sets `hint_limit` for the "Pistas" button: Fácil is unlimited
+  (`-1`), Medio allows 5 uses, Difícil hides the button (`0`). Usage survives
+  scene changes via `Global`. `_current_hint_text()` in `jugador.gd` is a stub
+  that returns no hint; pressing then shows a placeholder and spends no use.
 - `reconocimiento.tscn` has four selectable suspects: Pablo, Esteban, Juan and
   Criada. `veredicto.gd` displays their endings with a typewriter effect;
   `CULPABLE_REAL = "pablo"`.
@@ -310,14 +306,12 @@ These are the highest-value things to know before making changes.
 1. **Missing NPC coverage.** Portero and Técnico (`portero`,
    `tecnico_heladera`) have personas/knowledge but no scene NPCs. `campo.tscn`
    instances `npc.tscn` without overriding its invalid default ID `"Aldric"`.
-2. **Clue state is split.** Exact player keywords and inspected objects activate
-   local `PI-*` events regardless of RAG availability. The backend notebook and
-   retrieval gates use `CL-*` facts. Object discoveries do not reach that state.
-   Repeated keywords across clues overwrite earlier entries in the global map.
-3. **Incorrect clue fact references.** Esteban's `PI-EST-03` references
-   nonexistent `CL-EST-04`. `PI-GLO-05` describes the original equal-share policy
-   but references `CL-POL-02`, which describes the updated policy's location.
-   The office archive discovery also needs a consistent story/chunk model.
+2. **Hints are not wired.** The "Pistas" button has no hint catalog. It should
+   pick a hint from the `CL-*` facts the session has not discovered yet, but
+   Godot has no way to learn newly discovered facts besides `/notebook`.
+3. **Object discoveries do not reach the backend.** Examining an object (for
+   example the office archive with the original policy) registers no `CL-*`
+   fact, so it neither unlocks gated chunks nor appears in the notebook.
 4. **Map input/transition handling.** `ui_accept` changes scenes before calling
    `get_viewport().set_input_as_handled()`, potentially using a detached viewport.
    Clicking empty map space enters the retained focused location.

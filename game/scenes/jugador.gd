@@ -8,8 +8,8 @@ const CAMERA_OFFSET = Vector3(0.0, 1.8, 3.2)
 const CAMERA_LOOK_HEIGHT = 0.9
 const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
 
-const HintCatalogRes = preload("res://data/hints/hints.gd")
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
+const HINT_PLACEHOLDER := "Todavía no hay pistas disponibles. Hablá con los sospechosos y examiná la escena."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -36,8 +36,7 @@ var spawn_position: Vector3 = Vector3.ZERO
 
 var hint_layer: CanvasLayer
 var hint_button: Button
-var hint_cooldown_timer: Timer
-var hint_cooldown_seconds: float = 0.0
+# -1 = ilimitadas, 0 = sin pistas (no se muestra el botón).
 var hint_uses_limit: int = -1
 var hint_remaining_uses: int = -1
 
@@ -52,8 +51,8 @@ func _ready() -> void:
 	_connect_npcs.call_deferred()
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
 	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
-	_create_hint_button()
 	_configure_hint_rules()
+	_create_hint_button()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
@@ -148,7 +147,7 @@ func _connect_npcs() -> void:
 func _open_dialogue() -> void:
 	in_dialogue = true
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(nearby_npc.npc_name, nearby_npc.npc_id)
+	dialogue_ui.show_dialogue(nearby_npc.npc_name)
 	dialogue_ui.set_input_enabled(true)
 	dialogue_ui.mostrar_modelos($Walking.scene_file_path, nearby_npc.get_model_scene_path())  # input visible para escribirle al NPC
 
@@ -164,9 +163,6 @@ func _close_dialogue() -> void:
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
-
-	# Chequear si el input activa algún evento/pista
-	EventManager.check_input(text)
 
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
@@ -209,7 +205,6 @@ func _on_npc_exited_range(npc: Node) -> void:
 # ---------- Objetos examinables (sin LLM) ----------
 
 func _process(_delta: float) -> void:
-	_update_hint_cooldown_display()
 	_update_camera()
 	if in_dialogue or inspecting:
 		_clear_highlight()
@@ -357,13 +352,6 @@ func _examine_object(obj: Node) -> void:
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(false)
 
-	# Disparar la pista asociada (opcional, una sola vez).
-	# Un inspectable sin clue_id simplemente no dispara nada.
-	var clue_id := _inspect_clue_id(obj)
-	if clue_id != "":
-		EventManager.activate_event(clue_id)
-		NotificationManager.show_clue_notification(clue_id)
-
 
 func _close_inspection() -> void:
 	inspecting = false
@@ -390,14 +378,6 @@ func _inspect_display_name(obj: Node) -> String:
 func _inspect_description(obj: Node) -> String:
 	if obj.has_method("get_description"):
 		return obj.get_description()
-	return ""
-
-
-func _inspect_clue_id(obj: Node) -> String:
-	if obj.has_method("get_clue_id"):
-		var clue = obj.get_clue_id()
-		if clue != null:
-			return str(clue)
 	return ""
 
 
@@ -451,7 +431,18 @@ func _describe_click_event(node: Node) -> String:
 
 # ---------- Pistas ----------
 
+func _configure_hint_rules() -> void:
+	var difficulty := Global.current_difficulty()
+	hint_uses_limit = int(difficulty.get("hint_limit", -1))
+	hint_remaining_uses = -1
+	if hint_uses_limit > 0:
+		var spent := int(clamp(Global.hint_uses_spent, 0, hint_uses_limit))
+		hint_remaining_uses = max(hint_uses_limit - spent, 0)
+
+
 func _create_hint_button() -> void:
+	if hint_uses_limit == 0:
+		return
 	if hint_layer != null and is_instance_valid(hint_layer):
 		return
 	hint_layer = CanvasLayer.new()
@@ -473,77 +464,25 @@ func _create_hint_button() -> void:
 	hint_button.theme = null
 	hint_button.pressed.connect(_on_hint_button_pressed)
 	hint_layer.add_child(hint_button)
+	_refresh_hint_button_state()
 
 
 func _on_hint_button_pressed() -> void:
 	if not _hint_action_allowed():
 		return
 	var hint_text := _current_hint_text()
+	if hint_text == "":
+		# Sin pista concreta no se gasta un uso.
+		NotificationManager.show_message(HINT_PLACEHOLDER)
+		return
 	NotificationManager.show_message(hint_text)
 	_register_hint_consumption()
 
 
+# TODO: elegir la pista según los hechos que el jugador todavía no descubrió
+# (estado del backend). Por ahora no hay catálogo de pistas.
 func _current_hint_text() -> String:
-	var history := EventManager.get_event_history()
-	for i in range(history.size() - 1, -1, -1):
-		var event_id: String = str(history[i])
-		var hint_text := HintCatalogRes.hint_for_event(event_id)
-		if hint_text != "":
-			return hint_text
-	return HintCatalogRes.default_hint()
-
-
-func _configure_hint_rules() -> void:
-	hint_cooldown_seconds = 0.0
-	hint_uses_limit = -1
-	hint_remaining_uses = -1
-	var difficulty := Global.current_difficulty()
-	var difficulty_id := str(difficulty.get("id", "standard"))
-	match difficulty_id:
-		"standard":
-			hint_cooldown_seconds = 15.0
-		"hardcore":
-			hint_uses_limit = 3
-		_:
-			pass
-	if hint_uses_limit > 0:
-		var spent := int(clamp(Global.hint_uses_spent, 0, hint_uses_limit))
-		hint_remaining_uses = max(hint_uses_limit - spent, 0)
-	_ensure_hint_timer()
-	_apply_existing_hint_state()
-	_refresh_hint_button_state()
-
-
-func _ensure_hint_timer() -> void:
-	if hint_cooldown_timer != null and is_instance_valid(hint_cooldown_timer):
-		hint_cooldown_timer.stop()
-		return
-	hint_cooldown_timer = Timer.new()
-	hint_cooldown_timer.one_shot = true
-	hint_cooldown_timer.timeout.connect(_on_hint_cooldown_finished)
-	add_child(hint_cooldown_timer)
-
-
-func _apply_existing_hint_state() -> void:
-	if hint_cooldown_seconds <= 0.0:
-		return
-	var ready_time := Global.hint_cooldown_ready_time
-	if ready_time <= 0.0:
-		return
-	var now := Time.get_unix_time_from_system()
-	var remaining := ready_time - now
-	if remaining > 0.1:
-		_begin_hint_cooldown(remaining)
-	else:
-		Global.hint_cooldown_ready_time = 0.0
-
-
-func _update_hint_cooldown_display() -> void:
-	if hint_cooldown_timer == null:
-		return
-	if hint_cooldown_timer.is_stopped():
-		return
-	_refresh_hint_button_state()
+	return ""
 
 
 func _refresh_hint_button_state() -> void:
@@ -559,22 +498,15 @@ func _refresh_hint_button_state() -> void:
 		if remaining <= 0:
 			disabled = true
 			tooltip = "Ya usaste todas las pistas disponibles en esta dificultad."
-	if hint_cooldown_timer != null and not hint_cooldown_timer.is_stopped():
-		disabled = true
-		var seconds_left := int(ceil(hint_cooldown_timer.time_left))
-		if seconds_left < 1:
-			seconds_left = 1
-		button_text = "Pistas (%ds)" % seconds_left
-		tooltip = "Podés volver a pedir una pista en %d s." % seconds_left
 	hint_button.text = button_text
 	hint_button.disabled = disabled
 	hint_button.tooltip_text = tooltip
 
 
 func _hint_action_allowed() -> bool:
-	if hint_uses_limit > 0 and hint_remaining_uses <= 0:
+	if hint_uses_limit == 0:
 		return false
-	if hint_cooldown_timer != null and not hint_cooldown_timer.is_stopped():
+	if hint_uses_limit > 0 and hint_remaining_uses <= 0:
 		return false
 	return true
 
@@ -583,24 +515,4 @@ func _register_hint_consumption() -> void:
 	if hint_uses_limit > 0:
 		Global.hint_uses_spent = min(Global.hint_uses_spent + 1, hint_uses_limit)
 		hint_remaining_uses = max(hint_uses_limit - Global.hint_uses_spent, 0)
-	if hint_cooldown_seconds > 0.0:
-		var now := Time.get_unix_time_from_system()
-		Global.hint_cooldown_ready_time = now + hint_cooldown_seconds
-		_begin_hint_cooldown()
-	_refresh_hint_button_state()
-
-
-func _begin_hint_cooldown(duration: float = -1.0) -> void:
-	if hint_cooldown_timer == null:
-		return
-	var wait_time := hint_cooldown_seconds
-	if duration > 0.0:
-		wait_time = duration
-	if wait_time <= 0.0:
-		return
-	hint_cooldown_timer.start(wait_time)
-	_refresh_hint_button_state()
-
-
-func _on_hint_cooldown_finished() -> void:
 	_refresh_hint_button_state()

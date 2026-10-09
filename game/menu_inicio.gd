@@ -14,34 +14,22 @@ const DIFFICULTY_PROFILES = [
 		"id": "story",
 		"name": "Informe guiado",
 		"label": "Fácil",
-		"tagline": "Más margen para experimentar y pistas tempranas",
-		"planned_effects": {
-			"clue_window": 1.5,
-			"npc_patience": 1.3,
-			"llm_temperature_bias": -0.1
-		}
+		"tagline": "Pistas ilimitadas",
+		"hint_limit": -1
 	},
 	{
 		"id": "standard",
 		"name": "Procedimiento",
 		"label": "Medio",
-		"tagline": "Equilibrio entre presión y descubrimiento",
-		"planned_effects": {
-			"clue_window": 1.0,
-			"npc_patience": 1.0,
-			"llm_temperature_bias": 0.0
-		}
+		"tagline": "Cinco pistas para toda la investigación",
+		"hint_limit": 5
 	},
 	{
 		"id": "hardcore",
 		"name": "Contra reloj",
 		"label": "Difícil",
-		"tagline": "Claves estrictas, sospechosos menos tolerantes",
-		"planned_effects": {
-			"clue_window": 0.6,
-			"npc_patience": 0.7,
-			"llm_temperature_bias": 0.15
-		}
+		"tagline": "Sin pistas: estás solo",
+		"hint_limit": 0
 	}
 ]
 
