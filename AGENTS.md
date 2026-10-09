@@ -29,8 +29,6 @@ that mixes four concerns:
 | `story/`       | Narrative source, NPC personas, and the retrieval corpus    |
 | `benchmarks/`  | Offline retrieval benchmark (corpus, fixtures, scripts)     |
 
-Root-level leftovers: `copa.gd`, `copa.gd.uid`, and `.godot/` are **stale** —
-they belong to an older layout where the Godot project lived at the repo root.
 The live Godot project is `game/project.godot`. Do not assume the root is a
 Godot project.
 
@@ -53,7 +51,6 @@ Godot project.
 raggame/
 ├── compose.yaml                     # Ollama service only
 ├── docker/ollama-entrypoint.sh/     # EMPTY DIRECTORY (broken artifact, see §8)
-├── copa.gd, copa.gd.uid, .godot/    # stale root-level leftovers
 ├── backend/
 │   ├── main.py                      # FastAPI app, / and /dialogue_stream
 │   ├── config.py                    # Settings dataclass (env-driven)
@@ -255,44 +252,39 @@ These are the highest-value things to know before making changes.
    `hermano_abogado.gd` defaults to `suspect_id = "aldric"`. The current story's
    culprit is **Pablo**. `reconocimiento`/`veredicto` are from an older draft and
    must be rewritten to match `story/`.
-3. **Broken resource reference:** `game/scenes/copa.tscn` references
-   `res://copa.gd`, but the file under `game/` does not exist (only the stale
-   root `copa.gd`). Fix the path or move the script into `game/`.
-4. **Broken map navigation paths:**
+3. **Broken map navigation paths:**
    - `laboratorio.gd` -> `res://scenes/laboratorio.gd` (wrong extension, should
      be `.tscn`).
    - `oficina.gd` -> `res://scenes/oficina.gd` (wrong extension).
    - `departamento.gd` -> `"scenes/Hall.tscn"` (missing `res://` prefix).
    - `reconocimiento.gd` exit -> `res://scenes/hall.tscn` (lowercase `h`);
      the file is `Hall.tscn` — this fails on case-sensitive filesystems.
-5. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
+4. **Duplicate dialogue UI:** both `game/scenes/dialogue_ui.gd` and
    `game/scenes/DialogueUI.gd` exist with identical content. Confirm which one
    `DialogueUI.tscn` uses and delete the other.
-6. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
+5. **Editor leftovers:** `game/scenes/jugador.tscn102336247.tmp`,
    `game/scenes/elevador.tscn` vs `ascensor`, and `.godot/` caches should not be
    edited by hand.
 
 ### Backend / infra
 
-7. **`embeddings.npz` is required but gitignored.** Backend import fails until
+6. **`embeddings.npz` is required but gitignored.** Backend import fails until
    `python backend/scripts/build_embeddings.py` is run against a running Ollama
    with the embedding model pulled.
-8. **In-memory state only** (history + discovered facts). No DB, no persistence,
+7. **In-memory state only** (history + discovered facts). No DB, no persistence,
    not multi-worker safe.
-9. **No automated tests and no CI.** The only test-like tooling is the retrieval
+8. **No automated tests and no CI.** The only test-like tooling is the retrieval
    benchmark.
-10. **Docker is incomplete.** `compose.yaml` starts only Ollama. There is no
+9. **Docker is incomplete.** `compose.yaml` starts only Ollama. There is no
     Dockerfile for the backend or the game, and no service wiring the backend.
     `docker/ollama-entrypoint.sh` is an **empty directory** (a mistake; the
     intent was a script). `LLAMA_ARG_SWA_FULL=1` is set on the Ollama container
     but is not a documented Ollama environment variable, so it is likely
     ignored.
-11. **No chunk build pipeline.** Chunks and their gating are hand-authored; the
+10. **No chunk build pipeline.** Chunks and their gating are hand-authored; the
     benchmark fixtures are a separate frozen copy with gating stripped, so the
     two can drift.
-12. **No embedding cache**; every request re-embeds the player input.
-13. **Root `.godot/` is stale** and may confuse tooling; it predates the move
-    into `game/`.
+11. **No embedding cache**; every request re-embeds the player input.
 
 ## 9. How to run
 
@@ -347,5 +339,4 @@ document it here.
   or changing facts, update the scene frontmatter, the chunk JSON (including
   `knowledge_holders`, `necessary_facts`, `sufficient_facts`, and `fact_id`),
   rebuild embeddings, and re-run the benchmark.
-- Prefer editing existing files; keep changes scoped. Do not "fix" the stale
-  root `copa.gd`/`.godot` unless the task is explicitly about that cleanup.
+- Prefer editing existing files; keep changes scoped.
