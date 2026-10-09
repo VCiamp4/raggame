@@ -13,6 +13,8 @@ var prompt_label: Label
 var fake_blur: ColorRect
 var retrato_jugador: TextureRect
 var retrato_npc: TextureRect
+var viewport_jugador: SubViewport
+var viewport_npc: SubViewport
 var close_button: Button
 
 signal text_submitted(text: String)
@@ -136,33 +138,43 @@ func _ready() -> void:
 	fake_blur.visible = false
 	add_child(fake_blur)
 	
-	# Retrato del NPC (izquierda, más chico)
+	# Retrato del NPC (izquierda): render 3D del modelo, arriba del panel de texto
 	retrato_npc = TextureRect.new()
 	retrato_npc.anchor_left = 0
 	retrato_npc.anchor_right = 0
-	retrato_npc.anchor_bottom = 1
+	retrato_npc.anchor_top = 0.55
+	retrato_npc.anchor_bottom = 0.55
 	retrato_npc.offset_left = 20
-	retrato_npc.offset_right = 220
-	retrato_npc.offset_top = -200
-	retrato_npc.offset_bottom = 15
+	retrato_npc.offset_right = 210
+	retrato_npc.offset_top = -253
+	retrato_npc.offset_bottom = 0
+	retrato_npc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	retrato_npc.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	retrato_npc.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	retrato_npc.visible = false
 	add_child(retrato_npc)
 
-	# Retrato del jugador (derecha, más chico)
+	# Retrato del jugador (derecha): render 3D del modelo, arriba del panel de texto
 	retrato_jugador = TextureRect.new()
 	retrato_jugador.anchor_left = 1
 	retrato_jugador.anchor_right = 1
-	retrato_jugador.anchor_bottom = 1
-	retrato_jugador.offset_left = -220
+	retrato_jugador.anchor_top = 0.55
+	retrato_jugador.anchor_bottom = 0.55
+	retrato_jugador.offset_left = -210
 	retrato_jugador.offset_right = -20
-	retrato_jugador.offset_top = -200
+	retrato_jugador.offset_top = -253
 	retrato_jugador.offset_bottom = 0
+	retrato_jugador.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	retrato_jugador.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	retrato_jugador.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	retrato_jugador.visible = false
 	add_child(retrato_jugador)
+
+	# Viewports 3D que renderizan los modelos (en vez de usar una imagen PNG)
+	viewport_npc = _create_character_viewport()
+	retrato_npc.texture = viewport_npc.get_texture()
+	viewport_jugador = _create_character_viewport()
+	retrato_jugador.texture = viewport_jugador.get_texture()
 	
 	# Cartel "[E] Hablar"
 	prompt_label = Label.new()
@@ -245,13 +257,13 @@ func set_input_enabled(enabled: bool) -> void:
 		input_field.grab_focus()
 		
 		
-func mostrar_retratos(tex_jugador: Texture2D, tex_npc: Texture2D) -> void:
-	#fake_blur.visible = true
-	if tex_jugador:
-		retrato_jugador.texture = tex_jugador
+const PORTRAIT_YAW := deg_to_rad(20.0)
+
+
+func mostrar_modelos(jugador_model_path: String, npc_model_path: String) -> void:
+	if _show_model_in_viewport(viewport_jugador, jugador_model_path, PORTRAIT_YAW):
 		retrato_jugador.visible = true
-	if tex_npc:
-		retrato_npc.texture = tex_npc
+	if _show_model_in_viewport(viewport_npc, npc_model_path, -PORTRAIT_YAW):
 		retrato_npc.visible = true
 
 
@@ -259,6 +271,104 @@ func ocultar_retratos() -> void:
 	fake_blur.visible = false
 	retrato_jugador.visible = false
 	retrato_npc.visible = false
+
+
+func _create_character_viewport() -> SubViewport:
+	var vp := SubViewport.new()
+	vp.size = Vector2i(360, 480)
+	vp.transparent_bg = true
+	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	vp.own_world_3d = true
+	add_child(vp)
+
+	var world_env := WorldEnvironment.new()
+	var env := Environment.new()
+	env.background_mode = Environment.BG_CLEAR_COLOR
+	env.background_color = Color(0, 0, 0, 0)
+	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.ambient_light_color = Color(0.65, 0.66, 0.72)
+	env.ambient_light_energy = 0.7
+	world_env.environment = env
+	vp.add_child(world_env)
+
+	var key := DirectionalLight3D.new()
+	key.light_energy = 1.1
+	vp.add_child(key)
+	key.look_at_from_position(Vector3(2.5, 6.0, 5.0), Vector3(0, 3.0, 0), Vector3.UP)
+
+	var fill := DirectionalLight3D.new()
+	fill.light_energy = 0.5
+	fill.light_color = Color(0.7, 0.8, 1.0)
+	vp.add_child(fill)
+	fill.look_at_from_position(Vector3(-3.0, 2.5, 3.5), Vector3(0, 3.0, 0), Vector3.UP)
+
+	var holder := Node3D.new()
+	holder.name = "Holder"
+	vp.add_child(holder)
+
+	var cam := Camera3D.new()
+	cam.name = "Camera3D"
+	cam.fov = 30.0
+	vp.add_child(cam)
+	return vp
+
+
+func _show_model_in_viewport(vp: SubViewport, model_path: String, yaw: float = 0.0) -> bool:
+	if vp == null:
+		return false
+	var holder: Node3D = vp.get_node_or_null("Holder")
+	var cam: Camera3D = vp.get_node_or_null("Camera3D")
+	if holder == null or cam == null:
+		return false
+	for child in holder.get_children():
+		holder.remove_child(child)
+		child.queue_free()
+	if model_path == "":
+		return false
+	var packed: PackedScene = load(model_path)
+	if packed == null:
+		return false
+	var model: Node = packed.instantiate()
+	holder.add_child(model)
+	var aabb := _model_aabb(model)
+	if aabb.size == Vector3.ZERO:
+		return true
+	var center := aabb.get_center()
+	# Pies al piso y centrado en X/Z.
+	model.position -= Vector3(center.x, aabb.position.y, center.z)
+	var height := aabb.size.y
+	var target_y := height * 0.88
+	var frame_height := height * 0.44
+	var dist := frame_height / (2.0 * tan(deg_to_rad(cam.fov * 0.5)))
+	# Orbitamos la cámara para que el modelo mire un poco hacia adentro.
+	cam.position = Vector3(sin(yaw) * dist, target_y, cos(yaw) * dist)
+	cam.look_at(Vector3(0, target_y, 0), Vector3.UP)
+	return true
+
+
+func _model_aabb(node: Node) -> AABB:
+	var acc: Array = []
+	_collect_aabb(node, Transform3D(), acc)
+	if acc.is_empty():
+		return AABB()
+	return acc[0]
+
+
+func _collect_aabb(node: Node, xform: Transform3D, acc: Array) -> void:
+	if node is MeshInstance3D:
+		var mi := node as MeshInstance3D
+		if mi.mesh != null:
+			var box: AABB = (xform * mi.transform) * mi.mesh.get_aabb()
+			if acc.is_empty():
+				acc.append(box)
+			else:
+				acc[0] = (acc[0] as AABB).merge(box)
+	for child in node.get_children():
+		if child is Node3D:
+			_collect_aabb(child, xform * (child as Node3D).transform, acc)
+
+
+
 
 
 func show_prompt(npc_name: String) -> void:

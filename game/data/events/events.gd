@@ -99,6 +99,11 @@ const GLOBAL_CLUES := {
 		"keywords": ["portero", "diario", "nadie subió"],
 		"facts": ["CL-POR-01", "CL-POR-02"],
 	},
+	"PI-GLO-05": {
+		"summary": "La póliza original repartía el beneficio en partes iguales entre los tres hermanos: Pablo, Esteban y Juan.",
+		"keywords": ["partes iguales", "póliza original", "tres hermanos", "beneficiarios"],
+		"facts": ["CL-POL-02"],
+	},
 }
 
 static var CLUE_INDEX: Dictionary = _build_index()

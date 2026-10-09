@@ -24,6 +24,21 @@ const INSPECTABLES: Dictionary = {
 		"description": "Sí, este es un vaso de whisky, pero el olor claramente indica que tiene algo malo.",
 		"clue_id": "",
 	},
+	"archivero_grande": {
+		"display_name": "Archivero grande",
+		"description": "Solo papeles de cosas raras.",
+		"clue_id": "",
+	},
+	"archivero_mediano": {
+		"display_name": "Archivero",
+		"description": "Entre los legajos aparece la póliza de vida original. Pablo, Esteban y Juan figuraban como beneficiarios en partes iguales.",
+		"clue_id": "PI-GLO-05",
+	},
+	"pila_papeles": {
+		"display_name": "Pila de papeles",
+		"description": "No hay nada acá, solo hablan de nuevas políticas de seguros.",
+		"clue_id": "",
+	},
 }
 
 

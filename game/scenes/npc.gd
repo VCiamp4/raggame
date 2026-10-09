@@ -91,6 +91,23 @@ func get_retrato() -> Texture2D:
 	return retrato
 
 
+func get_model_scene_path() -> String:
+	var model := _find_instanced_model(self)
+	if model != null:
+		return model.scene_file_path
+	return ""
+
+
+func _find_instanced_model(node: Node) -> Node3D:
+	for child in node.get_children():
+		if child is Node3D and child.scene_file_path != "":
+			return child
+		var found := _find_instanced_model(child)
+		if found != null:
+			return found
+	return null
+
+
 func _start_stream(player_input: String) -> void:
 	http_client = HTTPClient.new()
 	var err = http_client.connect_to_host(BACKEND_HOST, BACKEND_PORT)
