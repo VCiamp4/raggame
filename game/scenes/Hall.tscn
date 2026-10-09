@@ -230,7 +230,7 @@ script = ExtResource("18_npc")
 npc_id = "pablo"
 npc_name = "Pablo"
 retrato = ExtResource("22_pablo_r")
-pose_arms_down = 70.0
+pose_arms_down = 8.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pablo" unique_id=1877100002]
 
@@ -249,7 +249,7 @@ script = ExtResource("18_npc")
 npc_id = "esteban"
 npc_name = "Esteban"
 retrato = ExtResource("23_esteban_r")
-pose_arms_down = 70.0
+pose_arms_down = 8.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Esteban" unique_id=1877200002]
 
@@ -268,7 +268,7 @@ script = ExtResource("18_npc")
 npc_id = "juan"
 npc_name = "Juan"
 retrato = ExtResource("24_juan_r")
-pose_arms_down = 70.0
+pose_arms_down = 8.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Juan" unique_id=1877300002]
 
@@ -287,7 +287,7 @@ script = ExtResource("18_npc")
 npc_id = "criada"
 npc_name = "Criada"
 retrato = ExtResource("26_criada_r")
-pose_arms_down = 70.0
+pose_arms_down = 8.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Criada" unique_id=1877400002]
 

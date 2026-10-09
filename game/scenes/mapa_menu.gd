@@ -15,6 +15,7 @@ var map_nodes: Array = []
 var focused_node: Node = null
 var label: Label3D
 var last_mouse_pos: Vector2 = Vector2.INF
+var _leaving: bool = false
 
 
 func _ready() -> void:
@@ -44,6 +45,8 @@ func _build_label() -> void:
 
 
 func _process(_delta: float) -> void:
+	if _leaving:
+		return
 	_update_mouse_focus()
 	_update_label()
 
@@ -100,22 +103,26 @@ func _set_focus(node: Node) -> void:
 
 
 func _update_label() -> void:
-	if label == null or not label.visible or focused_node == null:
+	if _leaving or label == null or not label.visible:
+		return
+	if focused_node == null or not is_instance_valid(focused_node):
 		return
 	label.global_position = focused_node.global_position + Vector3(0, LABEL_HEIGHT, 0)
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _leaving:
+		return
 	for action in ARROW_ACTIONS:
 		if event.is_action_pressed(action):
+			_mark_input_handled()
 			_move_focus(ARROW_ACTIONS[action])
-			get_viewport().set_input_as_handled()
 			return
 
 	if event.is_action_pressed("ui_accept"):
+		_mark_input_handled()
 		if focused_node != null:
 			_enter_location(focused_node)
-		get_viewport().set_input_as_handled()
 		return
 
 	if event is InputEventMouseButton:
@@ -124,11 +131,22 @@ func _unhandled_input(event: InputEvent) -> void:
 				_enter_location(focused_node)
 
 
+func _mark_input_handled() -> void:
+	# Al cambiar de escena el nodo sale del árbol y get_viewport() puede ser null.
+	if not is_inside_tree():
+		return
+	var vp := get_viewport()
+	if vp != null:
+		vp.set_input_as_handled()
+
+
 func _move_focus(direction: Vector2) -> void:
 	if map_nodes.is_empty():
 		return
 	if focused_node == null:
 		_set_focus(map_nodes[0])
+		return
+	if camera == null or not is_instance_valid(camera):
 		return
 
 	var origin := camera.unproject_position(focused_node.global_position)
@@ -154,8 +172,11 @@ func _move_focus(direction: Vector2) -> void:
 
 
 func _enter_location(node: Node) -> void:
+	if _leaving:
+		return
 	var path: String = node.get_scene_path()
 	if path != "":
+		_leaving = true
 		get_tree().change_scene_to_file(path)
 	else:
 		print(">> El nodo no tiene escena asignada: ", node.get_location_name())

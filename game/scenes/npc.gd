@@ -5,8 +5,8 @@ extends Node3D
 
 @export var retrato: Texture2D
 
-# Pose: rota huesos del esqueleto Mixamo para evitar la pose rígida (T/A-pose).
-# Los valores son grados; 0 deja el hueso como está.
+# Pose: alinea huesos del esqueleto Mixamo. pose_arms_down es el ángulo (grados)
+# que se separan los brazos de la vertical; 0 los deja caídos y pegados al cuerpo.
 @export var pose_arms_down: float = 0.0
 @export var pose_spine_turn: float = 0.0
 @export var pose_head_turn: float = 0.0
@@ -36,22 +36,36 @@ func _ready() -> void:
 
 
 func _apply_pose() -> void:
+	# El esqueleto calcula sus poses globales recién en el primer frame, así que
+	# esperamos uno antes de alinear los brazos (si no, la rotación se pierde).
+	await get_tree().process_frame
 	var skeleton := _find_skeleton(self)
 	if skeleton == null:
 		return
-	# Ejes locales típicos de un rig Mixamo: bajar los brazos se logra
-	# rotando alrededor de Z, con signos opuestos en cada brazo.
 	if not is_zero_approx(pose_arms_down):
-		_rotate_bone(skeleton, "mixamorig_LeftArm", Vector3.BACK, pose_arms_down)
-		_rotate_bone(skeleton, "mixamorig_RightArm", Vector3.BACK, -pose_arms_down)
-		_rotate_bone(skeleton, "mixamorig_LeftForeArm", Vector3.BACK, pose_arms_down * 0.35)
-		_rotate_bone(skeleton, "mixamorig_RightForeArm", Vector3.BACK, -pose_arms_down * 0.35)
+		_align_arm_down(skeleton, "mixamorig_LeftArm", pose_arms_down)
+		_align_arm_down(skeleton, "mixamorig_RightArm", -pose_arms_down)
 	if not is_zero_approx(pose_spine_turn):
 		_rotate_bone(skeleton, "mixamorig_Spine1", Vector3.RIGHT, pose_spine_turn)
 	if not is_zero_approx(pose_head_turn):
 		_rotate_bone(skeleton, "mixamorig_Head", Vector3.UP, pose_head_turn)
 	if not is_zero_approx(pose_hips_turn):
 		_rotate_bone(skeleton, "mixamorig_Hips", Vector3.UP, pose_hips_turn)
+
+
+# Orienta el hueso del brazo para que apunte hacia abajo (eje -Y del modelo),
+# abriéndolo `out_degrees` respecto de la vertical. Así los brazos quedan
+# caídos y pegados al cuerpo sin importar la pose original del modelo.
+func _align_arm_down(skeleton: Skeleton3D, bone_name: String, out_degrees: float) -> void:
+	var idx := skeleton.find_bone(bone_name)
+	if idx < 0:
+		return
+	var basis := skeleton.get_bone_global_pose(idx).basis
+	var target := Vector3(sin(deg_to_rad(out_degrees)), -cos(deg_to_rad(out_degrees)), 0.0)
+	var local_target := (basis.inverse() * target).normalized()
+	var rotation := Quaternion(Vector3.UP, local_target)
+	var pose := skeleton.get_bone_pose_rotation(idx)
+	skeleton.set_bone_pose_rotation(idx, pose * rotation)
 
 
 func _rotate_bone(skeleton: Skeleton3D, bone_name: String, axis: Vector3, degrees: float) -> void:
