@@ -14,15 +14,16 @@ const DIFFICULTY_PROFILES = [
 		"id": "story",
 		"name": "Informe guiado",
 		"label": "Fácil",
-		"tagline": "Pistas ilimitadas",
-		"hint_limit": -1
+		"tagline": "Las pistas te dicen a quién preguntar",
+		"hint_limit": -1,
+		"hint_names_npc": true
 	},
 	{
 		"id": "standard",
 		"name": "Procedimiento",
 		"label": "Medio",
-		"tagline": "Cinco pistas para toda la investigación",
-		"hint_limit": 5
+		"tagline": "Las pistas no te dicen a quién preguntar",
+		"hint_limit": -1
 	},
 	{
 		"id": "hardcore",

@@ -5,7 +5,7 @@ import json
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
-from backend.rag.game_state import get_discovered_facts
+from backend.rag.game_state import get_discovered_facts, next_hint
 from backend.rag.retrieval import CHUNKS
 
 app = FastAPI()
@@ -32,8 +32,14 @@ def notebook(session_id: str):
     ]}
 
 
+@app.get("/hint/{session_id}")
+def hint(session_id: str, with_npc: bool = False):
+    return {"hint": next_hint(session_id, with_npc, CHUNKS)}
+
+
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
+    known_facts = set(get_discovered_facts(req.session_id))
     try:
         message = dialogue_service.get_message(
                 session_id=req.session_id,
@@ -121,4 +127,10 @@ def dialogue_stream(req: DialogueRequest):
             response=reply,
         )
 
-    return StreamingResponse(generate(), media_type="text/plain")
+    # La recuperación ya corrió en get_message, así que el hecho nuevo (si hubo)
+    # viaja en un header antes del texto.
+    headers = {}
+    new_facts = get_discovered_facts(req.session_id) - known_facts
+    if new_facts:
+        headers["X-New-Fact"] = ",".join(sorted(new_facts))
+    return StreamingResponse(generate(), media_type="text/plain", headers=headers)

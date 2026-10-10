@@ -149,6 +149,9 @@ func _start_stream(player_input: String) -> void:
 		response_completed.emit()
 		return
 	
+	# El backend avisa en un header qué hecho nuevo descubrió esta pregunta.
+	var new_facts := _new_facts(http_client.get_response_headers_as_dictionary())
+
 	# Leer chunks
 	is_streaming = true
 	while http_client.get_status() == HTTPClient.STATUS_BODY:
@@ -162,3 +165,12 @@ func _start_stream(player_input: String) -> void:
 	is_streaming = false
 	response_completed.emit()
 	http_client.close()
+	for fact_id in new_facts:
+		Global.fact_discovered.emit(fact_id)
+
+
+func _new_facts(headers: Dictionary) -> PackedStringArray:
+	for key in headers:
+		if str(key).to_lower() == "x-new-fact":
+			return str(headers[key]).split(",", false)
+	return PackedStringArray()

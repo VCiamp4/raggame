@@ -4,13 +4,17 @@ const DEFAULT_DIFFICULTY := {
 	"id": "standard",
 	"name": "Estándar",
 	"tagline": "Equilibrio entre pistas y presión",
-	"hint_limit": 5
+	"hint_limit": -1
 }
+
+# Lo emite npc.gd cuando el backend registra un hecho nuevo en la sesión.
+signal fact_discovered(fact_id: String)
 
 var accused_id: String = ""
 var accused_name: String = ""
 var difficulty_profile: Dictionary = DEFAULT_DIFFICULTY.duplicate(true)
 var hint_uses_spent: int = 0
+var last_hint_fact_id: String = ""
 
 
 func set_difficulty(profile: Dictionary) -> void:
@@ -33,6 +37,7 @@ func reset_difficulty() -> void:
 
 func reset_hint_state() -> void:
 	hint_uses_spent = 0
+	last_hint_fact_id = ""
 
 
 var session_id: String = str(Time.get_unix_time_from_system()) + "-" + str(randi())

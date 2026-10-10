@@ -9,7 +9,9 @@ const CAMERA_LOOK_HEIGHT = 0.9
 const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
 
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
-const HINT_PLACEHOLDER := "Todavía no hay pistas disponibles. Hablá con los sospechosos y examiná la escena."
+const HINT_URL = "http://127.0.0.1:8000/hint/"
+const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
+const HINT_ERROR := "No se pudo pedir una pista: el servidor no responde."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -36,6 +38,9 @@ var spawn_position: Vector3 = Vector3.ZERO
 
 var hint_layer: CanvasLayer
 var hint_button: Button
+var hint_http: HTTPRequest
+var hint_names_npc: bool = false
+var hint_request_pending: bool = false
 # -1 = ilimitadas, 0 = sin pistas (no se muestra el botón).
 var hint_uses_limit: int = -1
 var hint_remaining_uses: int = -1
@@ -434,6 +439,7 @@ func _describe_click_event(node: Node) -> String:
 func _configure_hint_rules() -> void:
 	var difficulty := Global.current_difficulty()
 	hint_uses_limit = int(difficulty.get("hint_limit", -1))
+	hint_names_npc = bool(difficulty.get("hint_names_npc", false))
 	hint_remaining_uses = -1
 	if hint_uses_limit > 0:
 		var spent := int(clamp(Global.hint_uses_spent, 0, hint_uses_limit))
@@ -464,25 +470,43 @@ func _create_hint_button() -> void:
 	hint_button.theme = null
 	hint_button.pressed.connect(_on_hint_button_pressed)
 	hint_layer.add_child(hint_button)
+
+	hint_http = HTTPRequest.new()
+	add_child(hint_http)
+	hint_http.request_completed.connect(_on_hint_received)
 	_refresh_hint_button_state()
 
 
 func _on_hint_button_pressed() -> void:
 	if not _hint_action_allowed():
 		return
-	var hint_text := _current_hint_text()
-	if hint_text == "":
-		# Sin pista concreta no se gasta un uso.
-		NotificationManager.show_message(HINT_PLACEHOLDER)
+	var url: String = HINT_URL + Global.session_id
+	if hint_names_npc:
+		url += "?with_npc=true"
+	if hint_http.request(url) != OK:
+		NotificationManager.show_message(HINT_ERROR)
 		return
-	NotificationManager.show_message(hint_text)
-	_register_hint_consumption()
+	hint_request_pending = true
+	_refresh_hint_button_state()
 
 
-# TODO: elegir la pista según los hechos que el jugador todavía no descubrió
-# (estado del backend). Por ahora no hay catálogo de pistas.
-func _current_hint_text() -> String:
-	return ""
+# El backend elige la pista más prioritaria entre los hechos que el jugador
+# puede descubrir ahora. Solo se gasta un uso cuando la pista es nueva: repetir
+# la misma (todavía no descubierta) es gratis.
+func _on_hint_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	hint_request_pending = false
+	_refresh_hint_button_state()
+	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+		NotificationManager.show_message(HINT_ERROR)
+		return
+	var hint = JSON.parse_string(body.get_string_from_utf8())["hint"]
+	if hint == null:
+		NotificationManager.show_message(HINT_NONE)
+		return
+	NotificationManager.show_message(hint["text"])
+	if hint["fact_id"] != Global.last_hint_fact_id:
+		Global.last_hint_fact_id = hint["fact_id"]
+		_register_hint_consumption()
 
 
 func _refresh_hint_button_state() -> void:
@@ -498,13 +522,15 @@ func _refresh_hint_button_state() -> void:
 		if remaining <= 0:
 			disabled = true
 			tooltip = "Ya usaste todas las pistas disponibles en esta dificultad."
+	if hint_request_pending:
+		disabled = true
 	hint_button.text = button_text
 	hint_button.disabled = disabled
 	hint_button.tooltip_text = tooltip
 
 
 func _hint_action_allowed() -> bool:
-	if hint_uses_limit == 0:
+	if hint_uses_limit == 0 or hint_request_pending:
 		return false
 	if hint_uses_limit > 0 and hint_remaining_uses <= 0:
 		return false

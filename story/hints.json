@@ -1,0 +1,74 @@
+{
+  "hints": [
+    {
+      "fact_id": "CL-FOR-01",
+      "text": "Antes de buscar culpables, confirmá cuál fue la causa de la muerte.",
+      "text_with_npc": "Preguntale a la forense cuál fue la causa de la muerte."
+    },
+    {
+      "fact_id": "CL-FOR-02",
+      "text": "Si fue una intoxicación, el veneno estaba en algo que tomó. ¿Qué dieron los análisis de las bebidas de la casa?",
+      "text_with_npc": "Preguntale a la forense qué resultados dieron el whisky, los licores y el agua."
+    },
+    {
+      "fact_id": "CL-ICE-01",
+      "text": "Las bebidas estaban limpias. ¿Se analizó todo lo que había en ese vaso?",
+      "text_with_npc": "Preguntale a la forense qué muestra le faltaba analizar."
+    },
+    {
+      "fact_id": "CL-ICE-03",
+      "text": "Nadie había analizado el hielo. Averiguá qué contenía.",
+      "text_with_npc": "Preguntale a la forense qué encontró en el hielo."
+    },
+    {
+      "fact_id": "CL-CRI-05",
+      "text": "El veneno estaba en el hielo. ¿Quién sabría cómo tomaba el whisky la señora Stevens?",
+      "text_with_npc": "Preguntale a la criada cómo tomaba el whisky la señora Stevens."
+    },
+    {
+      "fact_id": "CL-FRI-01",
+      "text": "Si el hielo estaba envenenado, algo pasó en la heladera. ¿Anduvo bien los últimos días?",
+      "text_with_npc": "Preguntale a la criada si la heladera tuvo algún problema unos días antes."
+    },
+    {
+      "fact_id": "CL-FRI-02",
+      "text": "La heladera se había roto. Averiguá quién la arregló.",
+      "text_with_npc": "Preguntale a la criada quién reparó la heladera."
+    },
+    {
+      "fact_id": "CL-TEC-02",
+      "text": "Alguien que entienda de heladeras podría decirte si esa reparación exigía tocar el congelador.",
+      "text_with_npc": "Preguntale al técnico si para cambiar el fusible hacía falta tocar el congelador."
+    },
+    {
+      "fact_id": "CL-PAB-03",
+      "text": "El cianuro no se consigue en cualquier lado. ¿Alguno de los hermanos trabaja con químicos?",
+      "text_with_npc": "Preguntale a Pablo en qué sección de Erpa trabaja."
+    },
+    {
+      "fact_id": "CL-ERP-01",
+      "text": "Pablo trabaja con químicos en Erpa. ¿Alguien revisó qué reactivos guardan ahí?",
+      "text_with_npc": "Preguntale a la forense qué encontraron en la inspección de los reactivos de Erpa."
+    },
+    {
+      "fact_id": "CL-POL-01",
+      "text": "La mayoría de los crímenes son por dinero. ¿La muerte de Stevens le dejaba plata a alguien?",
+      "text_with_npc": "Preguntale a Esteban qué seguro había tramitado para la señora Stevens."
+    },
+    {
+      "fact_id": "CL-POL-02",
+      "text": "Existe una póliza de vida. Averiguá si hay una versión más nueva y dónde apareció.",
+      "text_with_npc": "Preguntale a Esteban dónde apareció la póliza actualizada."
+    },
+    {
+      "fact_id": "CL-POL-03",
+      "text": "La póliza había sido actualizada. ¿Cómo repartía el dinero la versión nueva?",
+      "text_with_npc": "Preguntale a Esteban cómo repartía el beneficio la nueva póliza entre los hermanos."
+    },
+    {
+      "fact_id": "CL-POR-02",
+      "text": "La puerta estaba cerrada por dentro. Averiguá si alguien subió a ver a Stevens esa noche.",
+      "text_with_npc": "Preguntale al portero si alguien subió al departamento después de las 19:10."
+    }
+  ]
+}

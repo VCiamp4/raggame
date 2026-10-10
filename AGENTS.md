@@ -44,9 +44,8 @@ Godot project.
   instances in the investigation locations (see §7).
 - The accusation lineup has Pablo, Esteban, Juan and Criada. Each has an ending;
   Pablo is the correct accusation.
-- Backend-discovered `CL-*` facts are the only clue state; the notebook reads
-  them. The "Pistas" button has no hint content yet, and examined objects do not
-  register facts.
+- Backend-discovered `CL-*` facts are the only clue state; the notebook and
+  the "Pistas" button read them. Examined objects do not register facts.
 - No automated tests, no CI, no Dockerfile for the backend or the game.
 
 ## 3. Repository layout
@@ -55,14 +54,14 @@ Godot project.
 raggame/
 ├── compose.yaml                     # Ollama service only
 ├── backend/
-│   ├── main.py                      # /, /dialogue_stream, /notebook/{session_id}
+│   ├── main.py                      # /, /dialogue_stream, /notebook, /hint
 │   ├── config.py                    # Settings dataclass, three env options
 │   ├── requirements.txt
 │   ├── .env.example
 │   ├── rag/
 │   │   ├── retrieval.py             # loads chunks + embeddings, scoring, focus
 │   │   ├── dialogue.py              # personas, system prompt, history, assembly
-│   │   ├── game_state.py            # discovered-fact gating (in RAM)
+│   │   ├── game_state.py            # discovered-fact gating (in RAM), hints
 │   │   └── embeddings.npz           # GENERATED, gitignored (must build)
 │   └── scripts/build_embeddings.py  # generates rag/embeddings.npz
 ├── story/
@@ -70,6 +69,7 @@ raggame/
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
 │   ├── chunks/                      # 15 *.atomic.chunks.json (151 chunks)
 │   ├── personajes/                  # 7 one-paragraph persona files
+│   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
 ├── benchmarks/
 │   ├── retrieval/
@@ -112,13 +112,20 @@ raggame/
      then appends support chunks while `is_support()`;
    - marks the focus `fact_id` as discovered for the session.
 4. The provider stream is forwarded to the client as plain text. On success the
-   turn is appended to in-RAM history.
+   turn is appended to in-RAM history. If retrieval discovered a new fact, the
+   response carries it in an `X-New-Fact` header (comma-separated `fact_id`s).
 5. Providers: `CHAT_PROVIDER=ollama` (default, `POST /api/chat`) or `openai`
    (`POST /v1/chat/completions`, uses `max_completion_tokens` and
    `reasoning_effort="none"`).
 
 `GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`
 for chunks whose facts have been discovered in that backend session.
+
+`GET /hint/{session_id}?with_npc=<bool>` returns `{"hint": {fact_id, text}}`
+or `{"hint": null}`. It walks `story/hints.json` in order and returns the first
+undiscovered fact with a chunk whose `necessary_facts`/`sufficient_facts` are
+satisfied (`game_state.is_unlocked()`, the NPC-independent half of
+`is_available()`). `with_npc` selects `text_with_npc` over `text`.
 
 ### Key config (`backend/config.py`)
 
@@ -205,6 +212,15 @@ Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
+### Hints (`story/hints.json`)
+
+An ordered list of `{fact_id, text, text_with_npc}`; order is priority. Only
+key facts have hints (method chain, means, motive, locked room); facts without
+an entry are never suggested. `text` must not name who to ask; `text_with_npc`
+does. `game_state.next_hint()` loads it at import; a `fact_id` that does not
+exist in the chunks is silently never suggested.
+Changing chunk gates can change when a hint becomes available.
+
 ### Game inspectable catalog (`game/data/`)
 
 - `inspectables.gd` defines object names and descriptions shown when examining.
@@ -280,7 +296,7 @@ aid, not used at runtime.
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
-  `response_completed`.
+  `response_completed`, then `Global.fact_discovered` for each `X-New-Fact` (no listener yet).
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
   inspection, elevators, board and totem interactions, and the "Pistas" button.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
@@ -288,10 +304,11 @@ aid, not used at runtime.
   player/NPC models in portrait SubViewports.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
   discovered fact text into character pages. It uses backend state exclusively.
-- Difficulty only sets `hint_limit` for the "Pistas" button: Fácil is unlimited
-  (`-1`), Medio allows 5 uses, Difícil hides the button (`0`). Usage survives
-  scene changes via `Global`. `_current_hint_text()` in `jugador.gd` is a stub
-  that returns no hint; pressing then shows a placeholder and spends no use.
+- The "Pistas" button in `jugador.gd` requests `/hint/{session_id}`. Difficulty
+  sets `hint_limit` (`-1` unlimited, `0` hides the button) and `hint_names_npc`:
+  Fácil and Medio are unlimited, only Fácil names the NPC, Difícil has no
+  hints. A use is spent only when the hinted fact differs from
+  `Global.last_hint_fact_id`; repeating an undiscovered hint is free.
 - `reconocimiento.tscn` has four selectable suspects: Pablo, Esteban, Juan and
   Criada. `veredicto.gd` displays their endings with a typewriter effect;
   `CULPABLE_REAL = "pablo"`.
@@ -312,9 +329,8 @@ These are the highest-value things to know before making changes.
 
 1. **Demo NPC ID.** `campo.tscn` instances `npc.tscn` without overriding its
    default ID `"Aldric"`, which is absent from the backend persona map.
-2. **Hints are not wired.** The "Pistas" button has no hint catalog. It should
-   pick a hint from the `CL-*` facts the session has not discovered yet, but
-   Godot has no way to learn newly discovered facts besides `/notebook`.
+2. **Hints depend on backend memory.** Discovered facts live in RAM, so a
+   backend restart resets hint progress (and the notebook) for every session.
 3. **Object discoveries do not reach the backend.** Examining an object (for
    example the office archive with the original policy) registers no `CL-*`
    fact, so it neither unlocks gated chunks nor appears in the notebook.
