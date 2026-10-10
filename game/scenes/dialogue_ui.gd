@@ -389,6 +389,15 @@ func _on_close_pressed() -> void:
 	close_requested.emit()
 
 
+# El LineEdit en edición se come el primer Esc (solo deja de editar), así que
+# lo atajamos antes de que llegue a la GUI. La libreta, si está abierta, lo
+# recibe primero y lo marca como manejado.
+func _input(event: InputEvent) -> void:
+	if panel.visible and event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		close_requested.emit()
+
+
 func _on_text_submitted(text: String) -> void:
 	if text.strip_edges() == "":
 		return
