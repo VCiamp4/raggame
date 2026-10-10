@@ -9,6 +9,7 @@ const FALL_DISTANCE = 1.0
 const CAMERA_OFFSET = Vector3(0.0, 1.8, 3.2)
 const CAMERA_LOOK_HEIGHT = 0.9
 const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
+const InspectionUI = preload("res://scenes/inspection_ui.gd")
 
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 const HINT_URL = "http://127.0.0.1:8000/hint/"
@@ -35,6 +36,7 @@ var nearby_npc: Node = null
 var in_dialogue: bool = false
 var inspecting: bool = false
 var inspecting_object: Node = null
+var inspection_ui: CanvasLayer
 var model_base_yaw: float = 0.0
 var spawn_position: Vector3 = Vector3.ZERO
 
@@ -58,6 +60,9 @@ func _ready() -> void:
 	_connect_npcs.call_deferred()
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
 	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
+	inspection_ui = InspectionUI.new()
+	add_child(inspection_ui)
+	inspection_ui.inspection_closed.connect(_on_inspection_closed)
 	_configure_hint_rules()
 	_create_hint_button()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
@@ -70,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		_respawn()
 		return
 
-	if in_dialogue:
+	if in_dialogue or inspecting:
 		velocity = Vector3.ZERO
 		move_and_slide()
 		return
@@ -133,7 +138,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if inspecting:
-				_close_inspection()
+				return
 			elif highlighted_object != null and not in_dialogue:
 				if highlighted_object.is_in_group("pizarron"):
 					highlighted_object.interact()
@@ -201,14 +206,14 @@ func _on_response_completed() -> void:
 
 func _on_npc_entered_range(npc: Node) -> void:
 	nearby_npc = npc
-	if not in_dialogue:
+	if not in_dialogue and not inspecting:
 		dialogue_ui.show_prompt(npc.npc_name)
 
 
 func _on_npc_exited_range(npc: Node) -> void:
 	if nearby_npc == npc:
 		nearby_npc = null
-		if not in_dialogue:
+		if not in_dialogue and not inspecting:
 			dialogue_ui.hide_prompt()
 
 
@@ -344,7 +349,7 @@ func _clear_highlight() -> void:
 
 
 func _examine_object(obj: Node) -> void:
-	if obj == null:
+	if obj == null or in_dialogue or inspecting:
 		return
 	inspecting = true
 	inspecting_object = obj
@@ -354,25 +359,21 @@ func _examine_object(obj: Node) -> void:
 	var title := _inspect_display_name(obj)
 	var description := _inspect_description(obj)
 
-	dialogue_ui.clear_history()
-	dialogue_ui.show_dialogue(title)
-	# Mostramos solo la descripción (sin "Vos:" ni input, no hay LLM acá)
-	dialogue_ui.start_npc_response(title)
-	dialogue_ui.append_npc_chunk(description)
-	dialogue_ui.finish_npc_response()
-	dialogue_ui.set_input_enabled(false)
+	inspection_ui.show_inspection(title, description)
 
 
 func _close_inspection() -> void:
+	inspection_ui.hide_inspection()
+
+
+func _on_inspection_closed() -> void:
 	inspecting = false
 	inspecting_object = null
-	dialogue_ui.hide_dialogue()
+	_update_prompt()
 
 
 func _on_dialogue_close_requested() -> void:
-	if inspecting:
-		_close_inspection()
-	elif in_dialogue:
+	if in_dialogue:
 		_close_dialogue()
 
 
