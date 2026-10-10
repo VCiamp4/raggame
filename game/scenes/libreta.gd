@@ -213,6 +213,14 @@ func _nav_button(text: String, step: int) -> Button:
 	return button
 
 
+# La libreta queda por encima del chat y del mundo: Esc la cierra a ella primero
+# y no llega al jugador (que cerraría el diálogo o volvería al mapa).
+func _input(event: InputEvent) -> void:
+	if folder.visible and event.is_action_pressed("ui_cancel"):
+		folder.hide()
+		get_viewport().set_input_as_handled()
+
+
 func _toggle() -> void:
 	if folder.visible:
 		folder.hide()
