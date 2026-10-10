@@ -201,7 +201,7 @@ One file per scene; 151 chunks total. Each chunk:
 ### Personas (`story/personajes/*.md`)
 
 Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
-`pablo`, `portero`, `quimica`, `tecnico_heladera`. `dialogue.PERSONAJES_FILES`
+`pablo`, `portero`, `forense`, `tecnico_heladera`. `dialogue.PERSONAJES_FILES`
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
@@ -274,9 +274,9 @@ aid, not used at runtime.
   - Oficina: Esteban (`esteban`), the insurance broker.
   - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
   - Hall: Portero (`portero`), near the building entrance.
-  - Departamento (`dpto`): Criada (`criada`), Química (`quimica`) and Técnico
+  - Departamento (`dpto`): Criada (`criada`), Forense (`forense`) and Técnico
     (`tecnico_heladera`), with the technician beside the refrigerator.
-  Química examines the crime scene and ice in the apartment. The four lineup
+  Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /

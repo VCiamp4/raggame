@@ -3,16 +3,16 @@ scene_id: SCN-08
 title: Resultados negativos e hipótesis del hielo
 canonical_lines: [103, 135]
 locations: [oficina_forense]
-present_entities: [detective, perito_quimica]
+present_entities: [detective, perito_forense]
 mentioned_entities: [criada, senora_stevens]
 availability: M10_POISONING_CONFIRMED
 index_policy: investigation
 ---
 
 <!-- SOURCE_START -->
-Fue en ese momento cuando regresó el perito químico.
+Fue en ese momento cuando regresó la forense.
 
-Traía los resultados del laboratorio y no parecía satisfecho.
+Traía los resultados del laboratorio y no parecía satisfecha.
 
 —Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.
 
@@ -20,7 +20,7 @@ Traía los resultados del laboratorio y no parecía satisfecho.
 
 —Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.
 
-La posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.
+La posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y la forense no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.
 
 Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.
 
@@ -28,7 +28,7 @@ Volví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El
 
 Llamé al laboratorio.
 
-—Analizó el whisky —le dije al químico.
+—Analizó el whisky —le dije a la forense.
 
 —Sí.
 

@@ -4,11 +4,11 @@ La señora Stevens fue encontrada muerta una mañana en el comedor de su departa
 
 La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.
 
-El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.
+El primer dato seguro lo proporcionó la forense. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.
 
 —Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.
 
-Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.
+Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesta a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.
 
 La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.
 
@@ -100,9 +100,9 @@ Terminó admitiendo que la pelea había sido fuerte. Él había gestionado la p�
 
 El descubrimiento nos proporcionaba un excelente motivo para Esteban, pero no resolvía el mecanismo. Su presencia en Lister desde las seis seguía comprobada.
 
-Fue en ese momento cuando regresó el perito químico.
+Fue en ese momento cuando regresó la forense.
 
-Traía los resultados del laboratorio y no parecía satisfecho.
+Traía los resultados del laboratorio y no parecía satisfecha.
 
 —Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.
 
@@ -110,7 +110,7 @@ Traía los resultados del laboratorio y no parecía satisfecho.
 
 —Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.
 
-La posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y el perito no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.
+La posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y la forense no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.
 
 Durante varios minutos repasé las fotografías del departamento. Estaban el cuerpo, el vaso, el periódico, las cuentas y el escritorio. Cerca del vaso se veía también un pequeño plato que hasta entonces no había llamado mi atención. Sobre la superficie se distinguía una mancha oscura. Al principio pensé en algún líquido derramado; observándola mejor comprendí que sólo era humedad.
 
@@ -118,7 +118,7 @@ Volví mentalmente a lo que sabíamos. El whisky de la botella estaba limpio. El
 
 Llamé al laboratorio.
 
-—Analizó el whisky —le dije al químico.
+—Analizó el whisky —le dije a la forense.
 
 —Sí.
 
@@ -134,7 +134,7 @@ Hubo un silencio.
 
 Le pedí que regresara inmediatamente.
 
-Fuimos con él al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después el químico volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.
+Fuimos con ella al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después la forense volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.
 
 Regresamos a hablar con la criada.
 

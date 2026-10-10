@@ -18,7 +18,7 @@ const PAGES = [
 	{"id": "juan", "name": "Juan", "role": "Hermano mayor", "prefixes": ["JUA"]},
 	{"id": "esteban", "name": "Esteban", "role": "Hermano de la víctima", "prefixes": ["EST"]},
 	{"id": "pablo", "name": "Pablo", "role": "Hermano menor", "prefixes": ["PAB"]},
-	{"id": "quimica", "name": "La química", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
+	{"id": "forense", "name": "La forense", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
 	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 

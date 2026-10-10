@@ -10,7 +10,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -31,7 +31,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -52,7 +52,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -73,7 +73,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -94,7 +94,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -115,7 +115,7 @@
         "juan",
         "esteban",
         "pablo",
-        "quimica",
+        "forense",
         "tecnico_heladera"
       ],
       "questions": {
@@ -257,60 +257,60 @@
     },
     {
       "chunk_id": "SCN-01-AT-15",
-      "retrieval_text": "El perito químico descartó una muerte natural y confirmó signos de intoxicación.",
+      "retrieval_text": "La forense descartó una muerte natural y confirmó signos de intoxicación.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
-        "q1": "¿Qué determinó el perito sobre una muerte natural o una intoxicación?",
-        "q2": "¿Qué causa de muerte estableció inicialmente el perito?"
+        "q1": "¿Qué determinó la forense sobre una muerte natural o una intoxicación?",
+        "q2": "¿Qué causa de muerte estableció inicialmente la forense?"
       },
-      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
+      "source_excerpt": "El primer dato seguro lo proporcionó la forense. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
       "fact_id": "CL-FOR-01",
       "necessary_facts": [],
       "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-01-AT-16",
-      "retrieval_text": "El perito todavía no podía identificar la sustancia tóxica.",
+      "retrieval_text": "La forense todavía no podía identificar la sustancia tóxica.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
-        "q1": "¿Pudo el perito identificar ya la sustancia tóxica?",
+        "q1": "¿Pudo la forense identificar ya la sustancia tóxica?",
         "q2": "¿Qué seguía sin saberse sobre el tóxico?"
       },
-      "source_excerpt": "El primer dato seguro lo proporcionó el perito químico. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
+      "source_excerpt": "El primer dato seguro lo proporcionó la forense. Después de examinar el cadáver, observar el vaso y recoger distintas muestras, declaró que no se trataba de una muerte natural.\n\n—Hay signos claros de intoxicación —nos explicó—. Puede tratarse de una droga, de un compuesto químico o de alguna otra sustancia tóxica no apta para el consumo. Todavía no puedo precisar cuál.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-01-AT-17",
-      "retrieval_text": "El perito analizaría el whisky, las demás bebidas y el agua corriente.",
+      "retrieval_text": "La forense analizaría el whisky, las demás bebidas y el agua corriente.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
-        "q1": "¿Qué líquidos pensaba analizar el perito?",
+        "q1": "¿Qué líquidos pensaba analizar la forense?",
         "q2": "¿Qué muestras líquidas formaban parte del análisis?"
       },
-      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesta a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-01-AT-18",
-      "retrieval_text": "El perito también analizaría los recipientes relacionados con la muerte.",
+      "retrieval_text": "La forense también analizaría los recipientes relacionados con la muerte.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
-        "q1": "¿Qué recipientes relacionados con la muerte iba a examinar el perito?",
-        "q2": "¿Qué debía examinar el perito además de las bebidas?"
+        "q1": "¿Qué recipientes relacionados con la muerte iba a examinar la forense?",
+        "q2": "¿Qué debía examinar la forense además de las bebidas?"
       },
-      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesta a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
@@ -319,28 +319,28 @@
       "chunk_id": "SCN-01-AT-19",
       "retrieval_text": "El proceso de análisis llevaría tiempo.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
         "q1": "¿Por qué no podían conocerse enseguida los resultados del análisis?",
         "q2": "¿Por qué el análisis no podía resolverse de inmediato?"
       },
-      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesta a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-01-AT-20",
-      "retrieval_text": "El perito no quiso dar una conclusión antes de trabajar en el laboratorio.",
+      "retrieval_text": "La forense no quiso dar una conclusión antes de trabajar en el laboratorio.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
-        "q1": "¿Por qué el perito se negó a adelantar una conclusión?",
-        "q2": "¿Qué necesitaba hacer el perito antes de opinar sobre la muerte?"
+        "q1": "¿Por qué la forense se negó a adelantar una conclusión?",
+        "q2": "¿Qué necesitaba hacer la forense antes de opinar sobre la muerte?"
       },
-      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesto a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
+      "source_excerpt": "Le pregunté si el vaso podía resolver el problema. Contestó que analizaría el whisky, las demás bebidas de la casa, el agua corriente y cuantos recipientes pudieran tener relación con la muerte, pero que el proceso llevaría tiempo. Parte de la sustancia había podido evaporarse o transformarse en contacto con el alcohol y no estaba dispuesta a comprometer una conclusión antes de trabajar en el laboratorio. Recogió sus muestras y se marchó, dejándonos una muerte por intoxicación, un departamento cerrado y varias personas que tenían excelentes razones para mentir.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []

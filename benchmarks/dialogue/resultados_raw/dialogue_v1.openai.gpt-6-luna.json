@@ -95,8 +95,8 @@
       ]
     },
     {
-      "id": "conv-quimico-hielo",
-      "npc_id": "quimico",
+      "id": "conv-forense-hielo",
+      "npc_id": "forense",
       "turns": [
         {
           "player": "¿Qué muestras analizaron hasta ahora?",

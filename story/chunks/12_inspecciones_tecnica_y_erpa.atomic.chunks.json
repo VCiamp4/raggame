@@ -39,7 +39,7 @@
       "chunk_id": "SCN-12-AT-04",
       "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
         "q1": "¿Qué sustancia controlada encontraron entre los reactivos de Erpa?",
@@ -57,7 +57,7 @@
       "chunk_id": "SCN-12-AT-05",
       "retrieval_text": "El cianuro era una sustancia de uso controlado.",
       "knowledge_holders": [
-        "quimica"
+        "forense"
       ],
       "questions": {
         "q1": "¿Qué carácter tenía el cianuro dentro del control de sustancias?",
