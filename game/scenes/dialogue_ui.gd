@@ -122,14 +122,14 @@ func _ready() -> void:
 	fake_blur.visible = false
 	add_child(fake_blur)
 	
-	# Retrato del NPC (izquierda): render 3D del modelo, arriba del panel de texto
+	# Retrato del NPC (derecha): render 3D del modelo, arriba del panel de texto
 	retrato_npc = TextureRect.new()
-	retrato_npc.anchor_left = 0
-	retrato_npc.anchor_right = 0
+	retrato_npc.anchor_left = 1
+	retrato_npc.anchor_right = 1
 	retrato_npc.anchor_top = 0.55
 	retrato_npc.anchor_bottom = 0.55
-	retrato_npc.offset_left = 20
-	retrato_npc.offset_right = 210
+	retrato_npc.offset_left = -210
+	retrato_npc.offset_right = -20
 	retrato_npc.offset_top = -253
 	retrato_npc.offset_bottom = 0
 	retrato_npc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -138,14 +138,14 @@ func _ready() -> void:
 	retrato_npc.visible = false
 	add_child(retrato_npc)
 
-	# Retrato del jugador (derecha): render 3D del modelo, arriba del panel de texto
+	# Retrato del jugador (izquierda): render 3D del modelo, arriba del panel de texto
 	retrato_jugador = TextureRect.new()
-	retrato_jugador.anchor_left = 1
-	retrato_jugador.anchor_right = 1
+	retrato_jugador.anchor_left = 0
+	retrato_jugador.anchor_right = 0
 	retrato_jugador.anchor_top = 0.55
 	retrato_jugador.anchor_bottom = 0.55
-	retrato_jugador.offset_left = -210
-	retrato_jugador.offset_right = -20
+	retrato_jugador.offset_left = 20
+	retrato_jugador.offset_right = 210
 	retrato_jugador.offset_top = -253
 	retrato_jugador.offset_bottom = 0
 	retrato_jugador.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -242,9 +242,9 @@ const PORTRAIT_YAW := deg_to_rad(20.0)
 
 
 func mostrar_modelos(jugador_model_path: String, npc_model_path: String) -> void:
-	if _show_model_in_viewport(viewport_jugador, jugador_model_path, PORTRAIT_YAW):
+	if _show_model_in_viewport(viewport_jugador, jugador_model_path, -PORTRAIT_YAW):
 		retrato_jugador.visible = true
-	if _show_model_in_viewport(viewport_npc, npc_model_path, -PORTRAIT_YAW):
+	if _show_model_in_viewport(viewport_npc, npc_model_path, PORTRAIT_YAW):
 		retrato_npc.visible = true
 
 
