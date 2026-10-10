@@ -296,7 +296,7 @@ aid, not used at runtime.
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
-  `response_completed`, then `Global.fact_discovered` for each `X-New-Fact` (no listener yet).
+  `response_completed`, then `Global.fact_discovered` for each `X-New-Fact`.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
   inspection, elevators, board and totem interactions, and the "Pistas" button.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
@@ -304,6 +304,8 @@ aid, not used at runtime.
   player/NPC models in portrait SubViewports.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
   discovered fact text into character pages. It uses backend state exclusively.
+  On `Global.fact_discovered` it shows a toast naming the clue's page, a red
+  unread badge and a pulse on its icon, and opens on the newest clue's page.
 - The "Pistas" button in `jugador.gd` requests `/hint/{session_id}`. Difficulty
   sets `hint_limit` (`-1` unlimited, `0` hides the button) and `hint_names_npc`:
   Fácil and Medio are unlimited, only Fácil names the NPC, Difícil has no

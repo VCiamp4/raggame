@@ -22,6 +22,8 @@ const PAGES = [
 	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
+var icon: TextureButton
+var badge: Label
 var folder: Control
 var photo: TextureRect
 var caption: Label
@@ -35,11 +37,13 @@ var http: HTTPRequest
 
 var pages: Array = []  # [{page, clues}] solo las hojas con alguna pista
 var current := 0
+var unread := 0  # pistas descubiertas desde la última vez que se abrió
+var newest_page_id := ""  # hoja de la última pista: la libreta abre ahí
 
 
 func _ready() -> void:
 	# Ícono de la libreta (render del libro del pack PSX)
-	var icon := TextureButton.new()
+	icon = TextureButton.new()
 	icon.texture_normal = preload("res://assets/ui/libreta.png")
 	icon.ignore_texture_size = true
 	icon.stretch_mode = TextureButton.STRETCH_SCALE
@@ -48,8 +52,21 @@ func _ready() -> void:
 	icon.offset_right = 108
 	icon.offset_top = 12
 	icon.offset_bottom = 108
+	icon.pivot_offset = Vector2(48, 48)
 	icon.pressed.connect(_toggle)
 	add_child(icon)
+
+	# Contador rojo de pistas nuevas sin leer
+	badge = _label("", TYPEWRITER, 15, Color.WHITE, Vector2(70, -6), Vector2(28, 28))
+	badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	badge.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var badge_style := StyleBoxFlat.new()
+	badge_style.bg_color = RED
+	badge_style.set_corner_radius_all(14)
+	badge.add_theme_stylebox_override("normal", badge_style)
+	badge.hide()
+	icon.add_child(badge)
+	Global.fact_discovered.connect(_on_fact_discovered)
 
 	# Carpeta manila con la solapa del expediente
 	folder = Control.new()
@@ -226,8 +243,36 @@ func _toggle() -> void:
 		folder.hide()
 		return
 	folder.show()
+	unread = 0
+	badge.hide()
 	_show_message("Revisando el expediente...")
 	http.request(NOTEBOOK_URL + Global.session_id)
+
+
+# Aviso de pista nueva: mensaje con la hoja donde se anotó, contador y un
+# latido del ícono. Con la libreta abierta, se recarga directamente.
+func _on_fact_discovered(fact_id: String) -> void:
+	var page := _page_for(fact_id)
+	newest_page_id = page["id"]
+	NotificationManager.show_message("Nueva pista en la libreta: %s" % page["name"])
+	if folder.visible:
+		http.request(NOTEBOOK_URL + Global.session_id)
+		return
+	unread += 1
+	badge.text = str(unread)
+	badge.show()
+	var tween := create_tween()
+	tween.tween_property(icon, "scale", Vector2(1.25, 1.25), 0.12)
+	tween.tween_property(icon, "scale", Vector2.ONE, 0.25)
+
+
+# La hoja de cada pista sale del prefijo de su fact_id (CL-PAB-02 -> "PAB").
+func _page_for(fact_id: String) -> Dictionary:
+	var prefix := fact_id.split("-")[1]
+	for page in PAGES:
+		if prefix in page["prefixes"]:
+			return page
+	return PAGES[0]
 
 
 func _on_clues_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
@@ -236,17 +281,20 @@ func _on_clues_received(result: int, code: int, _headers: PackedStringArray, bod
 		return
 	var clues: Array = JSON.parse_string(body.get_string_from_utf8())["clues"]
 	pages = []
+	var start := 0
 	for page in PAGES:
 		var texts := PackedStringArray()
 		for clue in clues:
-			if clue["fact_id"].split("-")[1] in page["prefixes"]:
+			if _page_for(clue["fact_id"])["id"] == page["id"]:
 				texts.append("- " + clue["text"])
 		if not texts.is_empty():
+			if page["id"] == newest_page_id:
+				start = pages.size()
 			pages.append({"page": page, "clues": "\n".join(texts)})
 	if pages.is_empty():
 		_show_message("Todavía no anotaste ninguna pista.")
 		return
-	_show_page(0)
+	_show_page(start)
 
 
 func _show_message(text: String) -> void:
