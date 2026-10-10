@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 const SPEED = 3.0
+# Atajo de desarrollo: correr con Shift solo está disponible en builds de depuración.
+const RUN_SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 const TURN_SPEED = 10.0
 const FALL_DISTANCE = 1.0
@@ -81,18 +83,21 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var local_dir := Vector3(input_dir.x, 0, input_dir.y)
 	var direction := (transform.basis * local_dir).normalized()
+	var move_speed := RUN_SPEED if OS.is_debug_build() and Input.is_action_pressed("run") else SPEED
 	
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
 		# El personaje gira para mirar hacia donde se mueve.
 		var target_yaw := model_base_yaw + atan2(-local_dir.x, -local_dir.z)
 		model.rotation.y = lerp_angle(model.rotation.y, target_yaw, TURN_SPEED * delta)
-		if anim_player and not anim_player.is_playing():
-			anim_player.play("mixamo_com")
+		if anim_player:
+			anim_player.speed_scale = move_speed / SPEED
+			if not anim_player.is_playing():
+				anim_player.play("mixamo_com")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
 		if anim_player and anim_player.is_playing():
 			anim_player.pause()
 	
