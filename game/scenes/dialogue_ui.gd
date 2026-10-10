@@ -17,6 +17,10 @@ signal text_submitted(text: String)
 signal close_requested
 
 var current_npc_response: String = ""
+# Cada NPC tiene su propia conversación (BBCode), igual que su historial en el backend.
+var transcripts := {}
+var current_npc := ""
+var responding_npc := ""  # a quién pertenece la respuesta que se está recibiendo
 
 
 func _ready() -> void:
@@ -182,6 +186,11 @@ func _ready() -> void:
 
 func show_dialogue(npc_name: String) -> void:
 	name_label.text = npc_name
+	if npc_name != current_npc:
+		current_npc = npc_name
+		history_label.clear()
+		history_label.append_text(transcripts.get(npc_name, ""))
+		_scroll_to_bottom()
 	panel.show()
 	input_field.text = ""
 	input_field.editable = true
@@ -194,7 +203,8 @@ func hide_dialogue() -> void:
 
 
 func clear_history() -> void:
-	history_label.text = ""
+	history_label.clear()
+	transcripts.erase(current_npc)
 	current_npc_response = ""
 
 
@@ -203,26 +213,30 @@ func is_open() -> bool:
 
 
 func add_player_message(npc_name: String, text: String) -> void:
-	var line = "[color=#88ccff][b]Vos:[/b][/color] " + text + "\n"
-	history_label.append_text(line)
-	_scroll_to_bottom()
+	_append(current_npc, "[color=#88ccff][b]Vos:[/b][/color] " + text + "\n")
 
 
 func start_npc_response(npc_name: String) -> void:
 	current_npc_response = ""
-	history_label.append_text("[color=#ffe080][b]" + npc_name + ":[/b][/color] ")
-	_scroll_to_bottom()
+	responding_npc = current_npc
+	_append(responding_npc, "[color=#ffe080][b]" + npc_name + ":[/b][/color] ")
 
 
 func append_npc_chunk(text: String) -> void:
 	current_npc_response += text
-	history_label.append_text(text)
-	_scroll_to_bottom()
+	_append(responding_npc, text)
 
 
 func finish_npc_response() -> void:
-	history_label.append_text("\n")
-	_scroll_to_bottom()
+	_append(responding_npc, "\n")
+
+
+# Guarda el texto en la conversación de ese NPC y solo lo muestra si es la abierta.
+func _append(npc_name: String, bbcode: String) -> void:
+	transcripts[npc_name] = transcripts.get(npc_name, "") + bbcode
+	if npc_name == current_npc:
+		history_label.append_text(bbcode)
+		_scroll_to_bottom()
 
 
 func _scroll_to_bottom() -> void:
