@@ -289,8 +289,9 @@ aid, not used at runtime.
   - Comisaría: Juan (`juan`), for his police-station interrogation.
   - Oficina: Esteban (`esteban`), the insurance broker.
   - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
-  - Hall: Portero (`portero`), near the building entrance.
-  - Departamento (`dpto`): Criada (`criada`), Forense (`forense`) and Técnico
+  - Hall: Portero (`portero`), near the building entrance, and Criada
+    (`criada`).
+  - Departamento (`dpto`): Forense (`forense`) and Técnico
     (`tecnico_heladera`), with the technician beside the refrigerator.
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.

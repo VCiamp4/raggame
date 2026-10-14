@@ -113,9 +113,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 	if event.is_action_pressed("ui_accept"):
+		get_viewport().set_input_as_handled()
 		if focused_node != null:
 			_enter_location(focused_node)
-		get_viewport().set_input_as_handled()
 		return
 
 	if event is InputEventMouseButton:
