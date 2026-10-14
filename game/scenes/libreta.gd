@@ -7,6 +7,7 @@ const HAND_SIZE = 22
 const LINE = 30  # alto del renglón de la ficha
 const RED = Color("b8433c")
 const INK = Color("222222")
+const NOTEBOOK_MAX_HEIGHT = 630.0  # proporción 2:3 para los 420 px de ancho
 
 # Una hoja por personaje. Cada pista va a la hoja de quien trata, según el
 # prefijo de su fact_id (CL-PAB-02 -> "PAB").
@@ -17,10 +18,12 @@ const PAGES = [
 	{"id": "juan", "name": "Juan", "role": "Hermano mayor", "prefixes": ["JUA"]},
 	{"id": "esteban", "name": "Esteban", "role": "Hermano de la víctima", "prefixes": ["EST"]},
 	{"id": "pablo", "name": "Pablo", "role": "Hermano menor", "prefixes": ["PAB"]},
-	{"id": "quimico", "name": "El químico", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
+	{"id": "forense", "name": "La forense", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
 	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
+var icon: TextureButton
+var badge: Label
 var folder: Control
 var photo: TextureRect
 var caption: Label
@@ -34,11 +37,13 @@ var http: HTTPRequest
 
 var pages: Array = []  # [{page, clues}] solo las hojas con alguna pista
 var current := 0
+var unread := 0  # pistas descubiertas desde la última vez que se abrió
+var newest_page_id := ""  # hoja de la última pista: la libreta abre ahí
 
 
 func _ready() -> void:
 	# Ícono de la libreta (render del libro del pack PSX)
-	var icon := TextureButton.new()
+	icon = TextureButton.new()
 	icon.texture_normal = preload("res://assets/ui/libreta.png")
 	icon.ignore_texture_size = true
 	icon.stretch_mode = TextureButton.STRETCH_SCALE
@@ -47,17 +52,30 @@ func _ready() -> void:
 	icon.offset_right = 108
 	icon.offset_top = 12
 	icon.offset_bottom = 108
+	icon.pivot_offset = Vector2(48, 48)
 	icon.pressed.connect(_toggle)
 	add_child(icon)
+
+	# Contador rojo de pistas nuevas sin leer
+	badge = _label("", TYPEWRITER, 15, Color.WHITE, Vector2(70, -6), Vector2(28, 28))
+	badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	badge.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var badge_style := StyleBoxFlat.new()
+	badge_style.bg_color = RED
+	badge_style.set_corner_radius_all(14)
+	badge.add_theme_stylebox_override("normal", badge_style)
+	badge.hide()
+	icon.add_child(badge)
+	Global.fact_discovered.connect(_on_fact_discovered)
 
 	# Carpeta manila con la solapa del expediente
 	folder = Control.new()
 	folder.offset_left = 20
 	folder.offset_right = 440
-	folder.anchor_bottom = 1
 	folder.offset_top = 112
-	folder.offset_bottom = -20
 	add_child(folder)
+	_resize_folder()
+	get_viewport().size_changed.connect(_resize_folder)
 	folder.hide()
 	folder.add_child(_panel(Color("c9a263"), true))
 
@@ -171,6 +189,11 @@ func _ready() -> void:
 	http.request_completed.connect(_on_clues_received)
 
 
+func _resize_folder() -> void:
+	var available_height := maxf(0.0, get_viewport().get_visible_rect().size.y - folder.offset_top - 20.0)
+	folder.size.y = minf(NOTEBOOK_MAX_HEIGHT, available_height)
+
+
 func _panel(color: Color, shadow: bool) -> Panel:
 	var style := StyleBoxFlat.new()
 	style.bg_color = color
@@ -207,13 +230,49 @@ func _nav_button(text: String, step: int) -> Button:
 	return button
 
 
+# La libreta queda por encima del chat y del mundo: Esc la cierra a ella primero
+# y no llega al jugador (que cerraría el diálogo o volvería al mapa).
+func _input(event: InputEvent) -> void:
+	if folder.visible and event.is_action_pressed("ui_cancel"):
+		folder.hide()
+		get_viewport().set_input_as_handled()
+
+
 func _toggle() -> void:
 	if folder.visible:
 		folder.hide()
 		return
 	folder.show()
+	unread = 0
+	badge.hide()
 	_show_message("Revisando el expediente...")
 	http.request(NOTEBOOK_URL + Global.session_id)
+
+
+# Aviso de pista nueva: mensaje con la hoja donde se anotó, contador y un
+# latido del ícono. Con la libreta abierta, se recarga directamente.
+func _on_fact_discovered(fact_id: String) -> void:
+	var page := _page_for(fact_id)
+	newest_page_id = page["id"]
+	NotificationManager.show_message("Nueva pista en la libreta: %s" % page["name"])
+	if folder.visible:
+		http.request(NOTEBOOK_URL + Global.session_id)
+		return
+	unread += 1
+	badge.text = str(unread)
+	badge.show()
+	var tween := create_tween()
+	tween.tween_property(icon, "scale", Vector2(1.25, 1.25), 0.12)
+	tween.tween_property(icon, "scale", Vector2.ONE, 0.25)
+
+
+# La hoja de cada pista sale del prefijo de su fact_id (CL-PAB-02 -> "PAB").
+func _page_for(fact_id: String) -> Dictionary:
+	var prefix := fact_id.split("-")[1]
+	for page in PAGES:
+		if prefix in page["prefixes"]:
+			return page
+	return PAGES[0]
 
 
 func _on_clues_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
@@ -222,17 +281,20 @@ func _on_clues_received(result: int, code: int, _headers: PackedStringArray, bod
 		return
 	var clues: Array = JSON.parse_string(body.get_string_from_utf8())["clues"]
 	pages = []
+	var start := 0
 	for page in PAGES:
 		var texts := PackedStringArray()
 		for clue in clues:
-			if clue["fact_id"].split("-")[1] in page["prefixes"]:
+			if _page_for(clue["fact_id"])["id"] == page["id"]:
 				texts.append("- " + clue["text"])
 		if not texts.is_empty():
+			if page["id"] == newest_page_id:
+				start = pages.size()
 			pages.append({"page": page, "clues": "\n".join(texts)})
 	if pages.is_empty():
 		_show_message("Todavía no anotaste ninguna pista.")
 		return
-	_show_page(0)
+	_show_page(start)
 
 
 func _show_message(text: String) -> void:

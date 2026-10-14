@@ -1,12 +1,20 @@
 extends CharacterBody3D
 
 const SPEED = 3.0
+# Atajo de desarrollo: correr con Shift solo está disponible en builds de depuración.
+const RUN_SPEED = 6.0
 const JUMP_VELOCITY = 4.5
 const TURN_SPEED = 10.0
 const FALL_DISTANCE = 1.0
 const CAMERA_OFFSET = Vector3(0.0, 1.8, 3.2)
 const CAMERA_LOOK_HEIGHT = 0.9
 const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
+const InspectionUI = preload("res://scenes/inspection_ui.gd")
+
+const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
+const HINT_URL = "http://127.0.0.1:8000/hint/"
+const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
+const HINT_ERROR := "No se pudo pedir una pista: el servidor no responde."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -16,18 +24,30 @@ const MAPA_SCENE = "res://scenes/mapa_menu.tscn"
 @export var retrato_jugador: Texture2D
 
 const EXAMINE_DISTANCE = 6.0
-const INTERACT_DISTANCE = 5.0
+const INTERACT_DISTANCE = 2.0
 const TOTEM_DISTANCE = 3.0
 const CLICKABLE_GROUPS := ["examinable", "pizarron", "ascensor"]
-@export var totem_offset: Vector3 = Vector3(1.2, 0.0, 0.0)
+const INSPECT_DISTANCE = 4.0
 var highlighted_object: Node = null
 var nearby_clickable: Node = null
 var nearby_totem: Node = null
 
 var nearby_npc: Node = null
 var in_dialogue: bool = false
+var inspecting: bool = false
+var inspecting_object: Node = null
+var inspection_ui: CanvasLayer
 var model_base_yaw: float = 0.0
 var spawn_position: Vector3 = Vector3.ZERO
+
+var hint_layer: CanvasLayer
+var hint_button: Button
+var hint_http: HTTPRequest
+var hint_names_npc: bool = false
+var hint_request_pending: bool = false
+# -1 = ilimitadas, 0 = sin pistas (no se muestra el botón).
+var hint_uses_limit: int = -1
+var hint_remaining_uses: int = -1
 
 
 func _ready() -> void:
@@ -35,32 +55,19 @@ func _ready() -> void:
 	spawn_position = global_position
 	camera.top_level = true
 	model_base_yaw = model.rotation.y
-	for npc in get_tree().get_nodes_in_group("npc"):
-		if npc.has_signal("player_entered_range"):
-			npc.player_entered_range.connect(_on_npc_entered_range)
-			npc.player_exited_range.connect(_on_npc_exited_range)
+	# Los NPC pueden declararse después del jugador en la escena, por lo que
+	# sus _ready (y su entrada al grupo "npc") pueden correr más tarde.
+	_connect_npcs.call_deferred()
 	dialogue_ui.text_submitted.connect(_on_text_submitted)
-	_spawn_totem.call_deferred()
+	dialogue_ui.close_requested.connect(_on_dialogue_close_requested)
+	inspection_ui = InspectionUI.new()
+	add_child(inspection_ui)
+	inspection_ui.inspection_closed.connect(_on_inspection_closed)
+	_configure_hint_rules()
+	_create_hint_button()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
-
-
-func _spawn_totem() -> void:
-	var parent := get_parent()
-	if parent == null:
-		return
-	var target := spawn_position + totem_offset
-	var query := PhysicsRayQueryParameters3D.create(
-		target + Vector3.UP, target + Vector3.DOWN * 10.0)
-	query.exclude = [get_rid()]
-	var result := get_world_3d().direct_space_state.intersect_ray(query)
-	if result.has("position"):
-		target.y = result["position"].y
-	var totem := StaticBody3D.new()
-	totem.set_script(load("res://scenes/totem.gd"))
-	parent.add_child(totem)
-	totem.global_position = target
 
 
 func _physics_process(delta: float) -> void:
@@ -68,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		_respawn()
 		return
 
-	if in_dialogue:
+	if in_dialogue or inspecting:
 		velocity = Vector3.ZERO
 		move_and_slide()
 		return
@@ -78,21 +85,24 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	# Movimiento
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var local_dir := Vector3(input_dir.x, 0, input_dir.y)
 	var direction := (transform.basis * local_dir).normalized()
+	var move_speed := RUN_SPEED if OS.is_debug_build() and Input.is_action_pressed("run") else SPEED
 	
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
 		# El personaje gira para mirar hacia donde se mueve.
 		var target_yaw := model_base_yaw + atan2(-local_dir.x, -local_dir.z)
 		model.rotation.y = lerp_angle(model.rotation.y, target_yaw, TURN_SPEED * delta)
-		if anim_player and not anim_player.is_playing():
-			anim_player.play("mixamo_com")
+		if anim_player:
+			anim_player.speed_scale = move_speed / SPEED
+			if not anim_player.is_playing():
+				anim_player.play("mixamo_com")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
 		if anim_player and anim_player.is_playing():
 			anim_player.pause()
 	
@@ -105,20 +115,31 @@ func _respawn() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and not in_dialogue:
-		if nearby_npc != null:
-			_open_dialogue()
-		elif nearby_clickable != null:
-			_trigger_clickable(nearby_clickable)
+	if event.is_action_pressed("interact"):
+		# Cerrar inspección abierta con [E].
+		if inspecting:
+			_close_inspection()
+			return
+		if not in_dialogue:
+			if nearby_npc != null:
+				_open_dialogue()
+			elif nearby_clickable != null:
+				_trigger_clickable(nearby_clickable)
+			elif nearby_totem != null:
+				_use_totem()
 	elif event.is_action_pressed("ui_cancel"):
-		if in_dialogue:
+		if inspecting:
+			_close_inspection()
+		elif in_dialogue:
 			_close_dialogue()
 		elif nearby_totem != null:
-			get_tree().change_scene_to_file(MAPA_SCENE)
+			_use_totem()
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if highlighted_object != null and not in_dialogue:
+			if inspecting:
+				return
+			elif highlighted_object != null and not in_dialogue:
 				if highlighted_object.is_in_group("pizarron"):
 					highlighted_object.interact()
 				elif highlighted_object.is_in_group("ascensor"):
@@ -129,12 +150,21 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # ---------- NPCs (con LLM) ----------
 
+func _connect_npcs() -> void:
+	for npc in get_tree().get_nodes_in_group("npc"):
+		if npc.has_signal("player_entered_range"):
+			if not npc.player_entered_range.is_connected(_on_npc_entered_range):
+				npc.player_entered_range.connect(_on_npc_entered_range)
+			if not npc.player_exited_range.is_connected(_on_npc_exited_range):
+				npc.player_exited_range.connect(_on_npc_exited_range)
+
+
 func _open_dialogue() -> void:
 	in_dialogue = true
 	dialogue_ui.hide_prompt()
 	dialogue_ui.show_dialogue(nearby_npc.npc_name)
 	dialogue_ui.set_input_enabled(true)
-	dialogue_ui.mostrar_retratos(retrato_jugador, nearby_npc.get_retrato())  # input visible para escribirle al NPC
+	dialogue_ui.mostrar_modelos($Walking.scene_file_path, nearby_npc.get_model_scene_path())  # input visible para escribirle al NPC
 
 
 func _close_dialogue() -> void:
@@ -148,7 +178,7 @@ func _close_dialogue() -> void:
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
-	
+
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
 	# Iniciar línea del NPC (queda esperando los chunks)
@@ -176,14 +206,14 @@ func _on_response_completed() -> void:
 
 func _on_npc_entered_range(npc: Node) -> void:
 	nearby_npc = npc
-	if not in_dialogue:
+	if not in_dialogue and not inspecting:
 		dialogue_ui.show_prompt(npc.npc_name)
 
 
 func _on_npc_exited_range(npc: Node) -> void:
 	if nearby_npc == npc:
 		nearby_npc = null
-		if not in_dialogue:
+		if not in_dialogue and not inspecting:
 			dialogue_ui.hide_prompt()
 
 
@@ -191,7 +221,7 @@ func _on_npc_exited_range(npc: Node) -> void:
 
 func _process(_delta: float) -> void:
 	_update_camera()
-	if in_dialogue:
+	if in_dialogue or inspecting:
 		_clear_highlight()
 		return
 	_check_examinable_under_mouse()
@@ -214,13 +244,20 @@ func _update_nearby_clickable() -> void:
 
 func _update_nearby_totem() -> void:
 	var closest: Node = null
-	var closest_dist := TOTEM_DISTANCE
+	var closest_dist := INF
 	for totem in get_tree().get_nodes_in_group("totem"):
+		var reach := TOTEM_DISTANCE
+		if totem.has_method("get_interact_distance"):
+			reach = totem.get_interact_distance()
 		var dist := global_position.distance_to(_clickable_anchor(totem))
-		if dist <= closest_dist:
+		if dist <= reach and dist < closest_dist:
 			closest_dist = dist
 			closest = totem
 	nearby_totem = closest
+
+
+func _use_totem() -> void:
+	get_tree().change_scene_to_file(MAPA_SCENE)
 
 
 func _update_prompt() -> void:
@@ -252,6 +289,10 @@ func _find_collision_shape(node: Node) -> CollisionShape3D:
 
 
 func _clickable_display_name(obj: Node) -> String:
+	if obj.has_method("get_object_name"):
+		var custom = obj.get_object_name()
+		if custom != null and str(custom) != "":
+			return str(custom)
 	var display = obj.get("object_name")
 	if display != null and str(display) != "":
 		return str(display)
@@ -308,15 +349,47 @@ func _clear_highlight() -> void:
 
 
 func _examine_object(obj: Node) -> void:
-	in_dialogue = true
+	if obj == null or in_dialogue or inspecting:
+		return
+	inspecting = true
+	inspecting_object = obj
 	_clear_highlight()
 	dialogue_ui.hide_prompt()
-	dialogue_ui.show_dialogue(obj.object_name)
-	# Mostramos solo la descripción (sin "Vos:" ni input, no hay LLM acá)
-	dialogue_ui.start_npc_response(obj.object_name)
-	dialogue_ui.append_npc_chunk(obj.get_description())
-	dialogue_ui.finish_npc_response()
-	dialogue_ui.set_input_enabled(false)
+
+	var title := _inspect_display_name(obj)
+	var description := _inspect_description(obj)
+
+	inspection_ui.show_inspection(title, description)
+
+
+func _close_inspection() -> void:
+	inspection_ui.hide_inspection()
+
+
+func _on_inspection_closed() -> void:
+	inspecting = false
+	inspecting_object = null
+	_update_prompt()
+
+
+func _on_dialogue_close_requested() -> void:
+	if in_dialogue:
+		_close_dialogue()
+
+
+func _inspect_display_name(obj: Node) -> String:
+	if obj.has_method("get_object_name"):
+		return obj.get_object_name()
+	var display = obj.get("object_name")
+	if display != null and str(display) != "":
+		return str(display)
+	return obj.name
+
+
+func _inspect_description(obj: Node) -> String:
+	if obj.has_method("get_description"):
+		return obj.get_description()
+	return ""
 
 
 # ---------- Debug: detección de objetos clicables ----------
@@ -365,3 +438,113 @@ func _describe_click_event(node: Node) -> String:
 	if node.has_method("get_description"):
 		return "examinar() -> " + str(node.get("object_name"))
 	return "sin evento"
+
+
+# ---------- Pistas ----------
+
+func _configure_hint_rules() -> void:
+	var difficulty := Global.current_difficulty()
+	hint_uses_limit = int(difficulty.get("hint_limit", -1))
+	hint_names_npc = bool(difficulty.get("hint_names_npc", false))
+	hint_remaining_uses = -1
+	if hint_uses_limit > 0:
+		var spent := int(clamp(Global.hint_uses_spent, 0, hint_uses_limit))
+		hint_remaining_uses = max(hint_uses_limit - spent, 0)
+
+
+func _create_hint_button() -> void:
+	if hint_uses_limit == 0:
+		return
+	if hint_layer != null and is_instance_valid(hint_layer):
+		return
+	hint_layer = CanvasLayer.new()
+	hint_layer.layer = 90
+	add_child(hint_layer)
+
+	hint_button = Button.new()
+	hint_button.text = "Pistas"
+	hint_button.anchor_left = 1
+	hint_button.anchor_right = 1
+	hint_button.anchor_top = 0.15
+	hint_button.anchor_bottom = 0.15
+	hint_button.offset_left = -180
+	hint_button.offset_right = -40
+	hint_button.offset_top = -30
+	hint_button.offset_bottom = 30
+	hint_button.focus_mode = Control.FOCUS_NONE
+	hint_button.tooltip_text = HINT_TOOLTIP_DEFAULT
+	hint_button.theme = null
+	hint_button.pressed.connect(_on_hint_button_pressed)
+	hint_layer.add_child(hint_button)
+
+	hint_http = HTTPRequest.new()
+	add_child(hint_http)
+	hint_http.request_completed.connect(_on_hint_received)
+	_refresh_hint_button_state()
+
+
+func _on_hint_button_pressed() -> void:
+	if not _hint_action_allowed():
+		return
+	var url: String = HINT_URL + Global.session_id
+	if hint_names_npc:
+		url += "?with_npc=true"
+	if hint_http.request(url) != OK:
+		NotificationManager.show_message(HINT_ERROR)
+		return
+	hint_request_pending = true
+	_refresh_hint_button_state()
+
+
+# El backend elige la pista más prioritaria entre los hechos que el jugador
+# puede descubrir ahora. Solo se gasta un uso cuando la pista es nueva: repetir
+# la misma (todavía no descubierta) es gratis.
+func _on_hint_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	hint_request_pending = false
+	_refresh_hint_button_state()
+	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
+		NotificationManager.show_message(HINT_ERROR)
+		return
+	var hint = JSON.parse_string(body.get_string_from_utf8())["hint"]
+	if hint == null:
+		NotificationManager.show_message(HINT_NONE)
+		return
+	NotificationManager.show_message(hint["text"])
+	if hint["fact_id"] != Global.last_hint_fact_id:
+		Global.last_hint_fact_id = hint["fact_id"]
+		_register_hint_consumption()
+
+
+func _refresh_hint_button_state() -> void:
+	if hint_button == null:
+		return
+	var button_text := "Pistas"
+	var tooltip := HINT_TOOLTIP_DEFAULT
+	var disabled := false
+	if hint_uses_limit > 0:
+		var remaining: int = max(hint_remaining_uses, 0)
+		button_text = "Pistas (%d)" % remaining
+		tooltip = "Pistas limitadas en esta dificultad."
+		if remaining <= 0:
+			disabled = true
+			tooltip = "Ya usaste todas las pistas disponibles en esta dificultad."
+	if hint_request_pending:
+		disabled = true
+	hint_button.text = button_text
+	hint_button.disabled = disabled
+	hint_button.tooltip_text = tooltip
+
+
+func _hint_action_allowed() -> bool:
+	if hint_uses_limit == 0 or hint_request_pending:
+		return false
+	if hint_uses_limit > 0 and hint_remaining_uses <= 0:
+		return false
+	return true
+
+
+func _register_hint_consumption() -> void:
+	if hint_uses_limit > 0:
+		Global.hint_uses_spent = min(Global.hint_uses_spent + 1, hint_uses_limit)
+		hint_remaining_uses = max(hint_uses_limit - Global.hint_uses_spent, 0)
+	_refresh_hint_button_state()

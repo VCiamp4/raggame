@@ -15,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://3pwhenewwx7r" path="res://assets/PSX modular house interior pack/props/painting2.glb" id="11_snk82"]
 [ext_resource type="Script" uid="uid://bor3mk6vwp3os" path="res://scenes/ascensor.gd" id="15_wg2fg"]
 [ext_resource type="PackedScene" uid="uid://cs7fcennlafvo" path="res://assets/elevator (2)/elevator.fbx" id="16_qtroi"]
+[ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="17_totem"]
+[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
+[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="npc_portero_model"]
+[ext_resource type="Texture2D" path="res://assets/ui/retratos/portero.png" id="npc_portero_portrait"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -39,15 +43,21 @@ size = Vector3(2.435791, 2.9463196, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(3.3404922, 3.4956055, 2.8099937)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
+radius = 1.2
+
 [node name="Node3D" type="Node3D" unique_id=113430558]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
 
+[node name="Totem" parent="." unique_id=1869845901 instance=ExtResource("17_totem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.702, 7.2900715)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1938173594]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=2012582832]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 8, -0.0053696632, 0.011015177, -0.006091118)
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 8, -0.0053696632, 0.011015177, -0.311018)
 material_override = ExtResource("2_pj8q6")
 mesh = SubResource("PlaneMesh_nbej8")
 
@@ -146,10 +156,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1169405, 1.0996166, 7.5288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3547046, 1.0340098, 7.4714894)
 
 [node name="Character_18_Police" parent="." unique_id=488128720 instance=ExtResource("6_2bhqk")]
-transform = Transform3D(-0.24957676, 0, 0.3125883, 0, 0.4, 0, -0.3125883, 0, -0.24957676, -4.5523148, 0.013166666, 6.029258)
+transform = Transform3D(0.3951379, 0, -0.062177137, 0, 0.39999998, 0, 0.062177137, 0, 0.3951379, -1.3874915, 0.013166666, -6.7880564)
 
 [node name="Character_17_Police" parent="." unique_id=1485438424 instance=ExtResource("7_tqeft")]
-transform = Transform3D(0.3366357, 0, 0.2160472, 0, 0.4, 0, -0.2160472, 0, 0.3366357, -4.5428677, 0.019154698, 5.0831685)
+transform = Transform3D(0.3366357, 0, 0.2160472, 0, 0.4, 0, -0.2160472, 0, 0.3366357, -4.5428677, 0.019154698, -6.3727775)
 
 [node name="Chandelier" parent="." unique_id=877205664 instance=ExtResource("9_2bhqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43909287, 3.5422986, 2.7667928)
@@ -194,3 +204,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.960707, -0.24851894, -0.01
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=1007095543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5198793, 1.2478027, -0.1784153)
 shape = SubResource("BoxShape3D_nbej8")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="." unique_id=783616704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.754819, 0, 0)
+
+[node name="pared_derecha" type="MeshInstance3D" parent="StaticBody3D7" unique_id=1706179309]
+transform = Transform3D(6.993822e-07, 0, -1, 0, 7, 0, 16, 0, 4.371139e-08, -5.9743557, 0.533324, 0)
+material_override = ExtResource("3_1a26t")
+mesh = SubResource("QuadMesh_nbej8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D7" unique_id=1385559835]
+transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, -5.9894414, 2.0593655, 0)
+shape = SubResource("BoxShape3D_arjtg")
+debug_color = Color(0, 1, 0.23529412, 0.41960785)
+
+[node name="Portero" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 0.02, 5.0)
+script = ExtResource("npc_script")
+npc_id = "portero"
+npc_name = "El portero"
+retrato = ExtResource("npc_portero_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Portero" instance=ExtResource("npc_portero_model")]
+transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Portero"]
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portero/InteractionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")
