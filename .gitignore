@@ -26,3 +26,9 @@ benchmarks/**/resultados/
 
 # env
 .env
+
+# Distribution / packaging build artifacts
+dist/
+build/
+game/build/
+.build-venv/
