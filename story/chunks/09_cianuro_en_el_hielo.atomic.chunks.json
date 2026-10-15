@@ -3,19 +3,17 @@
   "chunks": [
     {
       "chunk_id": "SCN-09-AT-01",
-      "retrieval_text": "El hielo contenía cianuro de potasio en una concentración suficiente para matar.",
+      "retrieval_text": "El hielo del congelador contenía cianuro de potasio en una concentración suficiente para matar.",
       "knowledge_holders": [
         "forense"
       ],
       "questions": {
-        "q1": "¿Qué contenía el hielo y en qué cantidad resultaba mortal?",
-        "q2": "¿Qué veneno había en los cubos de hielo y qué tan peligroso era?"
+        "q1": "¿Analizaste el hielo de la heladera? ¿Qué contenía?",
+        "q2": "¿Había veneno en el hielo del congelador?"
       },
       "source_excerpt": "Fuimos con ella al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después la forense volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
       "fact_id": "CL-ICE-03",
-      "necessary_facts": [
-        "CL-ICE-01"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
@@ -30,9 +28,7 @@
       },
       "source_excerpt": "Fuimos con ella al departamento y retiramos muestras del congelador, del depósito y de las cubeteras. El análisis fue rápido. Poco después la forense volvió con una conclusión terminante: el hielo contenía cianuro de potasio en una concentración suficiente para matar. Las botellas estaban limpias porque el veneno jamás había estado en ellas. La criada podía haber servido whisky completamente puro; al colocar los cubos dentro del vaso había introducido, sin saberlo, la sustancia que mataría a su patrona cuando el hielo se derritiera.",
       "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-01"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     }
   ]

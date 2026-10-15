@@ -1,7 +1,7 @@
 extends Node
 
 # Ajustá a la escena por la que arranca el juego
-const ESCENA_INICIAL = "res://scenes/mapa_menu.tscn"
+const ESCENA_INICIAL = "res://scenes/dpto.tscn"
 
 # Paleta horror PSX
 const COLOR_FONDO = Color("0a0a0c")
@@ -298,7 +298,7 @@ func _crear_briefing_overlay() -> void:
 	vbox.add_child(title)
 
 	var description := Label.new()
-	description.text = "La policía fue alertada por la muerte de la señora Stevens, una viuda adinerada de sesenta y ocho años, hallada sin vida en el comedor de su departamento. La puerta estaba asegurada por dentro y no había signos de violencia. La forense confirmó que se trató de una intoxicación, aunque todavía no sabe con qué sustancia.\n\nEse mismo día sus tres hermanos habían almorzado con ella. La policía citó a declarar a los principales sospechosos:\n\n- Juan, el mayor, en la comisaría.\n- Esteban, el del medio, en su oficina.\n- Pablo, el menor, en el laboratorio Erpa, donde trabaja.\n- La criada, que encontró el cuerpo, en el hall del edificio.\n\nTambién podés consultar al portero, en el hall del edificio, y a la forense y al técnico, en el departamento; ellos solo colaboran con la investigación.\n\nRecorré el mapa, interrogá a los sospechosos y reuní pruebas para acusar al culpable."
+	description.text = "La policía fue alertada por la muerte de la señora Stevens, una viuda adinerada de sesenta y ocho años, hallada sin vida en el comedor de su departamento. La puerta estaba asegurada por dentro y no había signos de violencia. La forense confirmó que se trató de una intoxicación, aunque todavía no sabe con qué sustancia.\n\nEse mismo día sus tres hermanos habían almorzado con ella. La policía citó a declarar a los principales sospechosos:\n\n- Juan, el mayor, en la comisaría.\n- Esteban, el del medio, en su oficina.\n- Pablo, el menor, en el laboratorio Erpa, donde trabaja.\n- La criada, que encontró el cuerpo, en el hall del edificio.\n\nTambién podés consultar al portero, en el hall del edificio, y a la forense y al técnico, en el departamento; ellos solo colaboran con la investigación.\n\nVas a empezar en el departamento donde murió la señora Stevens. Podés examinar la escena y hablar con la forense y el técnico; cuando quieras, salí por la salida (el tótem) para recorrer el mapa e interrogar a los demás sospechosos."
 	description.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	description.autowrap_mode = TextServer.AUTOWRAP_WORD
 	description.add_theme_font_size_override("font_size", 16)

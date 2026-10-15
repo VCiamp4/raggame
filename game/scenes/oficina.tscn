@@ -22,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="18_wsqm2"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="19_totem"]
 [ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="20_inspect"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
-[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="npc_esteban_model"]
-[ext_resource type="Texture2D" path="res://assets/ui/retratos/esteban.png" id="npc_esteban_portrait"]
+[ext_resource type="PackedScene" uid="uid://bxowr0k1ve4md" path="res://assets/Characters_psx/Models/Male/Character_05.fbx" id="npc_esteban_model"]
+[ext_resource type="Texture2D" uid="uid://dqpj8m0ggr3es" path="res://assets/ui/retratos/esteban.png" id="npc_esteban_portrait"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="npc_script"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
 size = Vector3(3, 0.2909546, 3)
@@ -86,7 +86,7 @@ material_override = SubResource("StandardMaterial3D_crx2h")
 mesh = SubResource("PlaneMesh_arjtg")
 
 [node name="Windows by Francis Chen - c93mqlf3yl1" parent="StaticBody3D" unique_id=579361118 instance=ExtResource("1_4xrql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3111186, 2.2851844, 3.9754322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3236394, 2.2851844, 3.9714491)
 
 [node name="Windows by Francis Chen - c93mqlf3yl2" parent="StaticBody3D" unique_id=508167465 instance=ExtResource("1_4xrql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3121114, 2.2851844, 3.9698179)
@@ -214,9 +214,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6271553, 0.875209, 1.221347
 transform = Transform3D(0.8508196, 0, -0.5254579, 0, 1, 0, 0.5254579, 0, 0.8508196, 2.443931, -0.0906682, -2.1409814)
 
 [node name="armchair_blue2" parent="StaticBody3D6" unique_id=760226762 instance=ExtResource("14_i5p4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7086668, 0, -1.1474705)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=63153076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04571545, 0.34857178, -0.0574646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72371686, 0.34857178, -1.155282)
 shape = SubResource("BoxShape3D_rv06a")
 
 [node name="elastic_ball2" parent="." unique_id=17207198 instance=ExtResource("15_80gho")]
@@ -232,7 +233,7 @@ transform = Transform3D(0.6376286, 0, -0.7703439, 0, 1, 0, 0.7703439, 0, 0.63762
 transform = Transform3D(-0.59970987, 0, 0.018657207, 0, 0.59999996, 0, -0.018657207, 0, -0.59970987, -2.0199428, 0.74576664, -3.304942)
 
 [node name="Totem" parent="." unique_id=1869845904 instance=ExtResource("19_totem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023725927, 0.746, -3.7325094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5850887, 0.746, -3.7325094)
 
 [node name="paper_stack_large2" parent="." unique_id=954741178 instance=ExtResource("9_l6hvc")]
 transform = Transform3D(0.25605136, 0, 0.9666632, 0, 1, 0, -0.9666632, 0, 0.25605136, 0.14169496, 0.8817971, 1.5056)
@@ -268,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.137107, 0)
 light_energy = 4.0
 omni_range = 7.274021
 
-[node name="Esteban" type="Node3D" parent="."]
+[node name="Esteban" type="Node3D" parent="." unique_id=738402525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.02, 2.8)
 script = ExtResource("npc_script")
 npc_id = "esteban"
@@ -276,13 +277,12 @@ npc_name = "Esteban"
 retrato = ExtResource("npc_esteban_portrait")
 pose_arms_down = 70.0
 
-[node name="Model" parent="Esteban" instance=ExtResource("npc_esteban_model")]
-transform = Transform3D(-0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, -0.4, 0, 0, 0)
+[node name="Model" parent="Esteban" unique_id=1286290622 instance=ExtResource("npc_esteban_model")]
+transform = Transform3D(-0.08101263, 0, -0.39171025, 0, 0.4, 0, 0.39171025, 0, -0.08101263, -0.2741475, 0, -3.9827247)
 
-[node name="InteractionArea" type="Area3D" parent="Esteban"]
+[node name="InteractionArea" type="Area3D" parent="Esteban" unique_id=1726617519]
 collision_layer = 0
-collision_mask = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea" unique_id=371969208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7902398, 0.9, -4.226011)
 shape = SubResource("SphereShape3D_npc")

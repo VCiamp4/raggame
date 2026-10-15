@@ -1,0 +1,2 @@
+si yo le digo hola señor "X" a cualquier NPC, me empieza a responder como "X" => Esto esta pesimo
+
