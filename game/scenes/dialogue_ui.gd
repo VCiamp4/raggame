@@ -22,6 +22,56 @@ var transcripts := {}
 var current_npc := ""
 var responding_npc := ""  # a quién pertenece la respuesta que se está recibiendo
 
+# Línea de espera: si el modelo tarda en emitir el primer fragmento, se muestra
+# una frase temática del personaje (sin datos del caso) y se quita al llegar.
+const WAIT_DELAY_MS := 350
+const WAIT_LINES := {
+	"Juan": [
+		"(se toma su tiempo...)",
+		"(se cruza de brazos...)",
+		"(decide si vale la pena responderte...)",
+	],
+	"Esteban": [
+		"(duda un momento...)",
+		"(ordena sus ideas...)",
+		"(elige las palabras con cuidado...)",
+	],
+	"Pablo": [
+		"(te estudia en silencio...)",
+		"(mide cada palabra...)",
+		"(no aparta la vista de vos...)",
+	],
+	"La criada": [
+		"(se retuerce las manos...)",
+		"(baja la mirada...)",
+		"(se seca las manos en el delantal...)",
+	],
+	"El portero": [
+		"(lo piensa un momento...)",
+		"(repasa los horarios...)",
+		"(se rasca la barbilla...)",
+	],
+	"La forense": [
+		"(revisa sus notas...)",
+		"(ordena los datos...)",
+		"(busca la palabra precisa...)",
+	],
+	"El técnico de heladeras": [
+		"(se rasca la cabeza...)",
+		"(repasa la reparación...)",
+		"(mastica una respuesta...)",
+	],
+}
+const WAIT_LINES_DEFAULT := [
+	"(lo piensa un momento...)",
+	"(tarda en responder...)",
+	"(se toma un instante...)",
+]
+var _wait_token := 0
+var _waiting_active := false
+var _pending_line := ""
+var _last_wait := {}
+
 
 func _ready() -> void:
 	# Panel de fondo del diálogo
@@ -219,16 +269,59 @@ func add_player_message(npc_name: String, text: String) -> void:
 func start_npc_response(npc_name: String) -> void:
 	current_npc_response = ""
 	responding_npc = current_npc
+	_pending_line = _waiting_line_for(npc_name)
+	_waiting_active = false
+	_wait_token += 1
+	var token := _wait_token
 	_append(responding_npc, "[color=#ffe080][b]" + npc_name + ":[/b][/color] ")
+	get_tree().create_timer(WAIT_DELAY_MS / 1000.0).timeout.connect(func(): _show_waiting_line(token))
 
 
 func append_npc_chunk(text: String) -> void:
+	if _waiting_active:
+		_remove_waiting()
 	current_npc_response += text
 	_append(responding_npc, text)
 
 
 func finish_npc_response() -> void:
+	if _waiting_active:
+		_remove_waiting()
 	_append(responding_npc, "\n")
+
+
+func _waiting_line_for(npc_name: String) -> String:
+	var lines: Array = WAIT_LINES.get(npc_name, WAIT_LINES_DEFAULT)
+	if lines.is_empty():
+		return "(lo piensa un momento...)"
+	if lines.size() == 1:
+		return lines[0]
+	var idx := randi() % lines.size()
+	if idx == int(_last_wait.get(npc_name, -1)):
+		idx = (idx + 1) % lines.size()
+	_last_wait[npc_name] = idx
+	return lines[idx]
+
+
+# Muestra la línea de espera solo si el primer fragmento todavía no llegó.
+func _show_waiting_line(token: int) -> void:
+	if token != _wait_token or _waiting_active or current_npc_response != "":
+		return
+	_waiting_active = true
+	if responding_npc == current_npc:
+		history_label.append_text("[i][color=#9a9a9a]" + _pending_line + "[/color][/i]")
+		_scroll_to_bottom()
+
+
+# Quita la línea de espera reconstruyendo el historial desde el transcript.
+func _remove_waiting() -> void:
+	if not _waiting_active:
+		return
+	_waiting_active = false
+	if responding_npc == current_npc:
+		history_label.clear()
+		history_label.append_text(transcripts.get(responding_npc, ""))
+		_scroll_to_bottom()
 
 
 # Guarda el texto en la conversación de ese NPC y solo lo muestra si es la abierta.

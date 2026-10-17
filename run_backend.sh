@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Arranca todo lo necesario para desarrollar/probar RAGame en local:
+#   1) Ollama (contenedor, con los modelos de ./ollama_models) en el puerto 11435
+#   2) El indice de embeddings (backend/rag/embeddings.npz) si falta
+#   3) El backend FastAPI en 127.0.0.1:8000 (lo que consume el juego)
+#
+# Uso:  ./run_backend.sh
+#        OLLAMA_PORT=11435 ./run_backend.sh     # elegir otro puerto de Ollama
+set -euo pipefail
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+OLLAMA_PORT="${OLLAMA_PORT:-11435}"
+EMBEDDING_MODEL="${EMBEDDING_MODEL:-qwen3-embedding:4b}"
+
+# --- 1) Ollama (contenedor) --------------------------------------------------
+if curl -sf "http://localhost:${OLLAMA_PORT}/api/tags" >/dev/null 2>&1; then
+	echo ">> Ollama ya responde en el puerto ${OLLAMA_PORT}."
+else
+	echo ">> Iniciando Ollama en el puerto ${OLLAMA_PORT} ..."
+	docker rm -f npc-ollama >/dev/null 2>&1 || true
+	docker run -d --name npc-ollama -p "${OLLAMA_PORT}:11434" \
+		-v "$PWD/ollama_models:/root/.ollama" \
+		-e OLLAMA_HOST=0.0.0.0:11434 \
+		ollama/ollama:latest >/dev/null
+	for _ in $(seq 1 30); do
+		curl -sf "http://localhost:${OLLAMA_PORT}/api/tags" >/dev/null 2>&1 && break
+		sleep 1
+	done
+	curl -sf "http://localhost:${OLLAMA_PORT}/api/tags" >/dev/null 2>&1 \
+		|| { echo "ERROR: Ollama no respondio en ${OLLAMA_PORT}." >&2; exit 1; }
+fi
+export OLLAMA_URL="http://localhost:${OLLAMA_PORT}"
+export EMBEDDING_MODEL
+
+# --- 2) Entorno de Python + indice de embeddings -----------------------------
+if [ ! -x ".build-venv/bin/python" ]; then
+	echo ">> Creando entorno .build-venv e instalando dependencias ..."
+	python3 -m venv .build-venv
+	.build-venv/bin/pip install --upgrade pip
+	.build-venv/bin/pip install -r backend/requirements.txt
+fi
+if [ ! -f backend/rag/embeddings.npz ]; then
+	echo ">> Construyendo el indice de embeddings (puede tardar) ..."
+	.build-venv/bin/python backend/scripts/build_embeddings.py
+fi
+
+# --- 3) Backend --------------------------------------------------------------
+if [ -f backend/.env ]; then
+	set -a; . backend/.env; set +a
+else
+	echo "AVISO: no existe backend/.env; se usa el proveedor por defecto (ollama)." >&2
+fi
+
+echo ">> Backend en http://127.0.0.1:8000  (OLLAMA_URL=${OLLAMA_URL})"
+exec .build-venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000

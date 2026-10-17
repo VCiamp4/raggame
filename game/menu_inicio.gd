@@ -1,7 +1,7 @@
 extends Node
 
 # Ajustá a la escena por la que arranca el juego
-const ESCENA_INICIAL = "res://scenes/mapa_menu.tscn"
+const ESCENA_INICIAL = "res://scenes/dpto.tscn"
 
 # Paleta horror PSX
 const COLOR_FONDO = Color("0a0a0c")
@@ -38,6 +38,8 @@ var _canvas: CanvasLayer
 var _difficulty_overlay: Control
 var _difficulty_buttons: Array = []
 var _about_overlay: Control
+var _briefing_overlay: Control
+var _briefing_button: Button
 
 
 func _ready() -> void:
@@ -104,6 +106,7 @@ func _ready() -> void:
 	# Overlay de dificultad (oculto hasta pulsar "Jugar") + viñeta encima
 	_crear_difficulty_overlay()
 	_crear_about_overlay()
+	_crear_briefing_overlay()
 	_crear_vineta(_canvas)
 
 
@@ -263,6 +266,55 @@ func _crear_about_overlay() -> void:
 	vbox.add_child(back)
 
 
+func _crear_briefing_overlay() -> void:
+	_briefing_overlay = ColorRect.new()
+	_briefing_overlay.color = Color(0, 0, 0, 0.9)
+	_briefing_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_briefing_overlay.visible = false
+	_briefing_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	_canvas.add_child(_briefing_overlay)
+
+	var panel := PanelContainer.new()
+	panel.set_anchors_preset(Control.PRESET_CENTER)
+	panel.offset_left = -340
+	panel.offset_right = 340
+	panel.offset_top = -300
+	panel.offset_bottom = 300
+	panel.add_theme_constant_override("margin_left", 32)
+	panel.add_theme_constant_override("margin_right", 32)
+	panel.add_theme_constant_override("margin_top", 28)
+	panel.add_theme_constant_override("margin_bottom", 28)
+	_briefing_overlay.add_child(panel)
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 14)
+	panel.add_child(vbox)
+
+	var title := Label.new()
+	title.text = "El caso"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 32)
+	title.add_theme_color_override("font_color", COLOR_TEXTO)
+	vbox.add_child(title)
+
+	var description := Label.new()
+	description.text = "La policía fue alertada por la muerte de la señora Stevens, una viuda adinerada de sesenta y ocho años, hallada sin vida en el comedor de su departamento. La puerta estaba asegurada por dentro y no había signos de violencia. La forense confirmó que se trató de una intoxicación, aunque todavía no sabe con qué sustancia.\n\nEse mismo día sus tres hermanos habían almorzado con ella. La policía citó a declarar a los principales sospechosos:\n\n- Juan, el mayor, en la comisaría.\n- Esteban, el del medio, en su oficina.\n- Pablo, el menor, en el laboratorio Erpa, donde trabaja.\n- La criada, que encontró el cuerpo, en el hall del edificio.\n\nTambién podés consultar al portero, en el hall del edificio, y a la forense y al técnico, en el departamento; ellos solo colaboran con la investigación.\n\nVas a empezar en el departamento donde murió la señora Stevens. Podés examinar la escena y hablar con la forense y el técnico; cuando quieras, salí por la salida (el tótem) para recorrer el mapa e interrogar a los demás sospechosos."
+	description.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	description.autowrap_mode = TextServer.AUTOWRAP_WORD
+	description.add_theme_font_size_override("font_size", 16)
+	description.add_theme_color_override("font_color", COLOR_HOVER)
+	vbox.add_child(description)
+
+	_briefing_button = Button.new()
+	_briefing_button.text = "Continuar"
+	_briefing_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_briefing_button.add_theme_font_size_override("font_size", 22)
+	_briefing_button.add_theme_color_override("font_color", COLOR_TEXTO)
+	_briefing_button.add_theme_color_override("font_hover_color", COLOR_HOVER)
+	_briefing_button.pressed.connect(_on_briefing_continue)
+	vbox.add_child(_briefing_button)
+
+
 func _crear_vineta(canvas: CanvasLayer) -> void:
 	var overlay = ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -340,6 +392,21 @@ func _hide_difficulty_menu() -> void:
 func _on_difficulty_selected(profile: Dictionary) -> void:
 	Global.set_difficulty(profile)
 	_hide_difficulty_menu()
+	_show_briefing()
+
+
+func _show_briefing() -> void:
+	if _briefing_overlay == null:
+		return
+	_briefing_overlay.visible = true
+	if _briefing_button != null and is_instance_valid(_briefing_button):
+		_briefing_button.grab_focus()
+
+
+func _on_briefing_continue() -> void:
+	if _briefing_overlay != null:
+		_briefing_overlay.visible = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_start_game()
 
 

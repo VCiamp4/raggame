@@ -82,19 +82,17 @@
     },
     {
       "chunk_id": "SCN-06-AT-06",
-      "retrieval_text": "Pablo había convencido a Stevens de dejarle una parte mayor de su dinero.",
+      "retrieval_text": "Pablo no negó saber que su hermana iba a dejarle una parte mayor de su dinero.",
       "knowledge_holders": [
         "pablo"
       ],
       "questions": {
-        "q1": "¿Cómo consiguió Pablo que Stevens le dejara una parte mayor?",
-        "q2": "¿Cómo logró Pablo mejorar la parte de la fortuna que recibiría?"
+        "q1": "¿Sabías que ibas a recibir más dinero de tu hermana?",
+        "q2": "¿Conocías las decisiones económicas favorables a vos?"
       },
       "source_excerpt": "Su relación con la señora Stevens era más estrecha que la de sus hermanos. Ella lo ayudaba económicamente y Pablo había logrado convencerla de que le dejara una parte mayor de su dinero mediante favores, promesas y manipulaciones sentimentales. Cuando se lo preguntamos, lo negó con frialdad.\n\n—Mi hermana sabía que atravesaba una mala situación. Si quería ayudarme, era asunto suyo.\n\nNo negó, en cambio, que supiera de posibles decisiones económicas favorables a él. Se limitó a decir que su hermana era libre de disponer de su fortuna. Cuando le pedí que señalara a una persona capaz de matarla, mencionó a Juan y enumeró, casi con satisfacción, sus antecedentes penales, su pasado con los estupefacientes y su falta de escrúpulos.",
       "fact_id": "CL-PAB-04",
-      "necessary_facts": [
-        "CL-EST-01"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {

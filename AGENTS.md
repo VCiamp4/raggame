@@ -46,16 +46,26 @@ Godot project.
   Pablo is the correct accusation.
 - Backend-discovered `CL-*` facts are the only clue state; the notebook and
   the "Pistas" button read them. Examined objects do not register facts.
-- No automated tests, no CI, no Dockerfile for the backend or the game.
+- No automated tests or CI. A self-contained distribution build exists
+  (`packaging/`, `DISTRIBUTION.md`).
 
 ## 3. Repository layout
 
 ```
 raggame/
 ├── compose.yaml                     # Ollama service only
+├── packaging/                       # distribution build (PyInstaller + export)
+│   ├── backend_entry.py             # frozen-backend entry point
+│   ├── raggame-backend.spec         # PyInstaller spec
+│   ├── build_all.sh                 # one-command backend + export + assemble
+│   ├── build_backend.sh             # builds dist/raggame-backend
+│   ├── export_game.sh               # exports dist/{linux,windows}
+│   ├── raggame.sh / raggame.bat     # installer/launcher (Linux / Windows)
+│   └── requirements-build.txt
+├── DISTRIBUTION.md                  # how to build/ship the game
 ├── backend/
 │   ├── main.py                      # /, /dialogue_stream, /notebook, /hint
-│   ├── config.py                    # Settings dataclass, three env options
+│   ├── config.py                    # Settings dataclass, env-configurable
 │   ├── requirements.txt
 │   ├── .env.example
 │   ├── rag/
@@ -84,6 +94,7 @@ raggame/
 │       └── resultados_raw/juicios/ # committed human judgments
 └── game/
     ├── project.godot                # Godot 4.7, main scene menu_inicio
+    ├── export_presets.cfg           # Linux + Windows export presets
     ├── menu_inicio.gd               # title, difficulty, about, vignette, audio
     ├── audio/, fonts/               # VCR OSD Mono theme, ambience wav
     ├── assets/                      # PSX/props packs (many .glb/.fbx)
@@ -129,16 +140,17 @@ satisfied (`game_state.is_unlocked()`, the NPC-independent half of
 
 ### Key config (`backend/config.py`)
 
-`CHAT_PROVIDER`, `CHAT_MODEL` and `OPENAI_API_KEY` are read from the environment.
-The API key defaults to an empty string. The remaining settings are code defaults;
-the embedding build script also accepts `--model` for that build.
+`CHAT_PROVIDER`, `CHAT_MODEL`, `OPENAI_API_KEY`, `EMBEDDING_MODEL` and
+`OLLAMA_URL` are read from the environment. The API key defaults to an empty
+string. The remaining settings are code defaults; the embedding build script also
+accepts `--model` for that build.
 
 | Setting           | Default              | Notes                                 |
 | ----------------- | -------------------- | ------------------------------------- |
 | `chat_provider`   | `ollama`             | or `openai`                           |
 | `chat_model`      | `gemma4:e4b`         | chat/instruct model                   |
-| `embedding_model` | `qwen3-embedding:4b` | fixed in code, not env                |
-| `ollama_url`      | `http://localhost:11434` | fixed in code                     |
+| `embedding_model` | `qwen3-embedding:4b` | env `EMBEDDING_MODEL`                 |
+| `ollama_url`      | `http://localhost:11434` | env `OLLAMA_URL`                   |
 | `max_chunks`      | `3`                  | retrieved chunks per turn             |
 | `min_similarity`  | `0.43`               | retrieval threshold                   |
 | `max_history`     | `20`                 | recent messages sent to the model     |
@@ -289,8 +301,9 @@ aid, not used at runtime.
   - Comisaría: Juan (`juan`), for his police-station interrogation.
   - Oficina: Esteban (`esteban`), the insurance broker.
   - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
-  - Hall: Portero (`portero`), near the building entrance.
-  - Departamento (`dpto`): Criada (`criada`), Forense (`forense`) and Técnico
+  - Hall: Portero (`portero`), near the building entrance, and Criada
+    (`criada`).
+  - Departamento (`dpto`): Forense (`forense`) and Técnico
     (`tecnico_heladera`), with the technician beside the refrigerator.
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.
@@ -355,8 +368,12 @@ These are the highest-value things to know before making changes.
    not multi-worker safe.
 9. **No automated tests and no CI.** Validation tooling consists of the
    retrieval and dialogue benchmarks.
-10. **Docker is incomplete.** `compose.yaml` starts only Ollama. There is no
-    Dockerfile or Compose service for the backend or game.
+10. **Distribution build exists.** `packaging/` (PyInstaller + Godot export) and
+    `DISTRIBUTION.md` produce a Linux/Windows package with no player-side Python.
+    The frozen backend bundles the precomputed index and the game is exported
+    single-file, so the player needs neither Python nor Godot; `packaging/raggame.*`
+    installs the required Ollama models on first run. Builds live under `dist/`
+    (gitignored).
 11. **No chunk build pipeline.** Chunks and their gating are hand-authored; the
     benchmark fixture is a separate frozen copy and can drift from live data.
 12. **No embedding cache**; every retrieval query with available candidates is
@@ -409,6 +426,27 @@ godot --path game          # or open game/project.godot in the editor
 For OpenAI chat, set `CHAT_PROVIDER=openai`, a compatible `CHAT_MODEL` and
 `OPENAI_API_KEY`. Ollama is still needed for query embeddings.
 
+### Distribution (PyInstaller + Godot export)
+
+`DISTRIBUTION.md` covers shipping the game as a self-contained Linux/Windows
+package with no player-side Python: the backend is frozen with PyInstaller
+(`packaging/`), the game is exported via `game/export_presets.cfg`, and
+`packaging/raggame.sh` / `raggame.bat` do a first-run setup that asks whether to
+use an OpenAI API key or a local Ollama, installs the required models
+(`qwen3-embedding:4b`, plus `gemma4:e4b` in local mode) and launches everything.
+Embeddings always run through Ollama, so Ollama is required in both modes.
+
+```bash
+# One command: freezes the backend, exports Linux + Windows, assembles dist/
+OLLAMA_URL=http://localhost:11434 bash packaging/build_all.sh
+
+# Or step by step:
+OLLAMA_URL=http://localhost:11434 bash packaging/build_backend.sh  # -> dist/raggame-backend
+bash packaging/export_game.sh                                      # -> dist/{linux,windows}
+```
+
+Build artifacts (`dist/`, `build/`, `.build-venv/`) are gitignored.
+
 Retrieval benchmark (after the backend index has been built):
 
 ```bash
@@ -437,7 +475,8 @@ document it here.
 
 - Do not commit generated indexes, reports or local state:
   `backend/rag/embeddings.npz`, `benchmarks/**/embeddings_*.npz`,
-  `benchmarks/**/resultados/`, `.env`, `.godot/`, `ollama_models/`.
+  `benchmarks/**/resultados/`, `.env`, `.godot/`, `ollama_models/`, and the
+  distribution build outputs `dist/`, `build/`, `.build-venv/`.
   Raw benchmark runs are ignored except the three named dialogue runs and
   `benchmarks/dialogue/resultados_raw/juicios/` explicitly retained in
   `.gitignore`. Preserve those committed inputs; do not broadly unignore runs.

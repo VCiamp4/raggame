@@ -330,10 +330,10 @@ func _check_examinable_under_mouse() -> void:
 		var collider = result["collider"]
 		if collider.is_in_group("examinable") or collider.is_in_group("pizarron") or collider.is_in_group("ascensor"):
 			var dist = global_position.distance_to(collider.global_position)
-			print(">> Distancia al objeto: ", dist, " | límite: ", EXAMINE_DISTANCE)
+			#print(">> Distancia al objeto: ", dist, " | límite: ", EXAMINE_DISTANCE)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider
-				print(">> PASÓ el chequeo de distancia")
+				#print(">> PASÓ el chequeo de distancia")
 				
 	if found != highlighted_object:
 		_clear_highlight()

@@ -95,13 +95,13 @@
     },
     {
       "chunk_id": "SCN-04-AT-07",
-      "retrieval_text": "Juan creía que Stevens había provocado que la policía descubriera sus negocios con drogas.",
+      "retrieval_text": "Juan despreciaba a su hermana porque creía que ella había provocado que la policía descubriera sus negocios con drogas.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
-        "q1": "¿Por qué creía Juan que Stevens había hecho descubrir sus negocios?",
-        "q2": "¿Qué responsabilidad atribuía Juan a Stevens por sus problemas con la policía?"
+        "q1": "¿Por qué odiaba o despreciaba Juan a su hermana?",
+        "q2": "¿De qué culpaba Juan a su hermana por sus problemas con la policía?"
       },
       "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
       "fact_id": "CL-JUA-02",
@@ -174,13 +174,13 @@
     },
     {
       "chunk_id": "SCN-04-AT-12",
-      "retrieval_text": "La policía verificó que Juan estuvo demorado en una comisaría desde las 17:00 hasta medianoche.",
+      "retrieval_text": "Después del almuerzo, Juan provocó un accidente de tránsito y quedó demorado en una comisaría desde las 17:00 hasta la medianoche.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
-        "q1": "¿Dónde estuvo Juan entre las cinco de la tarde y la medianoche, según la policía?",
-        "q2": "¿Qué hizo Juan durante el período en que ocurrió el crimen?"
+        "q1": "¿Dónde estuvo después de irse de la casa de su hermana?",
+        "q2": "¿Qué hizo desde el almuerzo hasta la medianoche?"
       },
       "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
       "fact_id": "CL-JUA-03",
@@ -219,19 +219,17 @@
     },
     {
       "chunk_id": "SCN-04-AT-15",
-      "retrieval_text": "Juan dijo que Esteban se enfureció al saber que Stevens favorecería económicamente a Pablo.",
+      "retrieval_text": "En el almuerzo Esteban se enfureció al saber que Stevens iba a cambiar el seguro de vida para darle más dinero a Pablo.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
-        "q1": "¿Qué provocó, según Juan, la furia de Esteban contra el cambio en la herencia?",
-        "q2": "¿Qué noticia sobre la herencia hizo reaccionar mal a Esteban?"
+        "q1": "¿Qué se discutió en el almuerzo sobre el seguro o la herencia?",
+        "q2": "¿Por qué discutieron en el almuerzo y qué tenía que ver Pablo?"
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-POL-01"
-      ],
+      "fact_id": "CL-POL-01",
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
@@ -263,6 +261,23 @@
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
       "fact_id": null,
+      "necessary_facts": [
+        "CL-POL-01"
+      ],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-18",
+      "retrieval_text": "Juan dijo que Esteban había sido quien gestionó la póliza de vida de su hermana.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Quién había gestionado la póliza de vida de Stevens?",
+        "q2": "¿Quién se ocupó del seguro de vida de la señora Stevens?"
+      },
+      "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.",
+      "fact_id": "CL-POL-04",
       "necessary_facts": [
         "CL-POL-01"
       ],

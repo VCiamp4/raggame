@@ -52,12 +52,17 @@
     },
     {
       "fact_id": "CL-POL-01",
-      "text": "La mayoría de los crímenes son por dinero. ¿La muerte de Stevens le dejaba plata a alguien?",
-      "text_with_npc": "Preguntale a Esteban qué seguro había tramitado para la señora Stevens."
+      "text": "La muerte de Stevens dejaba dinero de por medio. ¿Había un seguro o una póliza de vida?",
+      "text_with_npc": "Preguntale a Esteban si la señora Stevens tenía una póliza de vida."
+    },
+    {
+      "fact_id": "CL-POL-04",
+      "text": "Ya sabés que existía una póliza. ¿Quién la había gestionado?",
+      "text_with_npc": "Preguntale a Esteban quién gestionó la póliza de vida de Stevens."
     },
     {
       "fact_id": "CL-POL-02",
-      "text": "Existe una póliza de vida. Averiguá si hay una versión más nueva y dónde apareció.",
+      "text": "¿Habrá una versión más nueva de la póliza? Averiguá dónde apareció.",
       "text_with_npc": "Preguntale a Esteban dónde apareció la póliza actualizada."
     },
     {

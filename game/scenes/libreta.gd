@@ -2,8 +2,10 @@ extends CanvasLayer
 
 const NOTEBOOK_URL = "http://127.0.0.1:8000/notebook/"
 const TYPEWRITER = preload("res://assets/ui/fonts/SpecialElite.ttf")
-const HANDWRITING = preload("res://assets/ui/fonts/Zeyada.ttf")
-const HAND_SIZE = 22
+# La letra manuscrita (Zeyada) era difícil de leer; las pistas usan la misma
+# tipografía de máquina de escribir que el resto de la ficha.
+const BODY_FONT = preload("res://assets/ui/fonts/SpecialElite.ttf")
+const BODY_SIZE = 18
 const LINE = 30  # alto del renglón de la ficha
 const RED = Color("b8433c")
 const INK = Color("222222")
@@ -129,7 +131,7 @@ func _ready() -> void:
 	photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	photo.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	polaroid.add_child(photo)
-	caption = _label("", HANDWRITING, 20, Color("1c2640"), Vector2(8, 108), Vector2(102, 28))
+	caption = _label("", BODY_FONT, 18, Color("1c2640"), Vector2(8, 108), Vector2(102, 28))
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	polaroid.add_child(caption)
 	var tape := ColorRect.new()
@@ -151,7 +153,7 @@ func _ready() -> void:
 	ruled.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	ruled.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ruled.size_flags_vertical = Control.SIZE_EXPAND_FILL  # renglones hasta el pie de la ficha
-	var first_line := HANDWRITING.get_ascent(HAND_SIZE) + 6
+	var first_line := BODY_FONT.get_ascent(BODY_SIZE) + 6
 	ruled.draw.connect(func():
 		var y := first_line
 		while y < ruled.size.y:
@@ -159,9 +161,9 @@ func _ready() -> void:
 			y += LINE)
 	scroll.add_child(ruled)
 
-	clues_label = _label("", HANDWRITING, HAND_SIZE, Color("151515"), Vector2.ZERO, Vector2.ZERO)
+	clues_label = _label("", BODY_FONT, BODY_SIZE, Color("151515"), Vector2.ZERO, Vector2.ZERO)
 	clues_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	clues_label.add_theme_constant_override("line_spacing", LINE - int(HANDWRITING.get_height(HAND_SIZE)))
+	clues_label.add_theme_constant_override("line_spacing", LINE - int(BODY_FONT.get_height(BODY_SIZE)))
 	clues_label.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	var margin := MarginContainer.new()
 	margin.add_theme_constant_override("margin_left", 16)
