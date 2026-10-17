@@ -13,8 +13,8 @@ const InspectionUI = preload("res://scenes/inspection_ui.gd")
 
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 const HINT_URL = "http://127.0.0.1:8000/hint/"
+const BackendError = preload("res://ui/backend_error.gd")
 const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
-const HINT_ERROR := "No se pudo pedir una pista: el servidor no responde."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -187,6 +187,8 @@ func _on_text_submitted(text: String) -> void:
 	# Conectar señales de streaming
 	if not nearby_npc.response_chunk.is_connected(_on_response_chunk):
 		nearby_npc.response_chunk.connect(_on_response_chunk)
+	if not nearby_npc.response_failed.is_connected(_on_response_failed):
+		nearby_npc.response_failed.connect(_on_response_failed)
 	if not nearby_npc.response_completed.is_connected(_on_response_completed):
 		nearby_npc.response_completed.connect(_on_response_completed, CONNECT_ONE_SHOT)
 	
@@ -197,9 +199,15 @@ func _on_response_chunk(text: String) -> void:
 	dialogue_ui.append_npc_chunk(text)
 
 
+func _on_response_failed(message: String) -> void:
+	dialogue_ui.show_error(message)
+
+
 func _on_response_completed() -> void:
 	if nearby_npc != null and nearby_npc.response_chunk.is_connected(_on_response_chunk):
 		nearby_npc.response_chunk.disconnect(_on_response_chunk)
+	if nearby_npc != null and nearby_npc.response_failed.is_connected(_on_response_failed):
+		nearby_npc.response_failed.disconnect(_on_response_failed)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(true)
 
@@ -490,7 +498,7 @@ func _on_hint_button_pressed() -> void:
 	if hint_names_npc:
 		url += "?with_npc=true"
 	if hint_http.request(url) != OK:
-		NotificationManager.show_message(HINT_ERROR)
+		NotificationManager.show_error("No se pudo pedir una pista. " + BackendError.OFFLINE)
 		return
 	hint_request_pending = true
 	_refresh_hint_button_state()
@@ -503,7 +511,8 @@ func _on_hint_received(result: int, code: int, _headers: PackedStringArray, body
 	hint_request_pending = false
 	_refresh_hint_button_state()
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
-		NotificationManager.show_message(HINT_ERROR)
+		var message := BackendError.from_request(result, code, body)
+		NotificationManager.show_error("No se pudo pedir una pista. " + message)
 		return
 	var hint = JSON.parse_string(body.get_string_from_utf8())["hint"]
 	if hint == null:

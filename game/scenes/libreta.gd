@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const NOTEBOOK_URL = "http://127.0.0.1:8000/notebook/"
+const BackendError = preload("res://ui/backend_error.gd")
 const TYPEWRITER = preload("res://assets/ui/fonts/SpecialElite.ttf")
 # La letra manuscrita (Zeyada) era difícil de leer; las pistas usan la misma
 # tipografía de máquina de escribir que el resto de la ficha.
@@ -279,7 +280,8 @@ func _page_for(fact_id: String) -> Dictionary:
 
 func _on_clues_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
-		_show_message("No se pudo abrir el expediente: el servidor no responde.")
+		var message := BackendError.from_request(result, code, body)
+		_show_message(BackendError.with_contact("No se pudo abrir el expediente. " + message))
 		return
 	var clues: Array = JSON.parse_string(body.get_string_from_utf8())["clues"]
 	pages = []

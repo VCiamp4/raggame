@@ -129,6 +129,16 @@ raggame/
    (`POST /v1/chat/completions`, uses `max_completion_tokens` and
    `reasoning_effort="none"`).
 
+### Errors
+
+If a turn fails (no OpenAI credits, invalid key, rate limit, missing model,
+Ollama down, timeout, reply cut off), `/dialogue_stream` still answers 200 and
+sends the byte `\x1e` followed by a short Spanish message for the player, built
+by `main.error_message()`. A failed turn is not saved to history and its new
+facts are discarded. Only an unknown `npc_id` returns an error status (404).
+On the game side, `game/ui/backend_error.gd` (used via `preload`) adds the
+contact line and covers client-side failures (backend offline, connection lost).
+
 `GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`
 for chunks whose facts have been discovered in that backend session.
 
@@ -177,8 +187,8 @@ in the provider/model/API key values. `.env` files are gitignored.
   This is a known minor inconsistency.
 - `game_state.update_fact()` assumes `discovered_facts[session_id]` already
   exists (it is created on first `get_discovered_facts` call via retrieval).
-- Retrieval records the focus fact before the chat stream succeeds. A failed
-  generation can therefore leave a fact in the notebook without a completed turn.
+- Retrieval records the focus fact before the chat stream runs; failed turns
+  roll it back. If the client disconnects mid-stream, the fact stays.
 - No CORS middleware (irrelevant for Godot's `HTTPClient`, needed for browsers).
 
 ## 5. Story data model
@@ -308,8 +318,11 @@ aid, not used at runtime.
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
-  from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
-  `response_completed`, then `Global.fact_discovered` for each `X-New-Fact`.
+  from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk`, then
+  `response_failed(message)` if the turn failed, then `response_completed`, and
+  only on success `Global.fact_discovered` for each `X-New-Fact`. Errors are
+  shown in the chat by `dialogue_ui.show_error()`; hint and notebook errors use
+  `NotificationManager.show_error()` and the notebook page.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
   inspection, elevators, board and totem interactions, and the "Pistas" button.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),

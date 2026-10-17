@@ -16,8 +16,11 @@ signal player_entered_range(npc: Node)
 signal player_exited_range(npc: Node)
 signal response_chunk(text: String)       # nuevo: chunk parcial
 signal response_completed()                # nuevo: fin de respuesta
+signal response_failed(message: String)    # el turno falló; message es para el jugador
 
 @onready var interaction_area: Area3D = $InteractionArea
+
+const BackendError = preload("res://ui/backend_error.gd")
 
 const BACKEND_HOST = "127.0.0.1"
 const BACKEND_PORT = 8000
@@ -109,24 +112,38 @@ func _find_instanced_model(node: Node) -> Node3D:
 
 
 func _start_stream(player_input: String) -> void:
+	is_streaming = true
+	var outcome: Dictionary = await _stream(player_input)
+	is_streaming = false
+	if outcome["error"] != "":
+		response_failed.emit(outcome["error"])
+	response_completed.emit()
+	http_client.close()
+	# Si el turno falló, el backend ya deshizo el hecho que había registrado.
+	if outcome["error"] == "":
+		for fact_id in outcome["facts"]:
+			Global.fact_discovered.emit(fact_id)
+
+
+# Hace el pedido y emite los fragmentos del NPC. Devuelve {"error", "facts"}:
+# "error" es el mensaje para el jugador, vacío si la respuesta terminó bien.
+func _stream(player_input: String) -> Dictionary:
+	var outcome := {"error": "", "facts": PackedStringArray()}
 	http_client = HTTPClient.new()
-	var err = http_client.connect_to_host(BACKEND_HOST, BACKEND_PORT)
-	if err != OK:
-		response_chunk.emit("[Error de conexión]")
-		response_completed.emit()
-		return
-	
+	if http_client.connect_to_host(BACKEND_HOST, BACKEND_PORT) != OK:
+		outcome["error"] = BackendError.OFFLINE
+		return outcome
+
 	# Esperar conexión
 	while http_client.get_status() == HTTPClient.STATUS_CONNECTING or \
 		  http_client.get_status() == HTTPClient.STATUS_RESOLVING:
 		http_client.poll()
 		await get_tree().process_frame
-	
+
 	if http_client.get_status() != HTTPClient.STATUS_CONNECTED:
-		response_chunk.emit("[No se pudo conectar]")
-		response_completed.emit()
-		return
-	
+		outcome["error"] = BackendError.OFFLINE
+		return outcome
+
 	# Mandar request POST
 	var body = JSON.stringify({
 		"npc_id": npc_id,
@@ -138,35 +155,53 @@ func _start_stream(player_input: String) -> void:
 		"Content-Length: " + str(body.to_utf8_buffer().size())
 	]
 	http_client.request(HTTPClient.METHOD_POST, BACKEND_PATH, headers, body)
-	
+
 	# Esperar respuesta inicial
 	while http_client.get_status() == HTTPClient.STATUS_REQUESTING:
 		http_client.poll()
 		await get_tree().process_frame
-	
-	if http_client.get_status() != HTTPClient.STATUS_BODY:
-		response_chunk.emit("[Error en respuesta]")
-		response_completed.emit()
-		return
-	
-	# El backend avisa en un header qué hecho nuevo descubrió esta pregunta.
-	var new_facts := _new_facts(http_client.get_response_headers_as_dictionary())
 
-	# Leer chunks
-	is_streaming = true
+	if http_client.get_status() != HTTPClient.STATUS_BODY:
+		outcome["error"] = BackendError.OFFLINE
+		return outcome
+
+	# Solo un NPC inexistente llega con código de error; el resto, tras el marcador.
+	var code := http_client.get_response_code()
+	if code != 200:
+		var error_body := PackedByteArray()
+		while http_client.get_status() == HTTPClient.STATUS_BODY:
+			http_client.poll()
+			error_body.append_array(http_client.read_response_body_chunk())
+			await get_tree().process_frame
+		outcome["error"] = BackendError.from_body(code, error_body.get_string_from_utf8())
+		return outcome
+
+	# El backend avisa en un header qué hecho nuevo descubrió esta pregunta.
+	outcome["facts"] = _new_facts(http_client.get_response_headers_as_dictionary())
+
+	# Leer chunks. Si el turno falla, el mensaje llega después del marcador.
+	var stream_error := PackedByteArray()
+	var failed_midway := false
 	while http_client.get_status() == HTTPClient.STATUS_BODY:
 		http_client.poll()
-		var chunk = http_client.read_response_body_chunk()
-		if chunk.size() > 0:
-			var text = chunk.get_string_from_utf8()
-			response_chunk.emit(text)
+		var chunk := http_client.read_response_body_chunk()
+		if failed_midway:
+			stream_error.append_array(chunk)
+		elif chunk.size() > 0:
+			var marker := chunk.find(BackendError.STREAM_MARKER)
+			if marker >= 0:
+				failed_midway = true
+				stream_error.append_array(chunk.slice(marker + 1))
+				chunk = chunk.slice(0, marker)
+			if chunk.size() > 0:
+				response_chunk.emit(chunk.get_string_from_utf8())
 		await get_tree().process_frame
-	
-	is_streaming = false
-	response_completed.emit()
-	http_client.close()
-	for fact_id in new_facts:
-		Global.fact_discovered.emit(fact_id)
+
+	if failed_midway:
+		outcome["error"] = stream_error.get_string_from_utf8()
+	elif http_client.get_status() == HTTPClient.STATUS_CONNECTION_ERROR:
+		outcome["error"] = BackendError.INTERRUPTED
+	return outcome
 
 
 func _new_facts(headers: Dictionary) -> PackedStringArray:
