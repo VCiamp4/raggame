@@ -13,6 +13,7 @@ var confirm_label: Label
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_build_confirm_ui()
+	_build_instructions()
 
 
 func _process(_delta: float) -> void:
@@ -52,7 +53,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if confirm_panel.visible:
 			_hide_confirm()  # cerrar cartel
 		else:
-			get_tree().change_scene_to_file("res://scenes/Hall.tscn")  # salir
+			Global.leave_lineup()  # salir: vuelve a donde estaba el jugador
 		return
 	
 	if event is InputEventMouseButton:
@@ -80,6 +81,7 @@ func _on_accept() -> void:
 	# Usamos un autoload/variable global, o lo pasamos por un singleton simple
 	Global.accused_id = id
 	Global.accused_name = selected_suspect.get_suspect_name()
+	Global.lineup_return = {}  # ya no se vuelve: sigue el veredicto
 	get_tree().change_scene_to_file("res://scenes/veredicto.tscn")
 
 
@@ -133,3 +135,24 @@ func _build_confirm_ui() -> void:
 	btn_no.offset_bottom = -20
 	btn_no.pressed.connect(_hide_confirm)
 	confirm_panel.add_child(btn_no)
+
+
+# Se puede llegar desde cualquier escena con el botón "Acusar", así que la rueda
+# explica qué hacer y cómo volver.
+func _build_instructions() -> void:
+	var canvas = CanvasLayer.new()
+	add_child(canvas)
+	var label = Label.new()
+	label.text = "Hacé clic en el sospechoso que querés acusar.   [Esc] Volver"
+	label.anchor_left = 0
+	label.anchor_right = 1
+	label.anchor_top = 1
+	label.anchor_bottom = 1
+	label.offset_top = -50
+	label.offset_bottom = -16
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 22)
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
+	canvas.add_child(label)

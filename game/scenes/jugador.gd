@@ -55,6 +55,7 @@ func _ready() -> void:
 	spawn_position = global_position
 	camera.top_level = true
 	model_base_yaw = model.rotation.y
+	_restore_lineup_return()
 	# Los NPC pueden declararse después del jugador en la escena, por lo que
 	# sus _ready (y su entrada al grupo "npc") pueden correr más tarde.
 	_connect_npcs.call_deferred()
@@ -65,9 +66,21 @@ func _ready() -> void:
 	inspection_ui.inspection_closed.connect(_on_inspection_closed)
 	_configure_hint_rules()
 	_create_hint_button()
+	_create_accuse_button()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
+
+
+# Si el jugador salió de la rueda de reconocimiento sin acusar, reaparece
+# donde estaba al abrirla.
+func _restore_lineup_return() -> void:
+	var back: Dictionary = Global.lineup_return
+	if back.get("scene", "") != owner.scene_file_path:
+		return
+	global_transform = back["transform"]
+	model.rotation.y = back["model_yaw"]
+	Global.lineup_return = {}
 
 
 func _physics_process(delta: float) -> void:
@@ -489,6 +502,31 @@ func _create_hint_button() -> void:
 	add_child(hint_http)
 	hint_http.request_completed.connect(_on_hint_received)
 	_refresh_hint_button_state()
+
+
+# Botón fijo debajo de "Pistas" que abre la rueda de reconocimiento.
+func _create_accuse_button() -> void:
+	if hint_layer == null:
+		hint_layer = CanvasLayer.new()
+		hint_layer.layer = 90
+		add_child(hint_layer)
+	var button := Button.new()
+	button.text = "Acusar"
+	button.anchor_left = 1
+	button.anchor_right = 1
+	button.anchor_top = 0.15
+	button.anchor_bottom = 0.15
+	button.offset_left = -180
+	button.offset_right = -40
+	# Si no hay botón de pistas (Difícil), ocupa su lugar.
+	button.offset_top = 40 if hint_button != null else -30
+	button.offset_bottom = 100 if hint_button != null else 30
+	button.focus_mode = Control.FOCUS_NONE
+	button.tooltip_text = "Ir a la rueda de reconocimiento para acusar a un sospechoso"
+	button.add_theme_color_override("font_color", Color("e8a09a"))
+	button.add_theme_color_override("font_hover_color", Color("ffc9c4"))
+	button.pressed.connect(func(): Global.open_lineup(self))
+	hint_layer.add_child(button)
 
 
 func _on_hint_button_pressed() -> void:

@@ -296,7 +296,7 @@ aid, not used at runtime.
 
 - Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoloads:
   - `Global` (`scenes/global.gd`): accusation, launch session ID, difficulty
-    profile and hint usage.
+    profile, hint usage, and `open_lineup()` / `leave_lineup()`.
   - `InputManager` (`scripts/systems/input_manager.gd`): last input device and
     input glyph helpers.
   - `NotificationManager` (`ui/notification_manager.gd`): message toasts.
@@ -304,7 +304,10 @@ aid, not used at runtime.
 - Scene flow: title -> difficulty selection -> `mapa_menu` (4 spinning
   `nodo_mapa` nodes: comisaria, laboratorio, oficina, departamento) -> locations.
   The departamento map icon opens `Hall.tscn`; its elevators lead to `dpto`.
-  The board in `comisaria.tscn` opens `reconocimiento` -> `veredicto`.
+  The board in `comisaria.tscn` and the "Acusar" HUD button (any location)
+  open `reconocimiento` -> `veredicto` through `Global.open_lineup()`, which
+  stores the origin scene and the player's transform. Esc in the lineup
+  returns there and the player reappears in the same spot.
 - The map supports mouse selection, arrow-key focus and `ui_accept` to enter a
   location. Location totems return to the map with `E` or `Esc` when nearby.
 - NPC locations and IDs:
@@ -324,7 +327,8 @@ aid, not used at runtime.
   shown in the chat by `dialogue_ui.show_error()`; hint and notebook errors use
   `NotificationManager.show_error()` and the notebook page.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
-  inspection, elevators, board and totem interactions, and the "Pistas" button.
+  inspection, elevators, board and totem interactions, and the "Pistas" and
+  "Acusar" buttons.
 - `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
   appends streamed chunks, disables input while streaming and renders
   player/NPC models in portrait SubViewports.
