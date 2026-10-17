@@ -282,6 +282,21 @@
         "CL-POL-01"
       ],
       "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-04-AT-19",
+      "retrieval_text": "Juan contó que Esteban y Pablo discutieron por la póliza de seguro actualizada.",
+      "knowledge_holders": [
+        "juan"
+      ],
+      "questions": {
+        "q1": "¿Hubo alguna pelea ayer?",
+        "q2": "¿Por qué discutieron Esteban y Pablo?"
+      },
+      "source_excerpt": "Según él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.",
+      "fact_id": "CL-POL-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }

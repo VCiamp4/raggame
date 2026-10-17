@@ -74,6 +74,8 @@ var _last_wait := {}
 
 
 func _ready() -> void:
+	# Compartimos los transcripts desde el autoload para conservarlos entre escenas.
+	transcripts = Global.chat_transcripts
 	# Panel de fondo del diálogo
 	panel = ColorRect.new()
 	panel.color = Color(0, 0, 0, 0.6)
