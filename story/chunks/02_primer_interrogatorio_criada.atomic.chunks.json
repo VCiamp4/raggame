@@ -138,13 +138,13 @@
     },
     {
       "chunk_id": "SCN-02-AT-11",
-      "retrieval_text": "La criada jura que no agregó nada extraño al vaso.",
+      "retrieval_text": "La criada no sabe por sí misma si el vaso tenía algo extraño: lo escuchó a la policía. Ella fue quien preparó el whisky.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
-        "q1": "¿Agregó usted alguna sustancia extraña al vaso?",
-        "q2": "¿Qué aseguró la criada sobre el contenido que puso en el vaso?"
+        "q1": "¿Cómo sabe que el vaso tenía algo extraño?",
+        "q2": "¿Quién preparó el vaso de whisky de la señora Stevens?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
       "fact_id": null,
@@ -238,6 +238,36 @@
       },
       "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
       "fact_id": "CL-CRI-04",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-18",
+      "retrieval_text": "Ese día la criada limpió y cocinó como siempre; antes de irse le sirvió a Stevens el whisky con hielo que le había pedido.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Qué hizo usted ese día?",
+        "q2": "¿Qué fue lo último que hizo antes de marcharse?"
+      },
+      "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-19",
+      "retrieval_text": "La criada le sirvió el whisky con hielo, como de costumbre.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Le puso hielo al whisky?",
+        "q2": "¿Cómo le sirvió la bebida a la señora Stevens?"
+      },
+      "source_excerpt": "La criada sirvió whisky limpio con hielo.",
+      "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     }

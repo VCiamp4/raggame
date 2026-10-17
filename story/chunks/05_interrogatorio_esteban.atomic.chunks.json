@@ -18,16 +18,16 @@
     },
     {
       "chunk_id": "SCN-05-AT-02",
-      "retrieval_text": "Esteban había gestionado una póliza de vida para Stevens.",
+      "retrieval_text": "Esteban había gestionado la póliza de vida de la señora Stevens.",
       "knowledge_holders": [
         "esteban"
       ],
       "questions": {
-        "q1": "¿Qué trámite de seguro había gestionado Esteban para Stevens?",
-        "q2": "¿Qué seguro había tramitado Esteban para la señora Stevens?"
+        "q1": "¿Quién gestionó la póliza de vida de la señora Stevens?",
+        "q2": "¿Quién se ocupó del seguro de vida de Stevens?"
       },
       "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
-      "fact_id": "CL-POL-01",
+      "fact_id": "CL-POL-04",
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -50,16 +50,16 @@
     },
     {
       "chunk_id": "SCN-05-AT-04",
-      "retrieval_text": "Esteban minimizó la discusión sobre dinero durante el almuerzo.",
+      "retrieval_text": "Esteban aseguró que el almuerzo fue una reunión familiar normal, sin ninguna discusión seria.",
       "knowledge_holders": [
         "esteban"
       ],
       "questions": {
-        "q1": "¿Cómo describió Esteban la discusión sobre dinero del almuerzo?",
-        "q2": "¿Cómo presentó Esteban la conversación sobre dinero que tuvo en el almuerzo?"
+        "q1": "¿Cómo fue el almuerzo con la señora Stevens?",
+        "q2": "¿Hubo alguna discusión durante el almuerzo?"
       },
       "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles y, en su primera declaración, describió el almuerzo como una reunión familiar perfectamente normal. Cuando le mencionamos la versión de Juan, cambió de actitud, aunque sólo ligeramente.\n\n—Juan dramatiza todo —dijo.\n\nAdmitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia, una de esas cuestiones de familia que se agrandan cuando alguien las relata después de una muerte. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
-      "fact_id": "CL-EST-02",
+      "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -91,6 +91,38 @@
       "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
       "fact_id": null,
       "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-07",
+      "retrieval_text": "Esteban confirmó que la señora Stevens tenía una póliza de vida.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿Tenía la señora Stevens una póliza de vida?",
+        "q2": "¿Existía algún seguro de vida a nombre de Stevens?"
+      },
+      "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles.",
+      "fact_id": "CL-POL-01",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-05-AT-08",
+      "retrieval_text": "Esteban admitió, a regañadientes, que en el almuerzo discutieron por la póliza de seguro de Stevens, aunque le restó importancia.",
+      "knowledge_holders": [
+        "esteban"
+      ],
+      "questions": {
+        "q1": "¿De qué discutieron en el almuerzo? ¿Fue por dinero o por el seguro?",
+        "q2": "¿Reconoce que discutió con su hermana por la póliza de seguro?"
+      },
+      "source_excerpt": "Admitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
+      "fact_id": "CL-EST-02",
+      "necessary_facts": [
+        "CL-EST-01"
+      ],
       "sufficient_facts": []
     }
   ]

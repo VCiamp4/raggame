@@ -16,9 +16,11 @@
 [ext_resource type="Script" uid="uid://bor3mk6vwp3os" path="res://scenes/ascensor.gd" id="15_wg2fg"]
 [ext_resource type="PackedScene" uid="uid://cs7fcennlafvo" path="res://assets/elevator (2)/elevator.fbx" id="16_qtroi"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="17_totem"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
-[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="npc_portero_model"]
-[ext_resource type="Texture2D" path="res://assets/ui/retratos/portero.png" id="npc_portero_portrait"]
+[ext_resource type="PackedScene" uid="uid://1il2ftotcat6" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="npc_criada_model"]
+[ext_resource type="Texture2D" uid="uid://b00eoofxj7att" path="res://assets/ui/retratos/criada.png" id="npc_criada_portrait"]
+[ext_resource type="PackedScene" uid="uid://dq74f0jbvf7oj" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="npc_portero_model"]
+[ext_resource type="Texture2D" uid="uid://cubhbvek1pjav" path="res://assets/ui/retratos/portero.png" id="npc_portero_portrait"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="npc_script"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -46,7 +48,7 @@ size = Vector3(3.3404922, 3.4956055, 2.8099937)
 [sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
 radius = 1.2
 
-[node name="Node3D" type="Node3D" unique_id=113430558]
+[node name="Node3D2" type="Node3D" unique_id=113430558]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_d5auc")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.7020407, 7.2900715)
@@ -218,21 +220,38 @@ transform = Transform3D(0.1, 0, 0, 0, 4, 0, 0, 0, 16, -5.9894414, 2.0593655, 0)
 shape = SubResource("BoxShape3D_arjtg")
 debug_color = Color(0, 1, 0.23529412, 0.41960785)
 
-[node name="Portero" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 0.02, 5.0)
+[node name="Portero" type="Node3D" parent="." unique_id=649129776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.02, 5)
 script = ExtResource("npc_script")
 npc_id = "portero"
 npc_name = "El portero"
 retrato = ExtResource("npc_portero_portrait")
 pose_arms_down = 70.0
 
-[node name="Model" parent="Portero" instance=ExtResource("npc_portero_model")]
-transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
+[node name="Model" parent="Portero" unique_id=265606033 instance=ExtResource("npc_portero_model")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="InteractionArea" type="Area3D" parent="Portero"]
+[node name="InteractionArea" type="Area3D" parent="Portero" unique_id=885824899]
 collision_layer = 0
-collision_mask = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Portero/InteractionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portero/InteractionArea" unique_id=137606981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("SphereShape3D_npc")
+
+[node name="Criada" type="Node3D" parent="." unique_id=2041650310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.02, 4.5)
+script = ExtResource("npc_script")
+npc_id = "criada"
+npc_name = "La criada"
+retrato = ExtResource("npc_criada_portrait")
+pose_arms_down = 70.0
+
+[node name="Model" parent="Criada" unique_id=861225391 instance=ExtResource("npc_criada_model")]
+transform = Transform3D(-0.4, 0, 0, 0, 0.4, 0, 0, 0, -0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="Criada" unique_id=2006097609]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada/InteractionArea" unique_id=1146125473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")

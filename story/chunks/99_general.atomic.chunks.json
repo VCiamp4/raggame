@@ -1,0 +1,56 @@
+{
+  "scene_id": "GEN-01",
+  "chunks": [
+    {
+      "chunk_id": "GEN-01-AT-01",
+      "retrieval_text": "Ese mismo día, los tres hermanos habían almorzado con la señora Stevens.",
+      "knowledge_holders": [
+        "juan",
+        "esteban",
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Almorzó usted con la señora Stevens ese día?",
+        "q2": "¿Estuvo con su hermana y sus hermanos en el almuerzo?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "GEN-01-AT-02",
+      "retrieval_text": "Durante el almuerzo hubo una discusión entre los hermanos y la señora Stevens.",
+      "knowledge_holders": [
+        "juan",
+        "esteban",
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Hubo una discusión o pelea durante el almuerzo?",
+        "q2": "¿Se discutió o peleó en la comida con su hermana?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "GEN-01-AT-03",
+      "retrieval_text": "Lo último que los hermanos supieron de la señora Stevens fue en el almuerzo de ese mismo día.",
+      "knowledge_holders": [
+        "juan",
+        "esteban",
+        "pablo"
+      ],
+      "questions": {
+        "q1": "¿Cuándo fue la última vez que vio a la señora Stevens?",
+        "q2": "¿Cuándo vio por última vez a su hermana?"
+      },
+      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    }
+  ]
+}
