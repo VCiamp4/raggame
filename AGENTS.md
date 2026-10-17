@@ -248,6 +248,10 @@ Changing chunk gates can change when a hint becomes available.
 - `inspectables.gd` defines object names and descriptions shown when examining.
   Examining an object does not contact the backend or register any fact.
 - Keep inspectable text consistent with the story chunks.
+- `accusations.gd` lists, per suspect, the evidence items needed to accuse
+  them; each item is satisfied by any of its `fact_id`s, and accusing needs
+  `EVIDENCE_NEEDED` (2) distinct items. Renaming or regating these facts in
+  the chunks changes when a suspect can be accused.
 
 ### Graph
 
@@ -296,7 +300,8 @@ aid, not used at runtime.
 
 - Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoloads:
   - `Global` (`scenes/global.gd`): accusation, launch session ID, difficulty
-    profile, hint usage, and `open_lineup()` / `leave_lineup()`.
+    profile, hint usage, `open_lineup()` / `leave_lineup()`, the session's
+    `discovered_facts` and the `suspect_unlocked` signal.
   - `InputManager` (`scripts/systems/input_manager.gd`): last input device and
     input glyph helpers.
   - `NotificationManager` (`ui/notification_manager.gd`): message toasts.
@@ -342,7 +347,10 @@ aid, not used at runtime.
   hints. A use is spent only when the hinted fact differs from
   `Global.last_hint_fact_id`; repeating an undiscovered hint is free.
 - `reconocimiento.tscn` has four selectable suspects: Pablo, Esteban, Juan and
-  Criada. `veredicto.gd` displays their endings with a typewriter effect;
+  Criada. Each name tag shows "n/2 pruebas"; a suspect without enough evidence
+  (`data/accusations.gd`) cannot be accused, and clicking them lists the
+  evidence found so far. When a suspect becomes accusable, a toast says so.
+  `veredicto.gd` displays their endings with a typewriter effect;
   `CULPABLE_REAL = "pablo"`.
 
 ### Godot conventions

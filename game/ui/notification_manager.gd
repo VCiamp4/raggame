@@ -19,12 +19,13 @@ func _ready() -> void:
 
 func _notification_ui() -> void:
 	notification_stack = VBoxContainer.new()
-	notification_stack.anchor_left = 1
-	notification_stack.anchor_right = 1
+	# Arriba al centro, para no tapar la libreta ni los botones "Pistas" y "Acusar".
+	notification_stack.anchor_left = 0.5
+	notification_stack.anchor_right = 0.5
 	notification_stack.anchor_top = 0
 	notification_stack.anchor_bottom = 0
-	notification_stack.offset_left = -360
-	notification_stack.offset_right = -20
+	notification_stack.offset_left = -240
+	notification_stack.offset_right = 240
 	notification_stack.offset_top = 20
 	notification_stack.alignment = BoxContainer.ALIGNMENT_END
 	add_child(notification_stack)
