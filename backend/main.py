@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import PlainTextResponse, StreamingResponse
 from pydantic import BaseModel
 import json
+import logging
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
@@ -16,6 +17,35 @@ class DialogueRequest(BaseModel):
     npc_id: str
     player_input: str
     session_id: str = "default"
+
+
+# Separa la respuesta del NPC de un mensaje de error para el jugador.
+ERROR_MARKER = "\x1e"
+
+
+def error_message(exc: Exception) -> str:
+    """
+    Explica en español, para el jugador, por qué falló el turno.
+    """
+    logging.getLogger("uvicorn.error").error("Falló el turno: %r", exc)
+    if isinstance(exc, requests.Timeout):
+        return "El modelo tardó demasiado en responder."
+    if isinstance(exc, requests.ConnectionError):
+        return "No se pudo conectar con el modelo. Revisá que Ollama esté abierto y que haya internet."
+    if isinstance(exc, requests.HTTPError):
+        status = exc.response.status_code
+        if status == 401:
+            return "La API key de OpenAI no es válida o no está configurada."
+        if "insufficient_quota" in exc.response.text:
+            return "La cuenta de OpenAI no tiene créditos disponibles."
+        if status == 429:
+            return "OpenAI está recibiendo demasiados pedidos. Esperá unos segundos y volvé a intentar."
+        if status == 404:
+            return "No está instalado o disponible el modelo configurado."
+        return f"El modelo respondió con un error (código {status})."
+    if isinstance(exc, (RuntimeError, requests.exceptions.ChunkedEncodingError)):
+        return "El modelo cortó la respuesta antes de terminar."
+    return "Ocurrió un error inesperado en el servidor del juego."
 
 
 @app.get("/")
@@ -51,8 +81,18 @@ def dialogue_stream(req: DialogueRequest):
             status_code=404,
             detail=f"NPC '{req.npc_id}' no existe",
         )
+    except Exception as exc:
+        return PlainTextResponse(ERROR_MARKER + error_message(exc))
 
     def generate():
+        try:
+            yield from stream_reply()
+        except Exception as exc:
+            # El turno falló: no queda guardado ni deja pistas nuevas.
+            get_discovered_facts(req.session_id).difference_update(new_facts)
+            yield ERROR_MARKER + error_message(exc)
+
+    def stream_reply():
         reply = ""
         if settings.chat_provider == "openai":
             headers = {
@@ -75,6 +115,8 @@ def dialogue_stream(req: DialogueRequest):
                 stream=True,
                 timeout=(5, 300),
             ) as r:
+                if not r.ok:
+                    r.content  # lee el motivo antes de cerrar; error_message lo usa
                 r.raise_for_status()
                 completed = False
                 for line in r.iter_lines(decode_unicode=True):
@@ -109,10 +151,13 @@ def dialogue_stream(req: DialogueRequest):
                 }
             }
             with requests.post(f"{settings.ollama_url}/api/chat", json=payload, stream=True, timeout=(5, 300)) as r:
+                r.raise_for_status()
                 for line in r.iter_lines():
                     if not line:
                         continue
                     data = json.loads(line)
+                    if "error" in data:
+                        raise RuntimeError(data["error"])
                     chunk = data.get("message", {}).get("content", "")
                     if chunk:
                         reply += chunk

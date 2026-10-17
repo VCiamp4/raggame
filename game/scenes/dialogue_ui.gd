@@ -71,9 +71,17 @@ var _wait_token := 0
 var _waiting_active := false
 var _pending_line := ""
 var _last_wait := {}
+# Dónde empieza en el transcript la línea del NPC que se está recibiendo.
+var _response_start := 0
+
+const BackendError = preload("res://ui/backend_error.gd")
+const ERROR_COLOR := "#ff8a80"
+const CONTACT_COLOR := "#a0a0a0"
 
 
 func _ready() -> void:
+	# Compartimos los transcripts desde el autoload para conservarlos entre escenas.
+	transcripts = Global.chat_transcripts
 	# Panel de fondo del diálogo
 	panel = ColorRect.new()
 	panel.color = Color(0, 0, 0, 0.6)
@@ -273,6 +281,7 @@ func start_npc_response(npc_name: String) -> void:
 	_waiting_active = false
 	_wait_token += 1
 	var token := _wait_token
+	_response_start = transcripts.get(responding_npc, "").length()
 	_append(responding_npc, "[color=#ffe080][b]" + npc_name + ":[/b][/color] ")
 	get_tree().create_timer(WAIT_DELAY_MS / 1000.0).timeout.connect(func(): _show_waiting_line(token))
 
@@ -287,7 +296,27 @@ func append_npc_chunk(text: String) -> void:
 func finish_npc_response() -> void:
 	if _waiting_active:
 		_remove_waiting()
+	_wait_token += 1  # la línea de espera pendiente ya no corresponde
 	_append(responding_npc, "\n")
+
+
+# Muestra un error del turno como mensaje del sistema, no como habla del NPC.
+# Si el NPC no llegó a decir nada, el error ocupa el lugar de su línea.
+func show_error(message: String) -> void:
+	if _waiting_active:
+		_remove_waiting()
+	var transcript: String = transcripts.get(responding_npc, "")
+	if current_npc_response == "":
+		transcript = transcript.substr(0, _response_start)
+	else:
+		transcript += "\n"
+	transcript += "[color=%s][b]Error:[/b] %s[/color]\n[color=%s][i]%s[/i][/color]" % [
+		ERROR_COLOR, message.replace("[", "[lb]"), CONTACT_COLOR, BackendError.CONTACT]
+	transcripts[responding_npc] = transcript
+	if responding_npc == current_npc:
+		history_label.clear()
+		history_label.append_text(transcript)
+		_scroll_to_bottom()
 
 
 func _waiting_line_for(npc_name: String) -> String:
