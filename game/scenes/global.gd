@@ -15,6 +15,9 @@ var accused_name: String = ""
 var difficulty_profile: Dictionary = DEFAULT_DIFFICULTY.duplicate(true)
 var hint_uses_spent: int = 0
 var last_hint_fact_id: String = ""
+# Transcripción de cada conversación (por NPC), para que sobreviva al cambio
+# de escena (el jugador/diálogo se reinstancian en cada locación).
+var chat_transcripts: Dictionary = {}
 
 const LINEUP_SCENE := "res://scenes/reconocimiento.tscn"
 # Desde dónde se abrió la rueda de reconocimiento, para volver ahí si el

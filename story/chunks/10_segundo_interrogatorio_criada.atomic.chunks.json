@@ -73,20 +73,17 @@
     },
     {
       "chunk_id": "SCN-10-AT-05",
-      "retrieval_text": "Pablo fue quien reparó la heladera.",
+      "retrieval_text": "Pablo fue quien reparó la heladera, unos días antes del crimen.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
-        "q1": "¿Quién reparó finalmente la heladera?",
-        "q2": "¿Quién se encargó del arreglo de la heladera?"
+        "q1": "¿Alguien manipuló o tocó la heladera?",
+        "q2": "¿Quién reparó la heladera?"
       },
       "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
       "fact_id": "CL-FRI-02",
-      "necessary_facts": [
-        "CL-ICE-03",
-        "CL-CRI-05"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     }
   ]

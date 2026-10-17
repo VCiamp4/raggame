@@ -123,31 +123,31 @@
     },
     {
       "chunk_id": "SCN-02-AT-10",
-      "retrieval_text": "La criada preparó el vaso de whisky hallado junto al cadáver.",
+      "retrieval_text": "La criada le sirvió a la señora Stevens el vaso de whisky hallado junto al cadáver.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
-        "q1": "¿Qué hizo la criada con el vaso de whisky encontrado?",
-        "q2": "¿Quién había preparado la bebida encontrada junto al cuerpo?"
+        "q1": "¿Le sirvió usted el whisky a la señora Stevens?",
+        "q2": "¿Quién le preparó o sirvió la bebida a Stevens?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
-      "fact_id": null,
+      "fact_id": "CL-CRI-06",
       "necessary_facts": [],
       "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-02-AT-11",
-      "retrieval_text": "La criada no sabe por sí misma si el vaso tenía algo extraño: lo escuchó a la policía. Ella fue quien preparó el whisky.",
+      "retrieval_text": "En el whisky que bebió Stevens había algo extraño (posible veneno); la criada lo supo por la policía.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
         "q1": "¿Cómo sabe que el vaso tenía algo extraño?",
-        "q2": "¿Quién preparó el vaso de whisky de la señora Stevens?"
+        "q2": "¿Qué había en el whisky que bebió la señora Stevens?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
-      "fact_id": null,
+      "fact_id": "CL-CRI-07",
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -252,7 +252,7 @@
         "q2": "¿Qué fue lo último que hizo antes de marcharse?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales.",
-      "fact_id": null,
+      "fact_id": "CL-CRI-06",
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -267,6 +267,21 @@
         "q2": "¿Cómo le sirvió la bebida a la señora Stevens?"
       },
       "source_excerpt": "La criada sirvió whisky limpio con hielo.",
+      "fact_id": "CL-CRI-06",
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-20",
+      "retrieval_text": "La señora Stevens solo bebía whisky los fines de semana; esa pelea la alteró y necesitó un trago.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿La señora Stevens tomaba alcohol?",
+        "q2": "¿Cuándo o por qué tomaba la señora Stevens?"
+      },
+      "source_excerpt": "La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []

@@ -25,6 +25,26 @@ const PAGES = [
 	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
+# Hojas que sólo muestran una lista fija de pistas; el resto usa el prefijo.
+const LIMITED_PAGES := ["criada", "juan", "esteban", "pablo"]
+
+# Pistas de esas hojas (fact_id -> hojas donde aparece). Lo que no esté acá no
+# se muestra en criada/juan/esteban/pablo.
+const CLUE_PAGES := {
+	"CL-CRI-01": ["criada"],
+	"CL-CRI-02": ["criada"],
+	"CL-CRI-06": ["criada"],
+	"CL-JUA-02": ["juan"],
+	"CL-JUA-04": ["juan"],
+	"CL-EST-03": ["esteban"],
+	"CL-EST-06": ["esteban"],
+	"CL-POL-04": ["esteban"],
+	"CL-PAB-04": ["pablo"],
+	"CL-PAB-07": ["pablo"],
+	"CL-PAB-08": ["pablo"],
+	"CL-PAB-09": ["pablo"],
+}
+
 var icon: TextureButton
 var badge: Label
 var folder: Control
@@ -255,7 +275,10 @@ func _toggle() -> void:
 # Aviso de pista nueva: mensaje con la hoja donde se anotó, contador y un
 # latido del ícono. Con la libreta abierta, se recarga directamente.
 func _on_fact_discovered(fact_id: String) -> void:
-	var page := _page_for(fact_id)
+	var target_pages := _pages_for(fact_id)
+	if target_pages.is_empty():
+		return
+	var page: Dictionary = target_pages[0]
 	newest_page_id = page["id"]
 	NotificationManager.show_message("Nueva pista en la libreta: %s" % page["name"])
 	if folder.visible:
@@ -269,8 +292,23 @@ func _on_fact_discovered(fact_id: String) -> void:
 	tween.tween_property(icon, "scale", Vector2.ONE, 0.25)
 
 
-# La hoja de cada pista sale del prefijo de su fact_id (CL-PAB-02 -> "PAB").
-func _page_for(fact_id: String) -> Dictionary:
+# Hojas donde va una pista. Si el fact_id está en CLUE_PAGES, sólo esas hojas.
+# Si no, se usa el prefijo, salvo en las hojas limitadas (ahí no se muestra).
+func _pages_for(fact_id: String) -> Array:
+	if CLUE_PAGES.has(fact_id):
+		var result: Array = []
+		for id in CLUE_PAGES[fact_id]:
+			for page in PAGES:
+				if page["id"] == id:
+					result.append(page)
+		return result
+	var page := _page_for_prefix(fact_id)
+	if page["id"] in LIMITED_PAGES:
+		return []
+	return [page]
+
+
+func _page_for_prefix(fact_id: String) -> Dictionary:
 	var prefix := fact_id.split("-")[1]
 	for page in PAGES:
 		if prefix in page["prefixes"]:
@@ -289,8 +327,10 @@ func _on_clues_received(result: int, code: int, _headers: PackedStringArray, bod
 	for page in PAGES:
 		var texts := PackedStringArray()
 		for clue in clues:
-			if _page_for(clue["fact_id"])["id"] == page["id"]:
-				texts.append("- " + clue["text"])
+			for p in _pages_for(clue["fact_id"]):
+				if p["id"] == page["id"]:
+					texts.append("- " + clue["text"])
+					break
 		if not texts.is_empty():
 			if page["id"] == newest_page_id:
 				start = pages.size()

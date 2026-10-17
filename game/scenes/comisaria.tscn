@@ -89,6 +89,12 @@ size = Vector3(1.8217773, 1.9016724, 0.7558594)
 [sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
 radius = 1.2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cuarta"]
+size = Vector3(16.4, 6.0, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_izqcol"]
+size = Vector3(0.4, 6.0, 16.4)
+
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2108742498]
@@ -512,3 +518,15 @@ collision_mask = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Juan/InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")
+
+[node name="cuarta_pared" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cuarta_pared"]
+shape = SubResource("BoxShape3D_cuarta")
+
+[node name="pared_izq_col" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared_izq_col"]
+shape = SubResource("BoxShape3D_izqcol")
