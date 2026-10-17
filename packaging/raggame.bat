@@ -1,9 +1,9 @@
 @echo off
 REM RAGame launcher / installer (Windows).
 REM
-REM First run asks how the language model should run (OpenAI API key or local
-REM Ollama), saves the choice, installs the needed models, then starts the
-REM backend and the game. Later runs reuse the saved configuration.
+REM Every run asks how the language model should run (OpenAI API key or local
+REM Ollama) unless the user chose "don't ask again"; then it installs the needed
+REM models and starts the backend and the game.
 setlocal enabledelayedexpansion
 
 set "APP_DIR=%~dp0"
@@ -20,9 +20,17 @@ set "CHAT_MODEL_API=gpt-6-luna"
 
 if not exist "%CONFIG_DIR%" mkdir "%CONFIG_DIR%"
 
-if not exist "%CONFIG_FILE%" (
+REM Elegir proveedor: se pregunta siempre, salvo "no volver a preguntar"
+REM (RAGAME_ASK=0) guardado en la configuracion.
+set "RAGAME_ASK=1"
+if exist "%CONFIG_FILE%" for /f "usebackq eol=# tokens=1,* delims==" %%A in ("%CONFIG_FILE%") do set "%%A=%%B"
+
+set "SHOULD_ASK=1"
+if exist "%CONFIG_FILE%" if "%RAGAME_ASK%"=="0" set "SHOULD_ASK=0"
+
+if "%SHOULD_ASK%"=="1" (
 	echo ==================================================
-	echo   RAGame - primera ejecucion
+	echo   RAGame
 	echo ==================================================
 	echo Como queres ejecutar el modelo de lenguaje?
 	echo   1^) Con una API key ^(OpenAI^)  [chat en la nube, embeddings locales]
@@ -39,9 +47,12 @@ if not exist "%CONFIG_FILE%" (
 		set "CHAT_MODEL=%CHAT_MODEL_API%"
 		set /p OPENAI_API_KEY=Ingresa tu OPENAI_API_KEY:
 	)
+	set /p AGAIN=Volver a preguntar la proxima vez? [S/n]:
+	if /i "!AGAIN!"=="n" ( set "RAGAME_ASK=0" ) else ( set "RAGAME_ASK=1" )
 	(
 		echo # Config de RAGame - borrar para reconfigurar.
 		echo RAGAME_MODE=!MODE!
+		echo RAGAME_ASK=!RAGAME_ASK!
 		echo CHAT_PROVIDER=!CHAT_PROVIDER!
 		echo CHAT_MODEL=!CHAT_MODEL!
 		echo OPENAI_API_KEY=!OPENAI_API_KEY!

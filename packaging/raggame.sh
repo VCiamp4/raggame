@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # RAGame launcher / installer (Linux).
 #
-# First run asks how the language model should run (OpenAI API key or local
-# Ollama), saves the choice, installs the needed models, then starts the backend
-# and the game. Later runs reuse the saved configuration.
+# Every run asks how the language model should run (OpenAI API key or local
+# Ollama) unless the user chose "don't ask again", in which case the saved
+# choice is reused. Then it installs the needed models and starts the backend
+# and the game.
 set -euo pipefail
 
 APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,15 +19,15 @@ CHAT_MODEL_API="gpt-6-luna"
 
 mkdir -p "${CONFIG_DIR}"
 
-first_run_setup() {
+choose_mode() {
 	echo "=================================================="
-	echo "  RAGame - primera ejecucion"
+	echo "  RAGame"
 	echo "=================================================="
 	echo "Como queres ejecutar el modelo de lenguaje?"
 	echo "  1) Con una API key (OpenAI)  [chat en la nube, embeddings locales]"
 	echo "  2) Localmente (Ollama)       [todo en tu maquina]"
 	printf "Opcion [1/2]: "
-	read -r opt
+	read -r opt || true
 	case "${opt:-1}" in
 		2)
 			MODE="local"
@@ -39,27 +40,49 @@ first_run_setup() {
 			CHAT_PROVIDER="openai"
 			CHAT_MODEL="${CHAT_MODEL_API}"
 			printf "Ingresa tu OPENAI_API_KEY: "
-			read -rs key
+			read -rs key || true
 			echo
 			OPENAI_API_KEY="${key}"
 			;;
 	esac
+}
+
+save_config() {
 	cat > "${CONFIG_FILE}" <<EOF
 # Config de RAGame (generada por el instalador). Borrala para reconfigurar.
 RAGAME_MODE=${MODE}
+RAGAME_ASK=${RAGAME_ASK}
 CHAT_PROVIDER=${CHAT_PROVIDER}
 CHAT_MODEL=${CHAT_MODEL}
 OPENAI_API_KEY=${OPENAI_API_KEY}
 EMBEDDING_MODEL=${EMBEDDING_MODEL}
-OLLAMA_URL=http://localhost:11434
+OLLAMA_URL=${OLLAMA_URL}
 EOF
 	chmod 600 "${CONFIG_FILE}"
 	echo ">> Configuracion guardada en ${CONFIG_FILE}"
 }
 
-[ -f "${CONFIG_FILE}" ] || first_run_setup
-# shellcheck disable=SC1090
-source "${CONFIG_FILE}"
+RAGAME_ASK=1
+OLLAMA_URL="http://localhost:11434"
+if [ -f "${CONFIG_FILE}" ]; then
+	# shellcheck disable=SC1090
+	source "${CONFIG_FILE}"
+fi
+
+# Se pregunta siempre, salvo que el usuario haya elegido "no volver a preguntar".
+if [ ! -f "${CONFIG_FILE}" ] || [ "${RAGAME_ASK:-1}" != "0" ]; then
+	choose_mode
+	printf "Volver a preguntar la proxima vez? [S/n]: "
+	read -r again || true
+	case "${again:-S}" in
+		[nN]*) RAGAME_ASK=0 ;;
+		*) RAGAME_ASK=1 ;;
+	esac
+	save_config
+	# shellcheck disable=SC1090
+	source "${CONFIG_FILE}"
+fi
+
 export CHAT_PROVIDER CHAT_MODEL OPENAI_API_KEY EMBEDDING_MODEL OLLAMA_URL
 
 # Embeddings always run through Ollama (also in API-key mode), so it is required.

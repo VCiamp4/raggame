@@ -31,4 +31,4 @@ benchmarks/**/resultados/
 dist/
 build/
 game/build/
-.build-venv/
+.build-venv/raggame-linux.tar.gz

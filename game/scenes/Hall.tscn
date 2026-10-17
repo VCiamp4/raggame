@@ -16,11 +16,11 @@
 [ext_resource type="Script" uid="uid://bor3mk6vwp3os" path="res://scenes/ascensor.gd" id="15_wg2fg"]
 [ext_resource type="PackedScene" uid="uid://cs7fcennlafvo" path="res://assets/elevator (2)/elevator.fbx" id="16_qtroi"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="17_totem"]
+[ext_resource type="PackedScene" uid="uid://1il2ftotcat6" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="npc_criada_model"]
+[ext_resource type="Texture2D" uid="uid://b00eoofxj7att" path="res://assets/ui/retratos/criada.png" id="npc_criada_portrait"]
 [ext_resource type="PackedScene" uid="uid://dq74f0jbvf7oj" path="res://assets/Characters_psx/Models/Male/Character_01.fbx" id="npc_portero_model"]
 [ext_resource type="Texture2D" uid="uid://cubhbvek1pjav" path="res://assets/ui/retratos/portero.png" id="npc_portero_portrait"]
 [ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="npc_script"]
-[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Female/Character_Female_06.fbx" id="npc_criada_model"]
-[ext_resource type="Texture2D" path="res://assets/ui/retratos/criada.png" id="npc_criada_portrait"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nbej8"]
 lightmap_size_hint = Vector2i(12, 12)
@@ -238,7 +238,7 @@ collision_layer = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")
 
-[node name="Criada" type="Node3D" parent="."]
+[node name="Criada" type="Node3D" parent="." unique_id=2041650310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.02, 4.5)
 script = ExtResource("npc_script")
 npc_id = "criada"
@@ -246,13 +246,12 @@ npc_name = "La criada"
 retrato = ExtResource("npc_criada_portrait")
 pose_arms_down = 70.0
 
-[node name="Model" parent="Criada" instance=ExtResource("npc_criada_model")]
-transform = Transform3D(-0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, -0.4, 0, 0, 0)
+[node name="Model" parent="Criada" unique_id=861225391 instance=ExtResource("npc_criada_model")]
+transform = Transform3D(-0.4, 0, 0, 0, 0.4, 0, 0, 0, -0.4, 0, 0, 0)
 
-[node name="InteractionArea" type="Area3D" parent="Criada"]
+[node name="InteractionArea" type="Area3D" parent="Criada" unique_id=2006097609]
 collision_layer = 0
-collision_mask = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada/InteractionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Criada/InteractionArea" unique_id=1146125473]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")

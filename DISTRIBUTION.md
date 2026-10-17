@@ -24,15 +24,18 @@ dist/
 ```
 
 Each folder is a self-contained package: the launcher sits next to `backend/`
-and `game/`. On first run it creates a config under `~/.config/raggame`
-(Linux) or `%APPDATA%\raggame` (Windows).
+and `game/`. It stores its config under `~/.config/raggame` (Linux) or
+`%APPDATA%\raggame` (Windows).
 
 At runtime the launcher:
 
-1. On first run, asks **how to run the model**:
+1. **Asks how to run the model** — every run, unless you previously chose
+   “don’t ask again”:
    - `1` **API key (OpenAI)** — chat runs in the cloud; retrieval embeddings
      still run locally (Ollama).
    - `2` **Local (Ollama)** — everything runs on the player's machine.
+   Then it asks *“¿Volver a preguntar la próxima vez? [S/n]”*; answering `n`
+   saves `RAGAME_ASK=0` and skips the menu on later runs.
 2. Saves the choice to a config file.
 3. Ensures **Ollama** is installed and running.
 4. Pulls the models it needs (see below).
@@ -137,7 +140,9 @@ alongside `raggame.bat` (which expects `backend\raggame-backend.exe` and
 - Sets `CHAT_PROVIDER=ollama`, `CHAT_MODEL=gemma4:e4b`.
 - Installs Ollama + both `qwen3-embedding:4b` and `gemma4:e4b`.
 
-To reconfigure, delete the config file and run the launcher again:
+The launcher asks on every run unless you answered *“no volver a preguntar”*
+(which saves `RAGAME_ASK=0`). To make it ask again after that, either edit
+`RAGAME_ASK=1` in the config, or delete the config file and run the launcher:
 
 - Linux: `~/.config/raggame/config.env`
 - Windows: `%APPDATA%\raggame\config.env`
