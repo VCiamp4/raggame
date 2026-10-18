@@ -258,6 +258,9 @@ Changing chunk gates can change when a hint becomes available.
   them; each item is satisfied by any of its `fact_id`s, and accusing needs
   `EVIDENCE_NEEDED` (2) distinct items. Renaming or regating these facts in
   the chunks changes when a suspect can be accused.
+- `beats.gd` maps a `fact_id` to a narrated action (for example the forense
+  analyzing the ice for `CL-ICE-03`). When a reply's `X-New-Fact` includes one,
+  the chat shows the action and pauses `BEAT_SECONDS` before the NPC's text.
 
 ### Graph
 
@@ -332,7 +335,8 @@ aid, not used at runtime.
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
-  from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk`, then
+  from `127.0.0.1:8000/dialogue_stream`, emits `response_beat(text)` first
+  when a new fact has an entry in `data/beats.gd`, then `response_chunk`, then
   `response_failed(message)` if the turn failed, then `response_completed`, and
   only on success `Global.fact_discovered` for each `X-New-Fact`. Errors are
   shown in the chat by `dialogue_ui.show_error()`; hint and notebook errors use

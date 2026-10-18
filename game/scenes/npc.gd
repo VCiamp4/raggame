@@ -17,10 +17,12 @@ signal player_exited_range(npc: Node)
 signal response_chunk(text: String)       # nuevo: chunk parcial
 signal response_completed()                # nuevo: fin de respuesta
 signal response_failed(message: String)    # el turno falló; message es para el jugador
+signal response_beat(text: String)         # acción narrada antes de la respuesta
 
 @onready var interaction_area: Area3D = $InteractionArea
 
 const BackendError = preload("res://ui/backend_error.gd")
+const Beats = preload("res://data/beats.gd")
 
 const BACKEND_HOST = "127.0.0.1"
 const BACKEND_PORT = 8000
@@ -178,6 +180,13 @@ func _stream(player_input: String) -> Dictionary:
 
 	# El backend avisa en un header qué hecho nuevo descubrió esta pregunta.
 	outcome["facts"] = _new_facts(http_client.get_response_headers_as_dictionary())
+
+	# Algunos hechos llegan con una acción antes de la respuesta (data/beats.gd).
+	# Mientras tanto la respuesta se sigue acumulando en la conexión.
+	var beat := Beats.for_facts(outcome["facts"])
+	if beat != "":
+		response_beat.emit(beat)
+		await get_tree().create_timer(Beats.BEAT_SECONDS).timeout
 
 	# Leer chunks. Si el turno falla, el mensaje llega después del marcador.
 	var stream_error := PackedByteArray()

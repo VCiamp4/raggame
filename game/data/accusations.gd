@@ -36,10 +36,9 @@ const SUSPECTS: Dictionary = {
 	"pablo": {
 		"name": "Pablo",
 		"evidence": [
-			{"label": "Se beneficia económicamente con la muerte.", "facts": ["CL-PAB-09", "CL-POL-03"]},
-			{"label": "Convenció a la señora Stevens de que le dejara más dinero.", "facts": ["CL-PAB-04"]},
-			{"label": "Tiene acceso a químicos.", "facts": ["CL-PAB-03", "CL-PAB-08", "CL-ERP-01"]},
-			{"label": "Tuvo acceso a la heladera.", "facts": ["CL-FRI-02", "CL-PAB-07"]},
+			{"label": "Es el que más se beneficia con la muerte.", "facts": ["CL-PAB-04", "CL-PAB-09", "CL-POL-03"]},
+			{"label": "En Erpa, donde trabaja, había cianuro.", "facts": ["CL-ERP-01"]},
+			{"label": "Arregló la heladera, pero el arreglo no exigía tocar el congelador.", "facts": ["CL-TEC-01", "CL-TEC-02"]},
 		],
 	},
 }

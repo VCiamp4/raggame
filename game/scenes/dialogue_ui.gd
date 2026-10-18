@@ -77,6 +77,7 @@ var _response_start := 0
 const BackendError = preload("res://ui/backend_error.gd")
 const ERROR_COLOR := "#ff8a80"
 const CONTACT_COLOR := "#a0a0a0"
+const BEAT_COLOR := "#c9b98f"
 
 
 func _ready() -> void:
@@ -298,6 +299,21 @@ func finish_npc_response() -> void:
 		_remove_waiting()
 	_wait_token += 1  # la línea de espera pendiente ya no corresponde
 	_append(responding_npc, "\n")
+
+
+# Muestra una acción narrada (data/beats.gd) arriba de la línea del NPC que
+# responde. Reemplaza a la línea de espera mientras dura la pausa.
+func show_beat(text: String) -> void:
+	_wait_token += 1
+	_waiting_active = false
+	var transcript: String = transcripts.get(responding_npc, "")
+	var line := "[i][color=%s]%s[/color][/i]\n" % [BEAT_COLOR, text.replace("[", "[lb]")]
+	transcripts[responding_npc] = transcript.substr(0, _response_start) + line + transcript.substr(_response_start)
+	_response_start += line.length()
+	if responding_npc == current_npc:
+		history_label.clear()
+		history_label.append_text(transcripts[responding_npc])
+		_scroll_to_bottom()
 
 
 # Muestra un error del turno como mensaje del sistema, no como habla del NPC.

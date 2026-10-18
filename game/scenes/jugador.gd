@@ -203,6 +203,8 @@ func _on_text_submitted(text: String) -> void:
 		nearby_npc.response_chunk.connect(_on_response_chunk)
 	if not nearby_npc.response_failed.is_connected(_on_response_failed):
 		nearby_npc.response_failed.connect(_on_response_failed)
+	if not nearby_npc.response_beat.is_connected(_on_response_beat):
+		nearby_npc.response_beat.connect(_on_response_beat)
 	if not nearby_npc.response_completed.is_connected(_on_response_completed):
 		nearby_npc.response_completed.connect(_on_response_completed, CONNECT_ONE_SHOT)
 	
@@ -217,11 +219,17 @@ func _on_response_failed(message: String) -> void:
 	dialogue_ui.show_error(message)
 
 
+func _on_response_beat(text: String) -> void:
+	dialogue_ui.show_beat(text)
+
+
 func _on_response_completed() -> void:
 	if nearby_npc != null and nearby_npc.response_chunk.is_connected(_on_response_chunk):
 		nearby_npc.response_chunk.disconnect(_on_response_chunk)
 	if nearby_npc != null and nearby_npc.response_failed.is_connected(_on_response_failed):
 		nearby_npc.response_failed.disconnect(_on_response_failed)
+	if nearby_npc != null and nearby_npc.response_beat.is_connected(_on_response_beat):
+		nearby_npc.response_beat.disconnect(_on_response_beat)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(true)
 

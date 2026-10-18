@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://ihx2aifm8qky" path="res://assets/Characters_psx/Models/Female/Character_27_Female_HM.fbx" id="30_forense"]
 [ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_02.fbx" id="npc_tecnico_heladera_model"]
 [ext_resource type="Texture2D" path="res://assets/ui/retratos/tecnico.png" id="npc_tecnico_heladera_portrait"]
+[ext_resource type="PackedScene" uid="uid://4d70u5y7ot2k" path="res://assets/PSX modular house interior pack/props/plate.glb" id="29_plate"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4c4f"]
 albedo_texture = ExtResource("3_kjuag")
@@ -90,6 +91,22 @@ radius = 1.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
 radius = 1.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plato"]
+size = Vector3(0.29, 0.04, 0.29)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mancha"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.22, 0.17, 0.12, 0.55)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mancha"]
+material = SubResource("StandardMaterial3D_mancha")
+top_radius = 0.065
+bottom_radius = 0.065
+height = 0.002
+radial_segments = 12
+rings = 1
 
 [node name="Node3D" type="Node3D" unique_id=1814186727]
 
@@ -153,6 +170,22 @@ object_name_override = ""
 description_override = ""
 
 [node name="glass" parent="StaticBody3D6" unique_id=471706101 instance=ExtResource("28_glass")]
+
+[node name="Plato" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08, 0.851, -1.66)
+collision_layer = 2
+script = ExtResource("26_inspect")
+inspectable_id = "plato"
+
+[node name="plate" parent="Plato" instance=ExtResource("29_plate")]
+
+[node name="Mancha" type="MeshInstance3D" parent="Plato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.016, -0.008)
+mesh = SubResource("CylinderMesh_mancha")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plato"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+shape = SubResource("BoxShape3D_plato")
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=662443838]
 transform = Transform3D(-0.06343055, 0, -1.1983224, 0, 1.2, 0, 1.1983224, 0, -0.06343055, 2.1976297, 0.66575575, -2.426326)

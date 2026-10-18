@@ -19,6 +19,10 @@ const INSPECTABLES: Dictionary = {
 		"display_name": "Vaso de whisky",
 		"description": "Sí, este es un vaso de whisky, pero el olor claramente indica que tiene algo malo.",
 	},
+	"plato": {
+		"display_name": "Plato",
+		"description": "Un platito al lado del vaso de whisky. No tiene restos de comida, solo una mancha de humedad.",
+	},
 	"archivero_grande": {
 		"display_name": "Archivero grande",
 		"description": "Solo papeles de cosas raras.",
