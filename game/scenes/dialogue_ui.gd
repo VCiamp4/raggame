@@ -69,11 +69,6 @@ const WAIT_LINES := {
 		"(ordena los datos...)",
 		"(busca la palabra precisa...)",
 	],
-	"El técnico de heladeras": [
-		"(se rasca la cabeza...)",
-		"(repasa la reparación...)",
-		"(mastica una respuesta...)",
-	],
 }
 const WAIT_LINES_DEFAULT := [
 	"(lo piensa un momento...)",
@@ -84,6 +79,13 @@ var _wait_token := 0
 var _waiting_active := false
 var _pending_line := ""
 var _last_wait := {}
+# Dónde empieza en el transcript la línea del NPC que se está recibiendo.
+var _response_start := 0
+
+const BackendError = preload("res://ui/backend_error.gd")
+const ERROR_COLOR := "#ff8a80"
+const CONTACT_COLOR := "#a0a0a0"
+const BEAT_COLOR := "#c9b98f"
 
 
 func _ready() -> void:
@@ -313,6 +315,40 @@ func finish_npc_response() -> void:
 			msgs.append({"speaker": current_bubble_name, "text": current_npc_response, "player": false})
 			transcripts[responding_npc] = msgs
 	current_bubble_text = null
+
+
+# Muestra una acción narrada (data/beats.gd) arriba de la línea del NPC que
+# responde. Reemplaza a la línea de espera mientras dura la pausa.
+func show_beat(text: String) -> void:
+	_wait_token += 1
+	_waiting_active = false
+	var transcript: String = transcripts.get(responding_npc, "")
+	var line := "[i][color=%s]%s[/color][/i]\n" % [BEAT_COLOR, text.replace("[", "[lb]")]
+	transcripts[responding_npc] = transcript.substr(0, _response_start) + line + transcript.substr(_response_start)
+	_response_start += line.length()
+	if responding_npc == current_npc:
+		history_label.clear()
+		history_label.append_text(transcripts[responding_npc])
+		_scroll_to_bottom()
+
+
+# Muestra un error del turno como mensaje del sistema, no como habla del NPC.
+# Si el NPC no llegó a decir nada, el error ocupa el lugar de su línea.
+func show_error(message: String) -> void:
+	if _waiting_active:
+		_remove_waiting()
+	var transcript: String = transcripts.get(responding_npc, "")
+	if current_npc_response == "":
+		transcript = transcript.substr(0, _response_start)
+	else:
+		transcript += "\n"
+	transcript += "[color=%s][b]Error:[/b] %s[/color]\n[color=%s][i]%s[/i][/color]" % [
+		ERROR_COLOR, message.replace("[", "[lb]"), CONTACT_COLOR, BackendError.CONTACT]
+	transcripts[responding_npc] = transcript
+	if responding_npc == current_npc:
+		history_label.clear()
+		history_label.append_text(transcript)
+		_scroll_to_bottom()
 
 
 func _waiting_line_for(npc_name: String) -> String:

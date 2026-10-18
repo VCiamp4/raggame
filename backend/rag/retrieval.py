@@ -1,11 +1,12 @@
 import json
 import math
+import re
 from dataclasses import dataclass
 from pathlib import Path
 import numpy as np
 import requests
 from backend.config import settings
-from backend.rag.game_state import is_available, update_fact, is_support
+from backend.rag.game_state import is_available, update_fact, is_support, get_discovered_facts, discovered_chunks
 
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
@@ -102,19 +103,38 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
         return []
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
-    focus = next(
-        (chunk for _, chunk in scored_chunks[:3] if chunk.fact_id is not None),
-        scored_chunks[0][1],
-    )
+    fact_chunks = [(score, chunk) for score, chunk in scored_chunks[:3] if chunk.fact_id is not None]
+    focus_score, focus = fact_chunks[0] if fact_chunks else scored_chunks[0]
+    discovered = get_discovered_facts(session_id)
+    for score, chunk in fact_chunks:
+        if chunk.fact_id not in discovered and score >= focus_score - settings.new_fact_margin:
+            focus = chunk
+            break
     retrieved_chunks = [focus]
     for _, candidate in scored_chunks:
         if len(retrieved_chunks) >= settings.max_chunks:
             break
         if candidate is not focus and is_support(focus, candidate, session_id):
             retrieved_chunks.append(candidate)
-    update_fact(session_id, focus.fact_id)
+    update_fact(session_id, focus.fact_id, focus.chunk_id)
 
     retrieved_texts = []
     for chunk in retrieved_chunks:
         retrieved_texts.append(chunk.retrieval_text)
     return retrieved_texts
+
+
+def keep_said_facts(session_id: str, new_facts: set[str], reply: str) -> set[str]:
+    """
+    Deshace los hechos nuevos que la respuesta del NPC no llegó a decir y
+    devuelve los que quedan descubiertos.
+    """
+    said = set()
+    for fact_id in new_facts:
+        chunk = next(c for c in CHUNKS if c.chunk_id == discovered_chunks[session_id][fact_id])
+        for sentence in re.split(r"(?<=[.!?…])\s+", reply):
+            if sentence and cosine_similarity(get_embedding(sentence), chunk.retrieval_embedding) >= settings.said_similarity:
+                said.add(fact_id)
+                break
+    get_discovered_facts(session_id).difference_update(new_facts - said)
+    return said

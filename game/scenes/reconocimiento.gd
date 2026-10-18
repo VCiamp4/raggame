@@ -1,5 +1,8 @@
 extends Node3D
 
+const Accusations = preload("res://data/accusations.gd")
+const LOCKED_LABEL_COLOR := Color(0.6, 0.6, 0.6)
+
 @onready var camera: Camera3D = $Camera3D  # ajustá el path a tu cámara
 
 var highlighted_suspect: Node = null
@@ -8,11 +11,26 @@ var selected_suspect: Node = null
 # UI de confirmación (la creamos por código)
 var confirm_panel: Panel
 var confirm_label: Label
+var btn_yes: Button
+var btn_no: Button
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_build_confirm_ui()
+	_build_instructions()
+	_show_evidence_counts.call_deferred()  # los sospechosos entran al grupo en su _ready
+
+
+# Debajo del nombre de cada sospechoso: cuántas pruebas hay contra él.
+func _show_evidence_counts() -> void:
+	for suspect in get_tree().get_nodes_in_group("sospechoso"):
+		var id: String = suspect.get_suspect_id()
+		var found := Accusations.found_evidence(id, Global.discovered_facts).size()
+		var label: Label3D = suspect.get_node("Label3D")
+		label.text = "%s\n%d/%d pruebas" % [suspect.get_suspect_name(), min(found, Accusations.EVIDENCE_NEEDED), Accusations.EVIDENCE_NEEDED]
+		if not Accusations.can_accuse(id, Global.discovered_facts):
+			label.modulate = LOCKED_LABEL_COLOR
 
 
 func _process(_delta: float) -> void:
@@ -52,7 +70,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if confirm_panel.visible:
 			_hide_confirm()  # cerrar cartel
 		else:
-			get_tree().change_scene_to_file("res://scenes/Hall.tscn")  # salir
+			Global.leave_lineup()  # salir: vuelve a donde estaba el jugador
 		return
 	
 	if event is InputEventMouseButton:
@@ -64,9 +82,41 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _show_confirm(suspect: Node) -> void:
+	var id: String = suspect.get_suspect_id()
+	if not Accusations.can_accuse(id, Global.discovered_facts):
+		_show_locked(suspect)
+		return
 	selected_suspect = suspect
 	confirm_label.text = "¿Seguro que querés culpar a " + suspect.get_suspect_name() + "?"
+	btn_yes.show()
+	btn_no.text = "No"
+	_place_no_button(false)
 	confirm_panel.show()
+
+
+# Sin pruebas suficientes no se acusa: se explica cuántas faltan y cuáles hay.
+func _show_locked(suspect: Node) -> void:
+	var id: String = suspect.get_suspect_id()
+	var found := Accusations.found_evidence(id, Global.discovered_facts)
+	var text := "Todavía no podés acusar a %s: hacen falta %d pruebas en su contra." % [
+		Accusations.SUSPECTS[id]["name"], Accusations.EVIDENCE_NEEDED]
+	if found.is_empty():
+		text += "\nNo encontraste ninguna."
+	else:
+		text += "\nPor ahora tenés:\n- " + "\n- ".join(found)
+	confirm_label.text = text
+	btn_yes.hide()
+	btn_no.text = "Volver"
+	_place_no_button(true)
+	confirm_panel.show()
+
+
+# Solo, el botón de volver va centrado; junto a "Sí, acusar", a la derecha.
+func _place_no_button(centered: bool) -> void:
+	btn_no.anchor_left = 0.5 if centered else 1.0
+	btn_no.anchor_right = btn_no.anchor_left
+	btn_no.offset_left = -70 if centered else -180
+	btn_no.offset_right = 70 if centered else -40
 
 
 func _hide_confirm() -> void:
@@ -80,6 +130,7 @@ func _on_accept() -> void:
 	# Usamos un autoload/variable global, o lo pasamos por un singleton simple
 	Global.accused_id = id
 	Global.accused_name = selected_suspect.get_suspect_name()
+	Global.lineup_return = {}  # ya no se vuelve: sigue el veredicto
 	get_tree().change_scene_to_file("res://scenes/veredicto.tscn")
 
 
@@ -94,15 +145,18 @@ func _build_confirm_ui() -> void:
 	confirm_panel.anchor_bottom = 0.5
 	confirm_panel.offset_left = -250
 	confirm_panel.offset_right = 250
-	confirm_panel.offset_top = -100
-	confirm_panel.offset_bottom = 100
+	confirm_panel.offset_top = -130
+	confirm_panel.offset_bottom = 130
 	confirm_panel.visible = false
 	canvas.add_child(confirm_panel)
 	
 	confirm_label = Label.new()
 	confirm_label.anchor_left = 0
 	confirm_label.anchor_right = 1
+	confirm_label.anchor_bottom = 1
 	confirm_label.offset_top = 20
+	confirm_label.offset_bottom = -70
+	confirm_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	confirm_label.offset_left = 20
 	confirm_label.offset_right = -20
 	confirm_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -111,7 +165,7 @@ func _build_confirm_ui() -> void:
 	confirm_panel.add_child(confirm_label)
 	
 	# Botón Aceptar
-	var btn_yes = Button.new()
+	btn_yes = Button.new()
 	btn_yes.text = "Sí, acusar"
 	btn_yes.anchor_left = 0
 	btn_yes.anchor_top = 1
@@ -123,7 +177,7 @@ func _build_confirm_ui() -> void:
 	confirm_panel.add_child(btn_yes)
 	
 	# Botón Cancelar
-	var btn_no = Button.new()
+	btn_no = Button.new()
 	btn_no.text = "No"
 	btn_no.anchor_left = 1
 	btn_no.anchor_top = 1
@@ -133,3 +187,24 @@ func _build_confirm_ui() -> void:
 	btn_no.offset_bottom = -20
 	btn_no.pressed.connect(_hide_confirm)
 	confirm_panel.add_child(btn_no)
+
+
+# Se puede llegar desde cualquier escena con el botón "Acusar", así que la rueda
+# explica qué hacer y cómo volver.
+func _build_instructions() -> void:
+	var canvas = CanvasLayer.new()
+	add_child(canvas)
+	var label = Label.new()
+	label.text = "Elegí a quién acusar: hacen falta %d pruebas en su contra.   [Esc] Volver" % Accusations.EVIDENCE_NEEDED
+	label.anchor_left = 0
+	label.anchor_right = 1
+	label.anchor_top = 1
+	label.anchor_bottom = 1
+	label.offset_top = -50
+	label.offset_bottom = -16
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 22)
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.9))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
+	canvas.add_child(label)

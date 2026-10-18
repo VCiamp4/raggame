@@ -35,13 +35,12 @@ Godot project.
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
-- The story corpus has 15 scenes plus one generic file
-  (`99_general.atomic.chunks.json`), 164 atomic chunks and 44 distinct `fact_id`s.
+- The story corpus has 15 scenes, 116 atomic chunks and 39 distinct `fact_id`s.
   The retrieval benchmark has 195 cases; the dialogue benchmark has 6
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
   examine-object UI, 3D dialogue portraits, a streaming HTTP client, a notebook,
-  hints and difficulty selection exist. All seven backend NPCs have dialogue
+  hints and difficulty selection exist. All six backend NPCs have dialogue
   instances in the investigation locations (see §7).
 - The accusation lineup has Pablo, Esteban, Juan and Criada. Each has an ending;
   Pablo is the correct accusation.
@@ -86,8 +85,8 @@ raggame/
 ├── story/
 │   ├── source/                      # original PDF + final markdown
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
-│   ├── chunks/                      # 15 scene files + 99_general (164 chunks)
-│   ├── personajes/                  # 7 one-paragraph persona files
+│   ├── chunks/                      # 14 *.atomic.chunks.json (116 chunks)
+│   ├── personajes/                  # 6 one-paragraph persona files
 │   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
 ├── benchmarks/
@@ -130,17 +129,34 @@ raggame/
    - scores each candidate as `max(cosine(query, retrieval_text), cosine(query, q1), cosine(query, q2))`;
    - keeps scores `>= settings.min_similarity`;
    - picks a "focus" chunk (first of the top 3 with a `fact_id`, else rank 1),
-     then appends support chunks while `is_support()`;
-   - marks the focus `fact_id` as discovered for the session.
-4. The provider stream is forwarded to the client as plain text. On success the
-   turn is appended to in-RAM history. If retrieval discovered a new fact, the
-   response carries it in an `X-New-Fact` header (comma-separated `fact_id`s).
+     but prefers an undiscovered fact in the top 3 that scores within
+     `new_fact_margin` of it; then appends support chunks while `is_support()`;
+   - marks the focus `fact_id` as discovered for the session, provisionally
+     (see step 4).
+4. The provider stream is forwarded to the client as plain text. A new focus
+   fact is announced before the text in an `X-Focus-Fact` header
+   (comma-separated `fact_id`s). When the reply ends, `keep_said_facts()` embeds
+   its sentences and keeps the fact only if one reaches `said_similarity`
+   against the focus chunk; otherwise the fact is undone and can be revealed
+   later. Kept facts follow the text after the byte `\x1f`. On success the turn
+   is appended to in-RAM history.
 5. Providers: `CHAT_PROVIDER=ollama` (default, `POST /api/chat`) or `openai`
    (`POST /v1/chat/completions`, uses `max_completion_tokens` and
    `reasoning_effort="none"`).
 
-`GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`
-for chunks whose facts have been discovered in that backend session.
+### Errors
+
+If a turn fails (no OpenAI credits, invalid key, rate limit, missing model,
+Ollama down, timeout, reply cut off), `/dialogue_stream` still answers 200 and
+sends the byte `\x1e` followed by a short Spanish message for the player, built
+by `main.error_message()`. A failed turn is not saved to history and its new
+facts are discarded. Only an unknown `npc_id` returns an error status (404).
+On the game side, `game/ui/backend_error.gd` (used via `preload`) adds the
+contact line and covers client-side failures (backend offline, connection lost).
+
+`GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`:
+one entry per fact discovered in that backend session, with the text of the
+chunk that first revealed it (`game_state.discovered_chunks`).
 
 `GET /hint/{session_id}?with_npc=<bool>` returns `{"hint": {fact_id, text}}`
 or `{"hint": null}`. It walks `story/hints.json` in order and returns the first
@@ -163,6 +179,8 @@ accepts `--model` for that build.
 | `ollama_url`      | `http://localhost:11434` | env `OLLAMA_URL`                   |
 | `max_chunks`      | `3`                  | retrieved chunks per turn             |
 | `min_similarity`  | `0.43`               | retrieval threshold                   |
+| `new_fact_margin` | `0.05`               | focus prefers a new fact within this  |
+| `said_similarity` | `0.5`                | reply sentence needed to keep a fact  |
 | `max_history`     | `20`                 | recent messages sent to the model     |
 | `num_predict`     | `160`                | max output tokens                     |
 | `temperature`     | `0.8`                |                                       |
@@ -187,8 +205,10 @@ in the provider/model/API key values. `.env` files are gitignored.
   This is a known minor inconsistency.
 - `game_state.update_fact()` assumes `discovered_facts[session_id]` already
   exists (it is created on first `get_discovered_facts` call via retrieval).
-- Retrieval records the focus fact before the chat stream succeeds. A failed
-  generation can therefore leave a fact in the notebook without a completed turn.
+- Retrieval records the focus fact before the chat stream runs; it is undone
+  if the turn fails or the reply does not say it. If the client disconnects
+  mid-stream, the fact stays. Checking the reply costs one embedding request
+  per sentence until one matches, only on turns that propose a new fact.
 - No CORS middleware (irrelevant for Godot's `HTTPClient`, needed for browsers).
 
 ## 5. Story data model
@@ -206,8 +226,8 @@ YAML frontmatter + a `<!-- SOURCE_START --> ... <!-- SOURCE_END -->` body:
 
 ### Chunks (`story/chunks/*.atomic.chunks.json`)
 
-One file per scene plus a generic file (`99_general.atomic.chunks.json`); 164
-chunks total. Each chunk:
+One file per scene plus `99_general` (`GEN-01`) for additions that are not
+tied to one scene; scenes 14 and 15 have no chunks. 116 chunks total. Each chunk:
 
 ```json
 {
@@ -222,16 +242,21 @@ chunks total. Each chunk:
 }
 ```
 
-- `fact_id` is `null` for support chunks; 44 distinct `CL-*` facts exist.
-- 9 of the 15 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
-  50 chunks have fact requirements.
+- `fact_id` is `null` for support chunks; 39 distinct `CL-*` facts exist.
+- 10 of the 14 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
+  32 chunks have fact requirements.
+- Every chunk has at least one NPC in `knowledge_holders`. Resolution-only
+  material (the detective's deductions) is not part of the corpus.
+- Write `retrieval_text` as plain facts (no quotes or narration such as
+  "admitió, a regañadientes"): NPCs tend to repeat it literally, and it is
+  also the notebook text. Write `q1`/`q2` the way the player asks the NPC.
 - Chunks are **hand-authored, committed artifacts**. There is no script that
   regenerates chunks from `story/scenes/`; keep them in sync manually.
 
 ### Personas (`story/personajes/*.md`)
 
-Seven NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
-`pablo`, `portero`, `forense`, `tecnico_heladera`. `dialogue.PERSONAJES_FILES`
+Six NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
+`pablo`, `portero`, `forense`. `dialogue.PERSONAJES_FILES`
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
@@ -251,6 +276,13 @@ Changing chunk gates can change when a hint becomes available.
   (`inspectable.gd` `fact_to_discover` → `POST /discover`), with conditional
   text via `fact_requires` / `description_locked` / `description_unlocked`.
 - Keep inspectable text consistent with the story chunks.
+- `accusations.gd` lists, per suspect, the evidence items needed to accuse
+  them; each item is satisfied by any of its `fact_id`s, and accusing needs
+  `EVIDENCE_NEEDED` (2) distinct items. Renaming or regating these facts in
+  the chunks changes when a suspect can be accused.
+- `beats.gd` maps a `fact_id` to a narrated action (for example the forense
+  analyzing the ice for `CL-ICE-03`). When a reply's `X-Focus-Fact` includes one,
+  the chat shows the action and pauses `BEAT_SECONDS` before the NPC's text.
 
 ### Graph
 
@@ -299,16 +331,19 @@ aid, not used at runtime.
 
 - Engine: **Godot 4.7**, Forward Plus, Jolt Physics. Autoloads:
   - `Global` (`scenes/global.gd`): accusation, launch session ID, difficulty
-    profile and hint usage.
+    profile, hint usage, `open_lineup()` / `leave_lineup()`, the session's
+    `discovered_facts` and the `suspect_unlocked` signal.
   - `InputManager` (`scripts/systems/input_manager.gd`): last input device and
     input glyph helpers.
   - `NotificationManager` (`ui/notification_manager.gd`): message toasts.
 - Input action `interact` = physical key `E` (physical_keycode 69).
-- Scene flow: title -> difficulty selection -> **case briefing** (`Continuar`) ->
-  `mapa_menu` (4 spinning `nodo_mapa` nodes: comisaria, laboratorio, oficina,
-  departamento) -> locations. The departamento map icon opens `Hall.tscn`; its
-  elevators lead to `dpto`. The board in `comisaria.tscn` opens `reconocimiento`
-  -> `veredicto`.
+- Scene flow: title -> difficulty selection -> `mapa_menu` (4 spinning
+  `nodo_mapa` nodes: comisaria, laboratorio, oficina, departamento) -> locations.
+  The departamento map icon opens `Hall.tscn`; its elevators lead to `dpto`.
+  The board in `comisaria.tscn` and the "Acusar" HUD button (any location)
+  open `reconocimiento` -> `veredicto` through `Global.open_lineup()`, which
+  stores the origin scene and the player's transform. Esc in the lineup
+  returns there and the player reappears in the same spot.
 - The map supports mouse selection, arrow-key focus and `ui_accept` to enter a
   location. Location totems return to the map with `E` or `Esc` when nearby.
 - NPC locations and IDs:
@@ -317,41 +352,41 @@ aid, not used at runtime.
   - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
   - Hall: Portero (`portero`), near the building entrance, and Criada
     (`criada`).
-  - Departamento (`dpto`): Forense (`forense`) and Técnico
-    (`tecnico_heladera`), with the technician beside the refrigerator.
+  - Departamento (`dpto`): Forense (`forense`).
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
-  from `127.0.0.1:8000/dialogue_stream`, emits `response_chunk` /
-  `response_completed`, then `Global.fact_discovered` for each `X-New-Fact`.
+  from `127.0.0.1:8000/dialogue_stream`, emits `response_beat(text)` first
+  when the `X-Focus-Fact` has an entry in `data/beats.gd`, then
+  `response_chunk`, then `response_failed(message)` if the turn failed, then
+  `response_completed`, and only on success `Global.fact_discovered` for each
+  fact after the `\x1f` marker. Errors are
+  shown in the chat by `dialogue_ui.show_error()`; hint and notebook errors use
+  `NotificationManager.show_error()` and the notebook page.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
-  inspection, elevators, board and totem interactions, and the "Pistas" button.
-- `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout) as
-  **chat bubbles** (player right, NPC left), appends streamed chunks, disables
-  input while streaming and renders player/NPC models in portrait SubViewports.
-  It shows a per-NPC **waiting line** (`WAIT_LINES`) if the first token is slow
-  (`WAIT_DELAY_MS`), removed on the first chunk; transcripts live on
-  `Global.chat_transcripts` (a list of `{speaker, text, player}` per NPC) so they
-  survive location changes.
+  inspection, elevators, board and totem interactions, and the "Pistas" and
+  "Acusar" buttons.
+- `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
+  appends streamed chunks, disables input while streaming and renders
+  player/NPC models in portrait SubViewports.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
-  discovered fact text into character pages via `_pages_for`. The pages
-  `criada/juan/esteban/pablo` are limited to a fixed `CLUE_PAGES` whitelist; the
-  rest (`caso`, `portero`, `forense`, `tecnico`) group by `fact_id` prefix.
-  It uses backend state exclusively. On `Global.fact_discovered` it shows a toast
-  naming the clue's page, a red unread badge and a pulse on its icon, and opens
-  on the newest clue's page.
-- Portraits in `assets/ui/retratos/*.png` are static 128×128 renders of the NPC
-  models; regenerate one with `game/tools/render_portrait.tscn`
-  (`godot --path game res://tools/render_portrait.tscn -- <model.fbx> <out.png>`).
-- `comisaria.tscn` has invisible "fourth wall" colliders (`cuarta_pared`,
-  `pared_izq_col`) so the player can't fall off the map.
+  discovered fact text into character pages. It uses backend state exclusively.
+  Suspect pages (criada, Juan, Esteban, Pablo) show only the evidence against
+  that suspect from `data/accusations.gd`, whatever its prefix, one per
+  evidence item (the first discovered), plus the extra facts in `CLUE_PAGES`.
+  Evidence also stays on its prefix page (ERP-01 on both Stevens and Pablo).
+  On `Global.fact_discovered` it shows a toast naming the clue's page, a red
+  unread badge and a pulse on its icon, and opens on the newest clue's page.
 - The "Pistas" button in `jugador.gd` requests `/hint/{session_id}`. Difficulty
   sets `hint_limit` (`-1` unlimited, `0` hides the button) and `hint_names_npc`:
   Fácil and Medio are unlimited, only Fácil names the NPC, Difícil has no
   hints. A use is spent only when the hinted fact differs from
   `Global.last_hint_fact_id`; repeating an undiscovered hint is free.
 - `reconocimiento.tscn` has four selectable suspects: Pablo, Esteban, Juan and
-  Criada. `veredicto.gd` displays their endings with a typewriter effect;
+  Criada. Each name tag shows "n/2 pruebas"; a suspect without enough evidence
+  (`data/accusations.gd`) cannot be accused, and clicking them lists the
+  evidence found so far. When a suspect becomes accusable, a toast says so.
+  `veredicto.gd` displays their endings with a typewriter effect;
   `CULPABLE_REAL = "pablo"`.
 
 ### Godot conventions

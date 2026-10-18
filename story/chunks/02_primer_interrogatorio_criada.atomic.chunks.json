@@ -9,7 +9,7 @@
       ],
       "questions": {
         "q1": "¿Desde cuándo trabajaba usted para la señora Stevens?",
-        "q2": "¿Cuánto tiempo llevaba la criada al servicio de Stevens?"
+        "q2": "¿Cuántos años hace que trabajás en esta casa?"
       },
       "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
       "fact_id": null,
@@ -24,7 +24,7 @@
       ],
       "questions": {
         "q1": "¿Qué era Stevens para usted dentro de la casa?",
-        "q2": "¿Qué relación laboral tenía la criada con Stevens?"
+        "q2": "¿Usted era la empleada de la señora Stevens?"
       },
       "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
       "fact_id": null,
@@ -39,7 +39,7 @@
       ],
       "questions": {
         "q1": "¿Cómo solía tratarla la señora Stevens?",
-        "q2": "¿Cómo era el trato habitual de Stevens hacia su empleada?"
+        "q2": "¿La señora Stevens te trataba bien?"
       },
       "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
       "fact_id": "CL-CRI-01",
@@ -53,8 +53,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Por qué se enojaba Stevens con el trabajo de la criada?",
-        "q2": "¿Qué encontraba mal Stevens en las tareas de la criada?"
+        "q1": "¿La señora se enojaba con su trabajo?",
+        "q2": "¿Qué cosas te criticaba la señora?"
       },
       "source_excerpt": "La primera fue la criada. Había trabajado durante años para la señora Stevens y durante el interrogatorio no podía mantener las manos quietas. Retorcía un pañuelo entre los dedos y miraba con frecuencia hacia la puerta, como si esperara que en cualquier momento entraran dos agentes para llevársela presa. Cuando le pregunté por su relación con la muerta, respondió simplemente que era su patrona; sólo después de insistir admitió que la señora Stevens solía tratarla mal.\n\n—Se enojaba por todo —dijo—. Siempre encontraba alguna cosa que yo había hecho mal.",
       "fact_id": null,
@@ -98,8 +98,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Por qué siguió soportando la criada ese maltrato?",
-        "q2": "¿Qué obligaba a la criada a continuar en ese empleo?"
+        "q1": "¿Por qué siguió trabajando para ella si la trataba así?",
+        "q2": "¿Qué te obligaba a seguir en ese empleo?"
       },
       "source_excerpt": "Los vecinos y algunos conocidos confirmaron luego que aquello era quedarse corto. La señora Stevens podía ser despótica y violenta con el servicio. La criada soportaba insultos, gritos y humillaciones porque necesitaba el empleo y porque, pese a su carácter, la señora pagaba muy buenos salarios. Había allí un motivo posible, aunque todavía demasiado general: muchos criados detestan a sus patrones y pocos los envenenan.",
       "fact_id": null,
@@ -173,7 +173,7 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Dónde dejó la criada el vaso después de servirlo?",
+        "q1": "¿Dónde dejó el vaso después de servirlo?",
         "q2": "¿En qué lugar quedó el vaso una vez servido?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
@@ -188,8 +188,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿La criada vio si Stevens llegó a probar el whisky en ese momento?",
-        "q2": "¿La criada supo si Stevens había bebido enseguida?"
+        "q1": "¿Vio si la señora llegó a probar el whisky?",
+        "q2": "¿La señora se lo tomó enseguida?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales. Cuando le pregunté si había servido alguna bebida, se quedó en silencio. Aquella vacilación me interesó más que todo lo anterior.\n\n—Yo no le hice nada —dijo finalmente.\n\n—Todavía no la acusé de nada. ¿Qué le sirvió?\n\n—Un whisky.\n\nLa mujer empezó a llorar. Admitió que había preparado el mismo vaso que después encontramos junto al cadáver, pero juró que no había puesto nada extraño en él. La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión. La criada dejó la bebida sobre la mesa y siguió con sus tareas; no podía asegurar que su patrona la hubiera probado en ese momento.",
       "fact_id": null,
@@ -203,8 +203,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Qué oyó la criada durante la discusión y qué no logró entender?",
-        "q2": "¿Qué parte de la conversación alcanzó a percibir la criada?"
+        "q1": "¿Hubo una discusión en el almuerzo?",
+        "q2": "¿Escuchaste gritos o una pelea ese día?"
       },
       "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
       "fact_id": null,
@@ -213,13 +213,13 @@
     },
     {
       "chunk_id": "SCN-02-AT-16",
-      "retrieval_text": "Poco antes de las siete, Stevens pidió que le hicieran llegar el diario.",
+      "retrieval_text": "Poco antes de las siete de la tarde, Stevens pidió que le hicieran llegar el diario.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
-        "q1": "¿Qué encargo hizo Stevens poco antes de las siete?",
-        "q2": "¿Qué quería recibir Stevens cerca de las siete?"
+        "q1": "¿Qué le pidió la señora antes de que usted se fuera?",
+        "q2": "¿Qué quería la señora cerca de las siete?"
       },
       "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
       "fact_id": null,
@@ -233,8 +233,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Qué le pidió la criada al portero cuando se fue?",
-        "q2": "¿Qué tarea le encargó la criada al portero antes de irse?"
+        "q1": "¿Qué le pidió al portero cuando se fue?",
+        "q2": "¿Le encargaste algo al portero antes de irte?"
       },
       "source_excerpt": "Cuando pregunté por la discusión, volvió a mostrarse insegura. Había escuchado voces y gritos, aunque decía no haber prestado atención suficiente para saber de qué se trataba. Más tarde, poco antes de las siete, la señora Stevens le ordenó que hiciera llegar el diario de la tarde. La criada se marchó y pidió al portero que lo subiera.",
       "fact_id": "CL-CRI-04",
@@ -249,7 +249,7 @@
       ],
       "questions": {
         "q1": "¿Qué hizo usted ese día?",
-        "q2": "¿Qué fue lo último que hizo antes de marcharse?"
+        "q2": "¿Qué bebió la señora antes de que usted se fuera?"
       },
       "source_excerpt": "Le pedí que reconstruyera sus últimas horas en el departamento. Al principio habló de la limpieza, de la cocina y de las tareas habituales.",
       "fact_id": "CL-CRI-06",
@@ -258,7 +258,7 @@
     },
     {
       "chunk_id": "SCN-02-AT-19",
-      "retrieval_text": "La criada le sirvió el whisky con hielo, como de costumbre.",
+      "retrieval_text": "La criada le sirvió el whisky con hielo.",
       "knowledge_holders": [
         "criada"
       ],
@@ -282,6 +282,21 @@
         "q2": "¿Cuándo o por qué tomaba la señora Stevens?"
       },
       "source_excerpt": "La señora Stevens se lo había pedido antes de que ella abandonara la casa, porque estaba nerviosa después de una discusión.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "SCN-02-AT-21",
+      "retrieval_text": "Ese día la criada cocinó el almuerzo de cumpleaños de la señora Stevens, al que vinieron sus tres hermanos: Juan, Esteban y Pablo.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Quiénes almorzaron con la señora Stevens ese día?",
+        "q2": "¿Vinieron los hermanos de la señora al almuerzo?"
+      },
+      "source_excerpt": "Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños.",
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []

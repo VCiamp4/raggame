@@ -5,6 +5,10 @@ const CULPABLE_REAL = "pablo"
 # Velocidad del efecto: segundos por carácter (más bajo = más rápido)
 const TYPE_SPEED = 0.03
 
+const MENU_SCENE = "res://scenes/menu_inicio.tscn"
+const COLOR_TEXTO = Color("c8c4b8")
+const COLOR_HOVER = Color("a8823c")
+
 var finales = {
 	"pablo": "Acusaste a Pablo, el hermano menor. Su coartada en Erpa parecía perfecta, pero el crimen había empezado días antes. Las pruebas encajan: el cianuro en el hielo, los reactivos del laboratorio, la heladera que él reparó y la póliza que le reservaba la mitad del beneficio. Había cambiado un fusible y contaminado el agua del congelador. Después sólo necesitaba esperar a que su hermana pidiera whisky con hielo. La discusión con Esteban adelantó sus planes. Cuando le presentás las pruebas, Pablo conserva la frialdad y vuelve a señalar a Juan. No confiesa. Los agentes se lo llevan igual. Hiciste justicia. Una pequeña mancha de humedad te condujo hasta el hombre que había convertido una costumbre en una trampa mortal.",
 	"esteban": "Acusaste a Esteban, el corredor de seguros. Había gestionado la póliza y salido furioso al descubrir que Pablo recibiría el doble que él. El dinero parecía explicar todo. Pero su estancia en Lister, desde las seis de la tarde hasta las nueve de la mañana siguiente, estaba comprobada, y no aparece ninguna prueba que lo vincule con el veneno. Esteban sale en libertad, todavía indignado. Su discusión había llevado a Stevens a pedir el whisky antes de lo habitual; vos confundiste ese último empujón con la preparación del crimen. El verdadero asesino sigue libre. El caso queda sin resolver y la póliza permanece sobre tu escritorio, como el recuerdo de una sospecha que nunca supiste convertir en prueba.",
@@ -13,6 +17,7 @@ var finales = {
 }
 
 var label: Label
+var restart_button: Button
 var full_text: String = ""
 var char_index: int = 0
 var type_timer: float = 0.0
@@ -45,6 +50,25 @@ func _ready() -> void:
 	label.offset_bottom = -100
 	canvas.add_child(label)
 	
+	# Volver a empezar: aparece cuando termina de escribirse el final
+	restart_button = Button.new()
+	restart_button.text = "VOLVER A EMPEZAR"
+	restart_button.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	restart_button.offset_left = -160
+	restart_button.offset_right = 160
+	restart_button.offset_top = -90
+	restart_button.offset_bottom = -40
+	restart_button.add_theme_font_size_override("font_size", 26)
+	restart_button.add_theme_color_override("font_color", COLOR_TEXTO)
+	restart_button.add_theme_color_override("font_hover_color", COLOR_HOVER)
+	restart_button.add_theme_color_override("font_focus_color", COLOR_HOVER)
+	var estilo = StyleBoxEmpty.new()
+	for state in ["normal", "hover", "pressed", "focus"]:
+		restart_button.add_theme_stylebox_override(state, estilo)
+	restart_button.visible = false
+	restart_button.pressed.connect(_on_restart_pressed)
+	canvas.add_child(restart_button)
+	
 	# Armar el texto completo según la acusación
 	var id = Global.accused_id
 	if finales.has(id):
@@ -73,7 +97,7 @@ func _process(delta: float) -> void:
 		char_index += 1
 		label.text = full_text.substr(0, char_index)
 		if char_index >= full_text.length():
-			typing = false
+			_finish_typing()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -82,4 +106,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_pressed():
 			label.text = full_text
 			char_index = full_text.length()
-			typing = false
+			_finish_typing()
+			get_viewport().set_input_as_handled()
+
+
+func _finish_typing() -> void:
+	typing = false
+	restart_button.visible = true
+	restart_button.grab_focus()
+
+
+func _on_restart_pressed() -> void:
+	Global.new_game()
+	get_tree().change_scene_to_file(MENU_SCENE)

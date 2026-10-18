@@ -13,8 +13,9 @@ const InspectionUI = preload("res://scenes/inspection_ui.gd")
 
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 const HINT_URL = "http://127.0.0.1:8000/hint/"
+const BackendError = preload("res://ui/backend_error.gd")
+const Accusations = preload("res://data/accusations.gd")
 const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
-const HINT_ERROR := "No se pudo pedir una pista: el servidor no responde."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
 @onready var model: Node3D = $Walking
@@ -55,6 +56,7 @@ func _ready() -> void:
 	spawn_position = global_position
 	camera.top_level = true
 	model_base_yaw = model.rotation.y
+	_restore_lineup_return()
 	# Los NPC pueden declararse después del jugador en la escena, por lo que
 	# sus _ready (y su entrada al grupo "npc") pueden correr más tarde.
 	_connect_npcs.call_deferred()
@@ -65,9 +67,21 @@ func _ready() -> void:
 	inspection_ui.inspection_closed.connect(_on_inspection_closed)
 	_configure_hint_rules()
 	_create_hint_button()
+	_create_accuse_button()
 	# Diferido: los grupos se pueblan en el _ready de cada objeto, que puede
 	# correr después que el del jugador (p. ej. el pizarron en comisaria.tscn).
 	_debug_list_clickables.call_deferred()
+
+
+# Si el jugador salió de la rueda de reconocimiento sin acusar, reaparece
+# donde estaba al abrirla.
+func _restore_lineup_return() -> void:
+	var back: Dictionary = Global.lineup_return
+	if back.get("scene", "") != owner.scene_file_path:
+		return
+	global_transform = back["transform"]
+	model.rotation.y = back["model_yaw"]
+	Global.lineup_return = {}
 
 
 func _physics_process(delta: float) -> void:
@@ -187,6 +201,10 @@ func _on_text_submitted(text: String) -> void:
 	# Conectar señales de streaming
 	if not nearby_npc.response_chunk.is_connected(_on_response_chunk):
 		nearby_npc.response_chunk.connect(_on_response_chunk)
+	if not nearby_npc.response_failed.is_connected(_on_response_failed):
+		nearby_npc.response_failed.connect(_on_response_failed)
+	if not nearby_npc.response_beat.is_connected(_on_response_beat):
+		nearby_npc.response_beat.connect(_on_response_beat)
 	if not nearby_npc.response_completed.is_connected(_on_response_completed):
 		nearby_npc.response_completed.connect(_on_response_completed, CONNECT_ONE_SHOT)
 	
@@ -197,9 +215,21 @@ func _on_response_chunk(text: String) -> void:
 	dialogue_ui.append_npc_chunk(text)
 
 
+func _on_response_failed(message: String) -> void:
+	dialogue_ui.show_error(message)
+
+
+func _on_response_beat(text: String) -> void:
+	dialogue_ui.show_beat(text)
+
+
 func _on_response_completed() -> void:
 	if nearby_npc != null and nearby_npc.response_chunk.is_connected(_on_response_chunk):
 		nearby_npc.response_chunk.disconnect(_on_response_chunk)
+	if nearby_npc != null and nearby_npc.response_failed.is_connected(_on_response_failed):
+		nearby_npc.response_failed.disconnect(_on_response_failed)
+	if nearby_npc != null and nearby_npc.response_beat.is_connected(_on_response_beat):
+		nearby_npc.response_beat.disconnect(_on_response_beat)
 	dialogue_ui.finish_npc_response()
 	dialogue_ui.set_input_enabled(true)
 
@@ -486,6 +516,38 @@ func _create_hint_button() -> void:
 	_refresh_hint_button_state()
 
 
+# Botón fijo debajo de "Pistas" que abre la rueda de reconocimiento. Está
+# siempre; en la rueda se ve a quién se puede acusar todavía.
+func _create_accuse_button() -> void:
+	if hint_layer == null:
+		hint_layer = CanvasLayer.new()
+		hint_layer.layer = 90
+		add_child(hint_layer)
+	var button := Button.new()
+	Global.suspect_unlocked.connect(_on_suspect_unlocked)
+	button.text = "Acusar"
+	button.anchor_left = 1
+	button.anchor_right = 1
+	button.anchor_top = 0.15
+	button.anchor_bottom = 0.15
+	button.offset_left = -180
+	button.offset_right = -40
+	# Si no hay botón de pistas (Difícil), ocupa su lugar.
+	button.offset_top = 40 if hint_button != null else -30
+	button.offset_bottom = 100 if hint_button != null else 30
+	button.focus_mode = Control.FOCUS_NONE
+	button.tooltip_text = "Ir a la rueda de reconocimiento para acusar a un sospechoso"
+	button.add_theme_color_override("font_color", Color("e8a09a"))
+	button.add_theme_color_override("font_hover_color", Color("ffc9c4"))
+	button.pressed.connect(func(): Global.open_lineup(self))
+	hint_layer.add_child(button)
+
+
+func _on_suspect_unlocked(suspect_id: String) -> void:
+	var suspect_name: String = Accusations.SUSPECTS[suspect_id]["name"]
+	NotificationManager.show_message("Ya podés acusar a %s: tocá «Acusar»." % suspect_name)
+
+
 func _on_hint_button_pressed() -> void:
 	if not _hint_action_allowed():
 		return
@@ -493,7 +555,7 @@ func _on_hint_button_pressed() -> void:
 	if hint_names_npc:
 		url += "?with_npc=true"
 	if hint_http.request(url) != OK:
-		NotificationManager.show_message(HINT_ERROR)
+		NotificationManager.show_error("No se pudo pedir una pista. " + BackendError.OFFLINE)
 		return
 	hint_request_pending = true
 	_refresh_hint_button_state()
@@ -506,7 +568,8 @@ func _on_hint_received(result: int, code: int, _headers: PackedStringArray, body
 	hint_request_pending = false
 	_refresh_hint_button_state()
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
-		NotificationManager.show_message(HINT_ERROR)
+		var message := BackendError.from_request(result, code, body)
+		NotificationManager.show_error("No se pudo pedir una pista. " + message)
 		return
 	var hint = JSON.parse_string(body.get_string_from_utf8())["hint"]
 	if hint == null:

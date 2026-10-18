@@ -1,11 +1,6 @@
 {
   "hints": [
     {
-      "fact_id": "CL-FOR-01",
-      "text": "Antes de buscar culpables, confirmá cuál fue la causa de la muerte.",
-      "text_with_npc": "Preguntale a la forense cuál fue la causa de la muerte."
-    },
-    {
       "fact_id": "CL-FOR-02",
       "text": "Si fue una intoxicación, el veneno estaba en algo que tomó. ¿Qué dieron los análisis de las bebidas de la casa?",
       "text_with_npc": "Preguntale a la forense qué resultados dieron el whisky, los licores y el agua."
@@ -16,34 +11,14 @@
       "text_with_npc": "Preguntale a la forense qué encontró en el hielo."
     },
     {
-      "fact_id": "CL-CRI-05",
-      "text": "El veneno estaba en el hielo. ¿Quién sabría cómo tomaba el whisky la señora Stevens?",
-      "text_with_npc": "Preguntale a la criada cómo tomaba el whisky la señora Stevens."
-    },
-    {
-      "fact_id": "CL-FRI-01",
-      "text": "Si el hielo estaba envenenado, algo pasó en la heladera. ¿Anduvo bien los últimos días?",
-      "text_with_npc": "Preguntale a la criada si la heladera tuvo algún problema unos días antes."
-    },
-    {
       "fact_id": "CL-FRI-02",
-      "text": "La heladera se había roto. Averiguá quién la arregló.",
-      "text_with_npc": "Preguntale a la criada quién reparó la heladera."
-    },
-    {
-      "fact_id": "CL-TEC-02",
-      "text": "Alguien que entienda de heladeras podría decirte si esa reparación exigía tocar el congelador.",
-      "text_with_npc": "Preguntale al técnico si para cambiar el fusible hacía falta tocar el congelador."
-    },
-    {
-      "fact_id": "CL-PAB-03",
-      "text": "El cianuro no se consigue en cualquier lado. ¿Alguno de los hermanos trabaja con químicos?",
-      "text_with_npc": "Preguntale a Pablo en qué sección de Erpa trabaja."
+      "text": "El hielo envenenado salió del congelador. ¿Alguien tocó la heladera en los últimos días?",
+      "text_with_npc": "Preguntale a la criada si alguien arregló la heladera hace poco."
     },
     {
       "fact_id": "CL-ERP-01",
-      "text": "Pablo trabaja con químicos en Erpa. ¿Alguien revisó qué reactivos guardan ahí?",
-      "text_with_npc": "Preguntale a la forense qué encontraron en la inspección de los reactivos de Erpa."
+      "text": "En la bebida había cianuro de potasio. ¿Quién podría haber tenido acceso a ese veneno?",
+      "text_with_npc": "Preguntale a Pablo si en Erpa hay cianuro de potasio."
     },
     {
       "fact_id": "CL-POL-01",

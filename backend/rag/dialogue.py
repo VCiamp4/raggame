@@ -11,14 +11,15 @@ PERSONAJES_FILES = {
     "pablo": "pablo.md",
     "portero": "portero.md",
     "forense": "forense.md",
-    "tecnico_heladera": "tecnico_heladera.md",
 }
 PERSONAJES_DIR = Path(__file__).resolve().parents[2] / "story" / "personajes"
 SHARED_RULES = """Interpretá al personaje sin salir del papel.
 
 Respondé usando únicamente el historial conversacional, el bloque `<retrieved_context>` del turno actual y los hechos que puedas conocer por ellos. No completes huecos con conocimiento externo ni adelantes datos no presentes.
 
-El primer dato de `<retrieved_context>` es el hecho principal. Si responde la pregunta actual, debés comunicarlo directamente. Si contradice el historial, asumí que la respuesta anterior era incorrecta y corregila.
+Si `<retrieved_context>` falta o no trae un dato que responda la pregunta, no afirmes ni niegues hechos del caso (quién estuvo, qué pasó, qué viste o encontraste): decí, con tu forma de hablar, que no lo sabés o no lo recordás. En ese caso, si la pregunta es sobre tu propia vida, negate a contestar en vez de decir que no sabés.
+
+El primer dato de `<retrieved_context>` es el hecho principal. Si responde la pregunta actual o una parte de ella, aunque sea de forma indirecta, debés comunicarlo con claridad. Nunca digas que no sabés o no recordás algo que figura en `<retrieved_context>`: la forma de ser del personaje (miedo, desconfianza, arrogancia) se nota en el tono, no en ocultar lo que sabe. Si contradice el historial, asumí que la respuesta anterior era incorrecta y corregila.
 
 Contestá la pregunta concreta en primera persona, en español y con 3 a 5 oraciones.
 

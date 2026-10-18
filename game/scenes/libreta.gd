@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const NOTEBOOK_URL = "http://127.0.0.1:8000/notebook/"
+const BackendError = preload("res://ui/backend_error.gd")
 const TYPEWRITER = preload("res://assets/ui/fonts/SpecialElite.ttf")
 # La letra manuscrita (Zeyada) era difícil de leer; las pistas usan la misma
 # tipografía de máquina de escribir que el resto de la ficha.
@@ -21,27 +22,21 @@ const PAGES = [
 	{"id": "esteban", "name": "Esteban", "role": "Hermano de la víctima", "prefixes": ["EST"]},
 	{"id": "pablo", "name": "Pablo", "role": "Hermano menor", "prefixes": ["PAB"]},
 	{"id": "forense", "name": "La forense", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
-	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
-# Hojas que sólo muestran una lista fija de pistas; el resto usa el prefijo.
+# Hojas de sospechosos: sólo muestran las pruebas en su contra de
+# data/accusations.gd (una por prueba, la primera que se descubrió), tengan el
+# prefijo que tengan, y las pistas de CLUE_PAGES.
 const LIMITED_PAGES := ["criada", "juan", "esteban", "pablo"]
+const Accusations = preload("res://data/accusations.gd")
 
-# Pistas de esas hojas (fact_id -> hojas donde aparece). Lo que no esté acá no
-# se muestra en criada/juan/esteban/pablo.
+# Pistas que van a una hoja distinta de la de su prefijo, o que se muestran en
+# una hoja de sospechoso sin ser prueba (fact_id -> hojas donde aparece).
 const CLUE_PAGES := {
-	"CL-CRI-01": ["criada"],
-	"CL-CRI-02": ["criada"],
-	"CL-CRI-06": ["criada"],
-	"CL-JUA-02": ["juan"],
-	"CL-JUA-04": ["juan"],
-	"CL-EST-03": ["esteban"],
-	"CL-EST-06": ["esteban"],
+	"CL-FRI-02": ["caso", "pablo"],
 	"CL-POL-04": ["esteban"],
-	"CL-PAB-04": ["pablo"],
 	"CL-PAB-07": ["pablo"],
 	"CL-PAB-08": ["pablo"],
-	"CL-PAB-09": ["pablo"],
 }
 
 var icon: TextureButton
@@ -274,7 +269,10 @@ func _toggle() -> void:
 # Aviso de pista nueva: mensaje con la hoja donde se anotó, contador y un
 # latido del ícono. Con la libreta abierta, se recarga directamente.
 func _on_fact_discovered(fact_id: String) -> void:
-	var target_pages := _pages_for(fact_id)
+	var target_pages: Array = []
+	for p in _pages_for(fact_id):
+		if not _item_already_shown(p["id"], fact_id):
+			target_pages.append(p)
 	if target_pages.is_empty():
 		return
 	var page: Dictionary = target_pages[0]
@@ -291,20 +289,60 @@ func _on_fact_discovered(fact_id: String) -> void:
 	tween.tween_property(icon, "scale", Vector2.ONE, 0.25)
 
 
-# Hojas donde va una pista. Si el fact_id está en CLUE_PAGES, sólo esas hojas.
-# Si no, se usa el prefijo, salvo en las hojas limitadas (ahí no se muestra).
+# Hojas donde va una pista. Si el fact_id está en CLUE_PAGES, esas hojas; si
+# no, la de su prefijo (en las hojas limitadas, sólo si es prueba). Además, una
+# prueba contra un sospechoso va siempre a la hoja de ese sospechoso.
 func _pages_for(fact_id: String) -> Array:
+	var ids: Array = []
 	if CLUE_PAGES.has(fact_id):
-		var result: Array = []
-		for id in CLUE_PAGES[fact_id]:
-			for page in PAGES:
-				if page["id"] == id:
-					result.append(page)
-		return result
-	var page := _page_for_prefix(fact_id)
-	if page["id"] in LIMITED_PAGES:
-		return []
-	return [page]
+		ids.append_array(CLUE_PAGES[fact_id])
+	else:
+		var prefix_id: String = _page_for_prefix(fact_id)["id"]
+		if prefix_id not in LIMITED_PAGES or _evidence_item(prefix_id, fact_id) >= 0:
+			ids.append(prefix_id)
+	for suspect_id in Accusations.SUSPECTS:
+		if suspect_id not in ids and _evidence_item(suspect_id, fact_id) >= 0:
+			ids.append(suspect_id)
+	var result: Array = []
+	for id in ids:
+		for page in PAGES:
+			if page["id"] == id:
+				result.append(page)
+	return result
+
+
+func _on_page(page_id: String, fact_id: String) -> bool:
+	for page in _pages_for(fact_id):
+		if page["id"] == page_id:
+			return true
+	return false
+
+
+# Índice de la prueba contra ese sospechoso que cumple el hecho, o -1.
+func _evidence_item(suspect_id: String, fact_id: String) -> int:
+	if not Accusations.SUSPECTS.has(suspect_id):
+		return -1
+	var items: Array = Accusations.SUSPECTS[suspect_id]["evidence"]
+	for i in items.size():
+		if fact_id in items[i]["facts"]:
+			return i
+	return -1
+
+
+# Si otro hecho de la misma prueba ya está anotado en esa hoja.
+func _item_already_shown(page_id: String, fact_id: String) -> bool:
+	var item := _evidence_item(page_id, fact_id)
+	if item < 0:
+		return false
+	for other in Accusations.SUSPECTS[page_id]["evidence"][item]["facts"]:
+		if other != fact_id and Global.discovered_facts.has(other) and _on_page(page_id, other):
+			return true
+	return false
+
+
+func _discovery_index(order: Array, fact_id: String) -> int:
+	var index := order.find(fact_id)
+	return index if index >= 0 else order.size()
 
 
 func _page_for_prefix(fact_id: String) -> Dictionary:
@@ -317,18 +355,29 @@ func _page_for_prefix(fact_id: String) -> Dictionary:
 
 func _on_clues_received(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or code != 200:
-		_show_message("No se pudo abrir el expediente: el servidor no responde.")
+		var message := BackendError.from_request(result, code, body)
+		_show_message(BackendError.with_contact("No se pudo abrir el expediente. " + message))
 		return
 	var clues: Array = JSON.parse_string(body.get_string_from_utf8())["clues"]
 	pages = []
 	var start := 0
+	var order: Array = Global.discovered_facts.keys()
 	for page in PAGES:
-		var texts := PackedStringArray()
+		var page_clues: Array = []
 		for clue in clues:
-			for p in _pages_for(clue["fact_id"]):
-				if p["id"] == page["id"]:
-					texts.append("- " + clue["text"])
-					break
+			if _on_page(page["id"], clue["fact_id"]):
+				page_clues.append(clue)
+		# Una sola pista por prueba: la que se descubrió primero.
+		var chosen := {}
+		for clue in page_clues:
+			var item := _evidence_item(page["id"], clue["fact_id"])
+			if item >= 0 and (not chosen.has(item) or _discovery_index(order, clue["fact_id"]) < _discovery_index(order, chosen[item])):
+				chosen[item] = clue["fact_id"]
+		var texts := PackedStringArray()
+		for clue in page_clues:
+			var item := _evidence_item(page["id"], clue["fact_id"])
+			if item < 0 or chosen[item] == clue["fact_id"]:
+				texts.append("- " + clue["text"])
 		if not texts.is_empty():
 			if page["id"] == newest_page_id:
 				start = pages.size()

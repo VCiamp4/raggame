@@ -22,9 +22,7 @@
       "chunk_id": "GEN-01-AT-02",
       "retrieval_text": "Durante el almuerzo hubo una discusión entre los hermanos y la señora Stevens.",
       "knowledge_holders": [
-        "juan",
-        "esteban",
-        "pablo"
+        "esteban"
       ],
       "questions": {
         "q1": "¿Hubo una discusión o pelea durante el almuerzo?",
@@ -77,14 +75,16 @@
       ],
       "questions": {
         "q1": "¿Se beneficia económicamente de la muerte de su hermana?",
-        "q2": "¿Qué gana Esteban con la muerte de Stevens?"
+        "q2": "¿Qué ganás vos con la muerte de tu hermana?"
       },
       "source_excerpt": "Los tres hermanos figuraban como beneficiarios de la póliza.",
       "fact_id": "CL-EST-06",
-      "necessary_facts": [
-        "CL-POL-01"
-      ],
-      "sufficient_facts": []
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-01",
+        "CL-POL-04",
+        "CL-EST-02"
+      ]
     },
     {
       "chunk_id": "GEN-01-AT-06",
@@ -94,13 +94,45 @@
       ],
       "questions": {
         "q1": "¿Se beneficia económicamente de la muerte de su hermana?",
-        "q2": "¿Qué gana Pablo con la muerte de Stevens?"
+        "q2": "¿La póliza nueva te dejaba más plata que a tus hermanos?"
       },
       "source_excerpt": "Los tres hermanos figuraban como beneficiarios de la póliza.",
       "fact_id": "CL-PAB-09",
-      "necessary_facts": [
-        "CL-POL-01"
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-01",
+        "CL-POL-04",
+        "CL-EST-02"
+      ]
+    },
+    {
+      "chunk_id": "GEN-01-AT-07",
+      "retrieval_text": "Ese día los tres hermanos de la señora Stevens vinieron a almorzar con ella y se fueron durante la tarde.",
+      "knowledge_holders": [
+        "portero"
       ],
+      "questions": {
+        "q1": "¿A qué hora llegaron y se fueron los hermanos ese día?",
+        "q2": "¿Quién vino a visitar a la señora Stevens ese día?"
+      },
+      "source_excerpt": "Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños.",
+      "fact_id": null,
+      "necessary_facts": [],
+      "sufficient_facts": []
+    },
+    {
+      "chunk_id": "GEN-01-AT-08",
+      "retrieval_text": "Unos días antes del crimen, Pablo vino al edificio a arreglar la heladera de su hermana.",
+      "knowledge_holders": [
+        "portero"
+      ],
+      "questions": {
+        "q1": "¿Vino alguien a arreglar la heladera de la señora?",
+        "q2": "¿Viste a Pablo por el edificio en los días anteriores?"
+      },
+      "source_excerpt": "Aprovechando la avería de la heladera, se había ofrecido a repararla.",
+      "fact_id": "CL-FRI-02",
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
