@@ -51,7 +51,6 @@
       "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado.",
       "fact_id": "CL-ERP-01",
       "necessary_facts": [
-        "CL-PAB-03",
         "CL-ICE-03"
       ],
       "sufficient_facts": []

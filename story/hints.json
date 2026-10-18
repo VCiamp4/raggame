@@ -21,11 +21,6 @@
       "text_with_npc": "Preguntale al técnico si para cambiar el fusible hacía falta tocar el congelador."
     },
     {
-      "fact_id": "CL-PAB-03",
-      "text": "El cianuro no se consigue en cualquier lado. ¿Alguno de los hermanos trabaja con químicos?",
-      "text_with_npc": "Preguntale a Pablo en qué sección de Erpa trabaja."
-    },
-    {
       "fact_id": "CL-ERP-01",
       "text": "En la bebida había cianuro de potasio. ¿Quién podría haber tenido acceso a ese veneno?",
       "text_with_npc": "Preguntale a Pablo si en Erpa hay cianuro de potasio."
