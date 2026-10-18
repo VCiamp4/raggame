@@ -71,26 +71,6 @@
       ]
     },
     {
-      "chunk_id": "SCN-11-AT-05",
-      "retrieval_text": "Saber que el veneno estaba en el hielo incomoda a Pablo, aunque intenta disimularlo.",
-      "knowledge_holders": [
-        "pablo"
-      ],
-      "questions": {
-        "q1": "¿Sabía que el veneno estaba en el hielo?",
-        "q2": "El cianuro estaba en el hielo, ¿qué tenés para decir?"
-      },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-03"
-      ],
-      "sufficient_facts": [
-        "CL-FRI-02",
-        "CL-PAB-07"
-      ]
-    },
-    {
       "chunk_id": "SCN-11-AT-06",
       "retrieval_text": "Pablo insiste en que solo cambió un fusible.",
       "knowledge_holders": [
@@ -99,26 +79,6 @@
       "questions": {
         "q1": "¿Qué hizo exactamente cuando arregló la heladera?",
         "q2": "¿Solo cambiaste el fusible?"
-      },
-      "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-03"
-      ],
-      "sufficient_facts": [
-        "CL-FRI-02",
-        "CL-PAB-07"
-      ]
-    },
-    {
-      "chunk_id": "SCN-11-AT-07",
-      "retrieval_text": "Pablo sostiene que no puso cianuro en ningún lado.",
-      "knowledge_holders": [
-        "pablo"
-      ],
-      "questions": {
-        "q1": "¿Usted puso el cianuro en el hielo?",
-        "q2": "¿Envenenaste a tu hermana?"
       },
       "source_excerpt": "Le informamos entonces que el veneno había aparecido precisamente en el hielo. Por primera vez hizo una pausa antes de responder, aunque recuperó enseguida su tono habitual.\n\n—Entonces investiguen a quien tuviera acceso a la cocina.\n\n—Usted lo tuvo.\n\n—Para cambiar un fusible.\n\n—¿Niega haber puesto algo en el agua?\n\n—Naturalmente.\n\n—¿Cianuro?\n\n—No sé qué esperan que diga.",
       "fact_id": null,

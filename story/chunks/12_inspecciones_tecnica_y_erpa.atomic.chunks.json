@@ -3,14 +3,14 @@
   "chunks": [
     {
       "chunk_id": "SCN-12-AT-04",
-      "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
+      "retrieval_text": "En Erpa hay cianuro de potasio entre los reactivos de uso controlado.",
       "knowledge_holders": [
         "forense",
         "pablo"
       ],
       "questions": {
-        "q1": "¿En Erpa hay cianuro de potasio?",
-        "q2": "¿Qué encontró la inspección en el laboratorio de Erpa?"
+        "q1": "¿Tenés acceso a cianuro en tu trabajo?",
+        "q2": "¿En Erpa hay cianuro de potasio?"
       },
       "source_excerpt": "Después solicitamos una inspección en Erpa Cía. y comprobamos que entre los reactivos allí presentes se encontraba cianuro, una sustancia de uso controlado.",
       "fact_id": "CL-ERP-01",
