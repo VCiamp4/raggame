@@ -51,23 +51,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "GEN-01-AT-04",
-      "retrieval_text": "Juan, Esteban y Pablo son hermanos; la señora Stevens era su hermana.",
-      "knowledge_holders": [
-        "juan",
-        "esteban",
-        "pablo"
-      ],
-      "questions": {
-        "q1": "¿Pablo es su hermano?",
-        "q2": "¿Quiénes son sus hermanos?"
-      },
-      "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "GEN-01-AT-05",
       "retrieval_text": "Esteban se beneficiaría económicamente con la muerte de Stevens: esperaba cobrar la póliza de vida.",
       "knowledge_holders": [

@@ -93,46 +93,16 @@
     },
     {
       "chunk_id": "SCN-04-AT-07",
-      "retrieval_text": "Juan despreciaba a su hermana porque creía que ella había provocado que la policía descubriera sus negocios con drogas.",
+      "retrieval_text": "Juan despreciaba a su hermana porque está convencido, sin pruebas, de que ella hizo que la policía descubriera sus negocios con drogas.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
-        "q1": "¿Por qué odia a su hermana?",
-        "q2": "¿Cómo te llevabas con ella?"
+        "q1": "¿Cómo te llevabas con tu hermana? ¿Por qué la odiabas?",
+        "q2": "¿Estás seguro de que fue ella la que te delató?"
       },
       "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
       "fact_id": "CL-JUA-02",
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-04-AT-08",
-      "retrieval_text": "Juan no tenía pruebas de que Stevens lo hubiera denunciado.",
-      "knowledge_holders": [
-        "juan"
-      ],
-      "questions": {
-        "q1": "¿Tiene pruebas de que su hermana lo denunció?",
-        "q2": "¿Cómo sabés que fue ella la que te delató?"
-      },
-      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-04-AT-09",
-      "retrieval_text": "Juan está obsesivamente seguro de que su hermana lo delató.",
-      "knowledge_holders": [
-        "juan"
-      ],
-      "questions": {
-        "q1": "¿Está seguro de que fue su hermana?",
-        "q2": "¿Tanto rencor le tenés a tu hermana?"
-      },
-      "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
-      "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -207,7 +177,7 @@
         "juan"
       ],
       "questions": {
-        "q1": "¿Qué se discutió en el almuerzo sobre el seguro o la herencia?",
+        "q1": "¿Por qué Esteban salió furioso del almuerzo?",
         "q2": "¿Qué pasó en el almuerzo con tu hermana?"
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
