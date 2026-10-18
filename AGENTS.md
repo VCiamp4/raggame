@@ -35,7 +35,8 @@ Godot project.
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
-- The story corpus has 15 scenes, 151 atomic chunks and 40 distinct `fact_id`s.
+- The story corpus has 15 scenes plus one generic file
+  (`99_general.atomic.chunks.json`), 164 atomic chunks and 44 distinct `fact_id`s.
   The retrieval benchmark has 195 cases; the dialogue benchmark has 6
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
@@ -46,8 +47,15 @@ Godot project.
   Pablo is the correct accusation.
 - Backend-discovered `CL-*` facts are the only clue state; the notebook and
   the "Pistas" button read them. Examined objects do not register facts.
+- After the case briefing the game starts at the **map** (`mapa_menu.tscn`),
+  where the player picks a location to investigate.
+- The notebook (Libreta) shows only a fixed clue list for criada/juan/esteban/
+  pablo (`CLUE_PAGES` in `libreta.gd`); the other pages keep the prefix grouping.
+- Dialogue shows a per-NPC waiting line while the model starts answering
+  (delayed, so fast replies don't flash it), and the chat transcript persists
+  across locations (stored on `Global.chat_transcripts`).
 - No automated tests or CI. A self-contained distribution build exists
-  (`packaging/`, `DISTRIBUTION.md`).
+  (`packaging/`, `DISTRIBUTION.md`); see `RUNNING.md` for local runs.
 
 ## 3. Repository layout
 
@@ -63,6 +71,7 @@ raggame/
 │   ├── raggame.sh / raggame.bat     # installer/launcher (Linux / Windows)
 │   └── requirements-build.txt
 ├── DISTRIBUTION.md                  # how to build/ship the game
+├── RUNNING.md + run_backend.sh      # local backend+Ollama launcher (dev)
 ├── backend/
 │   ├── main.py                      # /, /dialogue_stream, /notebook, /hint
 │   ├── config.py                    # Settings dataclass, env-configurable
@@ -77,7 +86,7 @@ raggame/
 ├── story/
 │   ├── source/                      # original PDF + final markdown
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
-│   ├── chunks/                      # 15 *.atomic.chunks.json (151 chunks)
+│   ├── chunks/                      # 15 scene files + 99_general (164 chunks)
 │   ├── personajes/                  # 7 one-paragraph persona files
 │   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
@@ -101,6 +110,7 @@ raggame/
     ├── data/                        # inspectable catalog
     ├── scripts/systems/             # InputManager
     ├── ui/                          # NotificationManager
+    ├── tools/render_portrait.*      # dev tool: render an FBX to a portrait PNG
     └── scenes/                      # gameplay scenes/scripts, including libreta.gd
 ```
 
@@ -196,7 +206,8 @@ YAML frontmatter + a `<!-- SOURCE_START --> ... <!-- SOURCE_END -->` body:
 
 ### Chunks (`story/chunks/*.atomic.chunks.json`)
 
-One file per scene; 151 chunks total. Each chunk:
+One file per scene plus a generic file (`99_general.atomic.chunks.json`); 164
+chunks total. Each chunk:
 
 ```json
 {
@@ -211,7 +222,7 @@ One file per scene; 151 chunks total. Each chunk:
 }
 ```
 
-- `fact_id` is `null` for support chunks; 40 distinct `CL-*` facts exist.
+- `fact_id` is `null` for support chunks; 44 distinct `CL-*` facts exist.
 - 9 of the 15 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
   50 chunks have fact requirements.
 - Chunks are **hand-authored, committed artifacts**. There is no script that
@@ -291,10 +302,11 @@ aid, not used at runtime.
     input glyph helpers.
   - `NotificationManager` (`ui/notification_manager.gd`): message toasts.
 - Input action `interact` = physical key `E` (physical_keycode 69).
-- Scene flow: title -> difficulty selection -> `mapa_menu` (4 spinning
-  `nodo_mapa` nodes: comisaria, laboratorio, oficina, departamento) -> locations.
-  The departamento map icon opens `Hall.tscn`; its elevators lead to `dpto`.
-  The board in `comisaria.tscn` opens `reconocimiento` -> `veredicto`.
+- Scene flow: title -> difficulty selection -> **case briefing** (`Continuar`) ->
+  `mapa_menu` (4 spinning `nodo_mapa` nodes: comisaria, laboratorio, oficina,
+  departamento) -> locations. The departamento map icon opens `Hall.tscn`; its
+  elevators lead to `dpto`. The board in `comisaria.tscn` opens `reconocimiento`
+  -> `veredicto`.
 - The map supports mouse selection, arrow-key focus and `ui_accept` to enter a
   location. Location totems return to the map with `E` or `Esc` when nearby.
 - NPC locations and IDs:
@@ -312,13 +324,25 @@ aid, not used at runtime.
   `response_completed`, then `Global.fact_discovered` for each `X-New-Fact`.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse
   inspection, elevators, board and totem interactions, and the "Pistas" button.
-- `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout),
-  appends streamed chunks, disables input while streaming and renders
-  player/NPC models in portrait SubViewports.
+- `dialogue_ui.gd` builds the whole chat UI in code (no `.tscn` layout) as
+  **chat bubbles** (player right, NPC left), appends streamed chunks, disables
+  input while streaming and renders player/NPC models in portrait SubViewports.
+  It shows a per-NPC **waiting line** (`WAIT_LINES`) if the first token is slow
+  (`WAIT_DELAY_MS`), removed on the first chunk; transcripts live on
+  `Global.chat_transcripts` (a list of `{speaker, text, player}` per NPC) so they
+  survive location changes.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
-  discovered fact text into character pages. It uses backend state exclusively.
-  On `Global.fact_discovered` it shows a toast naming the clue's page, a red
-  unread badge and a pulse on its icon, and opens on the newest clue's page.
+  discovered fact text into character pages via `_pages_for`. The pages
+  `criada/juan/esteban/pablo` are limited to a fixed `CLUE_PAGES` whitelist; the
+  rest (`caso`, `portero`, `forense`, `tecnico`) group by `fact_id` prefix.
+  It uses backend state exclusively. On `Global.fact_discovered` it shows a toast
+  naming the clue's page, a red unread badge and a pulse on its icon, and opens
+  on the newest clue's page.
+- Portraits in `assets/ui/retratos/*.png` are static 128×128 renders of the NPC
+  models; regenerate one with `game/tools/render_portrait.tscn`
+  (`godot --path game res://tools/render_portrait.tscn -- <model.fbx> <out.png>`).
+- `comisaria.tscn` has invisible "fourth wall" colliders (`cuarta_pared`,
+  `pared_izq_col`) so the player can't fall off the map.
 - The "Pistas" button in `jugador.gd` requests `/hint/{session_id}`. Difficulty
   sets `hint_limit` (`-1` unlimited, `0` hides the button) and `hint_names_npc`:
   Fácil and Medio are unlimited, only Fácil names the NPC, Difícil has no
@@ -349,9 +373,10 @@ These are the highest-value things to know before making changes.
 3. **Object discoveries do not reach the backend.** Examining an object (for
    example the office archive with the original policy) registers no `CL-*`
    fact, so it neither unlocks gated chunks nor appears in the notebook.
-4. **Map input/transition handling.** `ui_accept` changes scenes before calling
-   `get_viewport().set_input_as_handled()`, potentially using a detached viewport.
-   Clicking empty map space enters the retained focused location.
+4. **Map click enters the focused node.** Clicking anywhere on the map (even
+   empty space) enters the currently focused `nodo_mapa`; `ui_accept` and mouse
+   focus share `focused_node`. (The old detached-viewport crash from calling
+   `set_input_as_handled()` after `change_scene_to_file` is fixed.)
 5. **Portrait rendering.** `_collect_aabb()` applies child mesh transforms twice;
    SubViewports render with `UPDATE_ALWAYS` even while hidden. Freshly instanced
    portrait models do not inherit world NPC poses.
@@ -383,6 +408,11 @@ These are the highest-value things to know before making changes.
 
 Prerequisites: Python 3.12, Godot 4.7, and Ollama (local or via Docker). The
 backend imports use the `backend.*` package, so **run from the repo root**.
+
+**Quick start (recommended):** `./run_backend.sh` starts the Ollama container on
+port `11435` (mounting `./ollama_models`), builds the index if missing, and runs
+the backend on `127.0.0.1:8000`. See `RUNNING.md`; the manual steps below are the
+equivalent.
 
 ```bash
 # 1. Python dependencies (use a virtual environment)

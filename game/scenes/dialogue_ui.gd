@@ -3,7 +3,7 @@ extends CanvasLayer
 var panel: ColorRect
 var name_label: Label
 var scroll_container: ScrollContainer
-var history_label: RichTextLabel
+var chat_list: VBoxContainer
 var input_field: LineEdit
 var prompt_label: Label
 var fake_blur: ColorRect
@@ -17,10 +17,23 @@ signal text_submitted(text: String)
 signal close_requested
 
 var current_npc_response: String = ""
-# Cada NPC tiene su propia conversación (BBCode), igual que su historial en el backend.
+# Cada NPC tiene su conversación como una lista de {speaker, text, player}.
 var transcripts := {}
 var current_npc := ""
 var responding_npc := ""  # a quién pertenece la respuesta que se está recibiendo
+var current_bubble_text: RichTextLabel = null  # respuesta NPC en curso
+var current_bubble_name := ""
+
+# Estilo de las burbujas de chat.
+const PLAYER_BG := Color("26476b")
+const NPC_BG := Color("2e2e33")
+const PLAYER_TEXT := Color("e6eef7")
+const NPC_TEXT := Color("e8e2d2")
+const NAME_PLAYER := Color("9ad0ff")
+const NAME_NPC := Color("ffd86b")
+const WAIT_COLOR := Color("9a9a9a")
+const BUBBLE_FONT := 22
+const BUBBLE_MAX_FRACTION := 0.72
 
 # Línea de espera: si el modelo tarda en emitir el primer fragmento, se muestra
 # una frase temática del personaje (sin datos del caso) y se quita al llegar.
@@ -127,16 +140,11 @@ func _ready() -> void:
 	scroll_container.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	panel.add_child(scroll_container)
 	
-	history_label = RichTextLabel.new()
-	history_label.bbcode_enabled = true
-	history_label.fit_content = true
-	history_label.scroll_active = false
-	history_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	history_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	history_label.add_theme_font_size_override("normal_font_size", 24)
-	history_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())  
-	history_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new()) 
-	scroll_container.add_child(history_label)
+	chat_list = VBoxContainer.new()
+	chat_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_list.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	chat_list.add_theme_constant_override("separation", 10)
+	scroll_container.add_child(chat_list)
 	
 	# Campo de texto para escribir abajo (barra fija al pie del panel)
 	input_field = LineEdit.new()
@@ -178,14 +186,14 @@ func _ready() -> void:
 	fake_blur.visible = false
 	add_child(fake_blur)
 	
-	# Retrato del NPC (derecha): render 3D del modelo, arriba del panel de texto
+	# Retrato del NPC (izquierda): render 3D del modelo, arriba del panel de texto
 	retrato_npc = TextureRect.new()
-	retrato_npc.anchor_left = 1
-	retrato_npc.anchor_right = 1
+	retrato_npc.anchor_left = 0
+	retrato_npc.anchor_right = 0
 	retrato_npc.anchor_top = 0.55
 	retrato_npc.anchor_bottom = 0.55
-	retrato_npc.offset_left = -210
-	retrato_npc.offset_right = -20
+	retrato_npc.offset_left = 20
+	retrato_npc.offset_right = 210
 	retrato_npc.offset_top = -253
 	retrato_npc.offset_bottom = 0
 	retrato_npc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -194,14 +202,14 @@ func _ready() -> void:
 	retrato_npc.visible = false
 	add_child(retrato_npc)
 
-	# Retrato del jugador (izquierda): render 3D del modelo, arriba del panel de texto
+	# Retrato del jugador (derecha): render 3D del modelo, arriba del panel de texto
 	retrato_jugador = TextureRect.new()
-	retrato_jugador.anchor_left = 0
-	retrato_jugador.anchor_right = 0
+	retrato_jugador.anchor_left = 1
+	retrato_jugador.anchor_right = 1
 	retrato_jugador.anchor_top = 0.55
 	retrato_jugador.anchor_bottom = 0.55
-	retrato_jugador.offset_left = 20
-	retrato_jugador.offset_right = 210
+	retrato_jugador.offset_left = -210
+	retrato_jugador.offset_right = -20
 	retrato_jugador.offset_top = -253
 	retrato_jugador.offset_bottom = 0
 	retrato_jugador.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -240,9 +248,7 @@ func show_dialogue(npc_name: String) -> void:
 	name_label.text = npc_name
 	if npc_name != current_npc:
 		current_npc = npc_name
-		history_label.clear()
-		history_label.append_text(transcripts.get(npc_name, ""))
-		_scroll_to_bottom()
+		_rebuild_chat(npc_name)
 	panel.show()
 	input_field.text = ""
 	input_field.editable = true
@@ -255,7 +261,7 @@ func hide_dialogue() -> void:
 
 
 func clear_history() -> void:
-	history_label.clear()
+	_clear_chat()
 	transcripts.erase(current_npc)
 	current_npc_response = ""
 
@@ -265,17 +271,24 @@ func is_open() -> bool:
 
 
 func add_player_message(npc_name: String, text: String) -> void:
-	_append(current_npc, "[color=#88ccff][b]Vos:[/b][/color] " + text + "\n")
+	var msgs: Array = transcripts.get(current_npc, [])
+	msgs.append({"speaker": "Vos", "text": text, "player": true})
+	transcripts[current_npc] = msgs
+	_make_bubble("Vos", text, true)
+	_scroll_to_bottom()
 
 
 func start_npc_response(npc_name: String) -> void:
 	current_npc_response = ""
 	responding_npc = current_npc
+	current_bubble_name = npc_name
 	_pending_line = _waiting_line_for(npc_name)
 	_waiting_active = false
 	_wait_token += 1
 	var token := _wait_token
-	_append(responding_npc, "[color=#ffe080][b]" + npc_name + ":[/b][/color] ")
+	if responding_npc == current_npc:
+		current_bubble_text = _make_bubble(npc_name, "", false)
+		_scroll_to_bottom()
 	get_tree().create_timer(WAIT_DELAY_MS / 1000.0).timeout.connect(func(): _show_waiting_line(token))
 
 
@@ -283,13 +296,23 @@ func append_npc_chunk(text: String) -> void:
 	if _waiting_active:
 		_remove_waiting()
 	current_npc_response += text
-	_append(responding_npc, text)
+	if responding_npc == current_npc and current_bubble_text != null:
+		current_bubble_text.text = current_npc_response
+		_resize_bubble(current_bubble_text)
+		_scroll_to_bottom()
 
 
 func finish_npc_response() -> void:
 	if _waiting_active:
 		_remove_waiting()
-	_append(responding_npc, "\n")
+	if responding_npc == current_npc and current_bubble_text != null:
+		if current_npc_response.strip_edges() == "":
+			_remove_last_bubble()
+		else:
+			var msgs: Array = transcripts.get(responding_npc, [])
+			msgs.append({"speaker": current_bubble_name, "text": current_npc_response, "player": false})
+			transcripts[responding_npc] = msgs
+	current_bubble_text = null
 
 
 func _waiting_line_for(npc_name: String) -> String:
@@ -310,28 +333,101 @@ func _show_waiting_line(token: int) -> void:
 	if token != _wait_token or _waiting_active or current_npc_response != "":
 		return
 	_waiting_active = true
-	if responding_npc == current_npc:
-		history_label.append_text("[i][color=#9a9a9a]" + _pending_line + "[/color][/i]")
+	if responding_npc == current_npc and current_bubble_text != null:
+		current_bubble_text.text = _pending_line
+		current_bubble_text.add_theme_color_override("default_color", WAIT_COLOR)
+		_resize_bubble(current_bubble_text)
 		_scroll_to_bottom()
 
 
-# Quita la línea de espera reconstruyendo el historial desde el transcript.
+# Quita la línea de espera de la burbuja en curso.
 func _remove_waiting() -> void:
 	if not _waiting_active:
 		return
 	_waiting_active = false
-	if responding_npc == current_npc:
-		history_label.clear()
-		history_label.append_text(transcripts.get(responding_npc, ""))
-		_scroll_to_bottom()
+	if responding_npc == current_npc and current_bubble_text != null:
+		current_bubble_text.text = ""
+		current_bubble_text.add_theme_color_override("default_color", NPC_TEXT)
 
 
-# Guarda el texto en la conversación de ese NPC y solo lo muestra si es la abierta.
-func _append(npc_name: String, bbcode: String) -> void:
-	transcripts[npc_name] = transcripts.get(npc_name, "") + bbcode
-	if npc_name == current_npc:
-		history_label.append_text(bbcode)
-		_scroll_to_bottom()
+# --- Burbujas de chat ---
+func _clear_chat() -> void:
+	for child in chat_list.get_children():
+		child.queue_free()
+	current_bubble_text = null
+
+
+func _rebuild_chat(npc_name: String) -> void:
+	_clear_chat()
+	for msg in transcripts.get(npc_name, []):
+		_make_bubble(msg["speaker"], msg["text"], msg["player"])
+	_scroll_to_bottom()
+
+
+func _remove_last_bubble() -> void:
+	var n := chat_list.get_child_count()
+	if n > 0:
+		chat_list.get_child(n - 1).queue_free()
+
+
+func _make_bubble(speaker: String, text: String, is_player: bool) -> RichTextLabel:
+	var row := HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.alignment = BoxContainer.ALIGNMENT_END if is_player else BoxContainer.ALIGNMENT_BEGIN
+	chat_list.add_child(row)
+
+	var bubble := PanelContainer.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = PLAYER_BG if is_player else NPC_BG
+	style.set_corner_radius_all(14)
+	style.content_margin_left = 14
+	style.content_margin_right = 14
+	style.content_margin_top = 8
+	style.content_margin_bottom = 8
+	bubble.add_theme_stylebox_override("panel", style)
+	row.add_child(bubble)
+
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 2)
+	bubble.add_child(column)
+
+	var speaker_label := Label.new()
+	speaker_label.text = speaker
+	speaker_label.add_theme_font_size_override("font_size", 15)
+	speaker_label.add_theme_color_override("font_color", NAME_PLAYER if is_player else NAME_NPC)
+	column.add_child(speaker_label)
+
+	var text_label := RichTextLabel.new()
+	text_label.bbcode_enabled = false
+	text_label.fit_content = true
+	text_label.scroll_active = false
+	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	text_label.add_theme_font_size_override("normal_font_size", BUBBLE_FONT)
+	text_label.add_theme_color_override("default_color", PLAYER_TEXT if is_player else NPC_TEXT)
+	text_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+	text_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	text_label.text = text
+	column.add_child(text_label)
+	_resize_bubble(text_label)
+	return text_label
+
+
+func _resize_bubble(text_label: RichTextLabel) -> void:
+	text_label.custom_minimum_size = Vector2(_bubble_width(text_label), 0)
+
+
+func _bubble_width(text_label: RichTextLabel) -> float:
+	var font := text_label.get_theme_font("normal_font")
+	var font_size := text_label.get_theme_font_size("normal_font_size")
+	var cap := maxf(200.0, scroll_container.size.x * BUBBLE_MAX_FRACTION - 28.0)
+	var widest := 0.0
+	for line in text_label.text.split("\n"):
+		if line.strip_edges() == "":
+			continue
+		widest = maxf(widest, font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x)
+	if widest < 1.0:
+		widest = 140.0
+	return clampf(widest, 90.0, cap)
 
 
 func _scroll_to_bottom() -> void:
@@ -351,9 +447,9 @@ const PORTRAIT_YAW := deg_to_rad(20.0)
 
 
 func mostrar_modelos(jugador_model_path: String, npc_model_path: String) -> void:
-	if _show_model_in_viewport(viewport_jugador, jugador_model_path, -PORTRAIT_YAW):
+	if _show_model_in_viewport(viewport_jugador, jugador_model_path, PORTRAIT_YAW):
 		retrato_jugador.visible = true
-	if _show_model_in_viewport(viewport_npc, npc_model_path, PORTRAIT_YAW):
+	if _show_model_in_viewport(viewport_npc, npc_model_path, -PORTRAIT_YAW):
 		retrato_npc.visible = true
 
 
