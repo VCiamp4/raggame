@@ -13,10 +13,11 @@
       },
       "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
       "fact_id": "CL-POL-02",
-      "necessary_facts": [
-        "CL-POL-01"
-      ],
-      "sufficient_facts": []
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-01",
+        "CL-POL-04"
+      ]
     },
     {
       "chunk_id": "SCN-07-AT-02",

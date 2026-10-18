@@ -90,7 +90,7 @@
     },
     {
       "chunk_id": "SCN-12-AT-12",
-      "retrieval_text": "El técnico también notó un olor raro en el congelador, pero no encontró comida podrida ni una falla que lo explique.",
+      "retrieval_text": "El técnico notó un olor raro en el congelador, pero no encontró comida podrida ni una falla que lo explique; sí vio que el fusible se había cambiado hacía poco.",
       "knowledge_holders": [
         "tecnico_heladera"
       ],

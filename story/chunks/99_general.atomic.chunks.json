@@ -81,10 +81,11 @@
       },
       "source_excerpt": "Los tres hermanos figuraban como beneficiarios de la póliza.",
       "fact_id": "CL-EST-06",
-      "necessary_facts": [
-        "CL-POL-01"
-      ],
-      "sufficient_facts": []
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-01",
+        "CL-POL-04"
+      ]
     },
     {
       "chunk_id": "GEN-01-AT-06",
@@ -98,10 +99,11 @@
       },
       "source_excerpt": "Los tres hermanos figuraban como beneficiarios de la póliza.",
       "fact_id": "CL-PAB-09",
-      "necessary_facts": [
-        "CL-POL-01"
-      ],
-      "sufficient_facts": []
+      "necessary_facts": [],
+      "sufficient_facts": [
+        "CL-POL-01",
+        "CL-POL-04"
+      ]
     },
     {
       "chunk_id": "GEN-01-AT-07",
@@ -129,7 +131,7 @@
         "q2": "¿Viste a Pablo por el edificio en los días anteriores?"
       },
       "source_excerpt": "Aprovechando la avería de la heladera, se había ofrecido a repararla.",
-      "fact_id": null,
+      "fact_id": "CL-FRI-02",
       "necessary_facts": [],
       "sufficient_facts": []
     }
