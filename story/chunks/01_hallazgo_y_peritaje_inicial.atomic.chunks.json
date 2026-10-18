@@ -145,14 +145,14 @@
     },
     {
       "chunk_id": "SCN-01-AT-08",
-      "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
+      "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero: la criada no pudo abrir con su llave, llamó al portero y entre los dos lograron entrar.",
       "knowledge_holders": [
         "criada",
         "portero"
       ],
       "questions": {
         "q1": "¿Cómo estaba asegurada la puerta desde el interior?",
-        "q2": "¿Qué impedía abrir la puerta desde el lado exterior?"
+        "q2": "¿Cómo entraron si la puerta estaba cerrada por dentro?"
       },
       "source_excerpt": "La criada había llegado poco después de las siete de la mañana. Como todos los días, introdujo su llave en la cerradura, pero no pudo abrir porque la puerta estaba asegurada desde adentro con la cadena de acero. Alarmada, llamó al portero y entre ambos consiguieron entrar. Encontraron a la señora Stevens tendida junto a la mesa del comedor. Cerca de una de sus manos había un ejemplar del diario de la tarde anterior y, no muy lejos del cadáver, un vaso de whisky. No había señales de lucha, no faltaba dinero, las ventanas estaban cerradas y nadie parecía haber forzado la puerta. Todo indicaba que, en el momento de morir, la señora Stevens había estado sola.",
       "fact_id": "CL-CASE-01",

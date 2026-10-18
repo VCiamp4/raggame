@@ -46,7 +46,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
@@ -72,7 +73,7 @@
       ],
       "questions": {
         "q1": "¿Dónde estuvo usted desde las seis de la tarde?",
-        "q2": "¿Qué hacías en Lister esa noche?"
+        "q2": "¿Qué hiciste después del almuerzo?"
       },
       "source_excerpt": "También él poseía una coartada comprobada. Desde las seis de la tarde hasta las nueve de la mañana siguiente se encontraba en Lister por negocios. La policía había verificado sus movimientos con suficiente precisión para descartar un regreso secreto al departamento.",
       "fact_id": "CL-EST-05",
@@ -116,17 +117,13 @@
         "esteban"
       ],
       "questions": {
-        "q1": "¿De qué discutieron en el almuerzo? ¿Fue por el seguro?",
+        "q1": "¿Qué pasó en el almuerzo?",
         "q2": "¿Es verdad que se puso furioso por el cambio del seguro?"
       },
       "source_excerpt": "Admitió finalmente que había existido una diferencia, pero insistió en presentarla como una discusión sin importancia. Reconoció que vio con su hermana los papeles de la póliza, que los tres hermanos figuraban como beneficiarios y que habían hablado de dinero, pero negó que aquello hubiera tenido gravedad.",
       "fact_id": "CL-EST-02",
       "necessary_facts": [],
-      "sufficient_facts": [
-        "CL-EST-01",
-        "CL-POL-01",
-        "CL-POL-04"
-      ]
+      "sufficient_facts": []
     }
   ]
 }

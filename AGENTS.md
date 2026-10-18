@@ -35,7 +35,7 @@ Godot project.
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
-- The story corpus has 15 scenes, 126 atomic chunks and 41 distinct `fact_id`s.
+- The story corpus has 15 scenes, 123 atomic chunks and 41 distinct `fact_id`s.
   The retrieval benchmark has 195 cases; the dialogue benchmark has 6
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
@@ -77,7 +77,7 @@ raggame/
 ├── story/
 │   ├── source/                      # original PDF + final markdown
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
-│   ├── chunks/                      # 14 *.atomic.chunks.json (126 chunks)
+│   ├── chunks/                      # 14 *.atomic.chunks.json (123 chunks)
 │   ├── personajes/                  # 7 one-paragraph persona files
 │   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
@@ -218,7 +218,7 @@ YAML frontmatter + a `<!-- SOURCE_START --> ... <!-- SOURCE_END -->` body:
 ### Chunks (`story/chunks/*.atomic.chunks.json`)
 
 One file per scene plus `99_general` (`GEN-01`) for additions that are not
-tied to one scene; scenes 14 and 15 have no chunks. 126 chunks total. Each chunk:
+tied to one scene; scenes 14 and 15 have no chunks. 123 chunks total. Each chunk:
 
 ```json
 {
@@ -234,8 +234,8 @@ tied to one scene; scenes 14 and 15 have no chunks. 126 chunks total. Each chunk
 ```
 
 - `fact_id` is `null` for support chunks; 41 distinct `CL-*` facts exist.
-- 11 of the 14 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
-  42 chunks have fact requirements.
+- 10 of the 14 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
+  36 chunks have fact requirements.
 - Every chunk has at least one NPC in `knowledge_holders`. Resolution-only
   material (the detective's deductions) is not part of the corpus.
 - Write `retrieval_text` as plain facts (no quotes or narration such as

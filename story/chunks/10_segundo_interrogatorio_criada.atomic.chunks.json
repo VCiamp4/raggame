@@ -13,9 +13,7 @@
       },
       "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
       "fact_id": "CL-CRI-05",
-      "necessary_facts": [
-        "CL-ICE-03"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
@@ -30,9 +28,7 @@
       },
       "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
       "fact_id": null,
-      "necessary_facts": [
-        "CL-ICE-03"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
@@ -67,7 +63,7 @@
     },
     {
       "chunk_id": "SCN-10-AT-05",
-      "retrieval_text": "Pablo fue quien reparó la heladera, unos días antes del crimen.",
+      "retrieval_text": "La heladera falló unos días antes del crimen y Pablo fue quien la reparó.",
       "knowledge_holders": [
         "criada"
       ],

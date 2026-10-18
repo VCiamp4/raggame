@@ -34,23 +34,6 @@
       "sufficient_facts": []
     },
     {
-      "chunk_id": "SCN-08-AT-03",
-      "retrieval_text": "El tóxico no estaba en los recipientes líquidos analizados.",
-      "knowledge_holders": [
-        "forense"
-      ],
-      "questions": {
-        "q1": "¿Dónde no encontraron veneno?",
-        "q2": "¿Qué muestras dieron negativo?"
-      },
-      "source_excerpt": "Fue en ese momento cuando regresó la forense.\n\nTraía los resultados del laboratorio y no parecía satisfecha.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y la forense no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
-      "fact_id": null,
-      "necessary_facts": [
-        "CL-FOR-01"
-      ],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "SCN-08-AT-06",
       "retrieval_text": "La forense fue al departamento y retiró muestras del congelador, del depósito y de las cubeteras.",
       "knowledge_holders": [

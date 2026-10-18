@@ -22,9 +22,7 @@
       "chunk_id": "GEN-01-AT-02",
       "retrieval_text": "Durante el almuerzo hubo una discusión entre los hermanos y la señora Stevens.",
       "knowledge_holders": [
-        "juan",
-        "esteban",
-        "pablo"
+        "esteban"
       ],
       "questions": {
         "q1": "¿Hubo una discusión o pelea durante el almuerzo?",
@@ -84,7 +82,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
@@ -95,14 +94,15 @@
       ],
       "questions": {
         "q1": "¿Se beneficia económicamente de la muerte de su hermana?",
-        "q2": "¿Te toca más plata que a tus hermanos?"
+        "q2": "¿La póliza nueva te dejaba más plata que a tus hermanos?"
       },
       "source_excerpt": "Los tres hermanos figuraban como beneficiarios de la póliza.",
       "fact_id": "CL-PAB-09",
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {

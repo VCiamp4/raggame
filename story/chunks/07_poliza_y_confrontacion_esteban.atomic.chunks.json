@@ -16,18 +16,19 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
       "chunk_id": "SCN-07-AT-02",
-      "retrieval_text": "La nueva póliza asignaba el 50% del beneficio a Pablo, el 25% a Juan y el 25% a Esteban.",
+      "retrieval_text": "La póliza actualizada asignaba el 50% del beneficio a Pablo, el 25% a Juan y el 25% a Esteban.",
       "knowledge_holders": [
         "esteban"
       ],
       "questions": {
         "q1": "¿Cómo reparte el dinero la póliza nueva?",
-        "q2": "¿Cuánto le toca a cada hermano con el seguro nuevo?"
+        "q2": "¿Quiénes son los beneficiarios de la póliza actualizada y cuánto le toca a cada uno?"
       },
       "source_excerpt": "La afirmación de Juan respecto de Esteban nos llevó nuevamente al departamento. Si la discusión había tenido relación con una póliza, parecía razonable buscar documentos y no venenos. En uno de los cajones del escritorio de la señora Stevens encontramos finalmente lo que buscábamos: la póliza actualizada.\n\nEl acuerdo inicial repartía el beneficio en partes iguales entre los tres hermanos. La modificación no. Pablo recibiría la mitad, mientras Juan y Esteban quedarían con una cuarta parte cada uno.",
       "fact_id": "CL-POL-03",
@@ -51,7 +52,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-02",
-        "CL-EST-01"
+        "CL-EST-01",
+        "CL-EST-02"
       ]
     },
     {
@@ -69,7 +71,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-02",
-        "CL-EST-01"
+        "CL-EST-01",
+        "CL-EST-02"
       ]
     },
     {
@@ -87,7 +90,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-02",
-        "CL-EST-01"
+        "CL-EST-01",
+        "CL-EST-02"
       ]
     },
     {
@@ -105,7 +109,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-02",
-        "CL-EST-01"
+        "CL-EST-01",
+        "CL-EST-02"
       ]
     },
     {

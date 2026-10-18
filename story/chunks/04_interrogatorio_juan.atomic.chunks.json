@@ -8,14 +8,12 @@
         "juan"
       ],
       "questions": {
-        "q1": "¿Por qué estuvo preso?",
-        "q2": "¿Tenés antecedentes por drogas?"
+        "q1": "¿Tiene antecedentes penales?",
+        "q2": "¿Por qué estuvo preso?"
       },
       "source_excerpt": "Los tres hermanos de la señora Stevens habían almorzado con ella ese mismo día. Los interrogamos por separado.\n\nJuan, el mayor, era un hombre que inspiraba poca confianza incluso antes de conocer sus antecedentes. Había sido condenado siete años atrás por delitos relacionados con la venta de estupefacientes fuertes y otros episodios de violencia y daños a la propiedad. Después de recuperar la libertad trabajaba como ayudante de un procurador especializado en divorcios, aunque las informaciones que recogimos indicaban que usaba aquella actividad como cobertura para negocios poco recomendables, entre ellos chantajes y extorsiones a clientes en situaciones comprometidas. Su situación económica era lamentable y su relación con la hermana, peor todavía.",
       "fact_id": "CL-JUA-01",
-      "necessary_facts": [
-        "CL-JUA-02"
-      ],
+      "necessary_facts": [],
       "sufficient_facts": []
     },
     {
@@ -101,7 +99,7 @@
       ],
       "questions": {
         "q1": "¿Por qué odia a su hermana?",
-        "q2": "¿De qué culpás a tu hermana con la policía?"
+        "q2": "¿Cómo te llevabas con ella?"
       },
       "source_excerpt": "Afirmaba estar convencido de que la señora Stevens había sido responsable, siete años atrás, de que la policía descubriera sus negocios con drogas. No tenía ninguna prueba, pero hablaba de la cuestión con una seguridad que convertía aquel resentimiento en algo parecido a una obsesión.",
       "fact_id": "CL-JUA-02",
@@ -151,10 +149,7 @@
       "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable.",
       "fact_id": "CL-JUA-04",
       "necessary_facts": [],
-      "sufficient_facts": [
-        "CL-POL-01",
-        "CL-POL-04"
-      ]
+      "sufficient_facts": []
     },
     {
       "chunk_id": "SCN-04-AT-11",
@@ -171,36 +166,22 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
       "chunk_id": "SCN-04-AT-12",
-      "retrieval_text": "Después del almuerzo, Juan provocó un accidente de tránsito y quedó demorado en una comisaría desde las 17:00 hasta la medianoche.",
+      "retrieval_text": "Después del almuerzo, Juan provocó un accidente de tránsito y quedó demorado en una comisaría desde las 17:00 hasta la medianoche, así que no estuvo en el departamento durante las horas críticas.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
         "q1": "¿Dónde estuvo después de irse de la casa de su hermana?",
-        "q2": "¿Qué hizo desde el almuerzo hasta la medianoche?"
+        "q2": "¿Qué hizo usted después del almuerzo con su hermana?"
       },
       "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
       "fact_id": "CL-JUA-03",
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-04-AT-13",
-      "retrieval_text": "Juan no estuvo en el departamento durante las horas críticas.",
-      "knowledge_holders": [
-        "juan"
-      ],
-      "questions": {
-        "q1": "¿Estuvo en el departamento de su hermana esa tarde o esa noche?",
-        "q2": "¿Volviste a lo de tu hermana después del almuerzo?"
-      },
-      "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
-      "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -227,7 +208,7 @@
       ],
       "questions": {
         "q1": "¿Qué se discutió en el almuerzo sobre el seguro o la herencia?",
-        "q2": "¿Por qué discutieron en el almuerzo y qué tenía que ver Pablo?"
+        "q2": "¿Qué pasó en el almuerzo con tu hermana?"
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
       "fact_id": "CL-POL-01",
@@ -249,7 +230,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
@@ -267,7 +249,8 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
@@ -285,14 +268,16 @@
       "necessary_facts": [],
       "sufficient_facts": [
         "CL-POL-01",
-        "CL-POL-04"
+        "CL-POL-04",
+        "CL-EST-02"
       ]
     },
     {
       "chunk_id": "SCN-04-AT-19",
       "retrieval_text": "En el almuerzo, Esteban y Pablo discutieron por el seguro de vida de la señora Stevens.",
       "knowledge_holders": [
-        "juan"
+        "juan",
+        "pablo"
       ],
       "questions": {
         "q1": "¿Esteban y Pablo se pelearon en el almuerzo?",
