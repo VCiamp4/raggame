@@ -6,7 +6,7 @@ import logging
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
-from backend.rag.game_state import discovered_chunks, get_discovered_facts, next_hint
+from backend.rag.game_state import discovered_chunks, get_discovered_facts, next_hint, update_fact
 from backend.rag.retrieval import CHUNKS, keep_said_facts
 
 app = FastAPI()
@@ -17,6 +17,11 @@ class DialogueRequest(BaseModel):
     npc_id: str
     player_input: str
     session_id: str = "default"
+
+
+class DiscoverRequest(BaseModel):
+    session_id: str
+    fact_id: str
 
 
 # Separa la respuesta del NPC de un mensaje de error para el jugador.
@@ -75,7 +80,8 @@ def hint(session_id: str, with_npc: bool = False):
 def discover(req: DiscoverRequest):
     # Objetos inspeccionables u otras fuentes fuera del diálogo registran un hecho.
     get_discovered_facts(req.session_id)
-    update_fact(req.session_id, req.fact_id)
+    chunk_id = next((c.chunk_id for c in CHUNKS if c.fact_id == req.fact_id), None)
+    update_fact(req.session_id, req.fact_id, chunk_id)
     return {"ok": True}
 
 

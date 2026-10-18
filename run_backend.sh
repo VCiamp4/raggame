@@ -39,8 +39,24 @@ if [ ! -x ".build-venv/bin/python" ]; then
 	.build-venv/bin/pip install --upgrade pip
 	.build-venv/bin/pip install -r backend/requirements.txt
 fi
-if [ ! -f backend/rag/embeddings.npz ]; then
-	echo ">> Construyendo el indice de embeddings (puede tardar) ..."
+# Reconstruye el indice si falta o si ya no coincide con los chunks actuales.
+INDEX_OK=0
+if [ -f backend/rag/embeddings.npz ]; then
+	if .build-venv/bin/python -c '
+import glob, json, sys
+import numpy as np
+ids = set()
+for f in glob.glob("story/chunks/*.json"):
+    for c in json.load(open(f, encoding="utf-8"))["chunks"]:
+        ids.add(c["chunk_id"])
+idx = set(np.load("backend/rag/embeddings.npz")["chunk_ids"].tolist())
+sys.exit(0 if ids == idx else 1)
+'; then
+		INDEX_OK=1
+	fi
+fi
+if [ "${INDEX_OK}" = "0" ]; then
+	echo ">> Indice de embeddings faltante o desactualizado; construyendo (puede tardar) ..."
 	.build-venv/bin/python backend/scripts/build_embeddings.py
 fi
 
