@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import requests
 from backend.config import settings
-from backend.rag.game_state import is_available, update_fact, is_support
+from backend.rag.game_state import is_available, update_fact, is_support, get_discovered_facts
 
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
@@ -102,10 +102,13 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
         return []
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
-    focus = next(
-        (chunk for _, chunk in scored_chunks[:3] if chunk.fact_id is not None),
-        scored_chunks[0][1],
-    )
+    fact_chunks = [(score, chunk) for score, chunk in scored_chunks[:3] if chunk.fact_id is not None]
+    focus_score, focus = fact_chunks[0] if fact_chunks else scored_chunks[0]
+    discovered = get_discovered_facts(session_id)
+    for score, chunk in fact_chunks:
+        if chunk.fact_id not in discovered and score >= focus_score - settings.new_fact_margin:
+            focus = chunk
+            break
     retrieved_chunks = [focus]
     for _, candidate in scored_chunks:
         if len(retrieved_chunks) >= settings.max_chunks:

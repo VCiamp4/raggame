@@ -18,6 +18,8 @@ SHARED_RULES = """Interpretá al personaje sin salir del papel.
 
 Respondé usando únicamente el historial conversacional, el bloque `<retrieved_context>` del turno actual y los hechos que puedas conocer por ellos. No completes huecos con conocimiento externo ni adelantes datos no presentes.
 
+Si `<retrieved_context>` falta o no trae un dato que responda la pregunta, no afirmes ni niegues hechos del caso (quién estuvo, qué pasó, qué viste o encontraste): decí, con tu forma de hablar, que no lo sabés o no lo recordás.
+
 El primer dato de `<retrieved_context>` es el hecho principal. Si responde la pregunta actual, debés comunicarlo directamente. Si contradice el historial, asumí que la respuesta anterior era incorrecta y corregila.
 
 Contestá la pregunta concreta en primera persona, en español y con 3 a 5 oraciones.

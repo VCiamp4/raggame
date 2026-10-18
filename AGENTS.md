@@ -120,7 +120,8 @@ raggame/
    - scores each candidate as `max(cosine(query, retrieval_text), cosine(query, q1), cosine(query, q2))`;
    - keeps scores `>= settings.min_similarity`;
    - picks a "focus" chunk (first of the top 3 with a `fact_id`, else rank 1),
-     then appends support chunks while `is_support()`;
+     but prefers an undiscovered fact in the top 3 that scores within
+     `new_fact_margin` of it; then appends support chunks while `is_support()`;
    - marks the focus `fact_id` as discovered for the session.
 4. The provider stream is forwarded to the client as plain text. On success the
    turn is appended to in-RAM history. If retrieval discovered a new fact, the
@@ -163,6 +164,7 @@ accepts `--model` for that build.
 | `ollama_url`      | `http://localhost:11434` | env `OLLAMA_URL`                   |
 | `max_chunks`      | `3`                  | retrieved chunks per turn             |
 | `min_similarity`  | `0.43`               | retrieval threshold                   |
+| `new_fact_margin` | `0.05`               | focus prefers a new fact within this  |
 | `max_history`     | `20`                 | recent messages sent to the model     |
 | `num_predict`     | `160`                | max output tokens                     |
 | `temperature`     | `0.8`                |                                       |

@@ -13,6 +13,7 @@ class Settings:
     ollama_url: str = os.getenv("OLLAMA_URL", "http://localhost:11434")
     max_chunks: int = 3
     min_similarity: float = 0.43
+    new_fact_margin: float = 0.05
     max_history: int = 20
     num_predict: int = 160
     temperature: float = 0.8
