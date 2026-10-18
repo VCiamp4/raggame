@@ -16,11 +16,6 @@
       "text_with_npc": "Preguntale a la criada cómo tomaba el whisky la señora Stevens."
     },
     {
-      "fact_id": "CL-FRI-01",
-      "text": "Si el hielo estaba envenenado, algo pasó en la heladera. ¿Anduvo bien los últimos días?",
-      "text_with_npc": "Preguntale a la criada si la heladera tuvo algún problema unos días antes."
-    },
-    {
       "fact_id": "CL-FRI-02",
       "text": "La heladera se había roto. Averiguá quién la arregló.",
       "text_with_npc": "Preguntale a la criada quién reparó la heladera."

@@ -3,8 +3,8 @@ extends RefCounted
 # Acciones narradas antes de que un NPC responda. Se usa con
 # preload("res://data/beats.gd").
 #
-# Si la respuesta descubre uno de estos hechos (header X-New-Fact), el chat
-# muestra el texto y espera BEAT_SECONDS antes de mostrar lo que dice el NPC.
+# Si la respuesta debería revelar uno de estos hechos (header X-Focus-Fact), el
+# chat muestra el texto y espera BEAT_SECONDS antes de mostrar lo que dice el NPC.
 
 const BEAT_SECONDS := 3.0
 

@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT))
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
 from backend.rag.game_state import get_discovered_facts
-from backend.rag.retrieval import CHUNKS
+from backend.rag.retrieval import CHUNKS, keep_said_facts
 
 
 AREA_DIR = ROOT / "benchmarks" / "dialogue"
@@ -167,7 +167,7 @@ def run_conversation(service, case):
             player_input=turn["player"],
             response=response,
         )
-        after = set(get_discovered_facts(session_id))
+        new_facts = keep_said_facts(session_id, get_discovered_facts(session_id) - before, response)
         context = context_block(messages)
         retrieved = retrieved_ids(messages)
         turns.append(
@@ -181,7 +181,7 @@ def run_conversation(service, case):
                 "retrieval_ms": retrieval_ms,
                 "ttft_ms": ttft_ms,
                 "total_ms": total_ms,
-                "new_facts": sorted(after - before),
+                "new_facts": sorted(new_facts),
             }
         )
     return {**case, "turns": turns}

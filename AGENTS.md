@@ -122,10 +122,15 @@ raggame/
    - picks a "focus" chunk (first of the top 3 with a `fact_id`, else rank 1),
      but prefers an undiscovered fact in the top 3 that scores within
      `new_fact_margin` of it; then appends support chunks while `is_support()`;
-   - marks the focus `fact_id` as discovered for the session.
-4. The provider stream is forwarded to the client as plain text. On success the
-   turn is appended to in-RAM history. If retrieval discovered a new fact, the
-   response carries it in an `X-New-Fact` header (comma-separated `fact_id`s).
+   - marks the focus `fact_id` as discovered for the session, provisionally
+     (see step 4).
+4. The provider stream is forwarded to the client as plain text. A new focus
+   fact is announced before the text in an `X-Focus-Fact` header
+   (comma-separated `fact_id`s). When the reply ends, `keep_said_facts()` embeds
+   its sentences and keeps the fact only if one reaches `said_similarity`
+   against the focus chunk; otherwise the fact is undone and can be revealed
+   later. Kept facts follow the text after the byte `\x1f`. On success the turn
+   is appended to in-RAM history.
 5. Providers: `CHAT_PROVIDER=ollama` (default, `POST /api/chat`) or `openai`
    (`POST /v1/chat/completions`, uses `max_completion_tokens` and
    `reasoning_effort="none"`).
@@ -166,6 +171,7 @@ accepts `--model` for that build.
 | `max_chunks`      | `3`                  | retrieved chunks per turn             |
 | `min_similarity`  | `0.43`               | retrieval threshold                   |
 | `new_fact_margin` | `0.05`               | focus prefers a new fact within this  |
+| `said_similarity` | `0.5`                | reply sentence needed to keep a fact  |
 | `max_history`     | `20`                 | recent messages sent to the model     |
 | `num_predict`     | `160`                | max output tokens                     |
 | `temperature`     | `0.8`                |                                       |
@@ -190,8 +196,10 @@ in the provider/model/API key values. `.env` files are gitignored.
   This is a known minor inconsistency.
 - `game_state.update_fact()` assumes `discovered_facts[session_id]` already
   exists (it is created on first `get_discovered_facts` call via retrieval).
-- Retrieval records the focus fact before the chat stream runs; failed turns
-  roll it back. If the client disconnects mid-stream, the fact stays.
+- Retrieval records the focus fact before the chat stream runs; it is undone
+  if the turn fails or the reply does not say it. If the client disconnects
+  mid-stream, the fact stays. Checking the reply costs one embedding request
+  per sentence until one matches, only on turns that propose a new fact.
 - No CORS middleware (irrelevant for Godot's `HTTPClient`, needed for browsers).
 
 ## 5. Story data model
@@ -227,7 +235,7 @@ tied to one scene; scenes 14 and 15 have no chunks. 126 chunks total. Each chunk
 
 - `fact_id` is `null` for support chunks; 41 distinct `CL-*` facts exist.
 - 11 of the 14 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
-  45 chunks have fact requirements.
+  42 chunks have fact requirements.
 - Every chunk has at least one NPC in `knowledge_holders`. Resolution-only
   material (the detective's deductions) is not part of the corpus.
 - Write `retrieval_text` as plain facts (no quotes or narration such as
@@ -262,7 +270,7 @@ Changing chunk gates can change when a hint becomes available.
   `EVIDENCE_NEEDED` (2) distinct items. Renaming or regating these facts in
   the chunks changes when a suspect can be accused.
 - `beats.gd` maps a `fact_id` to a narrated action (for example the forense
-  analyzing the ice for `CL-ICE-03`). When a reply's `X-New-Fact` includes one,
+  analyzing the ice for `CL-ICE-03`). When a reply's `X-Focus-Fact` includes one,
   the chat shows the action and pauses `BEAT_SECONDS` before the NPC's text.
 
 ### Graph
@@ -339,9 +347,10 @@ aid, not used at runtime.
   models in `reconocimiento.tscn` are separate accusation targets.
 - `npc.gd` (`Node3D`): exports `npc_id`/`npc_name`, uses `HTTPClient` to stream
   from `127.0.0.1:8000/dialogue_stream`, emits `response_beat(text)` first
-  when a new fact has an entry in `data/beats.gd`, then `response_chunk`, then
-  `response_failed(message)` if the turn failed, then `response_completed`, and
-  only on success `Global.fact_discovered` for each `X-New-Fact`. Errors are
+  when the `X-Focus-Fact` has an entry in `data/beats.gd`, then
+  `response_chunk`, then `response_failed(message)` if the turn failed, then
+  `response_completed`, and only on success `Global.fact_discovered` for each
+  fact after the `\x1f` marker. Errors are
   shown in the chat by `dialogue_ui.show_error()`; hint and notebook errors use
   `NotificationManager.show_error()` and the notebook page.
 - `jugador.gd` (`CharacterBody3D`): WASD movement, `E` to interact, raycast/mouse

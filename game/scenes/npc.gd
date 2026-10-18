@@ -27,6 +27,8 @@ const Beats = preload("res://data/beats.gd")
 const BACKEND_HOST = "127.0.0.1"
 const BACKEND_PORT = 8000
 const BACKEND_PATH = "/dialogue_stream"
+# Byte que separa la respuesta de los hechos nuevos que el NPC llegó a decir.
+const FACT_MARKER := 0x1f
 
 var http_client: HTTPClient
 var is_streaming: bool = false
@@ -121,7 +123,7 @@ func _start_stream(player_input: String) -> void:
 		response_failed.emit(outcome["error"])
 	response_completed.emit()
 	http_client.close()
-	# Si el turno falló, el backend ya deshizo el hecho que había registrado.
+	# Si el turno falló, el backend ya deshizo el hecho que había propuesto.
 	if outcome["error"] == "":
 		for fact_id in outcome["facts"]:
 			Global.fact_discovered.emit(fact_id)
@@ -178,43 +180,45 @@ func _stream(player_input: String) -> Dictionary:
 		outcome["error"] = BackendError.from_body(code, error_body.get_string_from_utf8())
 		return outcome
 
-	# El backend avisa en un header qué hecho nuevo descubrió esta pregunta.
-	outcome["facts"] = _new_facts(http_client.get_response_headers_as_dictionary())
-
-	# Algunos hechos llegan con una acción antes de la respuesta (data/beats.gd).
+	# El backend avisa en un header qué hecho nuevo debería revelar la respuesta.
+	# Algunos llegan con una acción antes de la respuesta (data/beats.gd).
 	# Mientras tanto la respuesta se sigue acumulando en la conexión.
-	var beat := Beats.for_facts(outcome["facts"])
+	var beat := Beats.for_facts(_focus_facts(http_client.get_response_headers_as_dictionary()))
 	if beat != "":
 		response_beat.emit(beat)
 		await get_tree().create_timer(Beats.BEAT_SECONDS).timeout
 
-	# Leer chunks. Si el turno falla, el mensaje llega después del marcador.
-	var stream_error := PackedByteArray()
-	var failed_midway := false
+	# Leer chunks. Después de un marcador llega el mensaje de error del turno
+	# o los hechos nuevos que el NPC llegó a decir (nunca los dos).
+	var trailer := PackedByteArray()
 	while http_client.get_status() == HTTPClient.STATUS_BODY:
 		http_client.poll()
 		var chunk := http_client.read_response_body_chunk()
-		if failed_midway:
-			stream_error.append_array(chunk)
+		if not trailer.is_empty():
+			trailer.append_array(chunk)
 		elif chunk.size() > 0:
 			var marker := chunk.find(BackendError.STREAM_MARKER)
+			if marker < 0:
+				marker = chunk.find(FACT_MARKER)
 			if marker >= 0:
-				failed_midway = true
-				stream_error.append_array(chunk.slice(marker + 1))
+				trailer = chunk.slice(marker)
 				chunk = chunk.slice(0, marker)
 			if chunk.size() > 0:
 				response_chunk.emit(chunk.get_string_from_utf8())
 		await get_tree().process_frame
 
-	if failed_midway:
-		outcome["error"] = stream_error.get_string_from_utf8()
+	var trailer_text := trailer.slice(1).get_string_from_utf8()
+	if not trailer.is_empty() and trailer[0] == BackendError.STREAM_MARKER:
+		outcome["error"] = trailer_text
 	elif http_client.get_status() == HTTPClient.STATUS_CONNECTION_ERROR:
 		outcome["error"] = BackendError.INTERRUPTED
+	elif not trailer.is_empty():
+		outcome["facts"] = trailer_text.split(",", false)
 	return outcome
 
 
-func _new_facts(headers: Dictionary) -> PackedStringArray:
+func _focus_facts(headers: Dictionary) -> PackedStringArray:
 	for key in headers:
-		if str(key).to_lower() == "x-new-fact":
+		if str(key).to_lower() == "x-focus-fact":
 			return str(headers[key]).split(",", false)
 	return PackedStringArray()

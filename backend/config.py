@@ -14,6 +14,7 @@ class Settings:
     max_chunks: int = 3
     min_similarity: float = 0.43
     new_fact_margin: float = 0.05
+    said_similarity: float = 0.5
     max_history: int = 20
     num_predict: int = 160
     temperature: float = 0.8

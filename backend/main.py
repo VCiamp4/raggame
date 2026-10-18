@@ -7,7 +7,7 @@ import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
 from backend.rag.game_state import discovered_chunks, get_discovered_facts, next_hint
-from backend.rag.retrieval import CHUNKS
+from backend.rag.retrieval import CHUNKS, keep_said_facts
 
 app = FastAPI()
 dialogue_service = DialogueService()
@@ -21,6 +21,8 @@ class DialogueRequest(BaseModel):
 
 # Separa la respuesta del NPC de un mensaje de error para el jugador.
 ERROR_MARKER = "\x1e"
+# Separa la respuesta del NPC de los hechos nuevos que llegó a decir.
+FACT_MARKER = "\x1f"
 
 
 def error_message(exc: Exception) -> str:
@@ -166,6 +168,7 @@ def dialogue_stream(req: DialogueRequest):
                         yield chunk
                     if data.get("done", False):
                         break
+        said_facts = keep_said_facts(req.session_id, new_facts, reply)
         # Recién guardamos el turno (pregunta + respuesta) cuando terminó bien.
         dialogue_service.save_response(
             session_id=req.session_id,
@@ -173,11 +176,13 @@ def dialogue_stream(req: DialogueRequest):
             player_input=req.player_input,
             response=reply,
         )
+        if said_facts:
+            yield FACT_MARKER + ",".join(sorted(said_facts))
 
-    # La recuperación ya corrió en get_message, así que el hecho nuevo (si hubo)
-    # viaja en un header antes del texto.
+    # La recuperación ya corrió en get_message: el hecho que propuso viaja en un
+    # header antes del texto, y solo queda descubierto si el NPC lo dice.
     headers = {}
     new_facts = get_discovered_facts(req.session_id) - known_facts
     if new_facts:
-        headers["X-New-Fact"] = ",".join(sorted(new_facts))
+        headers["X-Focus-Fact"] = ",".join(sorted(new_facts))
     return StreamingResponse(generate(), media_type="text/plain", headers=headers)
