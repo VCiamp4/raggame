@@ -135,7 +135,6 @@
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -166,7 +165,7 @@
         "q2": "¿Esteban estaba enojado cuando se fue?"
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
-      "fact_id": "CL-EST-01",
+      "fact_id": "CL-EST-02",
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -181,7 +180,7 @@
         "q2": "¿Qué pasó en el almuerzo con tu hermana?"
       },
       "source_excerpt": "Cuando le pregunté quién podía haber matado a su hermana, Juan respondió de inmediato:\n\n—Pregúntele a Esteban.\n\nSegún él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor. Juan, que daba la impresión de divertirse con las desgracias familiares, aseguró que a él no le preocupaba demasiado recibir una cantidad algo menor porque, en cualquier caso, cobraría dinero. Esteban, en cambio, había tomado la modificación como una ofensa personal.\n\n—Cree que cada peso que recibe otro se lo robaron a él —dijo.",
-      "fact_id": "CL-POL-01",
+      "fact_id": "CL-EST-02",
       "necessary_facts": [],
       "sufficient_facts": []
     },
@@ -199,7 +198,6 @@
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -218,7 +216,6 @@
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -237,7 +234,6 @@
       "fact_id": "CL-POL-04",
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -254,7 +250,7 @@
         "q2": "¿De qué acusó Esteban a Pablo?"
       },
       "source_excerpt": "Según él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.\n\nAl enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido.",
-      "fact_id": "CL-POL-01",
+      "fact_id": "CL-EST-02",
       "necessary_facts": [],
       "sufficient_facts": []
     }

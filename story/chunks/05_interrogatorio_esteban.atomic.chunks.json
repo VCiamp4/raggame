@@ -45,7 +45,6 @@
       "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -106,7 +105,7 @@
         "q2": "¿Existía algún seguro de vida a nombre de Stevens?"
       },
       "source_excerpt": "Esteban era corredor de seguros. Dos meses antes había convencido a la señora Stevens de contratar una de las mejores pólizas de vida disponibles.",
-      "fact_id": "CL-POL-01",
+      "fact_id": null,
       "necessary_facts": [],
       "sufficient_facts": []
     },

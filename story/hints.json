@@ -6,23 +6,13 @@
       "text_with_npc": "Preguntale a la criada si alguien subió al departamento después de las 19:10."
     },
     {
-      "fact_id": "CL-POL-01",
-      "text": "La muerte de Stevens dejaba dinero de por medio. ¿Había un seguro o una póliza de vida?",
-      "text_with_npc": "Preguntale a Esteban si la señora Stevens tenía una póliza de vida."
-    },
-    {
-      "fact_id": "CL-POL-04",
-      "text": "Ya sabés que existía una póliza. ¿Quién la había gestionado?",
-      "text_with_npc": "Preguntale a Esteban quién gestionó la póliza de vida de Stevens."
-    },
-    {
-      "fact_id": "CL-POL-02",
-      "text": "¿Habrá una versión más nueva de la póliza? Averiguá dónde apareció.",
-      "text_with_npc": "Preguntale a Esteban dónde apareció la póliza actualizada."
+      "fact_id": "CL-EST-02",
+      "text": "La muerte de Stevens dejaba dinero de por medio. Averiguá qué pasó en el almuerzo con sus hermanos.",
+      "text_with_npc": "Preguntale a Juan qué pasó con Esteban en el almuerzo."
     },
     {
       "fact_id": "CL-POL-03",
-      "text": "La póliza había sido actualizada. ¿Cómo repartía el dinero la versión nueva?",
+      "text": "Averiguá si la póliza de vida cambió y cómo repartía el dinero entre los hermanos.",
       "text_with_npc": "Preguntale a Esteban cómo repartía el beneficio la nueva póliza entre los hermanos."
     },
     {

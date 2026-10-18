@@ -35,7 +35,7 @@ Godot project.
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
-- The story corpus has 15 scenes, 109 atomic chunks and 39 distinct `fact_id`s.
+- The story corpus has 15 scenes, 108 atomic chunks and 35 distinct `fact_id`s.
   The retrieval benchmark has 195 cases; the dialogue benchmark has 6
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
@@ -85,7 +85,7 @@ raggame/
 ├── story/
 │   ├── source/                      # original PDF + final markdown
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
-│   ├── chunks/                      # 14 *.atomic.chunks.json (109 chunks)
+│   ├── chunks/                      # 14 *.atomic.chunks.json (108 chunks)
 │   ├── personajes/                  # 5 one-paragraph persona files
 │   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
@@ -227,7 +227,7 @@ YAML frontmatter + a `<!-- SOURCE_START --> ... <!-- SOURCE_END -->` body:
 ### Chunks (`story/chunks/*.atomic.chunks.json`)
 
 One file per scene plus `99_general` (`GEN-01`) for additions that are not
-tied to one scene; scenes 14 and 15 have no chunks. 109 chunks total. Each chunk:
+tied to one scene; scenes 14 and 15 have no chunks. 108 chunks total. Each chunk:
 
 ```json
 {
@@ -242,9 +242,9 @@ tied to one scene; scenes 14 and 15 have no chunks. 109 chunks total. Each chunk
 }
 ```
 
-- `fact_id` is `null` for support chunks; 39 distinct `CL-*` facts exist.
+- `fact_id` is `null` for support chunks; 35 distinct `CL-*` facts exist.
 - 10 of the 14 chunk files contain nonempty `necessary_facts`/`sufficient_facts`;
-  32 chunks have fact requirements.
+  31 chunks have fact requirements.
 - Every chunk has at least one NPC in `knowledge_holders`. Resolution-only
   material (the detective's deductions) is not part of the corpus.
 - Write `retrieval_text` as plain facts (no quotes or narration such as

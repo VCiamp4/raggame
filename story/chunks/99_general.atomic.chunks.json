@@ -64,7 +64,6 @@
       "fact_id": "CL-EST-06",
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]
@@ -83,7 +82,6 @@
       "fact_id": "CL-PAB-09",
       "necessary_facts": [],
       "sufficient_facts": [
-        "CL-POL-01",
         "CL-POL-04",
         "CL-EST-02"
       ]

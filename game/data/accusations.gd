@@ -28,7 +28,7 @@ const SUSPECTS: Dictionary = {
 	"esteban": {
 		"name": "Esteban",
 		"evidence": [
-			{"label": "Se peleó feo con la señora Stevens por el cambio de la póliza.", "facts": ["CL-EST-01", "CL-EST-02", "CL-EST-03"]},
+			{"label": "Se peleó feo con la señora Stevens por el cambio de la póliza.", "facts": ["CL-EST-02"]},
 			{"label": "Se beneficia económicamente con la muerte.", "facts": ["CL-EST-06", "CL-POL-03"]},
 			{"label": "Gestionó el seguro de vida de la señora Stevens.", "facts": ["CL-POL-04"]},
 		],
