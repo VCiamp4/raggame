@@ -46,8 +46,15 @@ Godot project.
   Pablo is the correct accusation.
 - Backend-discovered `CL-*` facts are the only clue state; the notebook and
   the "Pistas" button read them. Examined objects do not register facts.
+- After the case briefing the game starts at the **map** (`mapa_menu.tscn`),
+  where the player picks a location to investigate.
+- The notebook (Libreta) shows only a fixed clue list for criada/juan/esteban/
+  pablo (`CLUE_PAGES` in `libreta.gd`); the other pages keep the prefix grouping.
+- Dialogue shows a per-NPC waiting line while the model starts answering
+  (delayed, so fast replies don't flash it), and the chat transcript persists
+  across locations (stored on `Global.chat_transcripts`).
 - No automated tests or CI. A self-contained distribution build exists
-  (`packaging/`, `DISTRIBUTION.md`).
+  (`packaging/`, `DISTRIBUTION.md`); see `RUNNING.md` for local runs.
 
 ## 3. Repository layout
 
@@ -63,8 +70,9 @@ raggame/
 │   ├── raggame.sh / raggame.bat     # installer/launcher (Linux / Windows)
 │   └── requirements-build.txt
 ├── DISTRIBUTION.md                  # how to build/ship the game
+├── RUNNING.md + run_backend.sh      # local backend+Ollama launcher (dev)
 ├── backend/
-│   ├── main.py                      # /, /dialogue_stream, /notebook, /hint
+│   ├── main.py                      # /, /dialogue_stream, /notebook, /hint, /discover
 │   ├── config.py                    # Settings dataclass, env-configurable
 │   ├── requirements.txt
 │   ├── .env.example
@@ -101,6 +109,7 @@ raggame/
     ├── data/                        # inspectable catalog
     ├── scripts/systems/             # InputManager
     ├── ui/                          # NotificationManager
+    ├── tools/render_portrait.*      # dev tool: render an FBX to a portrait PNG
     └── scenes/                      # gameplay scenes/scripts, including libreta.gd
 ```
 
@@ -263,7 +272,9 @@ Changing chunk gates can change when a hint becomes available.
 ### Game inspectable catalog (`game/data/`)
 
 - `inspectables.gd` defines object names and descriptions shown when examining.
-  Examining an object does not contact the backend or register any fact.
+  An inspectable can override them and, optionally, register a fact
+  (`inspectable.gd` `fact_to_discover` → `POST /discover`), with conditional
+  text via `fact_requires` / `description_locked` / `description_unlocked`.
 - Keep inspectable text consistent with the story chunks.
 - `accusations.gd` lists, per suspect, the evidence items needed to accuse
   them; each item is satisfied by any of its `fact_id`s, and accusing needs
@@ -396,12 +407,15 @@ These are the highest-value things to know before making changes.
    default ID `"Aldric"`, which is absent from the backend persona map.
 2. **Hints depend on backend memory.** Discovered facts live in RAM, so a
    backend restart resets hint progress (and the notebook) for every session.
-3. **Object discoveries do not reach the backend.** Examining an object (for
-   example the office archive with the original policy) registers no `CL-*`
-   fact, so it neither unlocks gated chunks nor appears in the notebook.
-4. **Map input/transition handling.** `ui_accept` changes scenes before calling
-   `get_viewport().set_input_as_handled()`, potentially using a detached viewport.
-   Clicking empty map space enters the retained focused location.
+3. **Object discoveries reach the backend only if wired.** `inspectable.gd`
+   supports conditional text (`fact_requires` / `description_locked` /
+   `description_unlocked`) and `fact_to_discover`; the latter POSTs to
+   `/discover` and emits `Global.fact_discovered`. Objects without
+   `fact_to_discover` (e.g. the office archive) still register nothing.
+4. **Map click enters the focused node.** Clicking anywhere on the map (even
+   empty space) enters the currently focused `nodo_mapa`; `ui_accept` and mouse
+   focus share `focused_node`. (The old detached-viewport crash from calling
+   `set_input_as_handled()` after `change_scene_to_file` is fixed.)
 5. **Portrait rendering.** `_collect_aabb()` applies child mesh transforms twice;
    SubViewports render with `UPDATE_ALWAYS` even while hidden. Freshly instanced
    portrait models do not inherit world NPC poses.
@@ -433,6 +447,11 @@ These are the highest-value things to know before making changes.
 
 Prerequisites: Python 3.12, Godot 4.7, and Ollama (local or via Docker). The
 backend imports use the `backend.*` package, so **run from the repo root**.
+
+**Quick start (recommended):** `./run_backend.sh` starts the Ollama container on
+port `11435` (mounting `./ollama_models`), builds the index if missing, and runs
+the backend on `127.0.0.1:8000`. See `RUNNING.md`; the manual steps below are the
+equivalent.
 
 ```bash
 # 1. Python dependencies (use a virtual environment)

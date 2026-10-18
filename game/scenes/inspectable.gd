@@ -17,6 +17,13 @@ const InspectableCatalogRes = preload("res://data/inspectables.gd")
 # Overrides opcionales: si quedan vacíos, se usan los del catálogo.
 @export var object_name_override: String = ""
 @export_multiline var description_override: String = ""
+# Descripción condicional: si `fact_requires` NO está descubierto se usa
+# `description_locked`; si lo está, `description_unlocked`.
+@export var fact_requires: String = ""
+@export_multiline var description_locked: String = ""
+@export_multiline var description_unlocked: String = ""
+# Hecho que se descubre al inspeccionar (vacío = no descubre nada).
+@export var fact_to_discover: String = ""
 
 var is_highlighted: bool = false
 var mesh_instance: MeshInstance3D
@@ -52,9 +59,25 @@ func get_object_name() -> String:
 
 
 func get_description() -> String:
+	if fact_requires != "":
+		if Global.has_fact(fact_requires):
+			if description_unlocked != "":
+				return description_unlocked
+		elif description_locked != "":
+			return description_locked
 	if description_override != "":
 		return description_override
 	return InspectableCatalogRes.description(inspectable_id)
+
+
+# Llamado por el jugador al abrir la inspección. Sólo descubre el hecho si la
+# descripción desbloqueada está activa (es decir, si `fact_requires` se cumple).
+func on_inspected() -> void:
+	if fact_to_discover == "":
+		return
+	if fact_requires != "" and not Global.has_fact(fact_requires):
+		return
+	Global.discover_fact(fact_to_discover)
 
 
 # Compatibilidad con código que lee la propiedad "object_name".

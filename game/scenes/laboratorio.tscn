@@ -23,9 +23,11 @@
 [ext_resource type="PackedScene" uid="uid://dss841o832d1b" path="res://scenes/jugador.tscn" id="20_63p0i"]
 [ext_resource type="Material" uid="uid://drvxwrkhavqyb" path="res://assets/Plaster001_1K-JPG/Plaster001_1K-JPG.tres" id="21_gkvkn"]
 [ext_resource type="PackedScene" uid="uid://bq7t0temvanm1" path="res://scenes/totem.tscn" id="22_totem"]
-[ext_resource type="Script" path="res://scenes/npc.gd" id="npc_script"]
-[ext_resource type="PackedScene" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="npc_pablo_model"]
-[ext_resource type="Texture2D" path="res://assets/ui/retratos/pablo.png" id="npc_pablo_portrait"]
+[ext_resource type="PackedScene" uid="uid://bcvuk8rcce27n" path="res://assets/Lab Assets/GLB/Furniture/Cabinets/cabinet_cabinet_two_shelves.glb" id="cabinet_reactivos"]
+[ext_resource type="Script" uid="uid://c4n8kp2vwyq3t" path="res://scenes/inspectable.gd" id="inspectable_script"]
+[ext_resource type="PackedScene" uid="uid://qcu3g70nufp3" path="res://assets/Characters_psx/Models/Male/Character_03.fbx" id="npc_pablo_model"]
+[ext_resource type="Texture2D" uid="uid://cwpln7os65rxg" path="res://assets/ui/retratos/pablo.png" id="npc_pablo_portrait"]
+[ext_resource type="Script" uid="uid://bfht26todlf3h" path="res://scenes/npc.gd" id="npc_script"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 material = ExtResource("3_8huxt")
@@ -63,12 +65,15 @@ size = Vector3(0.74, 0.8, 0.48)
 [sub_resource type="BoxShape3D" id="BoxShape3D_Centrifuga"]
 size = Vector3(0.42, 0.34, 0.34)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_reactivos"]
+size = Vector3(0.5, 0.45, 0.4)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
 radius = 1.2
 
 [node name="Node3D" type="Node3D" unique_id=459800692]
 
-[node name="Mundo" type="Node3D" parent="."]
+[node name="Mundo" type="Node3D" parent="." unique_id=1838562607]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Cow by Poly by Google - 0OToIgkcVM7" parent="Mundo" unique_id=1252148571 instance=ExtResource("1_2odp0")]
@@ -97,7 +102,7 @@ transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.005998787
 [node name="Low Poly - Lab Assets3" parent="Mundo/StaticBody3D6" unique_id=1490057907 instance=ExtResource("3_4tgyg")]
 transform = Transform3D(1.0000001, 0, 1.8626451e-09, 0, 0.99999994, 0, -1.8626451e-09, 0, 1.0000001, 0, 0, 0)
 
-[node name="Low Poly - Lab Assets4" parent="Mundo" unique_id=690075390 instance=ExtResource("3_4tgyg")]
+[node name="cabinet-with-poison" parent="Mundo" unique_id=690075390 instance=ExtResource("3_4tgyg")]
 transform = Transform3D(0.0001205919, 0, -0.0059987875, 0, 0.006, 0, 0.0059987875, 0, 0.0001205919, -1.2929622, 0.21152902, 0.64674276)
 
 [node name="Low Poly - Lab Assets5" parent="Mundo" unique_id=1251161074 instance=ExtResource("3_4tgyg")]
@@ -205,54 +210,70 @@ mesh = SubResource("PlaneMesh_nbej8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004058838, 0.81934404, 3.4945438)
 shape = SubResource("BoxShape3D_arjtg")
 
-[node name="ColisionesProps" type="StaticBody3D" parent="Mundo"]
+[node name="ColisionesProps" type="StaticBody3D" parent="Mundo" unique_id=1812417910]
 
-[node name="Mostradores" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="Mostradores" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=504306172]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0.225, 0.69)
 shape = SubResource("BoxShape3D_Mostradores")
 
-[node name="Vaca" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="Vaca" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=1508393551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01, 0.37, -2.09)
 shape = SubResource("BoxShape3D_Vaca")
 
-[node name="Piseta" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="Piseta" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=144894152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76, 0.25, -2.64)
 shape = SubResource("BoxShape3D_Piseta")
 
-[node name="SoporteUniversal" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="SoporteUniversal" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=1250815835]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32, 0.17, -2.77)
 shape = SubResource("BoxShape3D_SoporteUniversal")
 
-[node name="Vidrieria" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="Vidrieria" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=563315882]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91, 0.4, 2.59)
 shape = SubResource("BoxShape3D_Vidrieria")
 
-[node name="Centrifuga" type="CollisionShape3D" parent="Mundo/ColisionesProps"]
+[node name="Centrifuga" type="CollisionShape3D" parent="Mundo/ColisionesProps" unique_id=1845672392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.17, 2.8)
 shape = SubResource("BoxShape3D_Centrifuga")
 
-[node name="OmniLight3D1" type="OmniLight3D" parent="."]
+[node name="Other-thing" type="StaticBody3D" parent="Mundo" unique_id=305945385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15, 0, 2.6)
+script = ExtResource("inspectable_script")
+object_name_override = "Gabinete de reactivos"
+fact_requires = "CL-ICE-03"
+description_locked = "¿Estos químicos siquiera están en español? Tienen nombres muy raros. No quisiera tocar algo cuando no sé si estoy buscando algo."
+description_unlocked = "Acá está, cianuro de potasio. Y está completamente vacío."
+fact_to_discover = "CL-ERP-02"
+
+[node name="Model" parent="Mundo/Other-thing" unique_id=488566063 instance=ExtResource("cabinet_reactivos")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/Other-thing" unique_id=573578581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_reactivos")
+
+[node name="OmniLight3D1" type="OmniLight3D" parent="." unique_id=121143836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5.5)
 light_energy = 2.5
 omni_range = 8.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1087488875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 light_energy = 2.5
 omni_range = 8.0
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1622032151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 5.5)
 light_energy = 2.5
 omni_range = 8.0
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("20_63p0i")]
-transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 3.0, 0.68, 0)
+transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 3, 0.68, 0)
 
 [node name="Totem" parent="." unique_id=1869845903 instance=ExtResource("22_totem")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0.037, 2.2)
 
-[node name="Pablo" type="Node3D" parent="."]
+[node name="Pablo" type="Node3D" parent="." unique_id=250004414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.04, -5.4)
 script = ExtResource("npc_script")
 npc_id = "pablo"
@@ -260,13 +281,12 @@ npc_name = "Pablo"
 retrato = ExtResource("npc_pablo_portrait")
 pose_arms_down = 70.0
 
-[node name="Model" parent="Pablo" instance=ExtResource("npc_pablo_model")]
-transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
+[node name="Model" parent="Pablo" unique_id=2028968896 instance=ExtResource("npc_pablo_model")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="InteractionArea" type="Area3D" parent="Pablo"]
+[node name="InteractionArea" type="Area3D" parent="Pablo" unique_id=1822001232]
 collision_layer = 0
-collision_mask = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea" unique_id=1793736422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")

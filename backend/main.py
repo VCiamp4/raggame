@@ -71,6 +71,14 @@ def hint(session_id: str, with_npc: bool = False):
     return {"hint": next_hint(session_id, with_npc, CHUNKS)}
 
 
+@app.post("/discover")
+def discover(req: DiscoverRequest):
+    # Objetos inspeccionables u otras fuentes fuera del diálogo registran un hecho.
+    get_discovered_facts(req.session_id)
+    update_fact(req.session_id, req.fact_id)
+    return {"ok": True}
+
+
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
     known_facts = set(get_discovered_facts(req.session_id))

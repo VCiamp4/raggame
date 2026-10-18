@@ -134,6 +134,19 @@
       "fact_id": "CL-FRI-02",
       "necessary_facts": [],
       "sufficient_facts": []
+    },
+    {
+      "chunk_id": "GEN-01-AT-07",
+      "retrieval_text": "En el laboratorio de Pablo había cianuro de potasio, y el frasco estaba vacío.",
+      "knowledge_holders": [],
+      "questions": {
+        "q1": "¿Qué se encontró en el laboratorio de Pablo?",
+        "q2": "¿Tenía Pablo el veneno usado para matar?"
+      },
+      "source_excerpt": "Una inspección comprobó que entre los reactivos controlados del laboratorio había cianuro de potasio.",
+      "fact_id": "CL-ERP-02",
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }
