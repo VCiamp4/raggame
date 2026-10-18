@@ -361,6 +361,9 @@ aid, not used at runtime.
   player/NPC models in portrait SubViewports.
 - `libreta.gd` builds the notebook, queries `/notebook/{session_id}` and groups
   discovered fact text into character pages. It uses backend state exclusively.
+  Suspect pages (criada, Juan, Esteban, Pablo) show only that suspect's
+  evidence facts from `data/accusations.gd`, one per evidence item (the first
+  discovered), plus the extra facts in its `CLUE_PAGES`.
   On `Global.fact_discovered` it shows a toast naming the clue's page, a red
   unread badge and a pulse on its icon, and opens on the newest clue's page.
 - The "Pistas" button in `jugador.gd` requests `/hint/{session_id}`. Difficulty
