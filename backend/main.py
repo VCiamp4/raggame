@@ -6,7 +6,7 @@ import logging
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
-from backend.rag.game_state import get_discovered_facts, next_hint
+from backend.rag.game_state import discovered_chunks, get_discovered_facts, next_hint
 from backend.rag.retrieval import CHUNKS
 
 app = FastAPI()
@@ -56,9 +56,11 @@ def root():
 @app.get("/notebook/{session_id}")
 def notebook(session_id: str):
     discovered = get_discovered_facts(session_id)
+    revealed = discovered_chunks.get(session_id, {})
     return {"clues": [
         {"fact_id": chunk.fact_id, "text": chunk.retrieval_text}
-        for chunk in CHUNKS if chunk.fact_id in discovered
+        for chunk in CHUNKS
+        if chunk.fact_id in discovered and revealed.get(chunk.fact_id) == chunk.chunk_id
     ]}
 
 

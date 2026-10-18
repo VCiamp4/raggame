@@ -8,6 +8,8 @@ HINTS_PATH = Path(__file__).resolve().parents[2] / "story" / "hints.json"
 HINTS = json.loads(HINTS_PATH.read_text(encoding="utf-8"))["hints"]
 
 discovered_facts = {}
+# Por sesión, el chunk que reveló cada hecho por primera vez: es el que muestra la libreta.
+discovered_chunks = {}
 
 def get_discovered_facts(session_id: str) -> set[str]:
     """
@@ -17,11 +19,13 @@ def get_discovered_facts(session_id: str) -> set[str]:
         discovered_facts[session_id] = set()
     return discovered_facts[session_id]
 
-def update_fact(session_id: str, fact_id: str | None) -> None:
+def update_fact(session_id: str, fact_id: str | None, chunk_id: str | None = None) -> None:
     """
     Actualiza el conjunto de hechos descubiertos por el jugador en la sesión especificada.
     """
     if fact_id is not None:
+        if fact_id not in discovered_facts[session_id]:
+            discovered_chunks.setdefault(session_id, {})[fact_id] = chunk_id
         discovered_facts[session_id].add(fact_id)
 
 def is_available(chunk, npc_id: str, session_id: str) -> bool:

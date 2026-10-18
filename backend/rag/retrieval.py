@@ -115,7 +115,7 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
             break
         if candidate is not focus and is_support(focus, candidate, session_id):
             retrieved_chunks.append(candidate)
-    update_fact(session_id, focus.fact_id)
+    update_fact(session_id, focus.fact_id, focus.chunk_id)
 
     retrieved_texts = []
     for chunk in retrieved_chunks:

@@ -140,8 +140,9 @@ facts are discarded. Only an unknown `npc_id` returns an error status (404).
 On the game side, `game/ui/backend_error.gd` (used via `preload`) adds the
 contact line and covers client-side failures (backend offline, connection lost).
 
-`GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`
-for chunks whose facts have been discovered in that backend session.
+`GET /notebook/{session_id}` returns a `clues` array with `fact_id` and `text`:
+one entry per fact discovered in that backend session, with the text of the
+chunk that first revealed it (`game_state.discovered_chunks`).
 
 `GET /hint/{session_id}?with_npc=<bool>` returns `{"hint": {fact_id, text}}`
 or `{"hint": null}`. It walks `story/hints.json` in order and returns the first
