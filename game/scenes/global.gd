@@ -59,6 +59,31 @@ func _on_fact_discovered(fact_id: String) -> void:
 			suspect_unlocked.emit(suspect_id)
 
 
+func has_fact(fact_id: String) -> bool:
+	return discovered_facts.has(fact_id)
+
+
+# Registra un hecho descubierto fuera del diálogo (p. ej. un objeto
+# inspeccionable): avisa al backend y emite `fact_discovered`.
+func discover_fact(fact_id: String) -> void:
+	if fact_id == "" or discovered_facts.has(fact_id):
+		return
+	_notify_backend(fact_id)
+	fact_discovered.emit(fact_id)
+
+
+func _notify_backend(fact_id: String) -> void:
+	var http := HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(_r, _c, _h, _b): http.queue_free())
+	http.request(
+		"http://127.0.0.1:8000/discover",
+		["Content-Type: application/json"],
+		HTTPClient.METHOD_POST,
+		JSON.stringify({"session_id": session_id, "fact_id": fact_id}),
+	)
+
+
 func set_difficulty(profile: Dictionary) -> void:
 	if profile.is_empty():
 		difficulty_profile = DEFAULT_DIFFICULTY.duplicate(true)

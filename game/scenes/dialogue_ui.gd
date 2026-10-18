@@ -27,6 +27,7 @@ var current_bubble_name := ""
 # Estilo de las burbujas de chat.
 const PLAYER_BG := Color("26476b")
 const NPC_BG := Color("2e2e33")
+const SYSTEM_BG := Color("26262c")
 const PLAYER_TEXT := Color("e6eef7")
 const NPC_TEXT := Color("e8e2d2")
 const NAME_PLAYER := Color("9ad0ff")
@@ -79,8 +80,6 @@ var _wait_token := 0
 var _waiting_active := false
 var _pending_line := ""
 var _last_wait := {}
-# Dónde empieza en el transcript la línea del NPC que se está recibiendo.
-var _response_start := 0
 
 const BackendError = preload("res://ui/backend_error.gd")
 const ERROR_COLOR := "#ff8a80"
@@ -284,13 +283,11 @@ func start_npc_response(npc_name: String) -> void:
 	current_npc_response = ""
 	responding_npc = current_npc
 	current_bubble_name = npc_name
+	current_bubble_text = null
 	_pending_line = _waiting_line_for(npc_name)
 	_waiting_active = false
 	_wait_token += 1
 	var token := _wait_token
-	if responding_npc == current_npc:
-		current_bubble_text = _make_bubble(npc_name, "", false)
-		_scroll_to_bottom()
 	get_tree().create_timer(WAIT_DELAY_MS / 1000.0).timeout.connect(func(): _show_waiting_line(token))
 
 
@@ -298,8 +295,11 @@ func append_npc_chunk(text: String) -> void:
 	if _waiting_active:
 		_remove_waiting()
 	current_npc_response += text
-	if responding_npc == current_npc and current_bubble_text != null:
+	if responding_npc == current_npc:
+		if current_bubble_text == null:
+			current_bubble_text = _make_bubble(current_bubble_name, "", false)
 		current_bubble_text.text = current_npc_response
+		current_bubble_text.add_theme_color_override("default_color", NPC_TEXT)
 		_resize_bubble(current_bubble_text)
 		_scroll_to_bottom()
 
@@ -317,37 +317,36 @@ func finish_npc_response() -> void:
 	current_bubble_text = null
 
 
-# Muestra una acción narrada (data/beats.gd) arriba de la línea del NPC que
-# responde. Reemplaza a la línea de espera mientras dura la pausa.
+# Muestra una acción narrada (data/beats.gd) antes de la respuesta del NPC.
 func show_beat(text: String) -> void:
 	_wait_token += 1
 	_waiting_active = false
-	var transcript: String = transcripts.get(responding_npc, "")
-	var line := "[i][color=%s]%s[/color][/i]\n" % [BEAT_COLOR, text.replace("[", "[lb]")]
-	transcripts[responding_npc] = transcript.substr(0, _response_start) + line + transcript.substr(_response_start)
-	_response_start += line.length()
+	if current_bubble_text != null:
+		_remove_last_bubble()
+		current_bubble_text = null
+	var beat_color := Color(BEAT_COLOR)
+	var msgs: Array = transcripts.get(responding_npc, [])
+	msgs.append({"speaker": "", "text": text, "player": false, "system": true, "color": beat_color})
+	transcripts[responding_npc] = msgs
 	if responding_npc == current_npc:
-		history_label.clear()
-		history_label.append_text(transcripts[responding_npc])
+		_make_bubble("", text, false, true, beat_color)
 		_scroll_to_bottom()
 
 
-# Muestra un error del turno como mensaje del sistema, no como habla del NPC.
-# Si el NPC no llegó a decir nada, el error ocupa el lugar de su línea.
+# Muestra un error del turno como mensaje del sistema.
 func show_error(message: String) -> void:
 	if _waiting_active:
 		_remove_waiting()
-	var transcript: String = transcripts.get(responding_npc, "")
-	if current_npc_response == "":
-		transcript = transcript.substr(0, _response_start)
-	else:
-		transcript += "\n"
-	transcript += "[color=%s][b]Error:[/b] %s[/color]\n[color=%s][i]%s[/i][/color]" % [
-		ERROR_COLOR, message.replace("[", "[lb]"), CONTACT_COLOR, BackendError.CONTACT]
-	transcripts[responding_npc] = transcript
+	if current_bubble_text != null:
+		_remove_last_bubble()
+		current_bubble_text = null
+	var err_color := Color(ERROR_COLOR)
+	var text := "%s\n%s" % [message, BackendError.CONTACT]
+	var msgs: Array = transcripts.get(responding_npc, [])
+	msgs.append({"speaker": "Error", "text": text, "player": false, "system": true, "color": err_color})
+	transcripts[responding_npc] = msgs
 	if responding_npc == current_npc:
-		history_label.clear()
-		history_label.append_text(transcript)
+		_make_bubble("Error", text, false, true, err_color)
 		_scroll_to_bottom()
 
 
@@ -369,7 +368,9 @@ func _show_waiting_line(token: int) -> void:
 	if token != _wait_token or _waiting_active or current_npc_response != "":
 		return
 	_waiting_active = true
-	if responding_npc == current_npc and current_bubble_text != null:
+	if responding_npc == current_npc:
+		if current_bubble_text == null:
+			current_bubble_text = _make_bubble(current_bubble_name, "", false)
 		current_bubble_text.text = _pending_line
 		current_bubble_text.add_theme_color_override("default_color", WAIT_COLOR)
 		_resize_bubble(current_bubble_text)
@@ -396,7 +397,7 @@ func _clear_chat() -> void:
 func _rebuild_chat(npc_name: String) -> void:
 	_clear_chat()
 	for msg in transcripts.get(npc_name, []):
-		_make_bubble(msg["speaker"], msg["text"], msg["player"])
+		_make_bubble(msg["speaker"], msg["text"], msg["player"], msg.get("system", false), msg.get("color", Color(0, 0, 0, 0)))
 	_scroll_to_bottom()
 
 
@@ -406,7 +407,7 @@ func _remove_last_bubble() -> void:
 		chat_list.get_child(n - 1).queue_free()
 
 
-func _make_bubble(speaker: String, text: String, is_player: bool) -> RichTextLabel:
+func _make_bubble(speaker: String, text: String, is_player: bool, is_system: bool = false, color: Color = Color(0, 0, 0, 0)) -> RichTextLabel:
 	var row := HBoxContainer.new()
 	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.alignment = BoxContainer.ALIGNMENT_END if is_player else BoxContainer.ALIGNMENT_BEGIN
@@ -414,7 +415,12 @@ func _make_bubble(speaker: String, text: String, is_player: bool) -> RichTextLab
 
 	var bubble := PanelContainer.new()
 	var style := StyleBoxFlat.new()
-	style.bg_color = PLAYER_BG if is_player else NPC_BG
+	if is_player:
+		style.bg_color = PLAYER_BG
+	elif is_system:
+		style.bg_color = SYSTEM_BG
+	else:
+		style.bg_color = NPC_BG
 	style.set_corner_radius_all(14)
 	style.content_margin_left = 14
 	style.content_margin_right = 14
@@ -429,8 +435,14 @@ func _make_bubble(speaker: String, text: String, is_player: bool) -> RichTextLab
 
 	var speaker_label := Label.new()
 	speaker_label.text = speaker
+	speaker_label.visible = speaker != ""
 	speaker_label.add_theme_font_size_override("font_size", 15)
-	speaker_label.add_theme_color_override("font_color", NAME_PLAYER if is_player else NAME_NPC)
+	var name_color := NAME_NPC
+	if is_player:
+		name_color = NAME_PLAYER
+	elif is_system:
+		name_color = color if color.a > 0.0 else Color(CONTACT_COLOR)
+	speaker_label.add_theme_color_override("font_color", name_color)
 	column.add_child(speaker_label)
 
 	var text_label := RichTextLabel.new()
@@ -439,7 +451,12 @@ func _make_bubble(speaker: String, text: String, is_player: bool) -> RichTextLab
 	text_label.scroll_active = false
 	text_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text_label.add_theme_font_size_override("normal_font_size", BUBBLE_FONT)
-	text_label.add_theme_color_override("default_color", PLAYER_TEXT if is_player else NPC_TEXT)
+	var text_color := NPC_TEXT
+	if is_player:
+		text_color = PLAYER_TEXT
+	elif is_system and color.a > 0.0:
+		text_color = color
+	text_label.add_theme_color_override("default_color", text_color)
 	text_label.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 	text_label.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 	text_label.text = text
