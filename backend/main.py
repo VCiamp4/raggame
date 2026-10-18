@@ -5,7 +5,7 @@ import json
 import requests
 from backend.config import settings
 from backend.rag.dialogue import DialogueService
-from backend.rag.game_state import get_discovered_facts, next_hint
+from backend.rag.game_state import get_discovered_facts, next_hint, update_fact
 from backend.rag.retrieval import CHUNKS
 
 app = FastAPI()
@@ -16,6 +16,11 @@ class DialogueRequest(BaseModel):
     npc_id: str
     player_input: str
     session_id: str = "default"
+
+
+class DiscoverRequest(BaseModel):
+    session_id: str
+    fact_id: str
 
 
 @app.get("/")
@@ -35,6 +40,14 @@ def notebook(session_id: str):
 @app.get("/hint/{session_id}")
 def hint(session_id: str, with_npc: bool = False):
     return {"hint": next_hint(session_id, with_npc, CHUNKS)}
+
+
+@app.post("/discover")
+def discover(req: DiscoverRequest):
+    # Objetos inspeccionables u otras fuentes fuera del diálogo registran un hecho.
+    get_discovered_facts(req.session_id)
+    update_fact(req.session_id, req.fact_id)
+    return {"ok": True}
 
 
 @app.post("/dialogue_stream")

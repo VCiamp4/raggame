@@ -73,7 +73,7 @@ raggame/
 ├── DISTRIBUTION.md                  # how to build/ship the game
 ├── RUNNING.md + run_backend.sh      # local backend+Ollama launcher (dev)
 ├── backend/
-│   ├── main.py                      # /, /dialogue_stream, /notebook, /hint
+│   ├── main.py                      # /, /dialogue_stream, /notebook, /hint, /discover
 │   ├── config.py                    # Settings dataclass, env-configurable
 │   ├── requirements.txt
 │   ├── .env.example
@@ -247,7 +247,9 @@ Changing chunk gates can change when a hint becomes available.
 ### Game inspectable catalog (`game/data/`)
 
 - `inspectables.gd` defines object names and descriptions shown when examining.
-  Examining an object does not contact the backend or register any fact.
+  An inspectable can override them and, optionally, register a fact
+  (`inspectable.gd` `fact_to_discover` → `POST /discover`), with conditional
+  text via `fact_requires` / `description_locked` / `description_unlocked`.
 - Keep inspectable text consistent with the story chunks.
 
 ### Graph
@@ -370,9 +372,11 @@ These are the highest-value things to know before making changes.
    default ID `"Aldric"`, which is absent from the backend persona map.
 2. **Hints depend on backend memory.** Discovered facts live in RAM, so a
    backend restart resets hint progress (and the notebook) for every session.
-3. **Object discoveries do not reach the backend.** Examining an object (for
-   example the office archive with the original policy) registers no `CL-*`
-   fact, so it neither unlocks gated chunks nor appears in the notebook.
+3. **Object discoveries reach the backend only if wired.** `inspectable.gd`
+   supports conditional text (`fact_requires` / `description_locked` /
+   `description_unlocked`) and `fact_to_discover`; the latter POSTs to
+   `/discover` and emits `Global.fact_discovered`. Objects without
+   `fact_to_discover` (e.g. the office archive) still register nothing.
 4. **Map click enters the focused node.** Clicking anywhere on the map (even
    empty space) enters the currently focused `nodo_mapa`; `ui_accept` and mouse
    focus share `focused_node`. (The old detached-viewport crash from calling

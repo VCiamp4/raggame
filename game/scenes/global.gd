@@ -18,6 +18,42 @@ var last_hint_fact_id: String = ""
 # Transcripción de cada conversación (por NPC), para que sobreviva al cambio
 # de escena (el jugador/diálogo se reinstancian en cada locación).
 var chat_transcripts: Dictionary = {}
+# Hechos descubiertos en esta partida (para gating de objetos, etc.).
+var discovered_facts: Dictionary = {}
+
+
+func _ready() -> void:
+	fact_discovered.connect(_on_fact_discovered_local)
+
+
+func _on_fact_discovered_local(fact_id: String) -> void:
+	discovered_facts[fact_id] = true
+
+
+func has_fact(fact_id: String) -> bool:
+	return discovered_facts.has(fact_id)
+
+
+# Registra un hecho descubierto fuera del diálogo (p. ej. un objeto
+# inspeccionable): lo guarda, avisa al backend y emite la señal.
+func discover_fact(fact_id: String) -> void:
+	if fact_id == "" or discovered_facts.has(fact_id):
+		return
+	discovered_facts[fact_id] = true
+	_notify_backend(fact_id)
+	fact_discovered.emit(fact_id)
+
+
+func _notify_backend(fact_id: String) -> void:
+	var http := HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(_r, _c, _h, _b): http.queue_free())
+	http.request(
+		"http://127.0.0.1:8000/discover",
+		["Content-Type: application/json"],
+		HTTPClient.METHOD_POST,
+		JSON.stringify({"session_id": session_id, "fact_id": fact_id}),
+	)
 
 
 func set_difficulty(profile: Dictionary) -> void:

@@ -359,6 +359,9 @@ func _examine_object(obj: Node) -> void:
 	var title := _inspect_display_name(obj)
 	var description := _inspect_description(obj)
 
+	if obj.has_method("on_inspected"):
+		obj.on_inspected()
+
 	inspection_ui.show_inspection(title, description)
 
 
