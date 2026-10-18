@@ -8,8 +8,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Cómo acostumbraba Stevens tomar su whisky?",
-        "q2": "¿De qué manera acostumbraba Stevens tomar su trago?"
+        "q1": "¿Cómo tomaba el whisky la señora?",
+        "q2": "¿La señora siempre tomaba el whisky con hielo?"
       },
       "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
       "fact_id": "CL-CRI-05",
@@ -25,8 +25,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿De dónde salían los cubos de hielo que usaba Stevens?",
-        "q2": "¿De dónde obtenía la casa el hielo para las bebidas?"
+        "q1": "¿De dónde sacaba el hielo?",
+        "q2": "¿El hielo lo hace la heladera o lo compran?"
       },
       "source_excerpt": "Regresamos a hablar con la criada.\n\n—¿Cómo tomaba el whisky la señora Stevens? —le pregunté.\n\n—Con hielo.\n\n—¿Siempre?\n\n—Siempre.\n\n—¿Lo compraban?\n\nLa mujer pareció sorprendida por la pregunta.\n\n—No. Lo hacía la heladera.",
       "fact_id": null,
@@ -42,8 +42,8 @@
         "criada"
       ],
       "questions": {
-        "q1": "¿Qué problema había tenido la heladera unos días antes?",
-        "q2": "¿Qué le había ocurrido recientemente a la heladera?"
+        "q1": "¿La heladera había andado mal últimamente?",
+        "q2": "¿Se rompió la heladera hace poco?"
       },
       "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
       "fact_id": "CL-FRI-01",
@@ -55,13 +55,13 @@
     },
     {
       "chunk_id": "SCN-10-AT-04",
-      "retrieval_text": "No llamaron a un técnico para reparar la heladera.",
+      "retrieval_text": "Cuando la heladera falló, no llamaron a ningún técnico.",
       "knowledge_holders": [
         "criada"
       ],
       "questions": {
         "q1": "¿Llamaron a un técnico para reparar la heladera?",
-        "q2": "¿Qué decisión tomaron sobre llamar a un reparador?"
+        "q2": "¿Vino alguien de un service a arreglarla?"
       },
       "source_excerpt": "Le pregunté entonces si el aparato había tenido algún problema recientemente. Contestó que sí, que unos días antes había dejado de funcionar correctamente.\n\n—¿Llamaron a un técnico?\n\n—No, señor.\n\n—¿Quién lo arregló?\n\n—El doctor Pablo.\n\nLa respuesta transformó inmediatamente el caso. Hasta ese momento el hielo explicaba el método, pero no al asesino. Ahora sabíamos que uno de los sospechosos había tenido acceso directo al congelador pocos días antes del crimen.",
       "fact_id": null,

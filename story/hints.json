@@ -1,11 +1,6 @@
 {
   "hints": [
     {
-      "fact_id": "CL-FOR-01",
-      "text": "Antes de buscar culpables, confirmá cuál fue la causa de la muerte.",
-      "text_with_npc": "Preguntale a la forense cuál fue la causa de la muerte."
-    },
-    {
       "fact_id": "CL-FOR-02",
       "text": "Si fue una intoxicación, el veneno estaba en algo que tomó. ¿Qué dieron los análisis de las bebidas de la casa?",
       "text_with_npc": "Preguntale a la forense qué resultados dieron el whisky, los licores y el agua."
