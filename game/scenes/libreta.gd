@@ -22,7 +22,6 @@ const PAGES = [
 	{"id": "esteban", "name": "Esteban", "role": "Hermano de la víctima", "prefixes": ["EST"]},
 	{"id": "pablo", "name": "Pablo", "role": "Hermano menor", "prefixes": ["PAB"]},
 	{"id": "forense", "name": "La forense", "role": "Perito forense", "prefixes": ["FOR", "ICE"]},
-	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
 # Hojas de sospechosos: sólo muestran las pruebas en su contra de

@@ -2,42 +2,6 @@
   "scene_id": "SCN-12",
   "chunks": [
     {
-      "chunk_id": "SCN-12-AT-01",
-      "retrieval_text": "El técnico comprobó que la única avería de la heladera era un fusible.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Qué falla tenía la heladera?",
-        "q2": "¿Estaba rota alguna pieza de la heladera?"
-      },
-      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
-      "fact_id": "CL-TEC-01",
-      "necessary_facts": [],
-      "sufficient_facts": [
-        "CL-FRI-02",
-        "CL-PAB-07"
-      ]
-    },
-    {
-      "chunk_id": "SCN-12-AT-02",
-      "retrieval_text": "El técnico comprobó que cambiar el fusible no exigía tocar el congelador.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Era necesario tocar el congelador para cambiar el fusible?",
-        "q2": "¿Era necesario abrir o manipular el congelador para ese arreglo?"
-      },
-      "source_excerpt": "Hicimos examinar el aparato por un técnico. Confirmó que la única avería había sido un fusible y que para cambiarlo no era necesario tocar el congelador. Al mismo tiempo, esto demostraba que Pablo había tenido una excusa perfecta para acercarse al aparato sin despertar sospechas.",
-      "fact_id": "CL-TEC-02",
-      "necessary_facts": [],
-      "sufficient_facts": [
-        "CL-FRI-02",
-        "CL-PAB-07"
-      ]
-    },
-    {
       "chunk_id": "SCN-12-AT-04",
       "retrieval_text": "Una inspección de Erpa comprobó que entre sus reactivos controlados había cianuro.",
       "knowledge_holders": [
@@ -71,36 +35,6 @@
         "CL-PAB-03",
         "CL-ICE-03"
       ],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-12-AT-11",
-      "retrieval_text": "El técnico está en el departamento porque la policía le pidió que revisara la heladera.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Qué hace usted acá?",
-        "q2": "¿Quién te llamó para revisar la heladera?"
-      },
-      "source_excerpt": "Hicimos examinar el aparato por un técnico.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-12-AT-12",
-      "retrieval_text": "El técnico notó un olor raro en el congelador, pero no encontró comida podrida ni una falla que lo explique; sí vio que el fusible se había cambiado hacía poco.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Notó el olor raro del congelador?",
-        "q2": "¿De dónde viene ese olor del freezer?"
-      },
-      "source_excerpt": "Una heladera común, pero en el freezer hay un olor raro, algo parece haberse podrido. (game/data/inspectables.gd)",
-      "fact_id": null,
-      "necessary_facts": [],
       "sufficient_facts": []
     }
   ]

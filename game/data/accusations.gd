@@ -38,7 +38,7 @@ const SUSPECTS: Dictionary = {
 		"evidence": [
 			{"label": "Es el que más se beneficia con la muerte.", "facts": ["CL-PAB-04", "CL-PAB-09", "CL-POL-03"]},
 			{"label": "En Erpa, donde trabaja, había cianuro.", "facts": ["CL-ERP-01"]},
-			{"label": "Arregló la heladera, pero el arreglo no exigía tocar el congelador.", "facts": ["CL-TEC-01", "CL-TEC-02"]},
+			{"label": "Arregló la heladera días antes del crimen: tuvo acceso al congelador.", "facts": ["CL-FRI-02", "CL-PAB-07"]},
 		],
 	},
 }

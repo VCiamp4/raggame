@@ -16,11 +16,6 @@
       "text_with_npc": "Preguntale a la criada si alguien arregló la heladera hace poco."
     },
     {
-      "fact_id": "CL-TEC-02",
-      "text": "Alguien que entienda de heladeras podría decirte si esa reparación exigía tocar el congelador.",
-      "text_with_npc": "Preguntale al técnico si para cambiar el fusible hacía falta tocar el congelador."
-    },
-    {
       "fact_id": "CL-ERP-01",
       "text": "En la bebida había cianuro de potasio. ¿Quién podría haber tenido acceso a ese veneno?",
       "text_with_npc": "Preguntale a Pablo si en Erpa hay cianuro de potasio."

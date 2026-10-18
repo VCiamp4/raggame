@@ -11,7 +11,6 @@ PERSONAJES_FILES = {
     "pablo": "pablo.md",
     "portero": "portero.md",
     "forense": "forense.md",
-    "tecnico_heladera": "tecnico_heladera.md",
 }
 PERSONAJES_DIR = Path(__file__).resolve().parents[2] / "story" / "personajes"
 SHARED_RULES = """Interpretá al personaje sin salir del papel.

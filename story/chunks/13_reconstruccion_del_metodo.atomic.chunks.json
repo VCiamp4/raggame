@@ -17,21 +17,6 @@
         "CL-ICE-03"
       ],
       "sufficient_facts": []
-    },
-    {
-      "chunk_id": "SCN-13-AT-10",
-      "retrieval_text": "El fusible de la heladera había sido cambiado hacía poco.",
-      "knowledge_holders": [
-        "tecnico_heladera"
-      ],
-      "questions": {
-        "q1": "¿Le cambiaron el fusible a la heladera hace poco?",
-        "q2": "¿Se nota algún arreglo reciente en la heladera?"
-      },
-      "source_excerpt": "El plan de Pablo había sido ingenioso. Conocía la costumbre de su hermana y sabía que podía convertirla en el instrumento del asesinato. Aprovechando la avería de la heladera, se había ofrecido a repararla. Cambió efectivamente el fusible, pero durante aquella misma oportunidad contaminó el agua del congelador con cianuro. Después podía marcharse tranquilamente. No necesitaba saber qué vaso usaría la víctima, quién serviría la bebida ni a qué hora exacta la tomaría. Bastaba esperar a que hiciera lo que hacía habitualmente.\n\nSu coartada, lejos de ser una casualidad favorable, formaba parte del método. Cuando el veneno actuara, Pablo estaría en su trabajo, rodeado de personas capaces de asegurar que no se había movido de allí.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
     }
   ]
 }

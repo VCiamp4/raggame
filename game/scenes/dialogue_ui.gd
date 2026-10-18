@@ -56,11 +56,6 @@ const WAIT_LINES := {
 		"(ordena los datos...)",
 		"(busca la palabra precisa...)",
 	],
-	"El técnico de heladeras": [
-		"(se rasca la cabeza...)",
-		"(repasa la reparación...)",
-		"(mastica una respuesta...)",
-	],
 }
 const WAIT_LINES_DEFAULT := [
 	"(lo piensa un momento...)",
