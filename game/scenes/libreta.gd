@@ -25,14 +25,16 @@ const PAGES = [
 	{"id": "tecnico", "name": "El técnico", "role": "Técnico de heladeras", "prefixes": ["TEC"]},
 ]
 
-# Hojas de sospechosos: sólo muestran sus pruebas de data/accusations.gd (una
-# por prueba, la primera que se descubrió) y las pistas de CLUE_PAGES.
+# Hojas de sospechosos: sólo muestran las pruebas en su contra de
+# data/accusations.gd (una por prueba, la primera que se descubrió), tengan el
+# prefijo que tengan, y las pistas de CLUE_PAGES.
 const LIMITED_PAGES := ["criada", "juan", "esteban", "pablo"]
 const Accusations = preload("res://data/accusations.gd")
 
 # Pistas que van a una hoja distinta de la de su prefijo, o que se muestran en
 # una hoja de sospechoso sin ser prueba (fact_id -> hojas donde aparece).
 const CLUE_PAGES := {
+	"CL-FRI-02": ["caso", "pablo"],
 	"CL-POL-04": ["esteban"],
 	"CL-PAB-07": ["pablo"],
 	"CL-PAB-08": ["pablo"],
@@ -268,12 +270,13 @@ func _toggle() -> void:
 # Aviso de pista nueva: mensaje con la hoja donde se anotó, contador y un
 # latido del ícono. Con la libreta abierta, se recarga directamente.
 func _on_fact_discovered(fact_id: String) -> void:
-	var target_pages := _pages_for(fact_id)
+	var target_pages: Array = []
+	for p in _pages_for(fact_id):
+		if not _item_already_shown(p["id"], fact_id):
+			target_pages.append(p)
 	if target_pages.is_empty():
 		return
 	var page: Dictionary = target_pages[0]
-	if _item_already_shown(page["id"], fact_id):
-		return
 	newest_page_id = page["id"]
 	NotificationManager.show_message("Nueva pista en la libreta: %s" % page["name"])
 	if folder.visible:
@@ -287,20 +290,26 @@ func _on_fact_discovered(fact_id: String) -> void:
 	tween.tween_property(icon, "scale", Vector2.ONE, 0.25)
 
 
-# Hojas donde va una pista. Si el fact_id está en CLUE_PAGES, sólo esas hojas.
-# Si no, se usa el prefijo; en las hojas limitadas, sólo si es prueba.
+# Hojas donde va una pista. Si el fact_id está en CLUE_PAGES, esas hojas; si
+# no, la de su prefijo (en las hojas limitadas, sólo si es prueba). Además, una
+# prueba contra un sospechoso va siempre a la hoja de ese sospechoso.
 func _pages_for(fact_id: String) -> Array:
+	var ids: Array = []
 	if CLUE_PAGES.has(fact_id):
-		var result: Array = []
-		for id in CLUE_PAGES[fact_id]:
-			for page in PAGES:
-				if page["id"] == id:
-					result.append(page)
-		return result
-	var page := _page_for_prefix(fact_id)
-	if page["id"] in LIMITED_PAGES and _evidence_item(page["id"], fact_id) < 0:
-		return []
-	return [page]
+		ids.append_array(CLUE_PAGES[fact_id])
+	else:
+		var prefix_id: String = _page_for_prefix(fact_id)["id"]
+		if prefix_id not in LIMITED_PAGES or _evidence_item(prefix_id, fact_id) >= 0:
+			ids.append(prefix_id)
+	for suspect_id in Accusations.SUSPECTS:
+		if suspect_id not in ids and _evidence_item(suspect_id, fact_id) >= 0:
+			ids.append(suspect_id)
+	var result: Array = []
+	for id in ids:
+		for page in PAGES:
+			if page["id"] == id:
+				result.append(page)
+	return result
 
 
 func _on_page(page_id: String, fact_id: String) -> bool:

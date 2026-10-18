@@ -11,14 +11,9 @@
       "text_with_npc": "Preguntale a la forense qué encontró en el hielo."
     },
     {
-      "fact_id": "CL-CRI-05",
-      "text": "El veneno estaba en el hielo. ¿Quién sabría cómo tomaba el whisky la señora Stevens?",
-      "text_with_npc": "Preguntale a la criada cómo tomaba el whisky la señora Stevens."
-    },
-    {
       "fact_id": "CL-FRI-02",
-      "text": "La heladera se había roto. Averiguá quién la arregló.",
-      "text_with_npc": "Preguntale a la criada quién reparó la heladera."
+      "text": "El hielo envenenado salió del congelador. ¿Alguien tocó la heladera en los últimos días?",
+      "text_with_npc": "Preguntale a la criada si alguien arregló la heladera hace poco."
     },
     {
       "fact_id": "CL-TEC-02",
@@ -32,8 +27,8 @@
     },
     {
       "fact_id": "CL-ERP-01",
-      "text": "Pablo trabaja con químicos en Erpa. ¿Alguien revisó qué reactivos guardan ahí?",
-      "text_with_npc": "Preguntale a la forense qué encontraron en la inspección de los reactivos de Erpa."
+      "text": "Pablo trabaja con químicos en Erpa. ¿Habrá cianuro entre los reactivos de ahí?",
+      "text_with_npc": "Preguntale a Pablo si en Erpa hay cianuro de potasio."
     },
     {
       "fact_id": "CL-POL-01",
