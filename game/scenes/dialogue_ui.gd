@@ -60,11 +60,6 @@ const WAIT_LINES := {
 		"(baja la mirada...)",
 		"(se seca las manos en el delantal...)",
 	],
-	"El portero": [
-		"(lo piensa un momento...)",
-		"(repasa los horarios...)",
-		"(se rasca la barbilla...)",
-	],
 	"La forense": [
 		"(revisa sus notas...)",
 		"(ordena los datos...)",

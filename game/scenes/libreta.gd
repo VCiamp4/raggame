@@ -15,9 +15,8 @@ const NOTEBOOK_MAX_HEIGHT = 630.0  # proporción 2:3 para los 420 px de ancho
 # Una hoja por personaje. Cada pista va a la hoja de quien trata, según el
 # prefijo de su fact_id (CL-PAB-02 -> "PAB").
 const PAGES = [
-	{"id": "caso", "name": "Sra. Stevens", "role": "La víctima", "prefixes": ["CASE", "POL", "FRI", "ERP", "RES"]},
+	{"id": "caso", "name": "Sra. Stevens", "role": "La víctima", "prefixes": ["CASE", "POR", "POL", "FRI", "ERP", "RES"]},
 	{"id": "criada", "name": "La criada", "role": "Empleada de la víctima", "prefixes": ["CRI"]},
-	{"id": "portero", "name": "El portero", "role": "Portero del edificio", "prefixes": ["POR"]},
 	{"id": "juan", "name": "Juan", "role": "Hermano mayor", "prefixes": ["JUA"]},
 	{"id": "esteban", "name": "Esteban", "role": "Hermano de la víctima", "prefixes": ["EST"]},
 	{"id": "pablo", "name": "Pablo", "role": "Hermano menor", "prefixes": ["PAB"]},

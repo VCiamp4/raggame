@@ -35,12 +35,12 @@ Godot project.
 
 - The RAG backend is functional and reasonably mature: fact-gated retrieval,
   streaming answers, per-session memory, two chat providers (Ollama / OpenAI).
-- The story corpus has 15 scenes, 116 atomic chunks and 39 distinct `fact_id`s.
+- The story corpus has 15 scenes, 113 atomic chunks and 39 distinct `fact_id`s.
   The retrieval benchmark has 195 cases; the dialogue benchmark has 6
   conversations and 28 turns.
 - The Godot game is **partially integrated**: movement, map navigation,
   examine-object UI, 3D dialogue portraits, a streaming HTTP client, a notebook,
-  hints and difficulty selection exist. All six backend NPCs have dialogue
+  hints and difficulty selection exist. All five backend NPCs have dialogue
   instances in the investigation locations (see §7).
 - The accusation lineup has Pablo, Esteban, Juan and Criada. Each has an ending;
   Pablo is the correct accusation.
@@ -85,8 +85,8 @@ raggame/
 ├── story/
 │   ├── source/                      # original PDF + final markdown
 │   ├── scenes/                      # 15 scene .md with YAML frontmatter
-│   ├── chunks/                      # 14 *.atomic.chunks.json (116 chunks)
-│   ├── personajes/                  # 6 one-paragraph persona files
+│   ├── chunks/                      # 14 *.atomic.chunks.json (113 chunks)
+│   ├── personajes/                  # 5 one-paragraph persona files
 │   ├── hints.json                   # prioritized hints for key facts
 │   └── chunk-connections.html       # standalone fact/chunk graph visualizer
 ├── benchmarks/
@@ -227,13 +227,13 @@ YAML frontmatter + a `<!-- SOURCE_START --> ... <!-- SOURCE_END -->` body:
 ### Chunks (`story/chunks/*.atomic.chunks.json`)
 
 One file per scene plus `99_general` (`GEN-01`) for additions that are not
-tied to one scene; scenes 14 and 15 have no chunks. 116 chunks total. Each chunk:
+tied to one scene; scenes 14 and 15 have no chunks. 113 chunks total. Each chunk:
 
 ```json
 {
   "chunk_id": "SCN-01-AT-08",
   "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero.",
-  "knowledge_holders": ["criada", "portero"],
+  "knowledge_holders": ["criada"],
   "questions": { "q1": "...", "q2": "..." },
   "source_excerpt": "...",
   "fact_id": "CL-CASE-01",
@@ -255,8 +255,8 @@ tied to one scene; scenes 14 and 15 have no chunks. 116 chunks total. Each chunk
 
 ### Personas (`story/personajes/*.md`)
 
-Six NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
-`pablo`, `portero`, `forense`. `dialogue.PERSONAJES_FILES`
+Five NPCs, each a single Spanish paragraph: `criada`, `esteban`, `juan`,
+`pablo`, `forense`. `dialogue.PERSONAJES_FILES`
 maps `npc_id` -> filename; adding an NPC requires editing that map **and**
 creating the file.
 
@@ -350,8 +350,7 @@ aid, not used at runtime.
   - Comisaría: Juan (`juan`), for his police-station interrogation.
   - Oficina: Esteban (`esteban`), the insurance broker.
   - Laboratorio: Pablo (`pablo`), at the milk-analysis laboratory Erpa.
-  - Hall: Portero (`portero`), near the building entrance, and Criada
-    (`criada`).
+  - Hall: Criada (`criada`).
   - Departamento (`dpto`): Forense (`forense`).
   Forense examines the crime scene and ice in the apartment. The four lineup
   models in `reconocimiento.tscn` are separate accusation targets.

@@ -106,36 +106,6 @@
       ]
     },
     {
-      "chunk_id": "GEN-01-AT-07",
-      "retrieval_text": "Ese día los tres hermanos de la señora Stevens vinieron a almorzar con ella y se fueron durante la tarde.",
-      "knowledge_holders": [
-        "portero"
-      ],
-      "questions": {
-        "q1": "¿A qué hora llegaron y se fueron los hermanos ese día?",
-        "q2": "¿Quién vino a visitar a la señora Stevens ese día?"
-      },
-      "source_excerpt": "Los tres hermanos habían almorzado con la señora Stevens por su cumpleaños.",
-      "fact_id": null,
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
-      "chunk_id": "GEN-01-AT-08",
-      "retrieval_text": "Unos días antes del crimen, Pablo vino al edificio a arreglar la heladera de su hermana.",
-      "knowledge_holders": [
-        "portero"
-      ],
-      "questions": {
-        "q1": "¿Vino alguien a arreglar la heladera de la señora?",
-        "q2": "¿Viste a Pablo por el edificio en los días anteriores?"
-      },
-      "source_excerpt": "Aprovechando la avería de la heladera, se había ofrecido a repararla.",
-      "fact_id": "CL-FRI-02",
-      "necessary_facts": [],
-      "sufficient_facts": []
-    },
-    {
       "chunk_id": "GEN-01-AT-09",
       "retrieval_text": "En el laboratorio de Pablo había cianuro de potasio, y el frasco estaba vacío.",
       "knowledge_holders": [],

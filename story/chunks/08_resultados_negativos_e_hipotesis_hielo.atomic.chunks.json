@@ -72,8 +72,7 @@
       "retrieval_text": "Junto al vaso de whisky había un platito con una mancha de humedad.",
       "knowledge_holders": [
         "forense",
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Había algo más sobre la mesa, junto al vaso?",

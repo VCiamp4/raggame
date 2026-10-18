@@ -6,7 +6,6 @@
       "retrieval_text": "La señora Stevens tenía sesenta y ocho años.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -26,7 +25,6 @@
       "retrieval_text": "La señora Stevens había enviudado tres veces.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -46,7 +44,6 @@
       "retrieval_text": "La señora Stevens poseía una fortuna considerable.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -66,7 +63,6 @@
       "retrieval_text": "La señora Stevens gozaba de buena salud.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -86,7 +82,6 @@
       "retrieval_text": "Quienes conocían a Stevens la describían como autoritaria y poco dispuesta a tolerar contradicciones.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -106,7 +101,6 @@
       "retrieval_text": "Nada indicaba que la señora Stevens estuviera preparando un suicidio.",
       "knowledge_holders": [
         "criada",
-        "portero",
         "juan",
         "esteban",
         "pablo",
@@ -125,8 +119,7 @@
       "chunk_id": "SCN-01-AT-07",
       "retrieval_text": "A la mañana siguiente, poco después de las siete, la criada y el portero encontraron a Stevens muerta en el comedor.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Cómo encontraron el cuerpo de la señora Stevens?",
@@ -141,8 +134,7 @@
       "chunk_id": "SCN-01-AT-08",
       "retrieval_text": "La puerta estaba asegurada desde dentro con una cadena de acero: la criada no pudo abrir con su llave, llamó al portero y entre los dos lograron entrar.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Cómo estaba asegurada la puerta desde el interior?",
@@ -157,8 +149,7 @@
       "chunk_id": "SCN-01-AT-09",
       "retrieval_text": "No había señales de entrada forzada.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Encontraron señales de que alguien hubiera forzado la entrada?",
@@ -173,8 +164,7 @@
       "chunk_id": "SCN-01-AT-10",
       "retrieval_text": "Junto al cadáver había un diario de la tarde anterior.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Qué objeto de lectura estaba junto al cadáver?",
@@ -189,8 +179,7 @@
       "chunk_id": "SCN-01-AT-11",
       "retrieval_text": "Cerca del cadáver había un vaso de whisky.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Qué bebida apareció cerca del cadáver?",
@@ -205,8 +194,7 @@
       "chunk_id": "SCN-01-AT-12",
       "retrieval_text": "No había señales de lucha ni faltaba dinero.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Había señales de pelea o de robo?",
@@ -221,8 +209,7 @@
       "chunk_id": "SCN-01-AT-13",
       "retrieval_text": "Las ventanas estaban cerradas.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Las ventanas estaban abiertas o cerradas?",
@@ -237,8 +224,7 @@
       "chunk_id": "SCN-01-AT-14",
       "retrieval_text": "Todo indicaba que Stevens estaba sola al morir.",
       "knowledge_holders": [
-        "criada",
-        "portero"
+        "criada"
       ],
       "questions": {
         "q1": "¿Qué hacía pensar que Stevens estaba sola al morir?",
