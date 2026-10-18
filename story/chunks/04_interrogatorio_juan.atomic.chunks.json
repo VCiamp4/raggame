@@ -172,7 +172,7 @@
     },
     {
       "chunk_id": "SCN-04-AT-12",
-      "retrieval_text": "Después del almuerzo, Juan provocó un accidente de tránsito y quedó demorado en una comisaría desde las 17:00 hasta la medianoche, así que no estuvo en el departamento durante las horas críticas.",
+      "retrieval_text": "Después del almuerzo, Juan tuvo un accidente de tránsito por manejar de forma imprudente y quedó demorado en una comisaría desde las 17:00 hasta la medianoche, así que no estuvo en el departamento durante las horas críticas.",
       "knowledge_holders": [
         "juan"
       ],
@@ -274,16 +274,16 @@
     },
     {
       "chunk_id": "SCN-04-AT-19",
-      "retrieval_text": "En el almuerzo, Esteban y Pablo discutieron por el seguro de vida de la señora Stevens.",
+      "retrieval_text": "En el almuerzo, Esteban acusó a Pablo de manipular a su hermana para cobrar más del seguro de vida.",
       "knowledge_holders": [
         "juan",
         "pablo"
       ],
       "questions": {
         "q1": "¿Esteban y Pablo se pelearon en el almuerzo?",
-        "q2": "¿Por qué discutieron Esteban y Pablo?"
+        "q2": "¿De qué acusó Esteban a Pablo?"
       },
-      "source_excerpt": "Según él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.",
+      "source_excerpt": "Según él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.\n\nAl enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido.",
       "fact_id": "CL-POL-01",
       "necessary_facts": [],
       "sufficient_facts": []
