@@ -82,4 +82,20 @@ func reset_hint_state() -> void:
 	last_hint_fact_id = ""
 
 
-var session_id: String = str(Time.get_unix_time_from_system()) + "-" + str(randi())
+var session_id: String = _new_session_id()
+
+
+func _new_session_id() -> String:
+	return str(Time.get_unix_time_from_system()) + "-" + str(randi())
+
+
+# Empieza una partida nueva: otra sesión para el backend (historial y hechos
+# limpios) y se borra todo el estado de la partida anterior.
+func new_game() -> void:
+	session_id = _new_session_id()
+	accused_id = ""
+	accused_name = ""
+	chat_transcripts = {}
+	discovered_facts = {}
+	lineup_return = {}
+	reset_difficulty()
