@@ -2,42 +2,29 @@ extends StaticBody3D
 
 @export var object_name: String = "Pizarrón"
 
+const Highlight = preload("res://scenes/highlight.gd")
+
 var is_highlighted: bool = false
-var mesh_instance: MeshInstance3D
+var meshes: Array[MeshInstance3D] = []
 
 
 func _ready() -> void:
 	add_to_group("pizarron")
-	mesh_instance = _find_mesh(self)
-
-
-func _find_mesh(node: Node) -> MeshInstance3D:
-	if node is MeshInstance3D:
-		return node
-	for child in node.get_children():
-		var result = _find_mesh(child)
-		if result:
-			return result
-	return null
+	meshes = Highlight.collect_meshes(self)
 
 
 func highlight() -> void:
-	if is_highlighted or mesh_instance == null:
+	if is_highlighted or meshes.is_empty():
 		return
 	is_highlighted = true
-	var mat = StandardMaterial3D.new()
-	mat.albedo_color = Color(1, 1, 0.6)
-	mat.emission_enabled = true
-	mat.emission = Color(1, 0.9, 0.3)
-	mat.emission_energy_multiplier = 0.4
-	mesh_instance.material_overlay = mat
+	Highlight.set_highlighted(meshes, true)
 
 
 func unhighlight() -> void:
-	if not is_highlighted or mesh_instance == null:
+	if not is_highlighted:
 		return
 	is_highlighted = false
-	mesh_instance.material_overlay = null
+	Highlight.set_highlighted(meshes, false)
 
 
 func interact() -> void:

@@ -45,19 +45,34 @@ func _apply_pose() -> void:
 	var skeleton := _find_skeleton(self)
 	if skeleton == null:
 		return
-	# Ejes locales típicos de un rig Mixamo: bajar los brazos se logra
-	# rotando alrededor de Z, con signos opuestos en cada brazo.
 	if not is_zero_approx(pose_arms_down):
-		_rotate_bone(skeleton, "mixamorig_LeftArm", Vector3.BACK, pose_arms_down)
-		_rotate_bone(skeleton, "mixamorig_RightArm", Vector3.BACK, -pose_arms_down)
-		_rotate_bone(skeleton, "mixamorig_LeftForeArm", Vector3.BACK, pose_arms_down * 0.35)
-		_rotate_bone(skeleton, "mixamorig_RightForeArm", Vector3.BACK, -pose_arms_down * 0.35)
+		_lower_arm(skeleton, "mixamorig_LeftArm", "mixamorig_LeftForeArm", pose_arms_down)
+		_lower_arm(skeleton, "mixamorig_RightArm", "mixamorig_RightForeArm", pose_arms_down)
 	if not is_zero_approx(pose_spine_turn):
 		_rotate_bone(skeleton, "mixamorig_Spine1", Vector3.RIGHT, pose_spine_turn)
 	if not is_zero_approx(pose_head_turn):
 		_rotate_bone(skeleton, "mixamorig_Head", Vector3.UP, pose_head_turn)
 	if not is_zero_approx(pose_hips_turn):
 		_rotate_bone(skeleton, "mixamorig_Hips", Vector3.UP, pose_hips_turn)
+
+
+# Gira el brazo hacia abajo en el plano vertical que lo contiene. El eje se
+# calcula en el espacio del esqueleto porque los ejes locales de los huesos
+# cambian entre rigs (con un eje fijo, algunos brazos giraban hacia adelante).
+func _lower_arm(skeleton: Skeleton3D, arm_name: String, forearm_name: String, degrees: float) -> void:
+	var arm := skeleton.find_bone(arm_name)
+	var forearm := skeleton.find_bone(forearm_name)
+	if arm < 0 or forearm < 0:
+		return
+	var arm_pose := skeleton.get_bone_global_pose(arm)
+	var direction := (skeleton.get_bone_global_pose(forearm).origin - arm_pose.origin).normalized()
+	var down := (skeleton.global_basis.inverse() * Vector3.DOWN).normalized()
+	var axis := direction.cross(down)
+	if axis.is_zero_approx():
+		return
+	var local_axis := (arm_pose.basis.orthonormalized().inverse() * axis).normalized()
+	var pose := skeleton.get_bone_pose_rotation(arm) * Quaternion(local_axis, deg_to_rad(degrees))
+	skeleton.set_bone_pose_rotation(arm, pose)
 
 
 func _rotate_bone(skeleton: Skeleton3D, bone_name: String, axis: Vector3, degrees: float) -> void:

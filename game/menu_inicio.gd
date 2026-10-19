@@ -27,7 +27,7 @@ const DIFFICULTY_PROFILES = [
 	},
 	{
 		"id": "hardcore",
-		"name": "Contra reloj",
+		"name": "Expediente en blanco",
 		"label": "Difícil",
 		"tagline": "Sin pistas: estás solo",
 		"hint_limit": 0
@@ -134,28 +134,8 @@ func _crear_boton(texto: String, offset_y: float) -> Button:
 
 
 func _crear_difficulty_overlay() -> void:
-	_difficulty_overlay = ColorRect.new()
-	_difficulty_overlay.color = Color(0, 0, 0, 0.88)
-	_difficulty_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_difficulty_overlay.visible = false
-	_difficulty_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	_canvas.add_child(_difficulty_overlay)
-
-	var panel := PanelContainer.new()
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.offset_left = -280
-	panel.offset_right = 280
-	panel.offset_top = -230
-	panel.offset_bottom = 230
-	panel.add_theme_constant_override("margin_left", 32)
-	panel.add_theme_constant_override("margin_right", 32)
-	panel.add_theme_constant_override("margin_top", 28)
-	panel.add_theme_constant_override("margin_bottom", 28)
-	_difficulty_overlay.add_child(panel)
-
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 14)
-	panel.add_child(vbox)
+	_difficulty_overlay = _crear_overlay()
+	var vbox := _crear_panel(_difficulty_overlay, 560)
 
 	var title := Label.new()
 	title.text = "Seleccioná la dificultad"
@@ -165,7 +145,7 @@ func _crear_difficulty_overlay() -> void:
 	vbox.add_child(title)
 
 	var subtitle := Label.new()
-	subtitle.text = "Los modos ajustarán pistas, paciencia y presión temporal cuando esas mecánicas estén listas."
+	subtitle.text = "Define cuánta ayuda te dan las pistas."
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD
 	subtitle.add_theme_font_size_override("font_size", 16)
@@ -173,66 +153,115 @@ func _crear_difficulty_overlay() -> void:
 	vbox.add_child(subtitle)
 
 	var options := VBoxContainer.new()
-	options.add_theme_constant_override("separation", 10)
+	options.add_theme_constant_override("separation", 8)
+	vbox.add_child(_espaciador(6))
 	vbox.add_child(options)
 	_difficulty_buttons.clear()
 
 	for profile in DIFFICULTY_PROFILES:
-		var btn := Button.new()
-		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var level_label: String = str(profile.get("label", ""))
-		var display_name: String = str(profile.get("name", ""))
-		var tagline: String = str(profile.get("tagline", ""))
-		if level_label != "":
-			btn.text = "%s  —  %s\n%s" % [display_name, level_label, tagline]
-		else:
-			btn.text = "%s\n%s" % [display_name, tagline]
-		btn.add_theme_font_size_override("font_size", 20)
-		btn.add_theme_color_override("font_color", COLOR_TEXTO)
-		btn.add_theme_color_override("font_hover_color", COLOR_HOVER)
+		var btn := _crear_opcion_dificultad(profile)
 		btn.pressed.connect(func(): _on_difficulty_selected(profile))
 		options.add_child(btn)
 		_difficulty_buttons.append(btn)
+
+	var note := Label.new()
+	note.text = "Para cambiarla, empezá una partida nueva."
+	note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD
+	note.add_theme_font_size_override("font_size", 14)
+	note.add_theme_color_override("font_color", COLOR_TEXTO.darkened(0.4))
+	vbox.add_child(note)
 
 	var cancel := Button.new()
 	cancel.text = "Volver"
 	cancel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	cancel.add_theme_font_size_override("font_size", 18)
 	cancel.add_theme_color_override("font_color", COLOR_ACENTO)
+	cancel.mouse_entered.connect(cancel.grab_focus)
 	cancel.pressed.connect(_hide_difficulty_menu)
+	vbox.add_child(_espaciador(4))
 	vbox.add_child(cancel)
 
-	var note := Label.new()
-	note.text = "Tip: podés cambiar la dificultad reiniciando la partida desde este menú."
-	note.autowrap_mode = TextServer.AUTOWRAP_WORD
-	note.add_theme_font_size_override("font_size", 14)
-	note.add_theme_color_override("font_color", COLOR_TEXTO.darkened(0.4))
-	vbox.add_child(note)
+
+# Botón de dos líneas: nombre del modo destacado y descripción más chica y tenue
+func _crear_opcion_dificultad(profile: Dictionary) -> Button:
+	var btn := Button.new()
+	btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	btn.custom_minimum_size = Vector2(0, 66)
+
+	var lineas := VBoxContainer.new()
+	lineas.set_anchors_preset(Control.PRESET_FULL_RECT)
+	lineas.alignment = BoxContainer.ALIGNMENT_CENTER
+	lineas.add_theme_constant_override("separation", 2)
+	lineas.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	btn.add_child(lineas)
+
+	var level_label: String = str(profile.get("label", ""))
+	var display_name: String = str(profile.get("name", ""))
+	var nombre := Label.new()
+	nombre.text = "%s  —  %s" % [display_name, level_label] if level_label != "" else display_name
+	nombre.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	nombre.add_theme_font_size_override("font_size", 22)
+	nombre.add_theme_color_override("font_color", COLOR_TEXTO)
+	nombre.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lineas.add_child(nombre)
+
+	var tagline := Label.new()
+	tagline.text = str(profile.get("tagline", ""))
+	tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	tagline.add_theme_font_size_override("font_size", 16)
+	tagline.add_theme_color_override("font_color", COLOR_TEXTO.darkened(0.35))
+	tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lineas.add_child(tagline)
+
+	# El mouse mueve el foco, así nunca quedan dos opciones resaltadas a la vez
+	btn.mouse_entered.connect(btn.grab_focus)
+	btn.focus_entered.connect(func(): nombre.add_theme_color_override("font_color", COLOR_HOVER))
+	btn.focus_exited.connect(func(): nombre.add_theme_color_override("font_color", COLOR_TEXTO))
+	return btn
 
 
-func _crear_about_overlay() -> void:
-	_about_overlay = ColorRect.new()
-	_about_overlay.color = Color(0, 0, 0, 0.88)
-	_about_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_about_overlay.visible = false
-	_about_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	_canvas.add_child(_about_overlay)
+# Fondo casi negro que tapa el menú y bloquea sus clics
+func _crear_overlay() -> ColorRect:
+	var overlay := ColorRect.new()
+	overlay.color = Color(0, 0, 0, 0.96)
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.visible = false
+	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	_canvas.add_child(overlay)
+	return overlay
 
+
+# Panel centrado que se ajusta a su contenido, con fondo opaco para que no se
+# transparente el menú de atrás. Devuelve la columna donde va el contenido.
+func _crear_panel(overlay: Control, ancho: float) -> VBoxContainer:
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.add_child(center)
+
+	var estilo_panel := StyleBoxFlat.new()
+	estilo_panel.bg_color = COLOR_FONDO.lightened(0.06)
+	estilo_panel.set_content_margin_all(32)
 	var panel := PanelContainer.new()
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.offset_left = -320
-	panel.offset_right = 320
-	panel.offset_top = -230
-	panel.offset_bottom = 230
-	panel.add_theme_constant_override("margin_left", 32)
-	panel.add_theme_constant_override("margin_right", 32)
-	panel.add_theme_constant_override("margin_top", 28)
-	panel.add_theme_constant_override("margin_bottom", 28)
-	_about_overlay.add_child(panel)
+	panel.custom_minimum_size = Vector2(ancho, 0)
+	panel.add_theme_stylebox_override("panel", estilo_panel)
+	center.add_child(panel)
 
 	var vbox := VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 14)
 	panel.add_child(vbox)
+	return vbox
+
+
+func _espaciador(alto: float) -> Control:
+	var espacio := Control.new()
+	espacio.custom_minimum_size = Vector2(0, alto)
+	return espacio
+
+
+func _crear_about_overlay() -> void:
+	_about_overlay = _crear_overlay()
+	var vbox := _crear_panel(_about_overlay, 640)
 
 	var title := Label.new()
 	title.text = "Sobre nosotros"
@@ -262,33 +291,15 @@ func _crear_about_overlay() -> void:
 	back.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	back.add_theme_font_size_override("font_size", 18)
 	back.add_theme_color_override("font_color", COLOR_ACENTO)
+	back.mouse_entered.connect(back.grab_focus)
 	back.pressed.connect(_hide_about_menu)
+	vbox.add_child(_espaciador(4))
 	vbox.add_child(back)
 
 
 func _crear_briefing_overlay() -> void:
-	_briefing_overlay = ColorRect.new()
-	_briefing_overlay.color = Color(0, 0, 0, 0.9)
-	_briefing_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_briefing_overlay.visible = false
-	_briefing_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	_canvas.add_child(_briefing_overlay)
-
-	var panel := PanelContainer.new()
-	panel.set_anchors_preset(Control.PRESET_CENTER)
-	panel.offset_left = -340
-	panel.offset_right = 340
-	panel.offset_top = -300
-	panel.offset_bottom = 300
-	panel.add_theme_constant_override("margin_left", 32)
-	panel.add_theme_constant_override("margin_right", 32)
-	panel.add_theme_constant_override("margin_top", 28)
-	panel.add_theme_constant_override("margin_bottom", 28)
-	_briefing_overlay.add_child(panel)
-
-	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 14)
-	panel.add_child(vbox)
+	_briefing_overlay = _crear_overlay()
+	var vbox := _crear_panel(_briefing_overlay, 720)
 
 	var title := Label.new()
 	title.text = "El caso"
@@ -312,6 +323,7 @@ func _crear_briefing_overlay() -> void:
 	_briefing_button.add_theme_color_override("font_color", COLOR_TEXTO)
 	_briefing_button.add_theme_color_override("font_hover_color", COLOR_HOVER)
 	_briefing_button.pressed.connect(_on_briefing_continue)
+	vbox.add_child(_espaciador(4))
 	vbox.add_child(_briefing_button)
 
 
