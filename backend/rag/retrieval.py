@@ -22,9 +22,7 @@ class Chunk:
     fact_id: str | None
     necessary_facts: list[str]
     sufficient_facts: list[str]
-    retrieval_embedding: list[float]
-    q1_embedding: list[float]
-    q2_embedding: list[float]
+    embeddings: list[list[float]]
 
 
 def load_chunks() -> list[Chunk]:
@@ -42,9 +40,7 @@ def load_chunks() -> list[Chunk]:
             chunks.append(
                 Chunk(
                     **raw_chunk,
-                    retrieval_embedding=chunk_embeddings[0].tolist(),
-                    q1_embedding=chunk_embeddings[1].tolist(),
-                    q2_embedding=chunk_embeddings[2].tolist(),
+                    embeddings=chunk_embeddings.tolist(),
                 )
             )
     return chunks
@@ -92,9 +88,8 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
 
     for chunk in chunks:
         score = max(
-            cosine_similarity(query_embedding, chunk.retrieval_embedding),
-            cosine_similarity(query_embedding, chunk.q1_embedding),
-            cosine_similarity(query_embedding, chunk.q2_embedding),
+            cosine_similarity(query_embedding, embedding)
+            for embedding in chunk.embeddings
         )
         if score >= settings.min_similarity:
             scored_chunks.append((score, chunk))
@@ -133,7 +128,7 @@ def keep_said_facts(session_id: str, new_facts: set[str], reply: str) -> set[str
     for fact_id in new_facts:
         chunk = next(c for c in CHUNKS if c.chunk_id == discovered_chunks[session_id][fact_id])
         for sentence in re.split(r"(?<=[.!?…])\s+", reply):
-            if sentence and cosine_similarity(get_embedding(sentence), chunk.retrieval_embedding) >= settings.said_similarity:
+            if sentence and cosine_similarity(get_embedding(sentence), chunk.embeddings[0]) >= settings.said_similarity:
                 said.add(fact_id)
                 break
     get_discovered_facts(session_id).difference_update(new_facts - said)

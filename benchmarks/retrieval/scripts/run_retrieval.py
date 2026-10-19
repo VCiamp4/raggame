@@ -42,9 +42,7 @@ def load_run_chunks(chunks_path, embeddings_path):
             chunks.append(
                 Chunk(
                     **raw_chunk,
-                    retrieval_embedding=chunk_embeddings[0].tolist(),
-                    q1_embedding=chunk_embeddings[1].tolist(),
-                    q2_embedding=chunk_embeddings[2].tolist(),
+                    embeddings=chunk_embeddings.tolist(),
                 )
             )
     return chunks
@@ -148,16 +146,18 @@ def score_case(case, chunks, focus):
     embedding_ms = (time.perf_counter() - start) * 1000.0
     ranking = []
     for chunk in available_chunks:
-        retrieval_score = cosine_similarity(
-            query_embedding, chunk.retrieval_embedding
-        )
-        q1_score = cosine_similarity(query_embedding, chunk.q1_embedding)
-        q2_score = cosine_similarity(query_embedding, chunk.q2_embedding)
+        scores = [
+            cosine_similarity(query_embedding, embedding)
+            for embedding in chunk.embeddings
+        ]
+        retrieval_score = scores[0]
+        q1_score = scores[1] if len(scores) > 1 else 0.0
+        q2_score = scores[2] if len(scores) > 2 else 0.0
         ranking.append(
             {
                 "chunk_id": chunk.chunk_id,
                 "fact_id": chunk.fact_id,
-                "score": max(retrieval_score, q1_score, q2_score),
+                "score": max(scores),
                 "retrieval_score": retrieval_score,
                 "q1_score": q1_score,
                 "q2_score": q2_score,

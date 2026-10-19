@@ -9,7 +9,11 @@
       ],
       "questions": {
         "q1": "¿El veneno estaba en la botella de whisky?",
-        "q2": "¿Qué dieron los análisis de las bebidas?"
+        "q2": "¿Qué dieron los análisis de las bebidas?",
+        "q3": "¿Dónde estaba el veneno?",
+        "q4": "¿El tóxico estaba en lo que bebió?",
+        "q5": "¿En qué estaba el veneno, si no estaba en la botella?",
+        "q6": "¿El veneno estaba en el whisky que tomó?"
       },
       "source_excerpt": "Fue en ese momento cuando regresó la forense.\n\nTraía los resultados del laboratorio y no parecía satisfecha.\n\n—Las botellas de whisky están limpias —dijo—. También los demás licores y el agua corriente. No encontramos sustancias tóxicas en ninguno de los recipientes líquidos de la casa.\n\n—Pero la mujer murió intoxicada.\n\n—Eso no ha cambiado. El agente tóxico estuvo en lo que bebió, pero no estaba en las botellas que analizamos.\n\nLa posibilidad más inmediata volvía a ser la criada. Podía haber agregado el veneno directamente al vaso y deshacerse después del recipiente. El problema era que nada demostraba que lo hubiera hecho y la forense no tenía otro elemento que ofrecer. Dijo que, si encontrábamos alguna muestra nueva, la analizaría, y se marchó.",
       "fact_id": "CL-FOR-02",

@@ -98,6 +98,25 @@
       "fact_id": "CL-ERP-02",
       "necessary_facts": [],
       "sufficient_facts": []
+    },
+    {
+      "chunk_id": "GEN-01-AT-10",
+      "retrieval_text": "Anoche la criada oyó gritos y estaban los tres hermanos en la casa; los gritos más fuertes fueron los de Esteban, Pablo y la señora Stevens.",
+      "knowledge_holders": [
+        "criada"
+      ],
+      "questions": {
+        "q1": "¿Quiénes estaban ayer en la casa?",
+        "q2": "¿Qué pasó anoche?",
+        "q3": "¿Quiénes estaban cuando ocurrió?",
+        "q4": "¿Escuchaste gritos anoche? ¿De quiénes?",
+        "q5": "¿Quiénes gritaban más fuerte?",
+        "q6": "¿Estaban los tres hermanos?"
+      },
+      "source_excerpt": "La criada oyó voces y gritos, pero no entendió la discusión. Esa noche estaban los tres hermanos; los gritos más fuertes fueron los de Esteban, Pablo y la señora Stevens.",
+      "fact_id": "CL-CRI-08",
+      "necessary_facts": [],
+      "sufficient_facts": []
     }
   ]
 }
