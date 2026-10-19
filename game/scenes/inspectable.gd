@@ -12,6 +12,7 @@ extends StaticBody3D
 #     diálogo de examinación (que se cierra con [E]/[Esc]).
 
 const InspectableCatalogRes = preload("res://data/inspectables.gd")
+const Highlight = preload("res://scenes/highlight.gd")
 
 @export var inspectable_id: String = ""
 # Overrides opcionales: si quedan vacíos, se usan los del catálogo.
@@ -24,30 +25,21 @@ const InspectableCatalogRes = preload("res://data/inspectables.gd")
 @export_multiline var description_unlocked: String = ""
 # Hecho que se descubre al inspeccionar (vacío = no descubre nada).
 @export var fact_to_discover: String = ""
+# Color del resaltado. Los objetos blancos muy iluminados (p. ej. el plato)
+# necesitan un amarillo más saturado para no verse casi blancos.
+@export var highlight_color: Color = Highlight.DEFAULT_COLOR
 
 var is_highlighted: bool = false
-var mesh_instance: MeshInstance3D
+var meshes: Array[MeshInstance3D] = []
 
 
 func _ready() -> void:
 	add_to_group("examinable")
-	mesh_instance = _find_mesh(self)
-
-
-func _find_mesh(node: Node) -> MeshInstance3D:
-	if node is MeshInstance3D and node.visible:
-		return node
-	for child in node.get_children():
-		var result := _find_mesh(child)
-		if result:
-			return result
-	# Si no hay ningún mesh visible, devolvemos al menos uno (oculto).
-	if node is MeshInstance3D:
-		return node
-	for child in node.get_children():
-		if child is MeshInstance3D:
-			return child
-	return null
+	meshes = Highlight.collect_meshes(self)
+	# Un collider agregado debajo del modelo (p. ej. la heladera) no tiene
+	# meshes propios: se resalta el modelo al que pertenece.
+	if meshes.is_empty() and get_parent() != null:
+		meshes = Highlight.collect_meshes(get_parent())
 
 
 # ---------- Interfaz que consume jugador.gd ----------
@@ -95,19 +87,14 @@ func _get(property: StringName):
 # ---------- Resaltado ----------
 
 func highlight() -> void:
-	if is_highlighted or mesh_instance == null:
+	if is_highlighted or meshes.is_empty():
 		return
 	is_highlighted = true
-	var mat := StandardMaterial3D.new()
-	mat.albedo_color = Color(1, 1, 0.6)
-	mat.emission_enabled = true
-	mat.emission = Color(1, 0.9, 0.3)
-	mat.emission_energy_multiplier = 0.4
-	mesh_instance.material_overlay = mat
+	Highlight.set_highlighted(meshes, true, highlight_color)
 
 
 func unhighlight() -> void:
-	if not is_highlighted or mesh_instance == null:
+	if not is_highlighted:
 		return
 	is_highlighted = false
-	mesh_instance.material_overlay = null
+	Highlight.set_highlighted(meshes, false)

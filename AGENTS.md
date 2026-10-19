@@ -396,7 +396,11 @@ aid, not used at runtime.
 - Keep the PSX/horror aesthetic (VCR OSD Mono font, dark palette, vignette +
   grain shader in `menu_inicio.gd`).
 - Collision layers: 1 = solid (the player's mask), 2 = clickable (mouse
-  raycast in `jugador.gd`). Solid props get layer-1 colliders as thick,
+  raycast in `jugador.gd`). A clickable that must also block the player uses
+  `collision_layer = 3`; without layer 2 it never gets the hover highlight
+  (`scenes/highlight.gd` swaps all of the object's visible meshes, or its
+  parent model's when the body has none, to the map nodes' pale-yellow
+  material). Solid props get layer-1 colliders as thick,
   unscaled boxes/capsules; thin or non-uniformly scaled shapes leak under
   Jolt. Each NPC has a `StaticBody3D_col` capsule, and
   `pose_arms_down` (degrees) lowers the arms toward the body regardless of

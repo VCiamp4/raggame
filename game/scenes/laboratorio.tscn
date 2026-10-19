@@ -287,6 +287,7 @@ shape = SubResource("CapsuleShape3D_npc_body")
 
 [node name="cabinet-with-poison" type="StaticBody3D" parent="Mundo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0, 0.19, 2.3)
+collision_layer = 3
 script = ExtResource("inspectable_script")
 object_name_override = "Gabinete de reactivos"
 fact_requires = "CL-ICE-03"

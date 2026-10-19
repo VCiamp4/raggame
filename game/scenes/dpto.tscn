@@ -187,6 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08, 0.851, -1.66)
 collision_layer = 2
 script = ExtResource("26_inspect")
 inspectable_id = "plato"
+highlight_color = Color(1, 0.85, 0.2, 1)
 
 [node name="plate" parent="Plato" instance=ExtResource("29_plate")]
 
@@ -261,6 +262,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.231202, 1.3107651, -3.3274
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -4.794463, -0.060386717, -4.375471)
 
 [node name="StaticBody3D_col" type="StaticBody3D" parent="StaticBody3D2/fridge2" unique_id=718141200]
+collision_layer = 3
 script = ExtResource("26_inspect")
 inspectable_id = "heladera"
 

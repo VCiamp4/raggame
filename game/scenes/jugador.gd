@@ -359,7 +359,7 @@ func _check_examinable_under_mouse() -> void:
 	if result and result.has("collider"):
 		var collider = result["collider"]
 		if collider.is_in_group("examinable") or collider.is_in_group("pizarron") or collider.is_in_group("ascensor"):
-			var dist = global_position.distance_to(collider.global_position)
+			var dist = global_position.distance_to(_clickable_anchor(collider))
 			#print(">> Distancia al objeto: ", dist, " | límite: ", EXAMINE_DISTANCE)
 			if dist <= EXAMINE_DISTANCE:
 				found = collider
