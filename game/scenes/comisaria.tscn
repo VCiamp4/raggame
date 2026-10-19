@@ -35,7 +35,7 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_arjtg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rv06a"]
-size = Vector3(16.023167, 0.014099121, 15.989886)
+size = Vector3(16.023167, 0.5, 15.989886)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nbej8"]
 height = 1.7270508
@@ -60,13 +60,13 @@ size = Vector3(1.8901367, 1.4331055, 0.8729248)
 size = Vector2(16, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbej8"]
-size = Vector3(16.036636, 6.5425415, 0.13690186)
+size = Vector3(16.036636, 6.5425415, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_coffee"]
-size = Vector3(0.6, 0.5, 0.6)
+size = Vector3(1.254, 2.124, 1.283)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5ya8"]
-size = Vector3(1.2333374, 1.4770508, 1.15094)
+size = Vector3(2.019, 2.251, 1.631)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_spahn"]
 size = Vector3(0.5909424, 1.8276367, 0.73236084)
@@ -98,6 +98,13 @@ size = Vector3(0.4, 6, 16.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dercol"]
 size = Vector3(0.4, 6, 16.4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_loose_bottle"]
+size = Vector3(0.35, 0.512, 0.403)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npc_body"]
+radius = 0.3
+height = 1.8
+
 [node name="Comisaria" type="Node3D" unique_id=762189456]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2108742498]
@@ -108,7 +115,7 @@ material_override = ExtResource("1_gxr2u")
 mesh = SubResource("PlaneMesh_arjtg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1437874815]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008184433, 0.0074768066, -0.035185456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008184433, -0.23547363, -0.035185456)
 shape = SubResource("BoxShape3D_rv06a")
 
 [node name="StaticBody3D15" type="StaticBody3D" parent="." unique_id=1588229694]
@@ -144,8 +151,6 @@ transform = Transform3D(0.42409614, 0, 0.90561724, 0, 1, 0, -0.90561724, 0, 0.42
 [node name="conference_chair3" parent="StaticBody3D17" unique_id=2132326343 instance=ExtResource("4_k2khg")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D17/conference_chair3" unique_id=446512780]
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D17" unique_id=284273177]
 transform = Transform3D(0.99999994, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 0.99999994, 0.02734232, 0.25933838, 0.01428318)
 shape = SubResource("BoxShape3D_cveqa")
@@ -162,8 +167,20 @@ shape = SubResource("BoxShape3D_water_bottle")
 [node name="water_cooler_bottle2" parent="." unique_id=2136445489 instance=ExtResource("5_fv1jq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5392704, 0.040975533, -1.5967271)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="water_cooler_bottle2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="water_cooler_bottle2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+shape = SubResource("BoxShape3D_loose_bottle")
+
 [node name="water_cooler_bottle3" parent="." unique_id=1865425368 instance=ExtResource("5_fv1jq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6610785, 0.040975653, -1.8889706)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="water_cooler_bottle3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="water_cooler_bottle3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+shape = SubResource("BoxShape3D_loose_bottle")
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("1_2u34w")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.78520787, 7.040468)
@@ -310,7 +327,7 @@ material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pared" unique_id=324144311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016334534, 2.7712708, -8.087983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016334534, 2.7712708, -8.519532)
 shape = SubResource("BoxShape3D_nbej8")
 
 [node name="Message board by Poly by Google - fDpegPgEB0j" parent="pared" unique_id=2058705880 instance=ExtResource("10_hncaa")]
@@ -322,7 +339,7 @@ transform = Transform3D(-0.017285006, 0, 0.99985063, 0, 1, 0, -0.99985063, 0, -0
 [node name="StaticBody3D" type="StaticBody3D" parent="pared/coffee_machine2" unique_id=716251657]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pared/coffee_machine2/StaticBody3D" unique_id=2103906527]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.062, 0)
 shape = SubResource("BoxShape3D_coffee")
 
 [node name="pared2" type="StaticBody3D" parent="." unique_id=1206737389]
@@ -339,7 +356,7 @@ material_override = ExtResource("8_wheks")
 mesh = SubResource("QuadMesh_arjtg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pared2" unique_id=1489355571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016334534, 2.7712708, -8.087983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016334534, 2.7712708, -8.519532)
 shape = SubResource("BoxShape3D_nbej8")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=633095529]
@@ -361,7 +378,7 @@ transform = Transform3D(-0.9999397, 0, 0.010986477, 0, 1, 0, -0.010986477, 0, -0
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6" unique_id=1054934777]
-transform = Transform3D(0.99998575, 0, 9.778887e-08, 0, 1, 0, -9.778887e-08, 0, 0.99998575, 0.15664524, -0.23852539, 0.2586341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224, -0.103, 0.448)
 shape = SubResource("BoxShape3D_y5ya8")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="." unique_id=1587286911]
@@ -509,7 +526,6 @@ script = ExtResource("npc_script")
 npc_id = "juan"
 npc_name = "Juan"
 retrato = ExtResource("npc_juan_portrait")
-pose_arms_down = 70.0
 
 [node name="Model" parent="Juan" unique_id=719163293 instance=ExtResource("npc_juan_model")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
@@ -521,11 +537,17 @@ collision_layer = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")
 
+[node name="StaticBody3D_col" type="StaticBody3D" parent="Juan"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Juan/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_npc_body")
+
 [node name="cuarta_pared" type="StaticBody3D" parent="." unique_id=1575974833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cuarta_pared" unique_id=374178808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.71160793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 shape = SubResource("BoxShape3D_cuarta")
 
 [node name="pared_izq_col" type="StaticBody3D" parent="." unique_id=56390176]
@@ -535,7 +557,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3, 0)
 shape = SubResource("BoxShape3D_izqcol")
 
 [node name="pared_der_col" type="StaticBody3D" parent="." unique_id=996833721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91, 3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pared_der_col" unique_id=972619301]
 shape = SubResource("BoxShape3D_dercol")

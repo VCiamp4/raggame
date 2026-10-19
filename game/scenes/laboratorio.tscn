@@ -71,6 +71,10 @@ radius = 1.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_reactivos"]
 size = Vector3(0.4, 0.4, 0.3)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npc_body"]
+radius = 0.3
+height = 1.8
+
 [node name="Node3D" type="Node3D" unique_id=459800692]
 
 [node name="Mundo" type="Node3D" parent="."]
@@ -263,7 +267,6 @@ script = ExtResource("npc_script")
 npc_id = "pablo"
 npc_name = "Pablo"
 retrato = ExtResource("npc_pablo_portrait")
-pose_arms_down = 70.0
 
 [node name="Model" parent="Pablo" instance=ExtResource("npc_pablo_model")]
 transform = Transform3D(0.4, 0, -0.0, 0, 0.4, 0, 0.0, 0, 0.4, 0, 0, 0)
@@ -275,6 +278,12 @@ collision_mask = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/InteractionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_npc")
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="Pablo"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pablo/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_npc_body")
 
 [node name="cabinet-with-poison" type="StaticBody3D" parent="Mundo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0, 0.19, 2.3)

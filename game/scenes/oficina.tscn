@@ -50,7 +50,7 @@ size = Vector3(1.102596, 0.89111, 2.21054)
 size = Vector3(1.102596, 0.89111, 1.10527)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_arjtg"]
-size = Vector3(4.2266235, 1.7143555, 0.9543457)
+size = Vector3(2.205, 0.891, 1.097)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5ya8"]
 size = Vector3(12.01001, 6.010681, 0.11621094)
@@ -70,6 +70,16 @@ size = Vector3(0.4, 0.15, 0.4)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_npc"]
 radius = 1.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ventana"]
+size = Vector3(1.59, 3.53, 0.17)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_silla_oficina"]
+size = Vector3(0.751, 1.099, 0.82)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npc_body"]
+radius = 0.3
+height = 1.8
 
 [node name="Node3D" type="Node3D" unique_id=1174869333]
 physics_interpolation_mode = 2
@@ -125,6 +135,14 @@ shape = SubResource("BoxShape3D_archivero_grande")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5785317, 0.68998945, 2.500898)
 shape = SubResource("BoxShape3D_spahn")
 
+[node name="CollisionShape3D_ventana1" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.331, 2.137, 3.927)
+shape = SubResource("BoxShape3D_ventana")
+
+[node name="CollisionShape3D_ventana2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.305, 2.137, 3.926)
+shape = SubResource("BoxShape3D_ventana")
+
 [node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=290886774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78273433, 0.27320528, 1.1476412)
 
@@ -145,7 +163,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551298, 0.445555, -0.552635
 shape = SubResource("BoxShape3D_desk_corner_b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=1183101882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0059509, 0.103271484, -0.25280762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8535, 0.1455, -0.2626)
 shape = SubResource("BoxShape3D_arjtg")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=187146952]
@@ -207,6 +225,12 @@ mesh = SubResource("BoxMesh_techo")
 [node name="office_chair_grey_alt2" parent="." unique_id=1126670952 instance=ExtResource("3_wy163")]
 transform = Transform3D(-0.13145985, 0, 0.9913215, 0, 1, 0, -0.9913215, 0, -0.13145985, 2.9531047, 0.19096053, 1.8924639)
 
+[node name="StaticBody3D_col" type="StaticBody3D" parent="office_chair_grey_alt2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="office_chair_grey_alt2/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037, 0.401, 0.006)
+shape = SubResource("BoxShape3D_silla_oficina")
+
 [node name="computer_keyboard2" parent="." unique_id=1234966088 instance=ExtResource("13_rn73s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6271553, 0.875209, 1.2213477)
 
@@ -233,7 +257,7 @@ transform = Transform3D(0.6376286, 0, -0.7703439, 0, 1, 0, 0.7703439, 0, 0.63762
 transform = Transform3D(-0.59970987, 0, 0.018657207, 0, 0.59999996, 0, -0.018657207, 0, -0.59970987, -2.0199428, 0.74576664, -3.304942)
 
 [node name="Totem" parent="." unique_id=1869845904 instance=ExtResource("19_totem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5850887, 0.746, -3.7325094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5850887, 0.042, -3.7325094)
 
 [node name="paper_stack_large2" parent="." unique_id=954741178 instance=ExtResource("9_l6hvc")]
 transform = Transform3D(0.25605136, 0, 0.9666632, 0, 1, 0, -0.9666632, 0, 0.25605136, 0.14169496, 0.8817971, 1.5056)
@@ -275,7 +299,6 @@ script = ExtResource("npc_script")
 npc_id = "esteban"
 npc_name = "Esteban"
 retrato = ExtResource("npc_esteban_portrait")
-pose_arms_down = 70.0
 
 [node name="Model" parent="Esteban" unique_id=1286290622 instance=ExtResource("npc_esteban_model")]
 transform = Transform3D(-0.08101263, 0, -0.39171025, 0, 0.4, 0, 0.39171025, 0, -0.08101263, -0.2741475, 0, -3.9827247)
@@ -286,3 +309,9 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/InteractionArea" unique_id=371969208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7902398, 0.9, -4.226011)
 shape = SubResource("SphereShape3D_npc")
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="Esteban"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Esteban/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.9, -4)
+shape = SubResource("CapsuleShape3D_npc_body")

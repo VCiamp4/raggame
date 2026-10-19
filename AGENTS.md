@@ -395,6 +395,12 @@ aid, not used at runtime.
   constructed programmatically rather than in the editor.
 - Keep the PSX/horror aesthetic (VCR OSD Mono font, dark palette, vignette +
   grain shader in `menu_inicio.gd`).
+- Collision layers: 1 = solid (the player's mask), 2 = clickable (mouse
+  raycast in `jugador.gd`). Solid props get layer-1 colliders as thick,
+  unscaled boxes/capsules; thin or non-uniformly scaled shapes leak under
+  Jolt. Each NPC has a `StaticBody3D_col` capsule, and
+  `pose_arms_down` (degrees) lowers the arms toward the body regardless of
+  the rig's bone axes, so they stay inside it.
 
 ## 8. Known gaps, bugs, and missing pieces
 

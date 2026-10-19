@@ -43,13 +43,13 @@ albedo_texture = ExtResource("3_kjuag")
 size = Vector3(2, 1.36, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_table_large"]
-size = Vector3(1.2, 0.7, 1.3)
+size = Vector3(1.71, 0.78, 1.03)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_chair"]
-size = Vector3(0.7, 0.9, 0.7)
+size = Vector3(0.762, 1.768, 0.825)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_conos"]
-size = Vector3(5, 5, 5)
+size = Vector3(6.33, 4, 8.36)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4c4f"]
 size = Vector3(1, 1, 0.626709)
@@ -103,13 +103,23 @@ height = 0.002
 radial_segments = 12
 rings = 1
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_trashBin"]
+size = Vector3(0.424, 0.842, 0.558)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_radiator"]
+size = Vector3(0.141, 0.764, 0.861)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npc_body"]
+radius = 0.3
+height = 1.8
+
 [node name="Node3D" type="Node3D" unique_id=1814186727]
 
 [node name="CharacterBody3D" parent="." unique_id=1869845962 instance=ExtResource("2_dohex")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.9534779, 0.6082034, 2.1682544)
 
 [node name="Totem" parent="." unique_id=1869845902 instance=ExtResource("27_totem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4119549, 0.61, 4.1923804)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4119549, 0.012, 4.1923804)
 interact_distance = 2.0
 
 [node name="Node3D" parent="." unique_id=2064791863 instance=ExtResource("2_a24x0")]
@@ -137,6 +147,12 @@ shape = SubResource("BoxShape3D_cabinetSink")
 
 [node name="trashBin2" parent="StaticBody3D" unique_id=364017871 instance=ExtResource("5_yb7k8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7140493, 0.01226306, -0.23006725)
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="StaticBody3D/trashBin2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/trashBin2/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.421, 0)
+shape = SubResource("BoxShape3D_trashBin")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=791798956]
 transform = Transform3D(0.03564945, 0.3630798, 0.93107593, 0.5008076, -0.8127321, 0.29775566, 0.8648243, 0.45567507, -0.21080637, 0.44907498, 2.3436377, -5.276752)
@@ -189,7 +205,7 @@ mesh = ExtResource("3_dohex")
 [node name="StaticBody3D_col" type="StaticBody3D" parent="Model" unique_id=662443900]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Model/StaticBody3D_col" unique_id=662443901]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, -0.263, -0.003)
 shape = SubResource("BoxShape3D_table_large")
 
 [node name="Chair_1" parent="." unique_id=1219229724 instance=ExtResource("5_u6yfp")]
@@ -198,7 +214,7 @@ transform = Transform3D(0.26787838, 0, -0.64671564, 0, 0.7, 0, 0.64671564, 0, 0.
 [node name="StaticBody3D_col" type="StaticBody3D" parent="Chair_1" unique_id=1219229800]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair_1/StaticBody3D_col" unique_id=1219229801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.881, -0.032)
 shape = SubResource("BoxShape3D_chair")
 
 [node name="Chair_2" parent="." unique_id=1099210883 instance=ExtResource("5_u6yfp")]
@@ -207,7 +223,7 @@ transform = Transform3D(2.8268838e-08, 0.64671564, -0.26787844, 0.7, -3.059797e-
 [node name="StaticBody3D_col" type="StaticBody3D" parent="Chair_2" unique_id=1099210900]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chair_2/StaticBody3D_col" unique_id=1099210901]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.881, -0.032)
 shape = SubResource("BoxShape3D_chair")
 
 [node name="conos" type="MeshInstance3D" parent="." unique_id=1621494916]
@@ -217,7 +233,7 @@ mesh = ExtResource("7_kjuag")
 [node name="StaticBody3D_col" type="StaticBody3D" parent="conos" unique_id=1621495000]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="conos/StaticBody3D_col" unique_id=1621495001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388, 1.036, 0.218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388, 1.927, 0.218)
 shape = SubResource("BoxShape3D_conos")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=738470633]
@@ -308,7 +324,7 @@ shape = SubResource("BoxShape3D_cabinetLow")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.785507, 0.8636318, -1.3530948)
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="." unique_id=532197772]
-transform = Transform3D(-8.742278e-07, -1.7484555e-07, -2, 0, -2, 1.7484555e-07, -20, 7.642742e-15, 8.742278e-08, 3.234109, -8.350174, 0.3551612)
+transform = Transform3D(-8.742278e-07, -1.7484555e-07, -2, 0, -2, 1.7484555e-07, -20, 7.642742e-15, 8.742278e-08, 3.169109, -8.350174, 0.3551612)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5" unique_id=272328054]
 transform = Transform3D(1, 0, 0, 0, 3, 5.684342e-14, 0, -1.4210855e-14, 1, 0, -5.215429, -1.2124352)
@@ -343,6 +359,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.47
 
 [node name="radiator2" parent="." unique_id=1424676116 instance=ExtResource("21_375mr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.5163579, 0.012263183, -4.9504943)
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="radiator2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="radiator2/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.382, 0)
+shape = SubResource("BoxShape3D_radiator")
 
 [node name="windowCurtains22" parent="." unique_id=517145649 instance=ExtResource("22_um0u7")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.41941452, 1.0173028, -6.424867)
@@ -390,3 +412,9 @@ collision_mask = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Forense/InteractionArea" unique_id=1877000005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("SphereShape3D_forense")
+
+[node name="StaticBody3D_col" type="StaticBody3D" parent="Forense"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Forense/StaticBody3D_col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_npc_body")
