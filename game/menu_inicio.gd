@@ -27,7 +27,7 @@ const DIFFICULTY_PROFILES = [
 	},
 	{
 		"id": "hardcore",
-		"name": "Contra reloj",
+		"name": "Expediente en blanco",
 		"label": "Difícil",
 		"tagline": "Sin pistas: estás solo",
 		"hint_limit": 0
