@@ -36,7 +36,7 @@ const SUSPECTS: Dictionary = {
 	"pablo": {
 		"name": "Pablo",
 		"evidence": [
-			{"label": "Es el que más se beneficia con la muerte.", "facts": ["CL-PAB-04", "CL-PAB-09", "CL-POL-03"]},
+			{"label": "Es el que más se beneficia económicamente con la muerte.", "facts": ["CL-PAB-04", "CL-PAB-09", "CL-POL-03"]},
 			{"label": "En Erpa, donde trabaja, había cianuro.", "facts": ["CL-ERP-01", "CL-ERP-02"]},
 			{"label": "Arregló la heladera días antes del crimen: tuvo acceso al congelador.", "facts": ["CL-FRI-02", "CL-PAB-07"]},
 		],
@@ -57,4 +57,3 @@ static func found_evidence(suspect_id: String, discovered: Dictionary) -> Packed
 
 static func can_accuse(suspect_id: String, discovered: Dictionary) -> bool:
 	return found_evidence(suspect_id, discovered).size() >= EVIDENCE_NEEDED
-

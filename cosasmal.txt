@@ -1,22 +1,15 @@
-si en la respuesta aparece que la criada le srivio el whisky, debería activarse la pista correspondiente de que "la criada le sirvio el whisky"
+Juan no responde correctamente a que hubo una pelea en la tarde
+
+Juan no responde correctamente cuando le preguntamos sobre su paradero la noche anterior. Debe responder que estuvo en la comisaria por un accidente, como dice la historia
+
+Juan no admite / no sabe que lo que le dejaba dinero era un seguro de vida
+
+Esteban admite que los tres hermanos figuraban como beneficiarios, pero no activa la pista de que los tres hermanos se beneficiaban economicamente
+
+la criada al preguntarle "que paso anoche", responde que hubo gritos. Y al preguntarle quienes estaban ayer, no sabe => debería decir que estaban sus tres hermanos, y que escuchó los gritos más fuertes de Esteban, Pablo y la señora stevens
+
+Esteban no admite jamas de como es que el reparto no era equitativo. Debe decir que Pablo iba a recibir el 50% y esteban y pablo 25% cada uno. Eso activa la pista correspondiente
+
+le cuesta demasiado a la forense decir que el toxico estaba en lo que bebió
 
 
-cuando a la forense le pregunto "Se fijo en el hielo de la heladera?", la respuesta esperada debería ser algo similar a "Un momento tiene razón, dejeme revisar... esta en lo cierto, aquí en el hielo hay cianuro de potasio. Esto debe ser el veneno que mató a la victima"
-
-Esteban sigue insistiendo en que "No hubo una discuisón seria" incluso cuando no le pregunto sobre eso
-
-cuando le pregunto por la pelea a JUAN, me responde que hubo una discusión sobre la poliza, pero no activa ninguna de las dos pistas sobre la poliza
-
-la criada, al preguntarle si alguien manipulo / toco la heladera, responde que "Nadie lo hace". Debería ser que responda que Pablo la habia reparado ayer hace unos días
-
-la criada, al preguntarle si la señora stevens tomaba, debería responder que solo en los fines de semana, pero que una pelea la hizo alborotarse y necesitaba un trago
-
-se activo de la nada, al preguntarle que descubrimos el veneno, de que "Pablo reparó la heladera"
-
-esteban no admite ni explica sobre la causa de la pelea del almuerzo
-
-no se mantiene el historial de conversación entre personajes. si hablo con A, luego con B, y vuelvo a A, el historial de charla que tuve desaparece
-
-falta un collider en la comisaria, que no permita caerse del mapa. sería "la cuarta pared". Un collider en la pared donde se encuentra nuestra camara
-
-en la sección de pistas, descubrí el veneno en el hielo pero me sigue diciendo que "Preguntale a la forense que le faltaba analizar". MAL
