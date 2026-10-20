@@ -1,11 +1,6 @@
 {
   "hints": [
     {
-      "fact_id": "CL-POR-02",
-      "text": "La puerta estaba cerrada por dentro. Averiguá si alguien subió a ver a Stevens esa noche.",
-      "text_with_npc": "Preguntale a la criada si alguien subió al departamento después de las 19:10."
-    },
-    {
       "fact_id": "CL-EST-02",
       "text": "La muerte de Stevens dejaba dinero de por medio. Averiguá qué pasó en el almuerzo con sus hermanos.",
       "text_with_npc": "Preguntale a Juan qué pasó con Esteban en el almuerzo."
