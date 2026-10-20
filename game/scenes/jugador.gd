@@ -564,7 +564,11 @@ func _on_hint_received(result: int, code: int, _headers: PackedStringArray, body
 		var message := BackendError.from_request(result, code, body)
 		NotificationManager.show_error("No se pudo pedir una pista. " + message)
 		return
-	var hint = JSON.parse_string(body.get_string_from_utf8())["hint"]
+	var data: Variant = BackendError.parse(body.get_string_from_utf8())
+	if not (data is Dictionary) or not data.has("hint"):
+		NotificationManager.show_error("No se pudo pedir una pista. " + BackendError.UNEXPECTED % code)
+		return
+	var hint = data["hint"]
 	if hint == null:
 		NotificationManager.show_message(HINT_NONE)
 		return

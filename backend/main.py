@@ -8,6 +8,7 @@ from backend.config import settings
 from backend.rag.dialogue import DialogueService
 from backend.rag.game_state import discovered_chunks, get_discovered_facts, next_hint, update_fact
 from backend.rag.retrieval import CHUNKS, keep_said_facts
+from backend.timing import log_milestone, log_timing, ollama_load_seconds, now
 
 app = FastAPI()
 dialogue_service = DialogueService()
@@ -87,6 +88,7 @@ def discover(req: DiscoverRequest):
 
 @app.post("/dialogue_stream")
 def dialogue_stream(req: DialogueRequest):
+    turn_start = now()
     known_facts = set(get_discovered_facts(req.session_id))
     try:
         message = dialogue_service.get_message(
@@ -101,14 +103,31 @@ def dialogue_stream(req: DialogueRequest):
         )
     except Exception as exc:
         return PlainTextResponse(ERROR_MARKER + error_message(exc))
+    context_end = now()
+    context_seconds = context_end - turn_start
 
     def generate():
+        first_text = None
         try:
-            yield from stream_reply()
+            for chunk in stream_reply():
+                # Primer texto que sale hacia el juego: esto es lo que espera el
+                # jugador desde que aprieta Enter (sin contar la red cliente).
+                if first_text is None:
+                    first_text = now()
+                    log_milestone(
+                        "TEXTO AL JUGADOR",
+                        first_text - turn_start,
+                        npc=req.npc_id,
+                        recuperacion_ms=f"{context_seconds * 1000:.0f}",
+                        llm_ms=f"{(first_text - context_end) * 1000:.0f}",
+                    )
+                yield chunk
         except Exception as exc:
             # El turno falló: no queda guardado ni deja pistas nuevas.
             get_discovered_facts(req.session_id).difference_update(new_facts)
             yield ERROR_MARKER + error_message(exc)
+        finally:
+            log_timing("turno", now() - turn_start, npc=req.npc_id)
 
     def stream_reply():
         reply = ""
@@ -126,6 +145,8 @@ def dialogue_stream(req: DialogueRequest):
                 "temperature": settings.temperature,
             }
 
+            stream_start = now()
+            first_token = None
             with requests.post(
                 "https://api.openai.com/v1/chat/completions",
                 headers=headers,
@@ -150,6 +171,14 @@ def dialogue_stream(req: DialogueRequest):
                     for choice in data.get("choices", []):
                         chunk = choice["delta"].get("content")
                         if chunk:
+                            if first_token is None:
+                                first_token = now()
+                                log_timing(
+                                    "chat_primer_token",
+                                    first_token - stream_start,
+                                    modelo=settings.chat_model,
+                                    proveedor="openai",
+                                )
                             reply += chunk
                             yield chunk
                         reason = choice["finish_reason"]
@@ -157,6 +186,12 @@ def dialogue_stream(req: DialogueRequest):
                             raise RuntimeError(f"OpenAI completion stopped: {reason}")
                 if not completed:
                     raise RuntimeError("OpenAI stream ended before completion")
+            log_timing(
+                "chat_completo",
+                now() - stream_start,
+                modelo=settings.chat_model,
+                proveedor="openai",
+            )
         else:
             payload = {
                 "model": settings.chat_model,
@@ -168,6 +203,8 @@ def dialogue_stream(req: DialogueRequest):
                     "temperature": settings.temperature,
                 }
             }
+            stream_start = now()
+            first_token = None
             with requests.post(f"{settings.ollama_url}/api/chat", json=payload, stream=True, timeout=(5, 300)) as r:
                 r.raise_for_status()
                 for line in r.iter_lines():
@@ -178,9 +215,27 @@ def dialogue_stream(req: DialogueRequest):
                         raise RuntimeError(data["error"])
                     chunk = data.get("message", {}).get("content", "")
                     if chunk:
+                        if first_token is None:
+                            first_token = now()
+                            log_timing(
+                                "chat_primer_token",
+                                first_token - stream_start,
+                                modelo=settings.chat_model,
+                                proveedor="ollama",
+                            )
                         reply += chunk
                         yield chunk
                     if data.get("done", False):
+                        load = ollama_load_seconds(data)
+                        log_timing(
+                            "chat_completo",
+                            now() - stream_start,
+                            modelo=settings.chat_model,
+                            proveedor="ollama",
+                            load_s=f"{load:.2f}",
+                            ya_cargado=(load == 0),
+                            eval_s=f"{data.get('eval_duration', 0) / 1_000_000_000:.2f}",
+                        )
                         break
         said_facts = keep_said_facts(req.session_id, new_facts, reply)
         # Recién guardamos el turno (pregunta + respuesta) cuando terminó bien.

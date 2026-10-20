@@ -13,9 +13,18 @@ const UNEXPECTED := "El servidor del juego respondió con un error inesperado (c
 const STREAM_MARKER := 0x1e
 
 
+# Parsea sin que el motor imprima un error si el cuerpo no es JSON (p. ej. una
+# página HTML de otro servidor escuchando en el puerto del backend).
+static func parse(text: String) -> Variant:
+	var json := JSON.new()
+	if json.parse(text) != OK:
+		return null
+	return json.data
+
+
 # Mensaje para una respuesta con código de error ({"detail"} de FastAPI).
 static func from_body(code: int, body: String) -> String:
-	var data = JSON.parse_string(body)
+	var data = parse(body)
 	if data is Dictionary and data.get("detail") is String:
 		return data["detail"]
 	return UNEXPECTED % code

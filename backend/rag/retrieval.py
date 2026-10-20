@@ -7,6 +7,7 @@ import numpy as np
 import requests
 from backend.config import settings
 from backend.rag.game_state import is_available, update_fact, is_support, get_discovered_facts, discovered_chunks
+from backend.timing import log_timing, ollama_load_seconds, now
 
 
 CHUNKS_DIR = Path(__file__).resolve().parents[2] / "story" / "chunks"
@@ -47,13 +48,23 @@ def load_chunks() -> list[Chunk]:
 
 
 def get_embedding(text: str) -> list[float]:
+    start = now()
     response = requests.post(
         f"{settings.ollama_url}/api/embed",
         json={"model": settings.embedding_model, "input": [text]},
         timeout=600,
     )
     response.raise_for_status()
-    return response.json()["embeddings"][0]
+    data = response.json()
+    load = ollama_load_seconds(data)
+    log_timing(
+        "embedding",
+        now() - start,
+        modelo=settings.embedding_model,
+        load_s=f"{load:.2f}",
+        ya_cargado=(load == 0),
+    )
+    return data["embeddings"][0]
 
 
 def cosine_similarity(left: list[float], right: list[float]) -> float:
@@ -75,15 +86,20 @@ CHUNKS = load_chunks()
 
 
 def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str]:
+    start = now()
     chunks = []
     for chunk in CHUNKS:
         if is_available(chunk, npc_id, session_id):
             chunks.append(chunk)
+    filter_time = now() - start
 
     if not chunks:
+        log_timing("recuperacion", filter_time, candidatos=0)
         return []
 
+    embed_start = now()
     query_embedding = get_embedding(player_input)
+    embed_time = now() - embed_start
     scored_chunks = []
 
     for chunk in chunks:
@@ -95,6 +111,7 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
             scored_chunks.append((score, chunk))
 
     if not scored_chunks:
+        log_timing("recuperacion", now() - start, candidatos=len(chunks), elegibles=0)
         return []
 
     scored_chunks.sort(key=lambda item: item[0], reverse=True)
@@ -112,6 +129,16 @@ def retrieve_chunks(npc_id: str, player_input: str, session_id: str) -> list[str
         if candidate is not focus and is_support(focus, candidate, session_id):
             retrieved_chunks.append(candidate)
     update_fact(session_id, focus.fact_id, focus.chunk_id)
+
+    log_timing(
+        "recuperacion",
+        now() - start,
+        candidatos=len(chunks),
+        elegibles=len(scored_chunks),
+        filtrado_ms=f"{filter_time * 1000:.1f}",
+        embedding_ms=f"{embed_time * 1000:.1f}",
+        focus=focus.chunk_id,
+    )
 
     retrieved_texts = []
     for chunk in retrieved_chunks:
