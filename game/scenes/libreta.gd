@@ -358,7 +358,11 @@ func _on_clues_received(result: int, code: int, _headers: PackedStringArray, bod
 		var message := BackendError.from_request(result, code, body)
 		_show_message(BackendError.with_contact("No se pudo abrir el expediente. " + message))
 		return
-	var clues: Array = JSON.parse_string(body.get_string_from_utf8())["clues"]
+	var data: Variant = BackendError.parse(body.get_string_from_utf8())
+	if not (data is Dictionary) or not (data.get("clues") is Array):
+		_show_message(BackendError.with_contact("No se pudo abrir el expediente. " + BackendError.UNEXPECTED % code))
+		return
+	var clues: Array = data["clues"]
 	pages = []
 	var start := 0
 	var order: Array = Global.discovered_facts.keys()

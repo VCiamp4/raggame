@@ -67,5 +67,12 @@ else
 	echo "AVISO: no existe backend/.env; se usa el proveedor por defecto (ollama)." >&2
 fi
 
+# Los logs del backend (incluidos los tiempos del pipeline) se muestran en la
+# terminal y además se guardan en este archivo.
+LOG_FILE="${RAGAME_BACKEND_LOG:-${XDG_CONFIG_HOME:-$HOME/.config}/raggame/backend.log}"
+mkdir -p "$(dirname "${LOG_FILE}")"
+
 echo ">> Backend en http://127.0.0.1:8000  (OLLAMA_URL=${OLLAMA_URL})"
+echo ">> Logs en ${LOG_FILE}"
+exec > >(tee "${LOG_FILE}") 2>&1
 exec .build-venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000

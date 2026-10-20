@@ -21,6 +21,10 @@ It:
 
 Leave the terminal open. `Ctrl+C` stops the backend (Ollama keeps running).
 
+Backend logs (including the per-turn `[timing]` lines) are shown in the terminal
+and also saved to `~/.config/raggame/backend.log`. Override the path with
+`RAGAME_BACKEND_LOG=/ruta/al.log ./run_backend.sh`.
+
 Check it's up:
 
 ```bash

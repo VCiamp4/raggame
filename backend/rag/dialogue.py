@@ -3,6 +3,7 @@ from collections import defaultdict
 
 from backend.config import settings
 from backend.rag.retrieval import retrieve_chunks
+from backend.timing import log_timing, now
 
 PERSONAJES_FILES = {
     "criada": "criada.md",
@@ -20,7 +21,7 @@ Si `<retrieved_context>` falta o no trae un dato que responda la pregunta, no af
 
 El primer dato de `<retrieved_context>` es el hecho principal. Si responde la pregunta actual o una parte de ella, aunque sea de forma indirecta, debés comunicarlo con claridad. Nunca digas que no sabés o no recordás algo que figura en `<retrieved_context>`: la forma de ser del personaje (miedo, desconfianza, arrogancia) se nota en el tono, no en ocultar lo que sabe. Si contradice el historial, asumí que la respuesta anterior era incorrecta y corregila.
 
-Contestá la pregunta concreta en primera persona, en español y con 3 a 5 oraciones.
+Contestá la pregunta concreta en primera persona, en español y no más de 5 oraciones. Siempre que te refieras al usuario, lo vas a hacer como "Detective".
 
 Si necesitás información factual del caso para responder, apoyate primero en el dato recuperado más pertinente y usá otros solo cuando aporten algo necesario para la respuesta.
 
@@ -77,6 +78,7 @@ class DialogueService:
         """
         Devuelve el mensaje final que recibe el modelo.
         """
+        start = now()
         system_prompt = self.get_system_prompt(npc_id)
         history = self.HISTORIES[(session_id, npc_id)]
         context_chunks = self.get_chunks(npc_id, player_input, session_id)
@@ -88,6 +90,15 @@ class DialogueService:
             "role": "user",
             "content": content,
         }
+
+        # Todo lo que pasa antes de mandar el pedido al modelo de chat.
+        log_timing(
+            "contexto",
+            now() - start,
+            npc=npc_id,
+            historial=len(history),
+            con_contexto=bool(context_chunks),
+        )
 
         return [
             system_prompt,
