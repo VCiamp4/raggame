@@ -54,6 +54,9 @@ size = Vector3(6.33, 4, 8.36)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4c4f"]
 size = Vector3(1, 1, 0.626709)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_poliza"]
+size = Vector3(0.7, 0.8, 0.6)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01ptx"]
 shading_mode = 2
 albedo_texture = ExtResource("9_g4c4f")
@@ -385,6 +388,16 @@ shape = SubResource("BoxShape3D_table")
 
 [node name="tv2" parent="." unique_id=1051252886 instance=ExtResource("25_w1w6v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3162975, 0.6496923, 3.5399296)
+
+[node name="Poliza" type="StaticBody3D" parent="tv2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+collision_layer = 2
+script = ExtResource("26_inspect")
+inspectable_id = "poliza_seguro"
+fact_to_discover = "CL-POL-03,CL-POL-05"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tv2/Poliza"]
+shape = SubResource("BoxShape3D_poliza")
 
 [node name="pared_derecha" type="MeshInstance3D" parent="." unique_id=608221176]
 transform = Transform3D(-2.1855695e-07, -3, -1.3113416e-07, 0, 1.3113416e-07, -3, -5, -1.3113416e-07, 5.7320566e-15, 4.977733, 2.997944, -0.035386562)

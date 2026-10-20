@@ -35,6 +35,10 @@ const INSPECTABLES: Dictionary = {
 		"display_name": "Pila de papeles",
 		"description": "No hay nada acá, solo hablan de nuevas políticas de seguros.",
 	},
+	"poliza_seguro": {
+		"display_name": "Póliza de seguro",
+		"description": "Acá hay una póliza de seguro, con fecha de hace muy pocos días. Dice que Pablo iba a recibir el 50% del monto, y sus hermanos Esteban y Juan el 25% cada uno. Aún no estaba firmada, pero era inminente.",
+	},
 }
 
 
