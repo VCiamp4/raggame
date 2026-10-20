@@ -36,6 +36,7 @@ const CLUE_PAGES := {
 	"CL-POL-04": ["esteban"],
 	"CL-PAB-07": ["pablo"],
 	"CL-PAB-08": ["pablo"],
+	"CL-CRI-08": ["criada"],
 }
 
 var icon: TextureButton

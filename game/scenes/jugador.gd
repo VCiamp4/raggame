@@ -14,7 +14,6 @@ const InspectionUI = preload("res://scenes/inspection_ui.gd")
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 const HINT_URL = "http://127.0.0.1:8000/hint/"
 const BackendError = preload("res://ui/backend_error.gd")
-const Accusations = preload("res://data/accusations.gd")
 const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
 
 @onready var anim_player: AnimationPlayer = $Walking/AnimationPlayer
@@ -524,7 +523,6 @@ func _create_accuse_button() -> void:
 		hint_layer.layer = 90
 		add_child(hint_layer)
 	var button := Button.new()
-	Global.suspect_unlocked.connect(_on_suspect_unlocked)
 	button.text = "Acusar"
 	button.anchor_left = 1
 	button.anchor_right = 1
@@ -541,11 +539,6 @@ func _create_accuse_button() -> void:
 	button.add_theme_color_override("font_hover_color", Color("ffc9c4"))
 	button.pressed.connect(func(): Global.open_lineup(self))
 	hint_layer.add_child(button)
-
-
-func _on_suspect_unlocked(suspect_id: String) -> void:
-	var suspect_name: String = Accusations.SUSPECTS[suspect_id]["name"]
-	NotificationManager.show_message("Ya podés acusar a %s: tocá «Acusar»." % suspect_name)
 
 
 func _on_hint_button_pressed() -> void:

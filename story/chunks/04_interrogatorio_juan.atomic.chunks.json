@@ -108,13 +108,16 @@
     },
     {
       "chunk_id": "SCN-04-AT-10",
-      "retrieval_text": "Juan sabía que la muerte de Stevens podía dejarle dinero.",
+      "retrieval_text": "Juan sabía que la muerte de su hermana podía dejarle dinero del seguro de vida.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
         "q1": "¿Usted gana algo con la muerte de su hermana?",
-        "q2": "¿Te toca plata ahora que murió tu hermana?"
+        "q2": "¿Te toca plata ahora que murió tu hermana?",
+        "q3": "¿De dónde sale esa plata, es un seguro de vida?",
+        "q4": "¿La póliza de vida te dejaba algo a vos?",
+        "q5": "¿Sabías que ibas a cobrar un seguro de vida con su muerte?"
       },
       "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable.",
       "fact_id": "CL-JUA-04",
@@ -123,13 +126,16 @@
     },
     {
       "chunk_id": "SCN-04-AT-11",
-      "retrieval_text": "A Juan le agradaba la posibilidad de recibir dinero por la muerte de Stevens.",
+      "retrieval_text": "A Juan le venía bien la plata del seguro de vida: le agradaba la posibilidad de recibir dinero por la muerte de su hermana.",
       "knowledge_holders": [
         "juan"
       ],
       "questions": {
         "q1": "¿Le gusta la idea de cobrar la herencia?",
-        "q2": "¿Te viene bien la plata del seguro?"
+        "q2": "¿Te viene bien la plata del seguro?",
+        "q3": "¿Lo que te deja dinero con su muerte es un seguro de vida?",
+        "q4": "¿Cobrás el seguro de vida de tu hermana?",
+        "q5": "¿Sabías que sos beneficiario del seguro de vida?"
       },
       "source_excerpt": "También sabía que la muerte de su hermana podía dejarle dinero y no hacía el menor esfuerzo por disimular que la noticia le resultaba agradable.",
       "fact_id": null,
@@ -147,7 +153,13 @@
       ],
       "questions": {
         "q1": "¿Dónde estuvo después de irse de la casa de su hermana?",
-        "q2": "¿Qué hizo usted después del almuerzo con su hermana?"
+        "q2": "¿Qué hizo usted después del almuerzo con su hermana?",
+        "q3": "¿Dónde estuvo anoche?",
+        "q4": "¿Dónde estaba cuando mataron a su hermana?",
+        "q5": "¿Qué hizo la noche del crimen?",
+        "q6": "¿Tiene una coartada para esa noche?",
+        "q7": "¿Dónde estuvo entre las cinco de la tarde y la medianoche?",
+        "q8": "¿Alguien puede confirmar dónde estaba esa noche?"
       },
       "source_excerpt": "Sin embargo, su coartada era perfecta. Desde las cinco de la tarde hasta la medianoche había permanecido demorado en una comisaría después de provocar un accidente de tránsito por conducción imprudente. Su presencia allí durante las horas importantes había sido verificada minuciosamente por la policía.",
       "fact_id": "CL-JUA-03",
@@ -247,7 +259,11 @@
       ],
       "questions": {
         "q1": "¿Esteban y Pablo se pelearon en el almuerzo?",
-        "q2": "¿De qué acusó Esteban a Pablo?"
+        "q2": "¿De qué acusó Esteban a Pablo?",
+        "q3": "¿Hubo una pelea a la tarde?",
+        "q4": "¿Esteban y Pablo se pelearon ese día?",
+        "q5": "¿Viste alguna pelea o discusión entre los hermanos?",
+        "q6": "¿Se pelearon en la tarde después del almuerzo?"
       },
       "source_excerpt": "Según él, su hermano había salido furioso del almuerzo después de enterarse de que la señora Stevens pensaba beneficiar económicamente a Pablo, el menor.\n\nAl enterarse de que Pablo recibiría el doble, acusó a su hermano de manipular a la señora Stevens y se marchó enfurecido.",
       "fact_id": "CL-EST-02",

@@ -23,7 +23,8 @@ const Highlight = preload("res://scenes/highlight.gd")
 @export var fact_requires: String = ""
 @export_multiline var description_locked: String = ""
 @export_multiline var description_unlocked: String = ""
-# Hecho que se descubre al inspeccionar (vacío = no descubre nada).
+# Hecho que se descubre al inspeccionar (vacío = no descubre nada). Admite
+# varios hechos separados por comas.
 @export var fact_to_discover: String = ""
 # Color del resaltado. Los objetos blancos muy iluminados (p. ej. el plato)
 # necesitan un amarillo más saturado para no verse casi blancos.
@@ -69,7 +70,10 @@ func on_inspected() -> void:
 		return
 	if fact_requires != "" and not Global.has_fact(fact_requires):
 		return
-	Global.discover_fact(fact_to_discover)
+	for fact_id in fact_to_discover.split(",", false):
+		var trimmed := fact_id.strip_edges()
+		if trimmed != "":
+			Global.discover_fact(trimmed)
 
 
 # Compatibilidad con código que lee la propiedad "object_name".

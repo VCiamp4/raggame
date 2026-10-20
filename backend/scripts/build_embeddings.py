@@ -29,10 +29,12 @@ def load_chunks(chunks_path=CHUNKS_DIR):
 
 def get_embeddings(chunks):
     texts = []
+    counts = []
     for chunk in chunks:
-        texts.append(chunk["retrieval_text"])
-        texts.append(chunk["questions"]["q1"])
-        texts.append(chunk["questions"]["q2"])
+        questions = [chunk["questions"][key] for key in sorted(chunk["questions"])]
+        chunk_texts = [chunk["retrieval_text"], *questions]
+        counts.append(len(chunk_texts))
+        texts.extend(chunk_texts)
 
     response = requests.post(
         f"{settings.ollama_url}/api/embed",
@@ -41,9 +43,19 @@ def get_embeddings(chunks):
     )
     response.raise_for_status()
     raw_embeddings = response.json()["embeddings"]
+
     embeddings = []
-    for start in range(0, len(raw_embeddings), 3):
-        embeddings.append(raw_embeddings[start : start + 3])
+    start = 0
+    for count in counts:
+        embeddings.append(raw_embeddings[start : start + count])
+        start += count
+
+    # Relleno a un ancho fijo repitiendo la del texto: así el .npz sigue siendo
+    # un array rectangular y el puntaje máximo no cambia con el relleno.
+    width = max(len(chunk_embeddings) for chunk_embeddings in embeddings)
+    for chunk_embeddings in embeddings:
+        missing = width - len(chunk_embeddings)
+        chunk_embeddings.extend(list(chunk_embeddings[0]) for _ in range(missing))
     return embeddings
 
 

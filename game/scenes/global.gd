@@ -50,13 +50,14 @@ func _ready() -> void:
 
 
 func _on_fact_discovered(fact_id: String) -> void:
-	var before := {}
-	for suspect_id in Accusations.SUSPECTS:
-		before[suspect_id] = Accusations.can_accuse(suspect_id, discovered_facts)
 	discovered_facts[fact_id] = true
-	for suspect_id in Accusations.SUSPECTS:
-		if not before[suspect_id] and Accusations.can_accuse(suspect_id, discovered_facts):
-			suspect_unlocked.emit(suspect_id)
+	# Aviso "Ya podés acusar a ...": desactivado a pedido.
+	# var before := {}
+	# for suspect_id in Accusations.SUSPECTS:
+	# 	before[suspect_id] = Accusations.can_accuse(suspect_id, discovered_facts)
+	# for suspect_id in Accusations.SUSPECTS:
+	# 	if not before[suspect_id] and Accusations.can_accuse(suspect_id, discovered_facts):
+	# 		suspect_unlocked.emit(suspect_id)
 
 
 func has_fact(fact_id: String) -> bool:
