@@ -25,6 +25,12 @@ class DiscoverRequest(BaseModel):
     fact_id: str
 
 
+class ClientLogRequest(BaseModel):
+    npc_id: str = ""
+    session_id: str = ""
+    total_ms: float
+
+
 # Separa la respuesta del NPC de un mensaje de error para el jugador.
 ERROR_MARKER = "\x1e"
 # Separa la respuesta del NPC de los hechos nuevos que llegó a decir.
@@ -83,6 +89,20 @@ def discover(req: DiscoverRequest):
     get_discovered_facts(req.session_id)
     chunk_id = next((c.chunk_id for c in CHUNKS if c.fact_id == req.fact_id), None)
     update_fact(req.session_id, req.fact_id, chunk_id)
+    return {"ok": True}
+
+
+@app.post("/client_log")
+def client_log(req: ClientLogRequest):
+    # Tiempo medido por el juego: de apretar Enter a que aparece el primer texto
+    # del NPC. Se registra en el mismo archivo que el resto de los tiempos, para
+    # compararlo con "TEXTO AL JUGADOR" (lado servidor).
+    log_milestone(
+        "TEXTO EN PANTALLA (juego)",
+        req.total_ms / 1000,
+        npc=req.npc_id,
+        session=req.session_id,
+    )
     return {"ok": True}
 
 

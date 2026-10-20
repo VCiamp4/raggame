@@ -13,6 +13,7 @@ const InspectionUI = preload("res://scenes/inspection_ui.gd")
 
 const HINT_TOOLTIP_DEFAULT := "Mostrar una pista basada en tu progreso"
 const HINT_URL = "http://127.0.0.1:8000/hint/"
+const CLIENT_LOG_URL = "http://127.0.0.1:8000/client_log"
 const BackendError = preload("res://ui/backend_error.gd")
 const HINT_NONE := "No hay pistas nuevas por ahora. Seguí hablando con los sospechosos."
 
@@ -48,6 +49,9 @@ var hint_request_pending: bool = false
 # -1 = ilimitadas, 0 = sin pistas (no se muestra el botón).
 var hint_uses_limit: int = -1
 var hint_remaining_uses: int = -1
+# Momento en que el jugador apretó Enter, para medir cuánto tarda en aparecer
+# el primer texto del NPC (se manda al backend para que quede en el log).
+var _request_start_msec: int = -1
 
 
 func _ready() -> void:
@@ -191,6 +195,7 @@ func _close_dialogue() -> void:
 func _on_text_submitted(text: String) -> void:
 	if nearby_npc == null:
 		return
+	_request_start_msec = Time.get_ticks_msec()
 
 	# Mostrar lo que dijo el jugador en el historial
 	dialogue_ui.add_player_message(nearby_npc.npc_name, text)
@@ -211,7 +216,28 @@ func _on_text_submitted(text: String) -> void:
 
 
 func _on_response_chunk(text: String) -> void:
+	# Primer texto del NPC: acá terminó la espera del jugador.
+	if _request_start_msec >= 0:
+		_report_client_latency(Time.get_ticks_msec() - _request_start_msec)
+		_request_start_msec = -1
 	dialogue_ui.append_npc_chunk(text)
+
+
+# Manda al backend el tiempo "Enter -> primer texto" para que quede en el log.
+func _report_client_latency(total_ms: int) -> void:
+	var http := HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(_r, _c, _h, _b): http.queue_free())
+	http.request(
+		CLIENT_LOG_URL,
+		["Content-Type: application/json"],
+		HTTPClient.METHOD_POST,
+		JSON.stringify({
+			"npc_id": nearby_npc.npc_id if nearby_npc != null else "",
+			"session_id": Global.session_id,
+			"total_ms": total_ms,
+		}),
+	)
 
 
 func _on_response_failed(message: String) -> void:
