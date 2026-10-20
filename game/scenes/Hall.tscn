@@ -309,7 +309,7 @@ shape = SubResource("BoxShape3D_pared_lateral")
 debug_color = Color(0, 1, 0.23529412, 0.41960785)
 
 [node name="Criada" type="Node3D" parent="." unique_id=2041650310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.02, 4.5)
+transform = Transform3D(-0.5329, 0, 0.8462, 0, 1, 0, -0.8462, 0, -0.5329, 3.9, 0.02, 0.6)
 script = ExtResource("npc_script")
 npc_id = "criada"
 npc_name = "La criada"
